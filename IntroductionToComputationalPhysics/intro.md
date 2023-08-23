@@ -9,70 +9,8 @@
 
 Welcome!  Computation is powerful. In this course, you are going to learn how to use computation to do amazing simulations: compute how general relativity changes the orbit of Mercury; simulate turbulence; compute the effect of predator and preys on an ecosystem; run a quantum algorithm; and more! We've searched and distilled from the world some of the coolest physics we know for you to learn to simulate. Our primary goal in this class will be to help you make these simulations.  
 
-Here is an <a href="../classSummary/index.html">overview presentation</a> of what you will learn in this class.
+Here is an <a href="clark.physics.illinois.edu/classSummary/index.html">overview presentation</a> of what you will learn in this class.
 
-
----
-
-Other
-* N Ways of Measuring Pi
-
-
-Classical mechanics is the study of force and motion.  You will write a  classical mechanics code which is accurate to second order in time-step.  Then you will use this code for various activities 
-including  to simulate the tossing of a ball computing the difference in its landing  with and without air resis
-
-Classical Dynamics
-* Dynamics 
-   * Tossing Balls with Air Resistance
-* Orbital Dynamics
-* Single (Driven) Pendula
-* Many Body Dynamics 
-
-Chaos
-* Double Pendula
-*  (Lorentz Attractors)
-
-Particle Physics
-* Monte Carlo Simulation of Particle Physics Experiment
-
-Optimization:
-* scipy optimization of balls hitting each other
-* stochastic gradient descent of ML modes
-
-
-
-Astrophysics
-* Orbital Dynamics
-* Keplers Laws
-* Mercury Precision
-* Multiple Planets 
-* (early planetary formation)
-* Exoplanets
-* Classifying Galaxies
-
-
-Machine-Learning
-* ML
-
-Biophysics
-* Predator-Prey
-
-Fluid Dynamics
-* Lattice Boltzmann
-
-Fourier Transform
-* Exoplanets
-
-Monte Carlo 
-* N ways of Measuring Pi - Throwing Darts
-* Unbiased Random Walks
-* Markov Chains: Weather
-* Markov Chains: Paramagnetism
-* Markov Chains: Rubber Bands
-* Continuous time Markov Chains for Predator-Prey
-
-Quantum Computing:
-* Quantum Computing 1 and 2
 
 ---
 
@@ -82,9 +20,9 @@ Quantum Computing:
     - email: bkclark@illinois.edu
     - Office Hours: TBA
 
-  - **TA:** Pin-Yi Li 
-     - email: pinyili2@illinois.edu
-     - Office Hours: W 5:00-6:00, location TBA. (Loomis 271,275, or 279).
+  - **TA:** Siddharth Mansingh 
+     - email: sm38@illinois.edu
+     - Office Hours: TBA
 
 
 #### Online Tools - [Useful Links](secure/links.html)
