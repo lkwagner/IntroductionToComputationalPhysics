@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import math
 from exo_helper import get_planet_vxvy_barycentric
 def resetMe(keepList=[]):
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     keepList=keepList+['resetMe','np','plt','math','get_planet_vxvy_barycentric']
     for iiii in keepList:
         if iiii in ll:
@@ -25,11 +25,11 @@ def resetMe(keepList=[]):
     for iiii in ll:
         jjjj="^"+iiii+"$"
         get_ipython().run_line_magic('reset_selective', '-f {jjjj}')
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     return
 
 
-# In[9]:
+# In[2]:
 
 
 SolarSystemParameters=dict()
@@ -165,7 +165,7 @@ SolarSystemParameters["G"]         = 6.67408e-11
 # 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[10]:
+# In[3]:
 
 
 ### ANSWER HERE
@@ -334,7 +334,7 @@ SolarSystemParameters["G"]         = 6.67408e-11
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[11]:
+# In[4]:
 
 
 ### ANSWERE HERE
@@ -352,7 +352,7 @@ SolarSystemParameters["G"]         = 6.67408e-11
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[12]:
+# In[5]:
 
 
 ### ANSWER HERE
@@ -384,7 +384,7 @@ SolarSystemParameters["G"]         = 6.67408e-11
 # 
 # 🦉Download the file [UID_0019921_RVC_002.tbl.txt](https://courses.physics.illinois.edu/phys298owl/fa2019/code/UID_0019921_RVC_002.tbl.txt) from the code repository. We can do this with a trick:
 
-# In[13]:
+# In[6]:
 
 
 get_ipython().system('wget https://courses.physics.illinois.edu/phys246/fa2020/code/UID_0019921_RVC_002.tbl.txt')
@@ -429,7 +429,7 @@ get_ipython().system('wget https://courses.physics.illinois.edu/phys246/fa2020/c
 # 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[14]:
+# In[7]:
 
 
 ### ANSWER HERE
@@ -453,7 +453,7 @@ get_ipython().system('wget https://courses.physics.illinois.edu/phys246/fa2020/c
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[15]:
+# In[8]:
 
 
 ### ANSWER HERE
@@ -502,7 +502,7 @@ get_ipython().system('wget https://courses.physics.illinois.edu/phys246/fa2020/c
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[16]:
+# In[9]:
 
 
 ###ANSWER HERE
@@ -519,7 +519,7 @@ get_ipython().system('wget https://courses.physics.illinois.edu/phys246/fa2020/c
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[17]:
+# In[10]:
 
 
 #### ANSWER HERE
@@ -562,7 +562,7 @@ get_ipython().system('wget https://courses.physics.illinois.edu/phys246/fa2020/c
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[18]:
+# In[11]:
 
 
 ### ANSWER HERE

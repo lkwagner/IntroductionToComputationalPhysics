@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Particle Physics &#8212; Physics 246</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,21 +39,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Random Walks" href="Random%20Walks.html" />
@@ -63,21 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,15 +93,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    An Introduction to Modern Computational Physics
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   An Introduction to Modern Computational Physics
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
    N ways to measure
@@ -197,17 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -215,128 +195,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/ParticlePhysics.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ParticlePhysics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#background">
    Background
@@ -400,11 +313,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Particle Physics</h1>
@@ -484,12 +398,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="particle-physics">
-<h1>Particle Physics<a class="headerlink" href="#particle-physics" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="particle-physics">
+<h1>Particle Physics<a class="headerlink" href="#particle-physics" title="Permalink to this headline">¶</a></h1>
 <p><em>Monte Carlo Simulation of a Particle Physics Experiment</em></p>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
@@ -520,20 +433,22 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">c</span><span class="o">/</span><span class="n">x9n91g7x7lqg0tt66yrmbwhm0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_33482</span><span class="o">/</span><span class="mf">3491363895.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">particle_helper</span> <span class="kn">import</span> <span class="n">Kdecay</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">resetMe</span><span class="p">(</span><span class="n">keepList</span><span class="o">=</span><span class="p">[]):</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">ll</span><span class="o">=</span><span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;who_ls&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;particle_helper&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
-<section id="some-particle-physics-history">
-<h3>Some particle physics history<a class="headerlink" href="#some-particle-physics-history" title="Permalink to this headline">#</a></h3>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="some-particle-physics-history">
+<h3>Some particle physics history<a class="headerlink" href="#some-particle-physics-history" title="Permalink to this headline">¶</a></h3>
 <p>In 1979 a particle physics experiment led by Jim Christenson published a report<a class="reference external" href="#fn1"><sup>1</sup></a>  describing a small anomaly in the behavior of K mesons that suggested a breakdown in causality at subnuclear distance scales. The effect—seen at two standard deviations above background—deserved further investigation. Surely it must have been a matter of bad luck, or unforeseen systematic errors. But confirmation of Christenson’s result would show that the laws of nature were, at small distances, non-local (a string theory, perhaps), or else that physical law could no longer be formulated in mathematical language. Our world would be properly described by string theory, or by magic.</p>
 <p>Some years after the Christenson result George Gollin proposed a new experiment using a different technique to look for the same effect. We planned to do it at Fermilab, with much better precision and greatly reduced systematic uncertainties, and a few of us set about designing the apparatus for the measurement<a class="reference external" href="#fn2"><sup>2</sup></a>.</p>
 <p>We planned to study the decay rates of neutral K mesons into neutral and charged pions:
@@ -550,9 +465,9 @@ R \equiv \frac{\Gamma_{beam1}(K\rightarrow\pi^0\pi^0)}{\Gamma_{beam2}(K\rightarr
 We would reconfigure a large device we had used in a previous kaon experiment, so we needed to work within constraints that would allow us to reuse existing instrumentation as much as possible.</p>
 <p>We needed to maximize the device’s “geometrical acceptance” in order to maximize the number of decaying kaons that would put both charged pions (or all four photons) into the tracking chambers and lead glass array. We would lose kaons that decayed too close to the tracking system because pions or photons would go down the holes in the middle of the lead glass. Kaons that decayed too far upstream would send decay products wide of the tracking chambers. So the first question to be answered was how much space to leave between the source of kaons (downstream of which kaons decayed exponentially) and the tracking system. (We would be recording data from one kaon decay at a time, with an average rate of about one per minute.)</p>
 <p>We used a Monte Carlo simulation of the detector and beam to address this question. After some preliminaries, we’re going to begin to set this up; you’ll actually answer the question of optimum target location in this unit.</p>
-</section>
-<section id="monte-carlo-simulations-in-the-context-of-designing-an-experiment">
-<h3>Monte Carlo simulations in the context of designing an experiment<a class="headerlink" href="#monte-carlo-simulations-in-the-context-of-designing-an-experiment" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="monte-carlo-simulations-in-the-context-of-designing-an-experiment">
+<h3>Monte Carlo simulations in the context of designing an experiment<a class="headerlink" href="#monte-carlo-simulations-in-the-context-of-designing-an-experiment" title="Permalink to this headline">¶</a></h3>
 <p>Let’s imagine a stripped-down Fermilab experiment to begin with a target, out of which will stream a monoenergetic “pencil” beam of relativistic <span class="math notranslate nohighlight">\(K\)</span> mesons. By this I mean that all kaons travel in exactly the same direction with the same energy, and move precisely along the z axis. Some distance downstream of the target will be a pair of tracking chambers and a hadron calorimeter—a device that measures the energies of charged pions—but nothing else. We’ll put a hole down the center of the calorimeter to prevent the beam from damaging the device. Since a high energy neutral <span class="math notranslate nohighlight">\(K\)</span> beam can be expected to contain more neutrons than kaons, this is an important feature of our calorimeter, which would otherwise be fried by the beam. In our model we’ll assume that kaons have total energy 60 GeV, typical of kaons in Gollin’s experiment. We’ll concentrate on the charged (<span class="math notranslate nohighlight">\(\pi^+\pi^-\)</span>) decay mode.<br />
 Here are a couple of diagrams:</p>
 <div><img src="https://clark.physics.illinois.edu/246img/particle2.png" width=600  alt="Answer (start)"></img><br></div><p>How far from the calorimeter should we place the target that produces the kaons? Too close and one or both pions will usually go down the hole so we will not be able to measure their energies. Too far and pions will tend to go wide of the calorimeter. We want to determine the target position that maximizes the probability that a decaying kaon sends both of its pions into the active regions of the tracking chambers and calorimeter.</p>
@@ -560,16 +475,16 @@ Here are a couple of diagrams:</p>
 <p>Here are figures to clarify what we mean by <span class="math notranslate nohighlight">\(z^\prime\)</span>, <span class="math notranslate nohighlight">\(\theta^\prime\)</span>, and <span class="math notranslate nohighlight">\(\phi^\prime\)</span>. The angles are the usual (physics convention) spherical coordinate angles, with the lab frame coordinate axes parallel to the <span class="math notranslate nohighlight">\(K\)</span> rest frame axes. The angle <span class="math notranslate nohighlight">\(\phi^\prime\)</span> is between the <span class="math notranslate nohighlight">\(x^\prime\)</span> axis and the projection onto the <span class="math notranslate nohighlight">\(x^\prime y^\prime\)</span> plane of the vector momentum of the positive pion. The <span class="math notranslate nohighlight">\(z^\prime\)</span> axis (in the kaon’s rest frame) is parallel to the lab frame’s <span class="math notranslate nohighlight">\(z\)</span> axis.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/particle3.png" width=400 alt="Answer (start)"></img><br></div><p>I can represent a kaon decay as occupying a point in a three dimensional parameter space (we call it a phase space) whose axes represent the decay’s particular <span class="math notranslate nohighlight">\(z\)</span>, <span class="math notranslate nohighlight">\(\theta^\prime\)</span> and <span class="math notranslate nohighlight">\(\phi^\prime\)</span> values. The following figure shows a schematic representation of a few dozen kaon decays that took place in our hypothetical experiment’s beamline. Some were accepted, and some were not.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/particle4.png" width=400 alt="Answer (start)"></img><br></div><p>By generating a large number of simulated decays with a Monte Carlo program we can calculate (and maximize) the volume inside the boundary containing accepted events. That sounds more sophisticated than it really is: we move things around (for example the distance from the target to the tracking chambers) and we watch how the fraction of the decays we are able to accept changes. The greater the phase space volume, the larger the fraction of decaying kaons that will end up in our data for later offline analysis. So we use the Monte Carlo in a way that is essentially the same as what you did to estimate the value of <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
-</section>
-</section>
-<section id="exercise-1-minimal-simulation-of-the-tracking-chamber-calorimeter">
-<h2>Exercise 1 - Minimal Simulation of the tracking chamber &amp; Calorimeter<a class="headerlink" href="#exercise-1-minimal-simulation-of-the-tracking-chamber-calorimeter" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="exercise-1-minimal-simulation-of-the-tracking-chamber-calorimeter">
+<h2>Exercise 1 - Minimal Simulation of the tracking chamber &amp; Calorimeter<a class="headerlink" href="#exercise-1-minimal-simulation-of-the-tracking-chamber-calorimeter" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<section id="some-preliminaries">
-<h3>0. Some Preliminaries<a class="headerlink" href="#some-preliminaries" title="Permalink to this headline">#</a></h3>
+<div class="section" id="some-preliminaries">
+<h3>0. Some Preliminaries<a class="headerlink" href="#some-preliminaries" title="Permalink to this headline">¶</a></h3>
 <p>Here are the apparatus diagrams from above:</p>
 <div><img src="https://clark.physics.illinois.edu/246img/particle5.png" width=600 alt="Answer (start)"></img><br></div><p>There are four elements in the apparatus for us to describe in our code: the kaon production target, the first and second tracking chambers, and the hadron calorimeter. We will model the chambers and calorimeter as infinitesimally thin in the z direction and square in cross section, centered on the z axis, along which the kaon beam travels. The calorimeter has a square hole in its center through which debris from the target, and particles in the beam that have not yet decayed, will pass.</p>
 <p>The two tracking chambers are separated by 10 meters along the beam direction; the calorimeter is 5 meters downstream of the second tracker. For technical reasons (umm… actually just to simplify things for you) the separation between chambers, and between the calorimeter and the tracking system is not to be changed. You <em><strong>can</strong></em>, however, move all three devices upstream or downstream during your investigations, as long as you don’t alter their separations from each other. Please keep the target at <span class="math notranslate nohighlight">\(z = 0\)</span>.</p>
@@ -632,9 +547,9 @@ Here are a couple of diagrams:</p>
 </div>
 </div>
 <p>Since the decay generator returns the momentum components for the pions you can project them from the decay vertex to their downstream x, y positions at the z locations of the tracking chambers and calorimeter. This will let you determine whether or not the pions are inside the active volumes of the tracking chambers and calorimeters.</p>
-</section>
-<section id="a-histograms-and-so-forth">
-<h3>a. Histograms and so forth<a class="headerlink" href="#a-histograms-and-so-forth" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="a-histograms-and-so-forth">
+<h3>a. Histograms and so forth<a class="headerlink" href="#a-histograms-and-so-forth" title="Permalink to this headline">¶</a></h3>
 <p>In our simulated experiment we require both pions to pass through the sensitive regions of the tracking chambers and land in the active region of the calorimeter. An event in which a pion misses a tracking chamber, goes wide of the calorimeter, or goes down the hole in the middle of the calorimeter will not satisfy the trigger (the high speed logic that decides whether or not we should record data from the decay), and won’t be written to a data file for further analysis.  <strong>In other words, <em>both</em> pions must hit both trackers and the calorimeter in order to satisfy the trigger</strong>.</p>
 <p>🦉Please generate histograms of the following quantities, assuming the apparatus is configured as described in the above table. Once your program runs, I suggest you have it generate 100,000 kaon decays.</p>
 <ol class="simple">
@@ -655,9 +570,9 @@ Here are a couple of diagrams:</p>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-<section id="b-why-events-fail-to-satisfy-the-trigger">
-<h3>b. Why events fail to satisfy the trigger<a class="headerlink" href="#b-why-events-fail-to-satisfy-the-trigger" title="Permalink to this headline">#</a></h3>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+<div class="section" id="b-why-events-fail-to-satisfy-the-trigger">
+<h3>b. Why events fail to satisfy the trigger<a class="headerlink" href="#b-why-events-fail-to-satisfy-the-trigger" title="Permalink to this headline">¶</a></h3>
 <p>Please determine the fraction of kaon decays that fall into the following categories:</p>
 <ol class="simple">
 <li><p>the decay satisfies the experiment trigger: both pions pass through the active areas of the two tracking chambers and strike the active region of the calorimeter;</p></li>
@@ -680,23 +595,23 @@ Here are a couple of diagrams:</p>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-</section>
-<section id="exercise-2-geometrical-acceptance">
-<h2>Exercise 2 - Geometrical acceptance<a class="headerlink" href="#exercise-2-geometrical-acceptance" title="Permalink to this headline">#</a></h2>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+</div>
+<div class="section" id="exercise-2-geometrical-acceptance">
+<h2>Exercise 2 - Geometrical acceptance<a class="headerlink" href="#exercise-2-geometrical-acceptance" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<section id="id1">
-<h3>Background<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id1">
+<h3>Background<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Previously in class you determined an approximate value for <span class="math notranslate nohighlight">\(\pi\)</span> by dropping random x, y points into a square whose sides were of unit length, then determining the fraction of points that were also contained inside the perimeter of an inscribed circle. You were, in effect, measuring the “geometrical acceptance” of the circle when exposed to a random “beam” of points. There were only two numbers you needed to describe uniquely each “event” (the placing of a point inside the square): the point’s x and y coordinates. And the boundary in that x, y parameter space is easy to imagine: it’s just a circle of unit diameter.</p>
 <p>The geometrical acceptance of a particle physics experiment can be characterized in similar fashion as a region (or regions) inside a parameter space from which we will always accept events. In our case we can completely characterize an event by specifying the z position of the decaying kaon and the two (spherical coordinate) angles needed to describe the direction of the positive pion. Everything else—the pion energies in the lab frame, for example, or the momentum of the other pion, or where in the plane of the calorimeter the pions land—can be derived from these. In a more realistic model we would need to specify the kaon’s energy and vector momentum (since it is not possible to create a monochromatic kaon beam), the x, y, z coordinates of its decay point, the pion directions in the kaon rest frame, and so on.</p>
 <p>You should have found in the homework due this unit that our simple experiment failed to accept most decaying kaons because one (or both) went down the hole in the calorimeter. In our simple model it is only the calorimeter that measures the energies of pions, so we are unable to determine whether or not the signals in the tracking chambers actually came from pions or something else. (Neutral kaons can decay into final states that include neutrinos, electrons, and muons: the di-pion final state is not the only possibility.)</p>
 <p>You probably also noticed that the pions were concentrated near the center of the tracking chambers and calorimeter. Even though the half-width of the calorimeter was 0.75 meters, almost no pions landed more than a half-meter away from its median plane. It should be obvious that we can move the kaon-producing target upstream to good effect. That will make the “solid angle” subtended by the hole smaller, and fewer pions will find it. Of course, if we move the target too far upstream we will lose events from pions going wide of the calorimeter.</p>
-</section>
-<section id="a-plotting-the-occupied-region-of-phase-space">
-<h3>a. Plotting the occupied region of phase space<a class="headerlink" href="#a-plotting-the-occupied-region-of-phase-space" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="a-plotting-the-occupied-region-of-phase-space">
+<h3>a. Plotting the occupied region of phase space<a class="headerlink" href="#a-plotting-the-occupied-region-of-phase-space" title="Permalink to this headline">¶</a></h3>
 <p>I included above a schematic representation of events populating the <span class="math notranslate nohighlight">\(\theta^\prime -\phi^\prime-z\)</span> phase space available to decaying kaons. (The angles describe the positive pion’s trajectory.) My figure used the angles in the kaon rest frame, but I could have just as easily filled the plot with the lab-frame values instead.</p>
 <p>That is what I would like you to do: generate decays with a few different target positions (build your program from the first unit 8 homework problem’s code) and make 3-d plots of the <strong>lab frame</strong> <span class="math notranslate nohighlight">\(\theta^\prime -\phi^\prime-z\)</span> phase space, using small markers for the points corresponding to the “coordinates” in the phase space of each event. For each target position put into your plot the points for all events (as red dots, say) and then the points for all decays that trigger the apparatus (as black dots, perhaps). You will want to plot the triggering decays after plotting the “all decays” phase space points.</p>
 <p>The decay generator provides the lab-frame four momentum for each pion. You will need to calculate the <span class="math notranslate nohighlight">\(\theta-\phi\)</span> angles from this. Keep in mind that <span class="math notranslate nohighlight">\(\phi\)</span> ranges from <span class="math notranslate nohighlight">\(-\pi\)</span> to <span class="math notranslate nohighlight">\(+\pi\)</span>, so you’ll probably need to use an arctan routine that takes two arguments.
@@ -775,10 +690,10 @@ To save time, let me remind you how to make 3-d plots. Let’s say you’ve gene
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-</section>
-<section id="exercise-3-finding-optimal-target-position">
-<h2>Exercise 3 - Finding Optimal Target Position<a class="headerlink" href="#exercise-3-finding-optimal-target-position" title="Permalink to this headline">#</a></h2>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+</div>
+<div class="section" id="exercise-3-finding-optimal-target-position">
+<h2>Exercise 3 - Finding Optimal Target Position<a class="headerlink" href="#exercise-3-finding-optimal-target-position" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -802,8 +717,8 @@ George Gollin (original)</p>
 <hr class="docutils" />
 <p><span id=“fn1”><sup>1</sup> J. H. Christenson, <em>et al</em>., Phys. Rev. Lett. <em>43</em>, 1209 (1979) and J. H. Christenson, <em>et al</em>., Phys. Rev. Lett. <em>43</em>, 1212 (1979).</span></p>
 <p><span id=“fn2”><sup>2</sup>It was the 773<sup>rd</sup> proposal received by Fermilab’s Proposal Advisory Committee and was given the catchy name “E773.” We did the experiment, achieved the proposed sensitivity, and concluded that Christenson’s anomaly was not supported by our data, alas.</span></p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -827,11 +742,9 @@ George Gollin (original)</p>
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="OrbitalDynamics2.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -847,28 +760,24 @@ George Gollin (original)</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Clark; George Gollin; Ryan Levy<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Bryan Clark; George Gollin; Ryan Levy<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

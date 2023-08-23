@@ -25,7 +25,7 @@ import matplotlib.pyplot as plt
 import math
 
 def resetMe(keepList=[]):
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     keepList=keepList+['resetMe','np','plt','math','jax','jnp','jit','grad']
     for iiii in keepList:
         if iiii in ll:
@@ -33,7 +33,7 @@ def resetMe(keepList=[]):
     for iiii in ll:
         jjjj="^"+iiii+"$"
         get_ipython().run_line_magic('reset_selective', '-f {jjjj}')
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     plt.rcParams.update({"font.size": 14})
     return
 #resetMe()
@@ -44,7 +44,7 @@ import datetime;datetime.datetime.now()
 
 # ### Planetary Parameters
 
-# In[ ]:
+# In[2]:
 
 
 #resetMe()
@@ -103,7 +103,7 @@ SolarSystemParameters["G"]=6.67408e-11
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[ ]:
+# In[3]:
 
 
 ### ANSWER HERE
@@ -141,7 +141,7 @@ SolarSystemParameters["G"]=6.67408e-11
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[ ]:
+# In[4]:
 
 
 ### ANSWER HERE
@@ -155,7 +155,7 @@ SolarSystemParameters["G"]=6.67408e-11
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[ ]:
+# In[5]:
 
 
 ### ANSWER HERE
@@ -175,7 +175,7 @@ SolarSystemParameters["G"]=6.67408e-11
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[ ]:
+# In[6]:
 
 
 ### ANSWER HERE
@@ -227,7 +227,7 @@ SolarSystemParameters["G"]=6.67408e-11
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[ ]:
+# In[7]:
 
 
 ### ANSWER HERE
@@ -270,7 +270,7 @@ SolarSystemParameters["G"]=6.67408e-11
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[ ]:
+# In[8]:
 
 
 ### ANSWER HERE
@@ -307,7 +307,7 @@ SolarSystemParameters["G"]=6.67408e-11
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[ ]:
+# In[9]:
 
 
 ### ANSWER HERE
@@ -413,7 +413,7 @@ SolarSystemParameters["G"]=6.67408e-11
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[ ]:
+# In[10]:
 
 
 ### ANSWER HERE
@@ -458,7 +458,7 @@ SolarSystemParameters["G"]=6.67408e-11
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[ ]:
+# In[11]:
 
 
 ### ANSWER HERE

@@ -255,7 +255,6 @@ nLayers = 25
 nStrings = 2048
 
 
-
 # In[ ]:
 
 
@@ -320,7 +319,7 @@ nStrings = 2048
 # In[ ]:
 
 
-get_ipython().run_cell_magic('time', '', 'nWires = 14\nD = 2**nWires\nnLayers = 25\nnStrings = 2000\n')
+get_ipython().run_cell_magic('time', '', 'nWires = 14\nD = 2**nWires\nnLayers = 25\nnStrings = 2000')
 
 
 # As you can see, we only needed 2048 runs of a (simulated) quantum computer to obtain our answer! For their research paper, researchers measured a million bitstrings with 53 qubits and 20 layers (where each layer was 8 patterns instead of our 2) in 200 seconds! [<sup>1</sup>](#fn1) That's only $10^{-8}$ % of the total state size!

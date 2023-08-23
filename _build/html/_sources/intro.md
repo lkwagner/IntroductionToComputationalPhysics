@@ -12,6 +12,70 @@ Welcome!  Computation is powerful. In this course, you are going to learn how to
 Here is an <a href="../classSummary/index.html">overview presentation</a> of what you will learn in this class.
 
 
+---
+
+Other
+* N Ways of Measuring Pi
+
+
+Classical mechanics is the study of force and motion.  You will write a  classical mechanics code which is accurate to second order in time-step.  Then you will use this code for various activities 
+including  to simulate the tossing of a ball computing the difference in its landing  with and without air resis
+
+Classical Dynamics
+* Dynamics 
+   * Tossing Balls with Air Resistance
+* Orbital Dynamics
+* Single (Driven) Pendula
+* Many Body Dynamics 
+
+Chaos
+* Double Pendula
+*  (Lorentz Attractors)
+
+Particle Physics
+* Monte Carlo Simulation of Particle Physics Experiment
+
+Optimization:
+* scipy optimization of balls hitting each other
+* stochastic gradient descent of ML modes
+
+
+
+Astrophysics
+* Orbital Dynamics
+* Keplers Laws
+* Mercury Precision
+* Multiple Planets 
+* (early planetary formation)
+* Exoplanets
+* Classifying Galaxies
+
+
+Machine-Learning
+* ML
+
+Biophysics
+* Predator-Prey
+
+Fluid Dynamics
+* Lattice Boltzmann
+
+Fourier Transform
+* Exoplanets
+
+Monte Carlo 
+* N ways of Measuring Pi - Throwing Darts
+* Unbiased Random Walks
+* Markov Chains: Weather
+* Markov Chains: Paramagnetism
+* Markov Chains: Rubber Bands
+* Continuous time Markov Chains for Predator-Prey
+
+Quantum Computing:
+* Quantum Computing 1 and 2
+
+---
+
 ### Course Logistics
  - **Lectures:** R 4:00-5:50
  - **Professor:** Bryan Clark

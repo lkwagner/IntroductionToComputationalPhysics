@@ -23,7 +23,7 @@ import itertools
 from IPython.display import HTML
 import pickle
 def resetMe(keepList=[]):
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     keepList=keepList+['resetMe','np','plt','math','FuncAnimation',
                        'HTML','itertools','pickle','testFunc']
     for iiii in keepList:
@@ -32,7 +32,7 @@ def resetMe(keepList=[]):
     for iiii in ll:
         jjjj="^"+iiii+"$"
         get_ipython().run_line_magic('reset_selective', '-f {jjjj}')
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     return
 
 def testFunc(func,inFiles,outFiles):
@@ -51,7 +51,7 @@ def testFunc(func,inFiles,outFiles):
 
 # Download the test files here, or download from the website and upload & unzip them to wherever this notebook file is
 
-# In[3]:
+# In[2]:
 
 
 get_ipython().system('wget https://courses.physics.illinois.edu/phys246/fa2020/code/TestFiles.zip && unzip TestFiles.zip')
@@ -72,7 +72,7 @@ get_ipython().system('wget https://courses.physics.illinois.edu/phys246/fa2020/c
 
 # Something we'll see later in this assignment is the need to shift elements right,left,up,down, and diagonally. Let's make a little test problem to illustrate how this works.
 
-# In[4]:
+# In[3]:
 
 
 # Run me!
@@ -82,7 +82,7 @@ print(x)
 
 # Now we'll want to shift every element in `x` to the right, where we wrap everything around the edge. Rather than figuring this out with a for loop, we'll employ `np.roll` to do it fast!
 
-# In[5]:
+# In[4]:
 
 
 print(x,'\n')
@@ -92,7 +92,7 @@ print(np.roll(x,(0,1),(0,1)))
 # Now let's disect that command. The first `(0,1)` means don't shift the "y" direction, and to shift the "x" direction by +1. The next command `(0,1)` means to apply the shift to the two axes.  
 # Now let's go left:
 
-# In[6]:
+# In[5]:
 
 
 print(x,'\n')
@@ -121,7 +121,7 @@ print(np.roll(x,(0,-1),(0,1)))
 # ```
 # (Notice how down isn't what you may expect...)
 
-# In[7]:
+# In[6]:
 
 
 #!Start
@@ -142,7 +142,7 @@ print(np.roll(x,(-1,0),(0,1)))
 #  [ 9  5  6  7  8]]
 #  ```
 
-# In[8]:
+# In[7]:
 
 
 print(np.roll(x,(1,1),(0,1))) #!#
@@ -166,7 +166,7 @@ print(np.roll(x,(1,1),(0,1))) #!#
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[9]:
+# In[8]:
 
 
 ### ANSWER HERE
@@ -210,7 +210,7 @@ print(np.roll(x,(1,1),(0,1))) #!#
 
 # #### Test:
 
-# In[10]:
+# In[9]:
 
 
 ## Call your function here to see if if works. 

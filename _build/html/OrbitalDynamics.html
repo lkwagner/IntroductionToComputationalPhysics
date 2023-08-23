@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orbital Dynamics &#8212; Physics 246</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,21 +39,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Exoplanets" href="Exoplanets.html" />
@@ -63,21 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,15 +93,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    An Introduction to Modern Computational Physics
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   An Introduction to Modern Computational Physics
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
    N ways to measure
@@ -197,17 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -215,145 +195,64 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/OrbitalDynamics.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="_sources/OrbitalDynamics.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/OrbitalDynamics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/OrbitalDynamics.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Orbital Dynamics
@@ -461,11 +360,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Orbital Dynamics</h1>
@@ -589,19 +489,18 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="orbital-dynamics">
-<h1>Orbital Dynamics<a class="headerlink" href="#orbital-dynamics" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="orbital-dynamics">
+<h1>Orbital Dynamics<a class="headerlink" href="#orbital-dynamics" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
 <li><p><strong>Date:</strong></p></li>
 <li><p><strong>Time spent on this assignment:</strong></p></li>
 </ul>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>In this assignment we will learn how to simulate the orbital dynamics of a planet going around the sun (which we assume to be fixed).  We will then proceed to use simulation to test two of the most important physics results in the last 400 years.</p>
 <p>First, we will numerically validate Kepler’s Second Law: a planet sweeps out the same area of its orbit in equal time.  Kepler’s first law (all planets 🪐 orbit in ellipses) and Kepler’s third law (the square of the orbital period of a planet is directly proportional to the cube of the semi-major axis of its orbit) will be left as extra credit.</p>
 <p>Then we will see that general relativity alters the Newtonian law of gravitation in such a way that the planets no longer move in ellipses.  Instead, their closest approach to the sun (the perihelion) changes its location slightly as you go around the Sun.  Mesuring this effect in Mercury was one of the key original validations of general relativity.</p>
@@ -629,23 +528,16 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">math</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2023, 8, 23, 16, 14, 46, 387813)
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="warmups">
-<h2>Warmups<a class="headerlink" href="#warmups" title="Permalink to this headline">#</a></h2>
-<section id="planetary-parameters">
-<h3>Planetary Parameters<a class="headerlink" href="#planetary-parameters" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="warmups">
+<h2>Warmups<a class="headerlink" href="#warmups" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="planetary-parameters">
+<h3>Planetary Parameters<a class="headerlink" href="#planetary-parameters" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#resetMe()</span>
@@ -669,21 +561,21 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="using-dictionaries">
-<h3>Using Dictionaries<a class="headerlink" href="#using-dictionaries" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="using-dictionaries">
+<h3>Using Dictionaries<a class="headerlink" href="#using-dictionaries" title="Permalink to this headline">¶</a></h3>
 <p>We’ve defined some planetary parameters for you.  Use these parameters to plot a model of our solar system which includes the Sun, Earth and Mercury assuming that the planets orbit in circular motion.  (this doesn’t involve any simulations just plotting things to scale.</p>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="exercise-1-orbital-dynamics">
-<h2>Exercise 1. Orbital Dynamics<a class="headerlink" href="#exercise-1-orbital-dynamics" title="Permalink to this headline">#</a></h2>
+<div class="section" id="exercise-1-orbital-dynamics">
+<h2>Exercise 1. Orbital Dynamics<a class="headerlink" href="#exercise-1-orbital-dynamics" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<section id="a-modify-your-code-to-include-the-force-of-gravity">
-<h3>a. Modify your code to include the force of gravity<a class="headerlink" href="#a-modify-your-code-to-include-the-force-of-gravity" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-modify-your-code-to-include-the-force-of-gravity">
+<h3>a. Modify your code to include the force of gravity<a class="headerlink" href="#a-modify-your-code-to-include-the-force-of-gravity" title="Permalink to this headline">¶</a></h3>
 <p>In Newton’s model the earth’s gravity is a central force that exerts an attractive pull</p>
 <div class="math notranslate nohighlight">
 \[\vec{F}(\vec{r}) = m\vec{a}(\vec{r}) = -\frac{Gm_\textrm{earth}m}{r^2}\hat{r}\]</div>
@@ -703,9 +595,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-<section id="b-earth-orbiting-the-sun">
-<h3>b.  Earth Orbiting the Sun<a class="headerlink" href="#b-earth-orbiting-the-sun" title="Permalink to this headline">#</a></h3>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></div>
+<div class="section" id="b-earth-orbiting-the-sun">
+<h3>b.  Earth Orbiting the Sun<a class="headerlink" href="#b-earth-orbiting-the-sun" title="Permalink to this headline">¶</a></h3>
 <p>Write some code to set up the parameters of the Earth orbiting the sun and then plot it.  Use a dt of 3600 seconds.  This will involve calling your functions from above. You will want to build a dictionary of <code class="docutils literal notranslate"><span class="pre">params</span></code>  which involve things like your initial positions (use Earth’s orbital radius), your initial velocity, the time step <code class="docutils literal notranslate"><span class="pre">dt</span></code> (use one day), etc.  You should be able to plot it as <code class="docutils literal notranslate"><span class="pre">plt.plot(positions[:,0],positions[:,1])</span></code>
 `</p>
 <!--
@@ -737,9 +629,9 @@ fig.gca().add_artist(earth_disk)
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-<section id="c-animation">
-<h3>c. Animation<a class="headerlink" href="#c-animation" title="Permalink to this headline">#</a></h3>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></div>
+<div class="section" id="c-animation">
+<h3>c. Animation<a class="headerlink" href="#c-animation" title="Permalink to this headline">¶</a></h3>
 <p>Run the code below to plot an animation of your orbit.  Your coordinates have to be in positions.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -748,9 +640,9 @@ fig.gca().add_artist(earth_disk)
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-<section id="d-geosyncronous-orbit-extra-credit-5-points">
-<h3>d. Geosyncronous Orbit (Extra Credit: 5 Points)<a class="headerlink" href="#d-geosyncronous-orbit-extra-credit-5-points" title="Permalink to this headline">#</a></h3>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></div>
+<div class="section" id="d-geosyncronous-orbit-extra-credit-5-points">
+<h3>d. Geosyncronous Orbit (Extra Credit: 5 Points)<a class="headerlink" href="#d-geosyncronous-orbit-extra-credit-5-points" title="Permalink to this headline">¶</a></h3>
 <p>🦉Determine the height a spaceship needs to be above the surface of the Earth to be in circular Geosynchronous orbit. A geosynchronous orbit is one that stays over the same point of Earth for the entire orbit.   To determine this, we need to set up our orbit simulation to run for an Earth/Satellite simulation.</p>
 <p>A useful thing to know is that the velocity that you need to apply tangeant to a circular orbit to stay in a circular orbit of radius <span class="math notranslate nohighlight">\(r\)</span> is
 $<span class="math notranslate nohighlight">\( v = \sqrt{\frac{GM}{r}} \)</span>$</p>
@@ -762,11 +654,11 @@ $<span class="math notranslate nohighlight">\( v = \sqrt{\frac{GM}{r}} \)</span>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-</section>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></div>
+</div>
 <hr class="docutils" />
-<section id="exercise-2-kepler-s-laws">
-<h2>Exercise 2. Kepler’s Laws<a class="headerlink" href="#exercise-2-kepler-s-laws" title="Permalink to this headline">#</a></h2>
+<div class="section" id="exercise-2-kepler-s-laws">
+<h2>Exercise 2. Kepler’s Laws<a class="headerlink" href="#exercise-2-kepler-s-laws" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -776,8 +668,8 @@ $<span class="math notranslate nohighlight">\( v = \sqrt{\frac{GM}{r}} \)</span>
 <p>(1) The orbit of a planet is an ellipse with the Sun at one of the two foci.</p>
 <p>(2) A line segment joining a planet and the Sun sweeps out equal areas during equal intervals of time.</p>
 <p>(3) The square of the orbital period of a planet is directly proportional to the cube of the semi-major axis of its orbit.</p>
-<section id="a-law-2">
-<h3>a. Law 2<a class="headerlink" href="#a-law-2" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-law-2">
+<h3>a. Law 2<a class="headerlink" href="#a-law-2" title="Permalink to this headline">¶</a></h3>
 <p>Kepler’s second law tells us that the planet sweeps out the same “area” of the ellipse in a fixed amount of time.<br />
 🦉Verify this by computing (and plotting) the area swept out in these two regions:</p>
 <ul class="simple">
@@ -795,9 +687,9 @@ $<span class="math notranslate nohighlight">\( v = \sqrt{\frac{GM}{r}} \)</span>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-<section id="b-law-1-extra-credit-10-points">
-<h3>b. Law 1 (Extra Credit: 10 points)<a class="headerlink" href="#b-law-1-extra-credit-10-points" title="Permalink to this headline">#</a></h3>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></div>
+<div class="section" id="b-law-1-extra-credit-10-points">
+<h3>b. Law 1 (Extra Credit: 10 points)<a class="headerlink" href="#b-law-1-extra-credit-10-points" title="Permalink to this headline">¶</a></h3>
 <p>The first law tells us that the orbit is an ellipse and the sun is at a foci.  🦉To check this,</p>
 <ul class="simple">
 <li><p>Modify the constants in your code to emulate planets (i.e. let <code class="docutils literal notranslate"><span class="pre">M</span></code> be the mass of the sun, <span class="math notranslate nohighlight">\(M_\textrm{sun} = 1.989 \times 10^{30}\)</span> kg)</p></li>
@@ -827,9 +719,9 @@ $<span class="math notranslate nohighlight">\( v = \sqrt{\frac{GM}{r}} \)</span>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-<section id="c-law-3-extra-credit-10-points">
-<h3>c. Law 3: (Extra Credit: 10 points)<a class="headerlink" href="#c-law-3-extra-credit-10-points" title="Permalink to this headline">#</a></h3>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></div>
+<div class="section" id="c-law-3-extra-credit-10-points">
+<h3>c. Law 3: (Extra Credit: 10 points)<a class="headerlink" href="#c-law-3-extra-credit-10-points" title="Permalink to this headline">¶</a></h3>
 <p>Kepler’s third law tells us that the square of the orbital period of a planet is directly proportional to the cube of the semi-major axis of its orbit.</p>
 <p>In other words, <span class="math notranslate nohighlight">\(T^2 \propto a^3\)</span>.</p>
 <p><em>From Wikipedia quoting Kepler on finding the third law:</em>
@@ -855,10 +747,10 @@ $<span class="math notranslate nohighlight">\(\frac{GM}{4\pi^2}\)</span>$</p>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-</section>
-<section id="background-just-information-no-work-on-this-problem">
-<h2>Background (just information…no work on this problem)<a class="headerlink" href="#background-just-information-no-work-on-this-problem" title="Permalink to this headline">#</a></h2>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></div>
+</div>
+<div class="section" id="background-just-information-no-work-on-this-problem">
+<h2>Background (just information…no work on this problem)<a class="headerlink" href="#background-just-information-no-work-on-this-problem" title="Permalink to this headline">¶</a></h2>
 <p><strong>Post-Newtonian gravitational orbits</strong></p>
 <p>Trajectories in <span class="math notranslate nohighlight">\(1/r^2\)</span> central force fields are conic sections: hyperbolas or parabolas for unbound objects, and ellipses for objects in bound orbits. A special property of an inverse-square force is that bound orbits close on themselves—the orientation in space of the ellipse remains fixed. But if gravity were to deviate from a purely inverse-square force law, bound orbits would not close (unless they were perfectly circular), and could not strictly be described as ellipses.</p>
 <p>One of the earliest tests of general relativity was its prediction for the rate at which Mercury’s orbit would change its orientation over time. Mercury’s distance from (the center of) the sun varies from 46,001,200 km at perihelion (the point at which Mercury is closest to the sun) to 69,816,900 km at aphelion, so it samples the strength of the sun’s gravitational pull over a significant range of distance.</p>
@@ -919,9 +811,9 @@ $<span class="math notranslate nohighlight">\(\frac{GM}{4\pi^2}\)</span>$</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="exercise-3-mercury-precision">
-<h2>Exercise 3: Mercury Precision<a class="headerlink" href="#exercise-3-mercury-precision" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="exercise-3-mercury-precision">
+<h2>Exercise 3: Mercury Precision<a class="headerlink" href="#exercise-3-mercury-precision" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -943,8 +835,8 @@ $<span class="math notranslate nohighlight">\(\frac{GM}{4\pi^2}\)</span>$</p>
 </li>
 </ul>
 <p>It will probably help you if you write a function perihelion that takes the positions array and generates the angle of precision.</p>
-<section id="a-mercury-without-general-relativity">
-<h3>a.  Mercury without general relativity<a class="headerlink" href="#a-mercury-without-general-relativity" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-mercury-without-general-relativity">
+<h3>a.  Mercury without general relativity<a class="headerlink" href="#a-mercury-without-general-relativity" title="Permalink to this headline">¶</a></h3>
 <p>For our first step, we will compute the precession when we don’t have the relativistic term on.  If our integration was perfect, we should get zero. As we recall from earlier assignments, we know that that there is some time-step errors associated with our integration.  So instead of getting zero, we would expect to get something very close to zero.</p>
 <p>You are going to base your Mercury perihelion code on your orbital code from previous units. Let’s start by setting up your code for simulating Mercury’s orbit:</p>
 <ul class="simple">
@@ -982,9 +874,9 @@ $<span class="math notranslate nohighlight">\(\frac{GM}{4\pi^2}\)</span>$</p>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-<section id="b-mercury-with-general-relativity">
-<h3>b.  Mercury with general relativity<a class="headerlink" href="#b-mercury-with-general-relativity" title="Permalink to this headline">#</a></h3>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+<div class="section" id="b-mercury-with-general-relativity">
+<h3>b.  Mercury with general relativity<a class="headerlink" href="#b-mercury-with-general-relativity" title="Permalink to this headline">¶</a></h3>
 <p>Now turn on the effects of general relativity (by modifying your force) and do the same computation.</p>
 <p>The post-Newtonian modification to the gravitational acceleration experienced by Mercury adds an extra term after the inverse-square Newtonian term:
 $<span class="math notranslate nohighlight">\( \frac{F(r)}{m} = \frac{GM_\odot}{r^2} + \frac{3r_s\left(v_\textrm{perihelion}r_\textrm{perihelion}\right)^2}{2r^4}\)</span>$</p>
@@ -1017,11 +909,11 @@ $<span class="math notranslate nohighlight">\( \frac{F(r)}{m} = \frac{GM_\odot}{
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="exercise-4-transfer-orbits-extra-credit-10-points">
-<h1>Exercise 4. Transfer Orbits (Extra Credit: 10 points)<a class="headerlink" href="#exercise-4-transfer-orbits-extra-credit-10-points" title="Permalink to this headline">#</a></h1>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="exercise-4-transfer-orbits-extra-credit-10-points">
+<h1>Exercise 4. Transfer Orbits (Extra Credit: 10 points)<a class="headerlink" href="#exercise-4-transfer-orbits-extra-credit-10-points" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -1034,7 +926,7 @@ $<span class="math notranslate nohighlight">\( \frac{F(r)}{m} = \frac{GM_\odot}{
 <li><p>Ex 2: Bryan Clark (original)</p></li>
 <li><p>Ex 3: George Gollin (original); Bryan Clark (modifications)</p></li>
 </ul>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1058,11 +950,9 @@ $<span class="math notranslate nohighlight">\( \frac{F(r)}{m} = \frac{GM_\odot}{
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="Dynamics.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1078,28 +968,24 @@ $<span class="math notranslate nohighlight">\( \frac{F(r)}{m} = \frac{GM_\odot}{
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Clark; George Gollin; Ryan Levy<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Bryan Clark; George Gollin; Ryan Levy<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

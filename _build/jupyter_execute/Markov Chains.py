@@ -16,7 +16,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 def resetMe(keepList=[]):
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     keepList=keepList+['resetMe','np','plt','random']
     for iiii in keepList:
         if iiii in ll:
@@ -24,7 +24,7 @@ def resetMe(keepList=[]):
     for iiii in ll:
         jjjj="^"+iiii+"$"
         get_ipython().run_line_magic('reset_selective', '-f {jjjj}')
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     return
 import datetime;datetime.datetime.now()
 
@@ -89,7 +89,7 @@ import datetime;datetime.datetime.now()
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[11]:
+# In[2]:
 
 
 ### ANSWER HERE
@@ -242,7 +242,7 @@ import datetime;datetime.datetime.now()
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 # 
 
-# In[12]:
+# In[3]:
 
 
 ### ANSWER HERE
@@ -318,7 +318,7 @@ import datetime;datetime.datetime.now()
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 # 
 
-# In[13]:
+# In[4]:
 
 
 ### ANSWER HERE
@@ -378,7 +378,7 @@ import datetime;datetime.datetime.now()
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 # 
 
-# In[14]:
+# In[5]:
 
 
 ### ANSWER HERE

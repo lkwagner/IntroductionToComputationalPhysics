@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Classifying Galaxies &#8212; Physics 246</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,21 +39,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Quantum Computing 1" href="QC1.html" />
@@ -63,21 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,15 +93,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    An Introduction to Modern Computational Physics
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   An Introduction to Modern Computational Physics
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
    N ways to measure
@@ -197,17 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -215,128 +195,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/MachineLearningGalaxies.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/MachineLearningGalaxies.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-1-machine-learning-on-galaxies">
    Exercise 1: Machine Learning on Galaxies
@@ -376,11 +289,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Classifying Galaxies</h1>
@@ -436,12 +350,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="classifying-galaxies">
-<h1>Classifying Galaxies<a class="headerlink" href="#classifying-galaxies" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="classifying-galaxies">
+<h1>Classifying Galaxies<a class="headerlink" href="#classifying-galaxies" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
 <li><p><strong>Date:</strong></p></li>
@@ -479,18 +392,20 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">c</span><span class="o">/</span><span class="n">x9n91g7x7lqg0tt66yrmbwhm0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_33456</span><span class="o">/</span><span class="mf">3809746964.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">jit</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span>  <span class="nn">jax</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;jax&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<section id="exercise-1-machine-learning-on-galaxies">
-<h2>Exercise 1: Machine Learning on Galaxies<a class="headerlink" href="#exercise-1-machine-learning-on-galaxies" title="Permalink to this headline">#</a></h2>
+<div class="section" id="exercise-1-machine-learning-on-galaxies">
+<h2>Exercise 1: Machine Learning on Galaxies<a class="headerlink" href="#exercise-1-machine-learning-on-galaxies" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -500,7 +415,7 @@ title="Print to PDF"
 <p>Let’s start by reading in the data. Run the following command to download a copy of the data we’ll need</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span>https://courses.physics.illinois.edu/phys246/fa2020/code/dataG.pkl.gz
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget https://courses.physics.illinois.edu/phys246/fa2020/code/dataG.pkl.gz
 </pre></div>
 </div>
 </div>
@@ -542,8 +457,8 @@ Wall time: 2.47 s
 <li><p><code class="docutils literal notranslate"><span class="pre">test_images_raw</span></code>  - images for the test set, shape: (1940,69,69,1)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">test_labels</span></code>      - labels that explain the image classification for the test set</p></li>
 </ul>
-<section id="a-note-on-the-data">
-<h3>A Note on the data<a class="headerlink" href="#a-note-on-the-data" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-note-on-the-data">
+<h3>A Note on the data<a class="headerlink" href="#a-note-on-the-data" title="Permalink to this headline">¶</a></h3>
 <p>The original data has 3 channels - g,r,i bands - while this dataset has only 1 (g). This set also only includes a subset of labels.</p>
 <p>Why? Because we don’t want to overwelm the server with large storage for each student. You are welcome to redo this assignment on Google colab with the full channel set and see how well it does; you’ll need to download the full data we’ve provided:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!wget https://courses.physics.illinois.edu/phys246/fa2020/code/data.pkl.zip
@@ -552,9 +467,9 @@ Wall time: 2.47 s
 </pre></div>
 </div>
 <p>and then change the reshape commands below. Feel free to reach out to us for help.</p>
-</section>
-<section id="a-galaxies">
-<h3>a. Galaxies<a class="headerlink" href="#a-galaxies" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="a-galaxies">
+<h3>a. Galaxies<a class="headerlink" href="#a-galaxies" title="Permalink to this headline">¶</a></h3>
 <p>Let’s now examine this data a bit.  We are first going to look at the training data.  The training data is what you are going to use to teach your neural network.  The test data is to check how good we are doing after (possibly during) training.  We won’t use it to train, though (this is to avoid overfitting; we want our neural network to learn how to classify galaxies but not memorize everything in the training set).</p>
 <p>We will start by plotting some of the galaxy images that we have loaded.  Do <code class="docutils literal notranslate"><span class="pre">plt.matshow(train_imagesP[0][:,:,0])</span></code> (This last <code class="docutils literal notranslate"><span class="pre">[:,:,0]</span></code> is because there are three layers to each of these galaxies and we just want to see the first layer. We’ve actually only included this first layer for you to save space, but if you want to use the full data this is necessary)</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
@@ -626,9 +541,9 @@ Wall time: 2.47 s
 </div>
 </div>
 <p>We will work with these reshaped vectors for most the rest of this assignment.</p>
-</section>
-<section id="b-neural-network">
-<h3>b. Neural Network<a class="headerlink" href="#b-neural-network" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="b-neural-network">
+<h3>b. Neural Network<a class="headerlink" href="#b-neural-network" title="Permalink to this headline">¶</a></h3>
 <p>Our next step is to write a neural network.   A neural network might sound complicated but it’s actually really simple.  All our neural network does is take the input vector (our reshaped image) to an output vector (of size 5 because we have five different ways to classify a galaxy).</p>
 <p>The equation for how to do this is
 <span class="math notranslate nohighlight">\(v_{out} = 1.0/(1+\exp(-(W_2 \textrm{tanh}(W_1 v_{in} + b_1) +b_2))\)</span>
@@ -652,9 +567,9 @@ where</p>
 <p>where params is a list that contains these parameters and imageVector is one of our reshaped images.</p>
 <p>Let’s test this out.  Generate a set of random parameters that have the correct dimension (for example to do this I used <code class="docutils literal notranslate"><span class="pre">0.1*np.random.randn(5,d)</span></code> for W2).   Then call <code class="docutils literal notranslate"><span class="pre">net(params,train_images[3])</span></code> and you should get what your current neural network guesses is the classification for the “3’rd” galaxy.  Use <span class="math notranslate nohighlight">\(d=100\)</span>.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Notice that the output isn’t a nice vector like <code class="docutils literal notranslate"><span class="pre">[0,0,0,0,1,0,0,0,0,0]</span></code>. Instead, it has ten different numbers between zero and one such as <code class="docutils literal notranslate"><span class="pre">[0.2400989</span> <span class="pre">,</span> <span class="pre">0.39862376,</span> <span class="pre">0.4565858</span> <span class="pre">,</span> <span class="pre">0.286503</span>&#160; <span class="pre">,</span> <span class="pre">0.734855</span>&#160; <span class="pre">]</span></code>  We will say that the neural network classifies the galaxy by whichever index is largest i.e. <code class="docutils literal notranslate"><span class="pre">np.argmax(outputVector)</span></code>. In this case it is the 0.8866 which corresponds to spot 4 or “Disk Edge on- rounded bulge” category.</p>
-</section>
-<section id="c-a-measure-of-goodness">
-<h3>c. A measure of goodness<a class="headerlink" href="#c-a-measure-of-goodness" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="c-a-measure-of-goodness">
+<h3>c. A measure of goodness<a class="headerlink" href="#c-a-measure-of-goodness" title="Permalink to this headline">¶</a></h3>
 <p>To quantify how good our neural network is, we will use two things:</p>
 <p>(1) <strong>Cross-entropy</strong>
 Let’s quantify how far off you are from the expected label (maybe it’s <code class="docutils literal notranslate"><span class="pre">[0,0,0,1,0]</span></code>) . A good way to quantify this is to use the cross entropy.  The cross-entropy is defined as
@@ -668,9 +583,9 @@ In addition to the cross-entropy, we care whether the winning labelling is corre
 <p>To make an objective function better, what we should do is to step in a direction where it gets better.  To do this, we are going to want to get the gradient.  We can use jax to get the gradient as we have in earlier assignments.</p>
 <p>Let’s define the gradient of the loss as
 <code class="docutils literal notranslate"><span class="pre">loss_grad</span> <span class="pre">=</span> <span class="pre">jit(jax.grad(jit(loss)))</span></code>.  (The <code class="docutils literal notranslate"><span class="pre">jit</span></code> are there to make things faster.  This is morally just <code class="docutils literal notranslate"><span class="pre">jax.grad(loss)</span></code> and that would work albeit be slower).</p>
-</section>
-<section id="d-classification">
-<h3>d. Classification<a class="headerlink" href="#d-classification" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="d-classification">
+<h3>d. Classification<a class="headerlink" href="#d-classification" title="Permalink to this headline">¶</a></h3>
 <p>Now all we need to do is to (over and over again)</p>
 <ul class="simple">
 <li><p>choose a random image in the <strong>training</strong> set.</p></li>
@@ -681,18 +596,18 @@ In addition to the cross-entropy, we care whether the winning labelling is corre
 <p>Every 2000 steps you might want to check the fraction of your test set that is now correct. Print it out as well as push it to a list.  You should find that your accuracy rises from 30% beyond 66%.  Plot your accuracy as a function of step for at least 50*2000, and if patient out to 100*2000.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Explore a couple images and see how the your neural network classifies it.  Also, it might be fun to go ahead and look at the ones that it classifies incorrectly whether its second choice was correct.  You can go ahead and explictily check this by looping over everything and collecting some statistics.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>We computed the gradient and took a step after every image.  It is better to average the gradient over some number (say ten) images and then take a step.  This is called a mini-batch.  Write some code to do mini-batches by just looping over ten images.  Then improve your code by figuring out to remove the extra loop and use <code class="docutils literal notranslate"><span class="pre">jax.vmap</span></code></p>
-</section>
-<section id="e-mini-batches-and-vmap-extra-credit-5-points">
-<h3>e.  Mini-batches and vmap (Extra Credit: 5 points)<a class="headerlink" href="#e-mini-batches-and-vmap-extra-credit-5-points" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="e-mini-batches-and-vmap-extra-credit-5-points">
+<h3>e.  Mini-batches and vmap (Extra Credit: 5 points)<a class="headerlink" href="#e-mini-batches-and-vmap-extra-credit-5-points" title="Permalink to this headline">¶</a></h3>
 <p><strong>Acknowledgement:</strong> This assignment follows very closely a tutorial from <a class="reference external" href="http://GalaxyZoo.com">GalaxyZoo.com</a></p>
 <ul class="simple">
 <li><p>Bryan Clark and Ruyan Level (original)</p></li>
 </ul>
 <p>Copyright: 2021</p>
 <hr class="docutils" />
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -716,11 +631,9 @@ In addition to the cross-entropy, we care whether the winning labelling is corre
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="FluidDynamics.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -736,28 +649,24 @@ In addition to the cross-entropy, we care whether the winning labelling is corre
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Clark; George Gollin; Ryan Levy<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Bryan Clark; George Gollin; Ryan Levy<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

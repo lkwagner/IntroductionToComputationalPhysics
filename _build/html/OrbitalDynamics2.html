@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Many Body Simulations &#8212; Physics 246</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,21 +39,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Particle Physics" href="ParticlePhysics.html" />
@@ -63,21 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,15 +93,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    An Introduction to Modern Computational Physics
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   An Introduction to Modern Computational Physics
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
    N ways to measure
@@ -197,17 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -215,128 +195,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/OrbitalDynamics2.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/OrbitalDynamics2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#automatic-differentiation">
    Automatic Differentiation
@@ -434,11 +347,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Many Body Simulations</h1>
@@ -552,12 +466,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="many-body-simulations">
-<h1>Many Body Simulations<a class="headerlink" href="#many-body-simulations" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="many-body-simulations">
+<h1>Many Body Simulations<a class="headerlink" href="#many-body-simulations" title="Permalink to this headline">¶</a></h1>
 <p><em>The three-body problem and Mercury Precession</em></p>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
@@ -600,10 +513,12 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">c</span><span class="o">/</span><span class="n">x9n91g7x7lqg0tt66yrmbwhm0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_33477</span><span class="o">/</span><span class="mf">2433571800.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">jax.config</span> <span class="kn">import</span> <span class="n">config</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;jax_enable_x64&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">math</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;jax&#39;
 </pre></div>
@@ -647,8 +562,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="automatic-differentiation">
-<h2>Automatic Differentiation<a class="headerlink" href="#automatic-differentiation" title="Permalink to this headline">#</a></h2>
+<div class="section" id="automatic-differentiation">
+<h2>Automatic Differentiation<a class="headerlink" href="#automatic-differentiation" title="Permalink to this headline">¶</a></h2>
 <p>Automatic differentiation is the process by which the derivative of a piece of code is automatically taken.  <a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">Jax</a> is a framework that allows you to do this.</p>
 <p>Suppose you had a function</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -683,15 +598,15 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="exercise-1-easier-forces">
-<h2>Exercise 1: Easier Forces<a class="headerlink" href="#exercise-1-easier-forces" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="exercise-1-easier-forces">
+<h2>Exercise 1: Easier Forces<a class="headerlink" href="#exercise-1-easier-forces" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<section id="a-automatic-differentiation">
-<h3>a. Automatic Differentiation<a class="headerlink" href="#a-automatic-differentiation" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-automatic-differentiation">
+<h3>a. Automatic Differentiation<a class="headerlink" href="#a-automatic-differentiation" title="Permalink to this headline">¶</a></h3>
 <p>For most forces (air resistance is an exception), we can get the force by taking the negative the gradient of the potential energy - i.e.
 <span class="math notranslate nohighlight">\(-\nabla^2 E(x,y,z) = -\partial E/\partial x -\partial E/\partial y - \partial E/\partial z \)</span></p>
 <p>This is advantageous because the energy is much easier to write down then the force.  For example, the gravitational energy between two particles is
@@ -700,7 +615,7 @@ $<span class="math notranslate nohighlight">\( E(\vec{r_1},\vec{r_2}) = \frac{GM
 <p>Your energy function should look like this</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">resetMe</span><span class="p">([</span><span class="s1">&#39;SolarSystemParameters&#39;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">E</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">params</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    t: time</span>
 <span class="sd">    pos: position</span>
 <span class="sd">    vel: velocity</span>
@@ -736,16 +651,16 @@ $<span class="math notranslate nohighlight">\( E(\vec{r_1},\vec{r_2}) = \frac{GM
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-</section>
-<section id="exercise-2-forces-from-energy-and-two-orbiting-suns">
-<h2>Exercise 2. Forces from Energy and Two Orbiting Suns<a class="headerlink" href="#exercise-2-forces-from-energy-and-two-orbiting-suns" title="Permalink to this headline">#</a></h2>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+</div>
+<div class="section" id="exercise-2-forces-from-energy-and-two-orbiting-suns">
+<h2>Exercise 2. Forces from Energy and Two Orbiting Suns<a class="headerlink" href="#exercise-2-forces-from-energy-and-two-orbiting-suns" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<section id="a-orbiting-suns">
-<h3>a. Orbiting Suns<a class="headerlink" href="#a-orbiting-suns" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-orbiting-suns">
+<h3>a. Orbiting Suns<a class="headerlink" href="#a-orbiting-suns" title="Permalink to this headline">¶</a></h3>
 <p>Suppose instead of the Earth orbitting the Sun, we wanted to simulate two Suns (a binary star system). Because two suns have the same (or potentially similar) mass, we can’t use the assumption that we’ve used so far that the one star orbits the other.  Instead they are going to orbit around each other.  We can make a small number of changes to get our code to work with these two stars.</p>
 <p>🦉</p>
 <ul class="simple">
@@ -845,9 +760,9 @@ $<span class="math notranslate nohighlight">\( E(\vec{r_1},\vec{r_2}) = \frac{GM
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-<section id="b-cleaning-up-the-mass">
-<h3>b. Cleaning up the mass<a class="headerlink" href="#b-cleaning-up-the-mass" title="Permalink to this headline">#</a></h3>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+<div class="section" id="b-cleaning-up-the-mass">
+<h3>b. Cleaning up the mass<a class="headerlink" href="#b-cleaning-up-the-mass" title="Permalink to this headline">¶</a></h3>
 <p>🦉This time do the same calculation with one of the Sun’s having half the mass of the other.  Here you need to be careful when you compute the acceleration that you are using the right mass to divide the force of the right Sun.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -856,16 +771,16 @@ $<span class="math notranslate nohighlight">\( E(\vec{r_1},\vec{r_2}) = \frac{GM
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-</section>
-<section id="exercise-3-three-planets">
-<h2>Exercise 3. Three Planets<a class="headerlink" href="#exercise-3-three-planets" title="Permalink to this headline">#</a></h2>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+</div>
+<div class="section" id="exercise-3-three-planets">
+<h2>Exercise 3. Three Planets<a class="headerlink" href="#exercise-3-three-planets" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<section id="a-three-planets">
-<h3>a. Three Planets<a class="headerlink" href="#a-three-planets" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-three-planets">
+<h3>a. Three Planets<a class="headerlink" href="#a-three-planets" title="Permalink to this headline">¶</a></h3>
 <p>While the one and two body can be dealt with analytically, once you have a three-body problem you must use numerics.  In this exercise, modify your energy function to work with three particles (you should be computing three distances in this function).  🦉 Plot the <span class="math notranslate nohighlight">\(y\)</span> vs <span class="math notranslate nohighlight">\(x\)</span> for three particles all with a mass of  <code class="docutils literal notranslate"><span class="pre">m=1.49925038e+34</span></code> with<code class="docutils literal notranslate"><span class="pre">dt=60.*60.</span></code> for the following two sets of initial conditions.  Plot after subtracting out the center of mass! Animate them both.</p>
 <p><strong>Condition 1:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">param</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">60.</span><span class="o">*</span><span class="mf">60.</span><span class="o">*</span><span class="mf">24.0</span><span class="o">*</span><span class="mi">100</span>
@@ -990,45 +905,45 @@ $<span class="math notranslate nohighlight">\( E(\vec{r_1},\vec{r_2}) = \frac{GM
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-</section>
-<section id="exercise-4-full-solar-system-dynamics-extra-credit">
-<h2>Exercise 4: Full Solar System Dynamics (Extra Credit)<a class="headerlink" href="#exercise-4-full-solar-system-dynamics-extra-credit" title="Permalink to this headline">#</a></h2>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+</div>
+<div class="section" id="exercise-4-full-solar-system-dynamics-extra-credit">
+<h2>Exercise 4: Full Solar System Dynamics (Extra Credit)<a class="headerlink" href="#exercise-4-full-solar-system-dynamics-extra-credit" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
 <p><strong>(These don’t have to be done in order although succeeding in some of them will essentially complete others)</strong></p>
-<section id="a-symplectic-integration-ec-5-points">
-<h3>a. Symplectic Integration (EC: 5 points)<a class="headerlink" href="#a-symplectic-integration-ec-5-points" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-symplectic-integration-ec-5-points">
+<h3>a. Symplectic Integration (EC: 5 points)<a class="headerlink" href="#a-symplectic-integration-ec-5-points" title="Permalink to this headline">¶</a></h3>
 <p>Replace your second order integrator with a symplectic integrator.  Such an integrator has similar error profile but has a physical property that it conserves an energy for a (slightly different) Hamiltonian which makes it better for planetary simulations</p>
-</section>
-<section id="b-full-solar-system-ec-15-points">
-<h3>b.  Full Solar System (EC: 15 points)<a class="headerlink" href="#b-full-solar-system-ec-15-points" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="b-full-solar-system-ec-15-points">
+<h3>b.  Full Solar System (EC: 15 points)<a class="headerlink" href="#b-full-solar-system-ec-15-points" title="Permalink to this headline">¶</a></h3>
 <p>Modify your simulation to work with an arbitrary number of bodies.  You want your energy function to have no “for loops” in it - only numpy calls.  (Also come ask me how to speed up your code by appropriate additions of &#64;jit). Then figure out how to get correct initial conditions for planets (astropy should help). Go ahead and implement a full solar system simulation for the eight planets.</p>
-</section>
-<section id="c-voyager-simulation-ec-10-points">
-<h3>c. Voyager Simulation (EC: 10 points)<a class="headerlink" href="#c-voyager-simulation-ec-10-points" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="c-voyager-simulation-ec-10-points">
+<h3>c. Voyager Simulation (EC: 10 points)<a class="headerlink" href="#c-voyager-simulation-ec-10-points" title="Permalink to this headline">¶</a></h3>
 <p>After finishing part (b), figure out reasonable initial conditions from Voyager 1 or Voyager 2 and get a flyby (of at least Jupiter and Saturn) to work correctly in your simulation.</p>
-</section>
-<section id="d-lagrange-points-ec-5-points">
-<h3>d. Lagrange Points (EC: 5 points)<a class="headerlink" href="#d-lagrange-points-ec-5-points" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="d-lagrange-points-ec-5-points">
+<h3>d. Lagrange Points (EC: 5 points)<a class="headerlink" href="#d-lagrange-points-ec-5-points" title="Permalink to this headline">¶</a></h3>
 <p><strong>This problem can be done with only a three-body simulation working</strong></p>
 <p>Find the five lagrange points around the Earth-Sun system.  You can either do this by looking up/calculating where they should be or by doing a <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> to find them.  Show that they are lagrange points and show (by perturbing your satellite in the simulation at those points) that two of them are stable and the other three are unstable.</p>
-</section>
-<section id="e-the-nice-model-ec-35-points">
-<h3>e.  The nice model (EC: 35 points)<a class="headerlink" href="#e-the-nice-model-ec-35-points" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="e-the-nice-model-ec-35-points">
+<h3>e.  The nice model (EC: 35 points)<a class="headerlink" href="#e-the-nice-model-ec-35-points" title="Permalink to this headline">¶</a></h3>
 <p>Simulate the nice model (<a class="reference external" href="https://en.wikipedia.org/wiki/Nice_model">https://en.wikipedia.org/wiki/Nice_model</a>) with the four gas giants planets and a thousand disk planetismal belt and show the gas giants move from their initial position to (something close) to their current position.</p>
-</section>
-<section id="f-your-universe-ec-5-points">
-<h3>f.  Your universe (EC: 5 points)<a class="headerlink" href="#f-your-universe-ec-5-points" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="f-your-universe-ec-5-points">
+<h3>f.  Your universe (EC: 5 points)<a class="headerlink" href="#f-your-universe-ec-5-points" title="Permalink to this headline">¶</a></h3>
 <p>Setup a cool set of initial conditions for a multiple-body gravitational simulation and simulate!</p>
-</section>
-</section>
-<section id="exercise-5">
-<h2>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this headline">#</a></h2>
-<section id="a-solving-euler-lagrange-with-no-work">
-<h3>a. Solving Euler-Lagrange with no work<a class="headerlink" href="#a-solving-euler-lagrange-with-no-work" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="exercise-5">
+<h2>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-solving-euler-lagrange-with-no-work">
+<h3>a. Solving Euler-Lagrange with no work<a class="headerlink" href="#a-solving-euler-lagrange-with-no-work" title="Permalink to this headline">¶</a></h3>
 <p>Getting the dynamics for the double pendula working was somewhat tricky.  In particular, we had to work out the equations of motion which were somewhat painful.  Earlier we managed to avoid much of this work by using automatic differentiation on the energy. This doesn’t quite work here because of the constraints.  Instead we should <em>work in generalized coordinates and solve the Euler-Largrange equation.</em>. The Euler-Lagrange equation takes a <em>Lagrangian</em> <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> and produces a differential equation we can solve to get the equations of motion</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1094,9 +1009,9 @@ Working in generalized coordinates just means working in some coordinates that r
 <li><p>Bryan Clark (original)</p></li>
 </ul>
 <p>© Copyright 2021</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1120,11 +1035,9 @@ Working in generalized coordinates just means working in some coordinates that r
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="chaos.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1140,28 +1053,24 @@ Working in generalized coordinates just means working in some coordinates that r
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Clark; George Gollin; Ryan Levy<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Bryan Clark; George Gollin; Ryan Levy<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

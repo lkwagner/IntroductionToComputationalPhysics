@@ -31,6 +31,7 @@ import pylab as plt
 # In[82]:
 
 
+
 # first do IBMQ.save_account("your API Key")
 IBMQ.load_account()
 
@@ -322,6 +323,8 @@ def Probability(myCounts,wire):
 # In[103]:
 
 
+
+
 def MakeSinglet(qc):
     aliceWire=0
     bobWire=1
@@ -366,6 +369,7 @@ print("They agree this fraction of the time: " ,amountAgree)
 # ![image.png](attachment:image.png)
 
 # In[12]:
+
 
 
 AliceBits=[]
@@ -447,13 +451,13 @@ mask=np.array(HadamardA)==(HadamardB)
 # In[16]:
 
 
+
 def Init(qc,myString='000'):
     #write me
 
 qc=QuantumCircuit(3,3)
 Init(qc,'011')
 qc.draw(output='mpl')
-
 
 
 # ### b. A sum over all states

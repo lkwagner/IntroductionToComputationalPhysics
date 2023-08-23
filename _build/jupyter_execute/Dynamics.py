@@ -27,7 +27,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy
 def resetMe(keepList=[]):
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     keepList=keepList+['resetMe','np','plt','scipy']
     for iiii in keepList:
         if iiii in ll:
@@ -35,7 +35,7 @@ def resetMe(keepList=[]):
     for iiii in ll:
         jjjj="^"+iiii+"$"
         get_ipython().run_line_magic('reset_selective', '-f {jjjj}')
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     plt.rcParams.update({"font.size": 14})
     return
 import datetime;datetime.datetime.now()
@@ -47,7 +47,7 @@ import datetime;datetime.datetime.now()
 
 # In a number of cases you will hav a list like `a=[1.2,3.2,5.4]` and want to convert it to a numpy array.  To do this, you can do  `a=np.array(a)`
 
-# In[14]:
+# In[2]:
 
 
 resetMe()
@@ -72,7 +72,7 @@ print(type(a))
 # 
 # 🦉Go ahead and make this conversion and then figure out how to seperately access the x positions and y positions (i.e. `positions[:,1])`
 
-# In[15]:
+# In[3]:
 
 
 positions=[np.array([0.0,1.0]),np.array([0.1,2.0]),np.array([0.2,3.0])]
@@ -94,7 +94,7 @@ print("The y positions should be [1.,2.,3.]")
 # You could square all the velocities by doing `myVel**2`
 # 
 
-# In[16]:
+# In[4]:
 
 
 resetMe()
@@ -121,7 +121,7 @@ print("myVel**2 is \t",myVel**2)
 # 
 # This also lets me verify I didn't forget to set some parameter.  If I do `param["temperature"]` and haven't defined it yet, it's going to complain.
 
-# In[17]:
+# In[5]:
 
 
 params=dict() # can also use {}
@@ -139,7 +139,7 @@ dt=params["dt"]
 # 
 # 
 
-# In[18]:
+# In[6]:
 
 
 slope=1.35
@@ -164,7 +164,7 @@ plt.show()
 # ```
 # 
 
-# In[19]:
+# In[7]:
 
 
 # try it here
@@ -187,7 +187,7 @@ plt.show()
 # 
 # Below is some data which has a polynomial relationship.  Notice how it looks quadratic.
 
-# In[20]:
+# In[8]:
 
 
 slope=1.35
@@ -208,7 +208,7 @@ plt.show()
 # ```
 # before the `plt.show()`.
 
-# In[21]:
+# In[9]:
 
 
 ### go ahead and plot things on a log-scale here.
@@ -230,7 +230,7 @@ plt.show()
 # 
 # Go ahead and try this out. 
 
-# In[22]:
+# In[10]:
 
 
 myLine=np.polyfit(np.log(x[1:]),np.log(y[1:]),1) #!#
@@ -241,7 +241,7 @@ print(myLine) #!#
 # 
 # 🦉Let's go ahead and plot to see how well this works
 
-# In[23]:
+# In[11]:
 
 
 plt.plot(x,y,'.')
@@ -325,7 +325,7 @@ plt.show()
 # 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[24]:
+# In[12]:
 
 
 #### ANSWER HERE
@@ -393,7 +393,7 @@ plt.show()
 # 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[25]:
+# In[13]:
 
 
 ###ANSWER HERE
@@ -422,7 +422,7 @@ plt.show()
 # *Put your code here. Using the same initial conditions as above, print the position and velocities of five steps so we can check that you have the correct answer.*
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[26]:
+# In[14]:
 
 
 ###ANSWER HERE
@@ -451,7 +451,7 @@ plt.show()
 # *Put the code which generates the plots (and the plots) here.*
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[27]:
+# In[15]:
 
 
 ### ANSWER HERE
@@ -466,7 +466,7 @@ plt.show()
 # *You just have to run this code and then play the animation to generate it.*
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[28]:
+# In[16]:
 
 
 from matplotlib import animation

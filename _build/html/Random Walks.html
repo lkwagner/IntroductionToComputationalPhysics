@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Walks &#8212; Physics 246</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,21 +39,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Markov Chains" href="Markov%20Chains.html" />
@@ -63,21 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,15 +93,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    An Introduction to Modern Computational Physics
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   An Introduction to Modern Computational Physics
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
    N ways to measure
@@ -197,17 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -215,128 +195,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/Random Walks.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Random Walks.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-1-unbiased-random-walks">
    Exercise 1: Unbiased Random Walks
@@ -405,11 +318,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Random Walks</h1>
@@ -494,12 +408,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="random-walks">
-<h1>Random Walks<a class="headerlink" href="#random-walks" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="random-walks">
+<h1>Random Walks<a class="headerlink" href="#random-walks" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
 <li><p><strong>Date:</strong></p></li>
@@ -524,21 +437,9 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">resetMe</span><span class="p">(</span><span class="n">keepList</span><span class="o">=</span><span class="p">[]):</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
-</pre></div>
 </div>
-</div>
-</div>
-<section id="exercise-1-unbiased-random-walks">
-<h2>Exercise 1: Unbiased Random Walks<a class="headerlink" href="#exercise-1-unbiased-random-walks" title="Permalink to this headline">#</a></h2>
+<div class="section" id="exercise-1-unbiased-random-walks">
+<h2>Exercise 1: Unbiased Random Walks<a class="headerlink" href="#exercise-1-unbiased-random-walks" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -557,8 +458,8 @@ generators:</p>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">averageJumpDistance</span></code> is the typical distance the pollen particle jumps every 30 seconds, which I set to 6 <span class="math notranslate nohighlight">\(\mu m\)</span>. The <code class="docutils literal notranslate"><span class="pre">np.random.randn()</span></code> command generates a random number from the Gaussian (or Normal) distribution with mean zero and standard deviation one.</p>
-<section id="a-plot-a-random-walk">
-<h3>a.  Plot a random walk<a class="headerlink" href="#a-plot-a-random-walk" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-plot-a-random-walk">
+<h3>a.  Plot a random walk<a class="headerlink" href="#a-plot-a-random-walk" title="Permalink to this headline">¶</a></h3>
 <p>🦉Generate your own random walk and plot it. Use the same parameters as in the above figure, i.e., simulate <span class="math notranslate nohighlight">\(6 \mu m\)</span> jumps every 30 seconds for 30,000 seconds, or 1,000 jumps.</p>
 <p>The first thing you will notice is that random walks can vary a lot. Yours will probably look very different than the one in the above figure. Generate another random walk using your code and notice that it too is different form your first walk. So what can we learn about how the pollen grain moves if every time the motion is random? Well, we can try simulating many random walks and looking at what happens on average.</p>
  <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
@@ -568,9 +469,9 @@ generators:</p>
 </div>
 </div>
 </div>
- <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-<section id="b-random-walk-averages">
-<h3>b. Random Walk Averages<a class="headerlink" href="#b-random-walk-averages" title="Permalink to this headline">#</a></h3>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+<div class="section" id="b-random-walk-averages">
+<h3>b. Random Walk Averages<a class="headerlink" href="#b-random-walk-averages" title="Permalink to this headline">¶</a></h3>
 <p>🦉Generate 2,000 random walks and write code to calculate, then graph the average position <span class="math notranslate nohighlight">\(\langle x_k \rangle\)</span> after the kth jump, for k running from 0 to 1,999. What do I mean by averaging over walks? For example, say that we have two random walks, each made of 1,000 steps. I store the positions of the random walks as two length 1,000 arrays walk1 and walk2. Averaging over the two walks, the average position after each jump is an array I can calculate as</p>
 <p><code class="docutils literal notranslate"><span class="pre">average_array</span> <span class="pre">=</span> <span class="pre">(walk1</span> <span class="pre">+</span> <span class="pre">walk2)</span> <span class="pre">/</span> <span class="pre">2.0</span></code>.</p>
 <p>There’s a more graceful way to do this than storing all the arrays, then calculating the average at the end. Instead, add the position after each jump while generating a walk into a single accumulator array. After you are done generating walks divide each element in your accumulator array by the number of walks.
@@ -639,9 +540,9 @@ Let me illustrate what I mean with a table of hypothetical data, for 2,000 rando
 </div>
 </div>
 </div>
- <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-<section id="c-computing-average-distance">
-<h3>c. Computing average distance<a class="headerlink" href="#c-computing-average-distance" title="Permalink to this headline">#</a></h3>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+<div class="section" id="c-computing-average-distance">
+<h3>c. Computing average distance<a class="headerlink" href="#c-computing-average-distance" title="Permalink to this headline">¶</a></h3>
 <p>An interesting quantity to consider for random walks is the root-mean-square (RMS) displacement as a function of time. For the <span class="math notranslate nohighlight">\(k\)</span>’th jump the RMS tells us how much the pollen particle’s position will have tended to drift by the time it executes the <span class="math notranslate nohighlight">\(k\)</span>’th jump in a typical walk.</p>
 <p>Is is easy to calculate the RMS displacement for each bin without storing the position arrays of individual walks. Here’s how:</p>
 <div class="math notranslate nohighlight">
@@ -673,17 +574,17 @@ RMS_{k^{th} jump} &amp;= \sqrt{\frac{1}{N}\sum_{j=0}^{j=N}\left(x_{k,walk\,j}-\l
 </div>
 </div>
 </div>
- <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-</section>
-<section id="exercise-2-random-walks-in-two-dimensions">
-<h2>Exercise 2: Random Walks in Two Dimensions<a class="headerlink" href="#exercise-2-random-walks-in-two-dimensions" title="Permalink to this headline">#</a></h2>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+</div>
+<div class="section" id="exercise-2-random-walks-in-two-dimensions">
+<h2>Exercise 2: Random Walks in Two Dimensions<a class="headerlink" href="#exercise-2-random-walks-in-two-dimensions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
 <p>Now, let’s consider a two-dimensional random walk. We put our pollen particle on a petri dish covered with a thin layer of water so that it can move in a plane.</p>
- <div><img src="https://clark.physics.illinois.edu/246img/RW5.png" width=1000 alt="RW"></img><br></div><section id="a-2d-walks">
-<h3>a. 2D Walks<a class="headerlink" href="#a-2d-walks" title="Permalink to this headline">#</a></h3>
+ <div><img src="https://clark.physics.illinois.edu/246img/RW5.png" width=1000 alt="RW"></img><br></div><div class="section" id="a-2d-walks">
+<h3>a. 2D Walks<a class="headerlink" href="#a-2d-walks" title="Permalink to this headline">¶</a></h3>
 <p>We mark the pollen grain’s initial position as   <span class="math notranslate nohighlight">\((x_0,y_0)=(0,0) \mu  m\)</span>. We measure every 30 seconds and see each component of the pollen particle’s position <span class="math notranslate nohighlight">\(x_k,y_k\)</span> jump from its previous
 position. We’ll expect the typical jump distance to be <span class="math notranslate nohighlight">\(\approx 6\sqrt{2}\)</span> <span class="math notranslate nohighlight">\(\mu m\)</span>.</p>
 <p>Write code that generates 2,000 two-dimensional random walks and plots the average radial displacement over time:</p>
@@ -698,45 +599,45 @@ position. We’ll expect the typical jump distance to be <span class="math notra
 </div>
 </div>
 </div>
- <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-</section>
-<section id="exercise-3-uniform-walks-ec-5-points">
-<h2>Exercise 3: Uniform walks (EC - 5 points)<a class="headerlink" href="#exercise-3-uniform-walks-ec-5-points" title="Permalink to this headline">#</a></h2>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+</div>
+<div class="section" id="exercise-3-uniform-walks-ec-5-points">
+<h2>Exercise 3: Uniform walks (EC - 5 points)<a class="headerlink" href="#exercise-3-uniform-walks-ec-5-points" title="Permalink to this headline">¶</a></h2>
 <p><em>(Extra credit: 5 points)</em></p>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
 <p>Do a similar analysis to the work above (in two dimensions) using walks that randomly make a step in one of four directions of unit length. Notice that this explicitly breaks the circular symmetry of the two-dimensional Gaussian random walks.  Show that these uniform walks still have a diffusive aspect at large distances and (at large distances) restore this symmetry (i.e. the two-dimensional density profile of being a distance <span class="math notranslate nohighlight">\(r\)</span> aways doesn’t differ for up vs up-right).  This restoration of symmetry is an aspect of universality.</p>
-</section>
-<section id="exercise-4-gaussian-random-walks-ec">
-<h2>Exercise 4: Gaussian Random Walks (EC)<a class="headerlink" href="#exercise-4-gaussian-random-walks-ec" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="exercise-4-gaussian-random-walks-ec">
+<h2>Exercise 4: Gaussian Random Walks (EC)<a class="headerlink" href="#exercise-4-gaussian-random-walks-ec" title="Permalink to this headline">¶</a></h2>
 <p><em>(Extra credit: 20 points)</em></p>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
 <p>(Some of the explanaitions here are abbreviated even for an extra credit.  I am sneakily having you do Quantum Monte Carlo (QMC) here.  If you want to do this extra credit [particularly after part <strong>a.</strong>] you should probably come talk to me)</p>
-<section id="a-fixed-points">
-<h3>a. Fixed Points<a class="headerlink" href="#a-fixed-points" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-fixed-points">
+<h3>a. Fixed Points<a class="headerlink" href="#a-fixed-points" title="Permalink to this headline">¶</a></h3>
 <p>Imagine we were to produce the walks in exercise 2 and then throw out any of the walks that didn’t end at <span class="math notranslate nohighlight">\((x,y)=(5,5)\)</span>.  This would induce some probability distribution over walks.  Unfortunately this would be very inefficient.  Instead figure out (read about Levy Flights and Brownian bridges) how to generate the same probability distribution as this efficiently. Write code that does so and then plot 10 paths between two fixed points (you can choose where they are fixed).</p>
-</section>
-<section id="b-connected-points">
-<h3>b.  Connected Points<a class="headerlink" href="#b-connected-points" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="b-connected-points">
+<h3>b.  Connected Points<a class="headerlink" href="#b-connected-points" title="Permalink to this headline">¶</a></h3>
 <p>Start with 100 connected (in order) points all at <span class="math notranslate nohighlight">\((0,0)\)</span> (i.e. <span class="math notranslate nohighlight">\(x_0=(0,0); x_1=(0,0);...\)</span> . We will have <span class="math notranslate nohighlight">\(x_{99}\)</span> connceted to <span class="math notranslate nohighlight">\(x_0.\)</span> Choose a window of ten points at random (maybe 33-43) and use the algorithm you described in <strong>4a</strong> to regenerate points <span class="math notranslate nohighlight">\(x_{34},x_{35},..,x_{42}\)</span>.   Then pick another window and do this again.  Repeat this process 1000 times and</p>
 <ul class="simple">
 <li><p>make a plot of your points (connected by lines)</p></li>
 <li><p>Report the average distance between consecutive points.</p></li>
 <li><p>Make a histogram of the distances between average points.</p></li>
 </ul>
-</section>
-<section id="c-fixed-region">
-<h3>c. Fixed Region<a class="headerlink" href="#c-fixed-region" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="c-fixed-region">
+<h3>c. Fixed Region<a class="headerlink" href="#c-fixed-region" title="Permalink to this headline">¶</a></h3>
 <p>Repeat <strong>b.</strong> with the constraint that you should just not rebuild your window if, after making the new points, any of the points are outside a box that extends <span class="math notranslate nohighlight">\(-1 \leq x \leq 1\)</span> and <span class="math notranslate nohighlight">\(-1 \leq y \leq 1\)</span>.</p>
 <p>Graph the probability points are at given places in the box.</p>
-</section>
-<section id="d-1d">
-<h3>d. 1D<a class="headerlink" href="#d-1d" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="d-1d">
+<h3>d. 1D<a class="headerlink" href="#d-1d" title="Permalink to this headline">¶</a></h3>
 <p>Redo this for one dimension.</p>
 <p>**Acknowledgements:</p>
 <ul class="simple">
@@ -744,9 +645,9 @@ position. We’ll expect the typical jump distance to be <span class="math notra
 </ul>
 <hr class="docutils" />
 <p>© Copyright 2021</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -770,11 +671,9 @@ position. We’ll expect the typical jump distance to be <span class="math notra
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="ParticlePhysics.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -790,28 +689,24 @@ position. We’ll expect the typical jump distance to be <span class="math notra
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Clark; George Gollin; Ryan Levy<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Bryan Clark; George Gollin; Ryan Levy<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

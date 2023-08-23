@@ -14,6 +14,7 @@
 # In[1]:
 
 
+
 import numpy as np
 import matplotlib.pyplot as plt
 import math
@@ -26,7 +27,7 @@ import math
 import matplotlib.animation as animation
 from IPython.display import HTML
 def resetMe(keepList=[]):
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     keepList=keepList+['resetMe','np','plt','math','jax','jnp','jit','grad','HTML','animation','animateMe_singlePendula']
     for iiii in keepList:
         if iiii in ll:
@@ -34,7 +35,7 @@ def resetMe(keepList=[]):
     for iiii in ll:
         jjjj="^"+iiii+"$"
         get_ipython().run_line_magic('reset_selective', '-f {jjjj}')
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     plt.rcParams.update({"font.size": 14})
     return
 resetMe()
@@ -51,7 +52,7 @@ import datetime;datetime.datetime.now()
 
 # You will use the following animation code for exercise 1
 
-# In[5]:
+# In[2]:
 
 
 def animateMe_singlePendula(positions): 
@@ -123,13 +124,13 @@ def animateMe_singlePendula(positions):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[6]:
+# In[3]:
 
 
 ### ANSWER HERE
 
 
-# In[7]:
+# In[4]:
 
 
 #RUN ME TO ANIMATE YOUR CODE

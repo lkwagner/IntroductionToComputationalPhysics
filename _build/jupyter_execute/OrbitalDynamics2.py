@@ -28,7 +28,7 @@ from jax import jit, grad
 import jax.numpy as jnp
 import jax
 def resetMe(keepList=[]):
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     keepList=keepList+['resetMe','np','plt','math','jax','jnp','jit','grad']
     for iiii in keepList:
         if iiii in ll:
@@ -36,7 +36,7 @@ def resetMe(keepList=[]):
     for iiii in ll:
         jjjj="^"+iiii+"$"
         get_ipython().run_line_magic('reset_selective', '-f {jjjj}')
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     plt.rcParams.update({"font.size": 14})
     return
 resetMe()

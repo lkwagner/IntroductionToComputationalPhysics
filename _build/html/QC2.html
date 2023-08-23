@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quantum Computing 2 &#8212; Physics 246</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,21 +39,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Cool Projects" href="Projects.html" />
@@ -63,21 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,15 +93,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    An Introduction to Modern Computational Physics
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   An Introduction to Modern Computational Physics
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
    N ways to measure
@@ -197,17 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -215,128 +195,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/QC2.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/QC2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-1-using-the-speed-of-quantum-computers-33-points">
    Exercise 1: Using the Speed of Quantum Computers (33 points)
@@ -442,11 +355,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Quantum Computing 2</h1>
@@ -568,12 +482,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="quantum-computing-2">
-<h1>Quantum Computing 2<a class="headerlink" href="#quantum-computing-2" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="quantum-computing-2">
+<h1>Quantum Computing 2<a class="headerlink" href="#quantum-computing-2" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
 <li><p><strong>Date:</strong></p></li>
@@ -594,10 +507,12 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">c</span><span class="o">/</span><span class="n">x9n91g7x7lqg0tt66yrmbwhm0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_33501</span><span class="o">/</span><span class="mf">1634334525.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">qiskit</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">time</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">qiskit.visualization</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;qiskit&#39;
 </pre></div>
@@ -647,11 +562,11 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="exercise-1-using-the-speed-of-quantum-computers-33-points">
-<h2>Exercise 1: Using the Speed of Quantum Computers (33 points)<a class="headerlink" href="#exercise-1-using-the-speed-of-quantum-computers-33-points" title="Permalink to this headline">#</a></h2>
+<div class="section" id="exercise-1-using-the-speed-of-quantum-computers-33-points">
+<h2>Exercise 1: Using the Speed of Quantum Computers (33 points)<a class="headerlink" href="#exercise-1-using-the-speed-of-quantum-computers-33-points" title="Permalink to this headline">¶</a></h2>
 <p>Last class we saw how with just two qubits and two gates, an average quantum computer today isn’t quite perfect. However, <a class="reference external" href="https://www.nytimes.com/2019/10/23/technology/quantum-computing-google.html">recent research claims</a> to have developed both a test and proof of quantum supremacy, where quantum computers performed work faster than any computer on earth. We’ll investigate a simplified version of this test to show the power of current quantum computing.</p>
-<section id="a-random-circuits">
-<h3>a. Random Circuits<a class="headerlink" href="#a-random-circuits" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-random-circuits">
+<h3>a. Random Circuits<a class="headerlink" href="#a-random-circuits" title="Permalink to this headline">¶</a></h3>
 <p>Our goal is going to be producing a random circuit which with a supercomputer or even a laptop would be hard to solve. The trick we’ll employ is only using a small scale so that we can actually simulate the circuit.</p>
 <p>Consider a circuit with <span class="math notranslate nohighlight">\(N\)</span> wires. Here are the steps to create the proper circuit:</p>
 <ol class="simple">
@@ -672,8 +587,8 @@ d. Apply a random gate on each wire</p></li>
 <!--![image.png](attachment:image.png)-->
 <img src="attachment:image.png" width="800px" />   
 <p>Implement these steps for a variable size and depth circuit with the scaffolding below.</p>
-<section id="solution">
-<h4>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h4>
+<div class="section" id="solution">
+<h4>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">applyRandomGate</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span><span class="n">wire</span><span class="p">):</span>
@@ -715,10 +630,10 @@ d. Apply a random gate on each wire</p></li>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="b-small-circuits">
-<h3>b. Small Circuits<a class="headerlink" href="#b-small-circuits" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="b-small-circuits">
+<h3>b. Small Circuits<a class="headerlink" href="#b-small-circuits" title="Permalink to this headline">¶</a></h3>
 <p>The obvious thing to check is that our quantum computer gives the same output as what our classical computer can compute. To do this, we’ll find the actual probabilities (the state vector), and compare that with sampled probabilities.</p>
 <ol class="simple">
 <li><p>Generate a random circuit with <strong>5 wires</strong> and <strong>1 layer</strong>.</p></li>
@@ -736,8 +651,8 @@ d. Apply a random gate on each wire</p></li>
 <p>Notice that we can’t access the complex phases via sampling, only the probabilities.</p>
 <p>Here’s what ours looked like for one run:
 <img alt="image.png" src="attachment:image.png" /></p>
-<section id="id1">
-<h4>Solution:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id1">
+<h4>Solution:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nWires</span>  <span class="o">=</span> <span class="mi">5</span>
@@ -747,10 +662,10 @@ d. Apply a random gate on each wire</p></li>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="c-on-the-quantum-computer">
-<h3>c. On the Quantum Computer<a class="headerlink" href="#c-on-the-quantum-computer" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="c-on-the-quantum-computer">
+<h3>c. On the Quantum Computer<a class="headerlink" href="#c-on-the-quantum-computer" title="Permalink to this headline">¶</a></h3>
 <p>Now we have a prescription for checking small systems, let’s run 5 qubits and 1 layer on the quantum computer and check the output. Do the probabilities match?</p>
 <p><em>Notes:</em></p>
 <ul class="simple">
@@ -770,13 +685,13 @@ d. Apply a random gate on each wire</p></li>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="exercise-2-bigger-circuits-ec-20-points">
-<h2>Exercise 2: Bigger Circuits (EC - 20 points)<a class="headerlink" href="#exercise-2-bigger-circuits-ec-20-points" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="a-and-adding-depth">
-<h2>a. And Adding Depth<a class="headerlink" href="#a-and-adding-depth" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="exercise-2-bigger-circuits-ec-20-points">
+<h2>Exercise 2: Bigger Circuits (EC - 20 points)<a class="headerlink" href="#exercise-2-bigger-circuits-ec-20-points" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="a-and-adding-depth">
+<h2>a. And Adding Depth<a class="headerlink" href="#a-and-adding-depth" title="Permalink to this headline">¶</a></h2>
 <p>As the circuits get larger and larger, evaluating them becomes slower. To keep things moving along, let’s repeat part <strong>a</strong> (<strong>not</strong> using the real quantum computer) but with a bigger circuit.</p>
 <p>Generate a random circuit with <strong>14 wires</strong>, <strong>25 layers</strong>, and <strong>2048 samples</strong>. Make sure to also obtain a state vector. <em>Hint:</em> This should be as simple as changing 3 variables.</p>
 <p><strong>Note:</strong> Also if you’d like, change the CNOTs to control-Z gates (<code class="docutils literal notranslate"><span class="pre">cx</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">cz</span></code>).<br />
@@ -791,15 +706,15 @@ IBM’s quantum computers didn’t seem to handle <code class="docutils literal 
 </div>
 </div>
 </div>
-<section id="b-checking-convergence">
-<h3>b. Checking Convergence<a class="headerlink" href="#b-checking-convergence" title="Permalink to this headline">#</a></h3>
+<div class="section" id="b-checking-convergence">
+<h3>b. Checking Convergence<a class="headerlink" href="#b-checking-convergence" title="Permalink to this headline">¶</a></h3>
 <p>You may be wondering why there’s these rules to create the random circuit. This is so that in the limit of a large number of qubits and many layers (i.e. circuit depth), the circuit acts according to the Porter-Thomas distribution. We’ll verify that now, so you know your circuit is written properly.</p>
-<section id="aside">
-<h4>Aside:<a class="headerlink" href="#aside" title="Permalink to this headline">#</a></h4>
+<div class="section" id="aside">
+<h4>Aside:<a class="headerlink" href="#aside" title="Permalink to this headline">¶</a></h4>
 <p>When you do one measurement on a quantum computer (or our simulated one), you get a single state out, which we’ve called a bitstring (i.e. <code class="docutils literal notranslate"><span class="pre">010100...</span></code>). If the quantum computer is evaluating the circuit properly, we should see the higher probability bitstrings more often. So we need a way to quantify if these bitstring outputs match the actual most probable bitstrings.</p>
-</section>
-<section id="assignment">
-<h4>Assignment:<a class="headerlink" href="#assignment" title="Permalink to this headline">#</a></h4>
+</div>
+<div class="section" id="assignment">
+<h4>Assignment:<a class="headerlink" href="#assignment" title="Permalink to this headline">¶</a></h4>
 <p>For a given probability of a bitstring <span class="math notranslate nohighlight">\(p\)</span>, the Porter-Thomas (PT) distribution goes as
 $<span class="math notranslate nohighlight">\(
 P(p) = D \exp(-Dp)
@@ -814,9 +729,9 @@ Your state vector should follow this distribution if everything is right.</p>
 </ul>
 </li>
 </ul>
-</section>
-<section id="id2">
-<h4>Solution:<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+</div>
+<div class="section" id="id2">
+<h4>Solution:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nWires</span> <span class="o">=</span> <span class="mi">14</span>
@@ -829,21 +744,21 @@ Your state vector should follow this distribution if everything is right.</p>
 </div>
 <p><strong>Q:</strong> Why at the edge of the plot does the histogram not follow the theoretical prediction?</p>
 <p><strong>A:</strong></p>
-</section>
-</section>
-<section id="c-sampling-method-redux-large-circuits">
-<h3>c. Sampling Method Redux - Large Circuits<a class="headerlink" href="#c-sampling-method-redux-large-circuits" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="c-sampling-method-redux-large-circuits">
+<h3>c. Sampling Method Redux - Large Circuits<a class="headerlink" href="#c-sampling-method-redux-large-circuits" title="Permalink to this headline">¶</a></h3>
 <p>You should have now verified that your circuit behaves the way we expect!</p>
 <p>With your circuit above, try the method of computing the probabilities again with your 2048 samples. Only look at the first 100 probabilities, as there are now <span class="math notranslate nohighlight">\(2^{14}\)</span> of them.<br />
 Does this method still work?</p>
-<section id="id3">
-<h4>Solution:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id3">
+<h4>Solution:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p><strong>Q:</strong> Does this approach still work? Explain.</p>
 <p><strong>A:</strong></p>
-</section>
-</section>
-<section id="d-cross-entropy-benchmarking">
-<h3>d. Cross Entropy Benchmarking<a class="headerlink" href="#d-cross-entropy-benchmarking" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="d-cross-entropy-benchmarking">
+<h3>d. Cross Entropy Benchmarking<a class="headerlink" href="#d-cross-entropy-benchmarking" title="Permalink to this headline">¶</a></h3>
 <p>To get around the problem of only obtaining a few samples, we’ll use a state of the art method known as cross entropy benchmarking</p>
 <p>Google’s Quantum Computer department among other researchers designed a test for quantum computers, known as cross entropy benchmarking (XEB). We’ll implement a simulation of what their large qubit chips can do.</p>
 <p>Here’s the algorithm:</p>
@@ -866,8 +781,8 @@ Does this method still work?</p>
  F = D\langle probabilities \rangle - 1
  \]</div>
 <p><strong>This should be near 1</strong> as we have no noise, but still have statistical uncertainty, and we’re neglecting corrections due to the small number of qubits.</p>
-<section id="id4">
-<h4>Solution:<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id4">
+<h4>Solution:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
@@ -880,9 +795,9 @@ Does this method still work?</p>
 </div>
 </div>
 <p>As you can see, we only needed 2048 runs of a (simulated) quantum computer to obtain our answer! For their research paper, researchers measured a million bitstrings with 53 qubits and 20 layers (where each layer was 8 patterns instead of our 2) in 200 seconds! <a class="reference external" href="#fn1"><sup>1</sup></a> That’s only <span class="math notranslate nohighlight">\(10^{-8}\)</span> % of the total state size!</p>
-</section>
-<section id="extra-credit-optional">
-<h4>Extra Credit (<em>Optional</em>):<a class="headerlink" href="#extra-credit-optional" title="Permalink to this headline">#</a></h4>
+</div>
+<div class="section" id="extra-credit-optional">
+<h4>Extra Credit (<em>Optional</em>):<a class="headerlink" href="#extra-credit-optional" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><em>Extra Credit (5 points):</em> Have the random gates not include repeated single gates, i.e. if the last random gate on wire 2 was <code class="docutils literal notranslate"><span class="pre">t</span></code> then the next random gate on wire 2 cannot be <code class="docutils literal notranslate"><span class="pre">t</span></code></p></li>
 <li><p><em>Extra Credit (5 points):</em> Run the above on a quantum computer and compare the fidelity to the machine’s reported fidelity.</p></li>
@@ -895,10 +810,10 @@ Does this method still work?</p>
 </ul>
 <p>Copyright: 2021</p>
 <hr class="docutils" />
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -922,11 +837,9 @@ Does this method still work?</p>
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="QC1.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -942,28 +855,24 @@ Does this method still work?</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Clark; George Gollin; Ryan Levy<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Bryan Clark; George Gollin; Ryan Levy<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

@@ -17,7 +17,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 def resetMe(keepList=[]):
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     keepList=keepList+['resetMe','np','plt']
     for iiii in keepList:
         if iiii in ll:
@@ -25,7 +25,7 @@ def resetMe(keepList=[]):
     for iiii in ll:
         jjjj="^"+iiii+"$"
         get_ipython().run_line_magic('reset_selective', '-f {jjjj}')
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     return
 
 
@@ -69,7 +69,7 @@ def resetMe(keepList=[]):
 
 #  <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[1]:
+# In[2]:
 
 
 ### ANSWER ME
@@ -105,7 +105,7 @@ def resetMe(keepList=[]):
 
 #  <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[2]:
+# In[3]:
 
 
 ### ANSWER ME
@@ -148,7 +148,7 @@ def resetMe(keepList=[]):
 
 #  <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[3]:
+# In[4]:
 
 
 ### ANSWER ME
@@ -184,7 +184,7 @@ def resetMe(keepList=[]):
 
 #  <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[4]:
+# In[5]:
 
 
 ### ANSWER ME

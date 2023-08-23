@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 import math
 import random
 def resetMe(keepList=[]):
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     keepList=keepList+['resetMe','np','plt','math','random']
     for iiii in keepList:
         if iiii in ll:
@@ -27,7 +27,7 @@ def resetMe(keepList=[]):
     for iiii in ll:
         jjjj="^"+iiii+"$"
         get_ipython().run_line_magic('reset_selective', '-f {jjjj}')
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     plt.rcParams.update({"font.size": 14})
     return
 import datetime;datetime.datetime.now()
@@ -93,7 +93,7 @@ resetMe()
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 # 
 
-# In[12]:
+# In[2]:
 
 
 # ANSWER ME
@@ -108,7 +108,7 @@ resetMe()
 # Recall that we can store items into a list. A very useful feature about a list is that it can be variable length!
 # To initialize a new list we use `[]`, and can add to it by using the `append()` function
 
-# In[13]:
+# In[3]:
 
 
 myList = []
@@ -119,7 +119,7 @@ print("myList is length",len(myList))
 
 # This is obviously most useful in a `for` loop, where we can append numbers to the list.
 
-# In[14]:
+# In[4]:
 
 
 myList = [] #don't forget to reset it!
@@ -135,7 +135,7 @@ print("myList is length",len(myList))
 # * `plt.show()` 
 #     * This tells matplotlib you're done drawing/adding data and to render the image
 
-# In[15]:
+# In[5]:
 
 
 #if we add '--' it will be dashed, and if we add 's' there will be squares. What if we do both?
@@ -157,7 +157,7 @@ plt.show()
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 # 
 
-# In[16]:
+# In[6]:
 
 
 #ANSWER ME
@@ -185,7 +185,7 @@ plt.show()
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 # 
 
-# In[17]:
+# In[7]:
 
 
 # ANSWER ME
@@ -230,7 +230,7 @@ plt.show()
 # 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[18]:
+# In[8]:
 
 
 # ANSWER ME
@@ -253,7 +253,7 @@ plt.show()
 # 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[19]:
+# In[9]:
 
 
 # ANSWER ME
@@ -266,7 +266,7 @@ plt.show()
 # A cool Python feature is list comprehensions. Instead of writing a `for` loop, if we're clever we can stuff everything into one line inside a list, and python will be able to fill out the list faster than doing an `append()`.  
 # Check out the example below:
 
-# In[20]:
+# In[10]:
 
 
 slowList = []
@@ -285,7 +285,7 @@ print("fastList=",fastList)
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[21]:
+# In[11]:
 
 
 # answer here!
@@ -302,7 +302,7 @@ print("fastList=",fastList)
 # 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[22]:
+# In[12]:
 
 
 # ANSWER HERE
@@ -316,7 +316,7 @@ print("fastList=",fastList)
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[23]:
+# In[13]:
 
 
 # ANSWER HERE
@@ -337,7 +337,7 @@ print("fastList=",fastList)
 # You can read about Python’s (pseudo)random number generating functions here: https://docs.python.org/3/library/random.html. They live in the `random` library, and can be imported using `import random`. Here’s a snippet of code that generates a sequence of random numbers between -1 and 1.
 # 
 
-# In[24]:
+# In[14]:
 
 
 import random
@@ -368,7 +368,7 @@ for i in range(1,10):
 # *Code below for circle and random points in a square.*
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[25]:
+# In[15]:
 
 
 # ANSWER HERE
@@ -383,7 +383,7 @@ for i in range(1,10):
 # *Code for fraction of points which are in the circle.  This should be $\pi/4$ so multiply by 4 to get $\pi$*
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[26]:
+# In[16]:
 
 
 # ANSWER HERE
@@ -409,7 +409,7 @@ for i in range(1,10):
 # *Run your function to get $\pi$ many times and make a histogram of your answers below.*
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[28]:
+# In[17]:
 
 
 # ANSWER HERE

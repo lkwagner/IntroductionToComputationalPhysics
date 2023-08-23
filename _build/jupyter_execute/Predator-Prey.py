@@ -28,7 +28,7 @@ from dataclasses import dataclass
 matplotlib.rcParams['animation.embed_limit'] = 2**128
 
 def resetMe(keepList=[]):
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     keepList=keepList+['resetMe','np','plt','scipy','scipy.optimize','dataclass']
     for iiii in keepList:
         if iiii in ll:
@@ -36,7 +36,7 @@ def resetMe(keepList=[]):
     for iiii in ll:
         jjjj="^"+iiii+"$"
         get_ipython().run_line_magic('reset_selective', '-f {jjjj}')
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     return
 
 
@@ -94,7 +94,7 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[1]:
+# In[2]:
 
 
 ### ANSWER ME
@@ -118,7 +118,7 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[2]:
+# In[3]:
 
 
 ### ANSWER ME
@@ -148,7 +148,7 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[3]:
+# In[4]:
 
 
 ### ANSWER ME
@@ -187,13 +187,13 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[4]:
+# In[5]:
 
 
 ### ANSWER ME
 
 
-# In[5]:
+# In[6]:
 
 
 ### ANSWER ME
@@ -259,7 +259,7 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[6]:
+# In[7]:
 
 
 ### ANSWER ME
@@ -281,7 +281,7 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[7]:
+# In[8]:
 
 
 ### ANSWER ME
@@ -336,7 +336,7 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[8]:
+# In[9]:
 
 
 ### ANSWER ME
@@ -359,7 +359,7 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[9]:
+# In[10]:
 
 
 ### ANSWER ME
@@ -376,7 +376,7 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[10]:
+# In[11]:
 
 
 ### ANSEWR ME
@@ -408,7 +408,7 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[11]:
+# In[12]:
 
 
 ### ANSWER ME
@@ -424,7 +424,7 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[12]:
+# In[13]:
 
 
 ### ANSWER ME
@@ -556,12 +556,6 @@ def resetMe(keepList=[]):
 
 # <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 
-# In[13]:
-
-
-### ANSWER ME
-
-
 # In[14]:
 
 
@@ -569,6 +563,12 @@ def resetMe(keepList=[]):
 
 
 # In[15]:
+
+
+### ANSWER ME
+
+
+# In[16]:
 
 
 # Assumes locsF and locsB is a list of locations at each time step

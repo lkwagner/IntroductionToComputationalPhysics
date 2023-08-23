@@ -26,7 +26,7 @@ from IPython.display import HTML
 import pickle
 import datetime;datetime.datetime.now()
 def resetMe(keepList=[]):
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     keepList=keepList+['resetMe','np','plt','math','FuncAnimation',
                        'HTML','itertools','pickle','testFunc','jnp','jax','jit']
     for iiii in keepList:
@@ -35,7 +35,7 @@ def resetMe(keepList=[]):
     for iiii in ll:
         jjjj="^"+iiii+"$"
         get_ipython().run_line_magic('reset_selective', '-f {jjjj}')
-    ll=get_ipython().run_line_magic('who_ls', '')
+    ll = get_ipython().run_line_magic('who_ls', '')
     return
 
 
@@ -62,7 +62,7 @@ get_ipython().system('wget https://courses.physics.illinois.edu/phys246/fa2020/c
 # In[24]:
 
 
-get_ipython().run_cell_magic('time', '', 'import gzip\n(train_images_raw,train_labels,test_images_raw,test_labels) = pickle.load(gzip.open("dataG.pkl.gz",\'rb\'))\n')
+get_ipython().run_cell_magic('time', '', 'import gzip\n(train_images_raw,train_labels,test_images_raw,test_labels) = pickle.load(gzip.open("dataG.pkl.gz",\'rb\'))')
 
 
 # here's what you now have:

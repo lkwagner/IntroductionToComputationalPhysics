@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Markov Chains &#8212; Physics 246</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,21 +39,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Predator-Prey" href="Predator-Prey.html" />
@@ -63,21 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,15 +93,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    An Introduction to Modern Computational Physics
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   An Introduction to Modern Computational Physics
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
    N ways to measure
@@ -197,17 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -215,128 +195,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/Markov Chains.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Markov Chains.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-1-weather-markov-chains">
    Exercise 1: Weather Markov Chains
@@ -395,11 +308,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Markov Chains</h1>
@@ -474,12 +388,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="markov-chains">
-<h1>Markov Chains<a class="headerlink" href="#markov-chains" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="markov-chains">
+<h1>Markov Chains<a class="headerlink" href="#markov-chains" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
 <li><p><strong>Date:</strong></p></li>
@@ -506,26 +419,19 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">random</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2023, 8, 23, 16, 14, 35, 628653)
 </pre></div>
 </div>
 </div>
 </div>
-<section id="exercise-1-weather-markov-chains">
-<h2>Exercise 1: Weather Markov Chains<a class="headerlink" href="#exercise-1-weather-markov-chains" title="Permalink to this headline">#</a></h2>
+<div class="section" id="exercise-1-weather-markov-chains">
+<h2>Exercise 1: Weather Markov Chains<a class="headerlink" href="#exercise-1-weather-markov-chains" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<section id="background">
-<h3>0. Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h3>
+<div class="section" id="background">
+<h3>0. Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h3>
 <p>In science and engineering, random (or stochastic) processes are commonplace. Electron velocities in a wire, stock prices in the stock market, and traffic congestion on a highway are all examples of time-dependent random processes. To understand such systems, scientists and engineers make use of the Markov chain, a stochastic process model developed by the Russian mathematician Andrey Markov in the 1900s.</p>
 <p>A Markov chain is often described as a “memory-less” random process. This means that the next state of the system only depends on the current state and not on any previous states. To see how a Markov chain works, we will study a simple example with a helpful visualization.</p>
 <p>Suppose we make a simplistic model of summer weather in Champaign, Illinois using a Markov chain. We say that there are only three states for a day’s weather: sunny, cloudy, and rainy. The Markov chain is specified by the probabilities of transitioning from state 𝐴 to state 𝐵, i.e., from today’s weather 𝐴 to tomorrow’s weather 𝐵, which we call <span class="math notranslate nohighlight">\(P(A \rightarrow B)\)</span>  For example, maybe we think that 50% of the time a cloudy day leads to a rainy day, so that <span class="math notranslate nohighlight">\(P(\textrm{cloudy } \rightarrow \textrm{ rainy})=0.5\)</span>  And maybe we believe that 75% of the time a sunny day is followed by another sunny day, so that <span class="math notranslate nohighlight">\(𝑃(\textrm{ sunny } \rightarrow \textrm{sunny}) =0.75\)</span>  Once we have defined all these transition probabilities we have made a Markov chain such as the one below.</p>
@@ -542,9 +448,9 @@ For example, draw a uniform random number <span class="math notranslate nohighli
 𝑠𝑢𝑛𝑛𝑦 → 𝑠𝑢𝑛𝑛𝑦 → 𝑠𝑢𝑛𝑛𝑦 → 𝑐𝑙𝑜𝑢𝑑𝑦 → 𝑠𝑢𝑛𝑛𝑦 → 𝑟𝑎𝑖𝑛𝑦 → 𝑐𝑙𝑜𝑢𝑑𝑦 → 𝑟𝑎𝑖𝑛𝑦 → ⋯</p>
 <p>Once you are able to sample from this model, you can ask some interesting questions. For example, you could ask: what is the unconditional probability of a rainy day or what is the probability of getting five sunny days in a row? We will look at this in the next exercise.</p>
 <p>By now you might be able to see how the random walks we studied earlier were examples of Markov chains. Each step of the random walk only depended on the current position and randomly took the pollen grain to a new position. In that case, the states were represented by continuous variables (position) while in the weather example the states are discrete (sunny, cloudy, or rainy). Nonetheless, the idea is exactly the same.</p>
-</section>
-<section id="a-weather-probabilities">
-<h3>a. Weather Probabilities<a class="headerlink" href="#a-weather-probabilities" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="a-weather-probabilities">
+<h3>a. Weather Probabilities<a class="headerlink" href="#a-weather-probabilities" title="Permalink to this headline">¶</a></h3>
 <p>🦉Implement the Markov chain described in the previous section. The transition probabilities we will use are given in the following table:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -588,19 +494,19 @@ For example, draw a uniform random number <span class="math notranslate nohighli
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="information-about-markov-chain-monte-carlo">
-<h2>Information about Markov Chain Monte Carlo<a class="headerlink" href="#information-about-markov-chain-monte-carlo" title="Permalink to this headline">#</a></h2>
+<div class="section" id="information-about-markov-chain-monte-carlo">
+<h2>Information about Markov Chain Monte Carlo<a class="headerlink" href="#information-about-markov-chain-monte-carlo" title="Permalink to this headline">¶</a></h2>
 <p>Here we will discuss how to use Markov Chain Monte Carlo (MCMC) to compute expectation values.  In statistics, we study the properties of random variables <span class="math notranslate nohighlight">\(x\)</span> and their probability distributions <span class="math notranslate nohighlight">\(P(x)\)</span>.  We often care about computing expectation values of functions of the random variable such as</p>
 <div class="math notranslate nohighlight">
 \[\langle f(x) \rangle = \sum_x f(x) P(x)\]</div>
 <p>In general, the probability distribution <span class="math notranslate nohighlight">\(P(x)\)</span> can be very complicated and difficult to sample efficiently. In this case, we can use Markov chains to represent the probability distribution <span class="math notranslate nohighlight">\(P(x)\)</span>.   It is possible to pick the transition probabilities of the Markov chain so that the chain’s equilibrium probability distribution is the desired probability distribution <span class="math notranslate nohighlight">\(P(x)\)</span>. Once we have a correctly defined Markov chain, we can sample it to obtain a set of sampled states <span class="math notranslate nohighlight">\(x_1,x_2,...,x_T\)</span>.  These sampled states can be used to estimate expectation values in the following way
 $<span class="math notranslate nohighlight">\( \langle f(x) \rangle \approx \frac{1}{T_{max}} \sum_{t=1}^{T_{max}} f(x_t)\)</span>$</p>
 <p>This should look familiar. This is secretly what we were doing when we were computing the RMS displacement of random walks previously.  However, you should be clear on the distinction between Monte Carlo and Markov chains. Monte Carlo methods are ways to evaluate integrals using random numbers. Markov chains are used to sample complicated probability distributions. When Monte Carlo is used to integrate a probability distribution specified by a Markov chain, then it is called Markov Chain Monte Carlo.</p>
-<section id="metropolis-algorithm">
-<h3>Metropolis Algorithm<a class="headerlink" href="#metropolis-algorithm" title="Permalink to this headline">#</a></h3>
+<div class="section" id="metropolis-algorithm">
+<h3>Metropolis Algorithm<a class="headerlink" href="#metropolis-algorithm" title="Permalink to this headline">¶</a></h3>
 <p>A very common form of Markov Chain Monte Carlo is the Metropolis algorithm. This was the first MCMC algorithm developed. It was proposed in 1953 by Edward Teller, Nicholas Metropolis, and others at Los Alamos National Laboratory in New Mexico during the early days of scientific computing. Teller and his physics colleagues were interested in using MCMC to calculate the thermodynamic properties of a weakly interacting classical gas, which was very difficult to calculate analytically. Impressively, more than half a century after its introduction, Metropolis MCMC is still in wide use today in many areas of science, engineering, and statistics.</p>
 <p>The Metropolis algorithm samples a Markov chain by proposing moves between states, which are then either accepted or rejected according to a specific criterion. These proposed moves are chosen so that the Markov chain’s transition probabilities give the correct equilibrium distribution4. In general, Metropolis Markov chain sampling of a probability distribution <span class="math notranslate nohighlight">\(P(S)\)</span> works as follows:</p>
 <ol class="simple">
@@ -611,9 +517,9 @@ $<span class="math notranslate nohighlight">\( \langle f(x) \rangle \approx \fra
 <li><p>Increment <span class="math notranslate nohighlight">\(t\)</span> and repeat.</p></li>
 </ol>
 <p>This Markov chain’s samples <span class="math notranslate nohighlight">\(S_1,...S_{T_{max}}\)</span> are then used to estimate expectation values <span class="math notranslate nohighlight">\(\langle f(S) \rangle\)</span> in the way  discussed in the previous section. We will use this general Metropolis MCMC framework to sample the Boltzmann distribution, an important probability distribution in thermal physics.</p>
-</section>
-<section id="thermal-physics-and-the-boltzmann-distribution">
-<h3>Thermal physics and the Boltzmann distribution<a class="headerlink" href="#thermal-physics-and-the-boltzmann-distribution" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="thermal-physics-and-the-boltzmann-distribution">
+<h3>Thermal physics and the Boltzmann distribution<a class="headerlink" href="#thermal-physics-and-the-boltzmann-distribution" title="Permalink to this headline">¶</a></h3>
 <p>In some ways, the type of physics that we encounter most often in our everyday lives is thermal physics. We are perpetually surrounded by a heat bath of <span class="math notranslate nohighlight">\(\approx 10^{27}\)</span> particles whizzing around us. The black-body radiation we receive from the sun is in thermal equilibrium with the Earth’s surface. The phases of matter we see and interact with every day, such as liquid water, gaseous oxygen, or solid iron, are all described by the physics of thermodynamics and statistical mechanics.</p>
 <p>Physical systems that are in thermal equilibrium with a heat bath obey the laws of statistical mechanics. Heat baths are large physical systems that are assumed to be at a constant temperature <span class="math notranslate nohighlight">\(T\)</span>. A small system put in contact with a heat bath is able to exchange energy with the heat bath so that it also stays at the same temperature.</p>
 <!-- ![image.png](attachment:image.png) -->
@@ -628,10 +534,10 @@ $<span class="math notranslate nohighlight">\( \langle f(x) \rangle \approx \fra
 <p>At different temperatures, there are different Boltzmann distributions for the states. At low, intermediate, and high temperatures, the Boltzmann distributions look like this:</p>
 <!--![image.png](attachment:image.png)-->
 <div><img src="https://clark.physics.illinois.edu/246img/MC_prob.png" width=700  alt="Answer (start)"></img><br></div><p>As we just discussed, at low temperatures the system is almost always in the ground state (state 50 in this example). At high temperatures, thermal fluctuations make the system equally likely to be in any state. At intermediate temperatures, states close to the ground state are preferred but are not the only states that matter.</p>
-</section>
-</section>
-<section id="exercise-2-the-thermodynamics-of-a-paramagnetic-material">
-<h2>Exercise 2: The thermodynamics of a paramagnetic material<a class="headerlink" href="#exercise-2-the-thermodynamics-of-a-paramagnetic-material" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="exercise-2-the-thermodynamics-of-a-paramagnetic-material">
+<h2>Exercise 2: The thermodynamics of a paramagnetic material<a class="headerlink" href="#exercise-2-the-thermodynamics-of-a-paramagnetic-material" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -690,9 +596,9 @@ where \)</span>I_\nu(z)<span class="math notranslate nohighlight">\(  is a modif
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div>
-</section>
-<section id="exercise-3-thermodynamics-of-rubber-bands">
-<h2>Exercise 3: Thermodynamics of rubber bands<a class="headerlink" href="#exercise-3-thermodynamics-of-rubber-bands" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="exercise-3-thermodynamics-of-rubber-bands">
+<h2>Exercise 3: Thermodynamics of rubber bands<a class="headerlink" href="#exercise-3-thermodynamics-of-rubber-bands" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -719,8 +625,8 @@ $<span class="math notranslate nohighlight">\(E(S) = \epsilon M(S).\)</span>$</p
 <span class="n">energy1</span> <span class="o">=</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="n">M1</span>
 </pre></div>
 </div>
-<section id="a-rubber-bands-at-infinite-temperature">
-<h3>a. Rubber bands at infinite temperature<a class="headerlink" href="#a-rubber-bands-at-infinite-temperature" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-rubber-bands-at-infinite-temperature">
+<h3>a. Rubber bands at infinite temperature<a class="headerlink" href="#a-rubber-bands-at-infinite-temperature" title="Permalink to this headline">¶</a></h3>
 <p>🦉Write code to calculate the average length of a rubber band of <span class="math notranslate nohighlight">\(N=100\)</span> polymers at <em>infinite temperature</em> <span class="math notranslate nohighlight">\(T=\infty\)</span>.  While this might sound mysterious and difficult, it is actually very simple.  At infinite temperature (or, if you prefer, at very high temperature), each polymer configuration is equally likely. We saw this in our discussion of the Boltzmann distribution. To sample this distribution, we need to pick any configuration of polymers with equal probability.</p>
 <p>This is a simple probability distribution that we can sample without a Markov chain. Do this by randomly picking polymer configurations in the following way: for each polymer in the chain, flip a coin to decide whether it is flat or bent. Your code should look something like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">avgLength</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -742,9 +648,9 @@ $<span class="math notranslate nohighlight">\(E(S) = \epsilon M(S).\)</span>$</p
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div>
-</section>
-<section id="b-rubber-bands-at-finite-temperature">
-<h3>b. Rubber bands at finite temperature<a class="headerlink" href="#b-rubber-bands-at-finite-temperature" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="b-rubber-bands-at-finite-temperature">
+<h3>b. Rubber bands at finite temperature<a class="headerlink" href="#b-rubber-bands-at-finite-temperature" title="Permalink to this headline">¶</a></h3>
 <p>In this problem, we are going to see what happens to a rubber band when we heat it up or cool it down.</p>
 <p>We will be using the Metropolis algorithm to estimate the average length of the rubber band in thermal equilibrium, that is <span class="math notranslate nohighlight">\(\langle Ma \rangle\)</span>.  For this particular problem, the Metropolis Markov chain sampling looks like this:</p>
 <ol class="simple">
@@ -791,9 +697,9 @@ computes the expectation value of the chain length</p>
 <li><p>Eli Chertkov and George Gollin (original)</p></li>
 </ul>
 <p>© Copyright 2021</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -817,11 +723,9 @@ computes the expectation value of the chain length</p>
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="Random%20Walks.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -837,28 +741,24 @@ computes the expectation value of the chain length</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Clark; George Gollin; Ryan Levy<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Bryan Clark; George Gollin; Ryan Levy<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

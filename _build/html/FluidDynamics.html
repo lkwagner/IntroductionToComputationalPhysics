@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fluid Dynamics &#8212; Physics 246</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,21 +39,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Classifying Galaxies" href="MachineLearningGalaxies.html" />
@@ -63,21 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,15 +93,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    An Introduction to Modern Computational Physics
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   An Introduction to Modern Computational Physics
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
    N ways to measure
@@ -197,17 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -215,128 +195,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/FluidDynamics.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/FluidDynamics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#python-warmup">
    Python Warmup
@@ -537,11 +450,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Fluid Dynamics</h1>
@@ -758,13 +672,12 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
   <div><img src="https://clark.physics.illinois.edu/246img/FD_intro.png" width=1000  alt="Answer (start)"></img><br></div>
-<section class="tex2jax_ignore mathjax_ignore" id="fluid-dynamics">
-<h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">#</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="fluid-dynamics">
+<h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
 <li><p><strong>Date:</strong></p></li>
@@ -807,23 +720,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">math</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Download the test files here, or download from the website and upload &amp; unzip them to wherever this notebook file is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span>https://courses.physics.illinois.edu/phys246/fa2020/code/TestFiles.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unzip<span class="w"> </span>TestFiles.zip
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget https://courses.physics.illinois.edu/phys246/fa2020/code/TestFiles.zip <span class="o">&amp;&amp;</span> unzip TestFiles.zip
 </pre></div>
 </div>
 </div>
@@ -833,10 +734,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="python-warmup">
-<h2>Python Warmup<a class="headerlink" href="#python-warmup" title="Permalink to this headline">#</a></h2>
-<section id="useful-functions">
-<h3>Useful functions:<a class="headerlink" href="#useful-functions" title="Permalink to this headline">#</a></h3>
+<div class="section" id="python-warmup">
+<h2>Python Warmup<a class="headerlink" href="#python-warmup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="useful-functions">
+<h3>Useful functions:<a class="headerlink" href="#useful-functions" title="Permalink to this headline">¶</a></h3>
 <p>Before we begin, we want to highlight some functions that you may find useful in this assignment. The last one we’ll explore in more depth as well.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">np.zeros([dimensions])</span></code> - create an array filled with all zeros.
@@ -845,9 +746,9 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">np.empty([dimensoons])</span></code> - same thing as <code class="docutils literal notranslate"><span class="pre">np,zeros</span></code> but fills array with garbage. Very fast compared to the above.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">np.roll(x,shift,axis)</span></code> - shift array <code class="docutils literal notranslate"><span class="pre">x</span></code> by <code class="docutils literal notranslate"><span class="pre">shift</span></code> along <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p></li>
 </ul>
-</section>
-<section id="warmup-using-np-roll">
-<h3>Warmup - using <code class="docutils literal notranslate"><span class="pre">np.roll</span></code><a class="headerlink" href="#warmup-using-np-roll" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="warmup-using-np-roll">
+<h3>Warmup - using <code class="docutils literal notranslate"><span class="pre">np.roll</span></code><a class="headerlink" href="#warmup-using-np-roll" title="Permalink to this headline">¶</a></h3>
 <p>Something we’ll see later in this assignment is the need to shift elements right,left,up,down, and diagonally. Let’s make a little test problem to illustrate how this works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -975,10 +876,10 @@ Take it back now y&#39;all♪
 </div>
 </div>
 <p>Now you’re a ~~Cha-Cha Slide~~ <code class="docutils literal notranslate"><span class="pre">np.roll</span></code> master!</p>
-</section>
-</section>
-<section id="exercise-1-fluid-dynamics">
-<h2>Exercise 1: Fluid Dynamics<a class="headerlink" href="#exercise-1-fluid-dynamics" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="exercise-1-fluid-dynamics">
+<h2>Exercise 1: Fluid Dynamics<a class="headerlink" href="#exercise-1-fluid-dynamics" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -1003,8 +904,8 @@ Take it back now y&#39;all♪
     <span class="k">return</span> <span class="n">nout</span>
 </pre></div>
 </div>
-</div><section id="a-making-some-obstacles">
-<h3>a.  Making some obstacles<a class="headerlink" href="#a-making-some-obstacles" title="Permalink to this headline">#</a></h3>
+</div><div class="section" id="a-making-some-obstacles">
+<h3>a.  Making some obstacles<a class="headerlink" href="#a-making-some-obstacles" title="Permalink to this headline">¶</a></h3>
 <p>To simulate the real world on the computer, we’ll break the tunnel into <span class="math notranslate nohighlight">\(n_x\times n_y\)</span> squares which we’ll call <em>voxels</em>.</p>
 <p>Your simulation will be doing fluid dynamics in a <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> “tunnel” which has some objects within it.  These objects will be represented by a boolean <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> size array <code class="docutils literal notranslate"><span class="pre">obstacle=np.empty((nx,ny),dtype='bool')</span></code> which should be <code class="docutils literal notranslate"><span class="pre">True</span></code> where the obstacle is and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. For example,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">obstacle</span><span class="p">[:,:]</span><span class="o">=</span><span class="kc">False</span>
@@ -1016,8 +917,8 @@ Take it back now y&#39;all♪
 <p>If you do <code class="docutils literal notranslate"><span class="pre">plt.matshow(GenerateCylinderObstacle())</span></code> it should look like this</p>
 <div><img src="https://clark.physics.illinois.edu/246img/FDObstacle.png" width=600 alt="Answer (start)"></img><br></div><div class="alert alert-warning" style="color:black">
 <b>Do not use the word <code>object</code> as a variable!</b> <br />Notice how <code>object</code> is green in a cell - this means it is a special keyword.<br /> 
-</div><section id="test">
-<h4>Test:<a class="headerlink" href="#test" title="Permalink to this headline">#</a></h4>
+</div><div class="section" id="test">
+<h4>Test:<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Call your function here to see if if works. </span>
@@ -1032,7 +933,7 @@ Take it back now y&#39;all♪
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">3615241139.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">c</span><span class="o">/</span><span class="n">x9n91g7x7lqg0tt66yrmbwhm0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_33449</span><span class="o">/</span><span class="mf">3615241139.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">## Call your function here to see if if works.</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">GenerateCylinderObstacle</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cool Name plot&quot;</span><span class="p">)</span>
@@ -1044,11 +945,11 @@ Take it back now y&#39;all♪
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
-<section id="b-microscopic-velocities-v-i">
-<h2>b.  Microscopic velocities <span class="math notranslate nohighlight">\(v_i\)</span><a class="headerlink" href="#b-microscopic-velocities-v-i" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+</div>
+<div class="section" id="b-microscopic-velocities-v-i">
+<h2>b.  Microscopic velocities <span class="math notranslate nohighlight">\(v_i\)</span><a class="headerlink" href="#b-microscopic-velocities-v-i" title="Permalink to this headline">¶</a></h2>
 <p>To simulate the real world on the computer, we’ll break the tunnel into <span class="math notranslate nohighlight">\(n_x\times n_y\)</span> squares which we’ll call <em>voxels</em>.</p>
 <p>The key quantity in your simulation is  nine microscopic degrees of freedom</p>
 <ul class="simple">
@@ -1083,8 +984,8 @@ Take it back now y&#39;all♪
 </div>
 <p>and make sure it looks like</p>
 <div><img src="https://clark.physics.illinois.edu/246img/FD_direction.png" width=300 alt="Answer (start)"></img><br></div>
-<section id="id1">
-<h3>Test:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id1">
+<h3>Test:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plot your microscopic velocities</span>
@@ -1123,9 +1024,9 @@ Take it back now y&#39;all♪
 <li><p>Collide the microscopic densities</p></li>
 <li><p>Move the microscopic densities</p></li>
 </ul>
-</section>
-<section id="c-computing-macroscopic-quantities-from-the-microscopic-density">
-<h3>c. Computing macroscopic quantities from the microscopic density<a class="headerlink" href="#c-computing-macroscopic-quantities-from-the-microscopic-density" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="c-computing-macroscopic-quantities-from-the-microscopic-density">
+<h3>c. Computing macroscopic quantities from the microscopic density<a class="headerlink" href="#c-computing-macroscopic-quantities-from-the-microscopic-density" title="Permalink to this headline">¶</a></h3>
 <p>Given the microscopic densities, there are two macroscopic quanties:</p>
 <ul class="simple">
 <li><p>the macroscopic density <span class="math notranslate nohighlight">\(\rho(i,j)=\sum_k n_k\)</span> (<em>size: <span class="math notranslate nohighlight">\(n_x \times n_y\)</span></em>)</p></li>
@@ -1144,8 +1045,8 @@ Take it back now y&#39;all♪
 </div>
 <p>and see if it print two zeros (which is a success!)</p>
 <p><strong>Tip:</strong> Because <code class="docutils literal notranslate"><span class="pre">u</span></code> is <span class="math notranslate nohighlight">\((2,n_x,n_y)\)</span>, we can get <code class="docutils literal notranslate"><span class="pre">ux</span></code> by doing <code class="docutils literal notranslate"><span class="pre">u[0]</span></code> (which is then a <span class="math notranslate nohighlight">\((n_x,n_y)\)</span> array) and <code class="docutils literal notranslate"><span class="pre">uy</span></code> by doing <code class="docutils literal notranslate"><span class="pre">u[1]</span></code>.</p>
-<section id="optional-np-einsum">
-<h4>optional - <code class="docutils literal notranslate"><span class="pre">np.einsum</span></code><a class="headerlink" href="#optional-np-einsum" title="Permalink to this headline">#</a></h4>
+<div class="section" id="optional-np-einsum">
+<h4>optional - <code class="docutils literal notranslate"><span class="pre">np.einsum</span></code><a class="headerlink" href="#optional-np-einsum" title="Permalink to this headline">¶</a></h4>
 <p>Figuring out the summations effeciently can be a pain, but we can use <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.einsum.html"><code class="docutils literal notranslate"><span class="pre">np.einsum</span></code></a> help out here. Figure out how to rewrite the above problem with einstein summation notation. To use the function, if we have
 $<span class="math notranslate nohighlight">\(
 A_{ijk}\cdot B_{dk} = C_{ijd},
@@ -1154,9 +1055,9 @@ we’d use then call:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;ijk,dk-&gt;ijd&quot;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="id2">
-<h4>Test:<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+</div>
+<div class="section" id="id2">
+<h4>Test:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
@@ -1185,10 +1086,10 @@ we’d use then call:</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="d-getting-the-equilibrium-microscopic-densities">
-<h3>d. Getting the equilibrium microscopic densities.<a class="headerlink" href="#d-getting-the-equilibrium-microscopic-densities" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="d-getting-the-equilibrium-microscopic-densities">
+<h3>d. Getting the equilibrium microscopic densities.<a class="headerlink" href="#d-getting-the-equilibrium-microscopic-densities" title="Permalink to this headline">¶</a></h3>
 <p>Given the macroscopic densities <span class="math notranslate nohighlight">\(\rho\)</span> and <span class="math notranslate nohighlight">\(\vec{u}\)</span>, there is a <em>equilibrium</em> microscopic densities <span class="math notranslate nohighlight">\(n_{eq}\)</span> (<em>size: <span class="math notranslate nohighlight">\(9 \times n_x \times n_y\)</span></em>) which you will compute using <code class="docutils literal notranslate"><span class="pre">n_eq=Macro2Equilibrium(rho,u,obstacle)</span></code></p>
 <p>The relevant formula for this is</p>
 <div class="math notranslate nohighlight">
@@ -1206,8 +1107,8 @@ we’d use then call:</p>
 </pre></div>
 </div>
 <p>is equal to zero.</p>
-<section id="id3">
-<h4>Test:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id3">
+<h4>Test:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pickle.dump( microscopicDensity, open( &quot;Microscopic_after_equilibrium.dat&quot;, &quot;wb&quot; ) ) #!#</span>
@@ -1227,10 +1128,10 @@ we’d use then call:</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="d-implementing-collision">
-<h3>d. Implementing collision<a class="headerlink" href="#d-implementing-collision" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="d-implementing-collision">
+<h3>d. Implementing collision<a class="headerlink" href="#d-implementing-collision" title="Permalink to this headline">¶</a></h3>
 <p>Once you can compute these quantities, the next step is to implement the collision step.</p>
 <p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">Collision(n,obstacle)</span></code> which returns the density <code class="docutils literal notranslate"><span class="pre">n</span></code> after collision.  Put it in your function-cell above.</p>
 <p>When we collide the microscopic densities, we get new microscopic densities given as</p>
@@ -1250,8 +1151,8 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Collision</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_collision.dat&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<section id="id4">
-<h4>Test:<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id4">
+<h4>Test:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pickle.dump( Collision(microscopicDensity,GenerateCylinderObstacle()), open( &quot;Microscopic_after_collision.dat&quot;, &quot;wb&quot; ) ) #!#</span>
@@ -1287,10 +1188,10 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="e-moving">
-<h3>e. Moving<a class="headerlink" href="#e-moving" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="e-moving">
+<h3>e. Moving<a class="headerlink" href="#e-moving" title="Permalink to this headline">¶</a></h3>
 <p>We’ll now move on to getting the fluid to move. This will be a function called, surprise, <code class="docutils literal notranslate"><span class="pre">Move(n,obstacle)</span></code>. But first we need to helper functions:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Bounce(n,obstacle)</span></code></p>
@@ -1314,8 +1215,8 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_move.dat&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<section id="tests">
-<h4>Tests:<a class="headerlink" href="#tests" title="Permalink to this headline">#</a></h4>
+<div class="section" id="tests">
+<h4>Tests:<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
@@ -1407,10 +1308,10 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="f-boundary-conditions">
-<h3>f.  Boundary conditions<a class="headerlink" href="#f-boundary-conditions" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="f-boundary-conditions">
+<h3>f.  Boundary conditions<a class="headerlink" href="#f-boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>In the y-direction, we are just going to assume that the boundary conditions are periodic. For the x-direction, we are going to assign certain boundary conditions on the left and right.</p>
 <p>Let’s call this function <code class="docutils literal notranslate"><span class="pre">FixBoundary(n,n_init)</span></code> which applies these boundary conditions and returns the new density <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 <p><strong>Left:</strong> we are going to assume that there is a flow - this means that the microscopic densities are the same at each step.  Therefore, what we should do is simply replace the current densities on the left-most row with the initial microscopic densities (<code class="docutils literal notranslate"><span class="pre">n_init</span></code>).</p>
@@ -1425,8 +1326,8 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="n">FixBoundary</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">,</span><span class="s2">&quot;Microscopic2.dat&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Microscopic_after_boundary.dat&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<section id="id5">
-<h4>Test:<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id5">
+<h4>Test:<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
@@ -1451,10 +1352,10 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="g-setting-up-the-initial-conditions">
-<h3>g. Setting up the initial conditions<a class="headerlink" href="#g-setting-up-the-initial-conditions" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="g-setting-up-the-initial-conditions">
+<h3>g. Setting up the initial conditions<a class="headerlink" href="#g-setting-up-the-initial-conditions" title="Permalink to this headline">¶</a></h3>
 <p>We need to generate an initial conditions. The way that we are going to do that is</p>
 <ul class="simple">
 <li><p>pick some macroscopic density <span class="math notranslate nohighlight">\(\rho\)</span> of size <span class="math notranslate nohighlight">\((n_x,n_y)\)</span> (uniformly equal to 1.0) and a</p></li>
@@ -1474,8 +1375,8 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All good?&quot;</span><span class="p">,(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.443377991</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)</span> <span class="ow">and</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.0245774711</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)))</span>
 </pre></div>
 </div>
-<section id="id6">
-<h4>Test:<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id6">
+<h4>Test:<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All good?&quot;</span><span class="p">,(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.443377991</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)</span> <span class="ow">and</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.0245774711</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)))</span>
@@ -1493,10 +1394,10 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="h-putting-it-all-together">
-<h3>h. Putting it all together<a class="headerlink" href="#h-putting-it-all-together" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="h-putting-it-all-together">
+<h3>h. Putting it all together<a class="headerlink" href="#h-putting-it-all-together" title="Permalink to this headline">¶</a></h3>
 <p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">Run(steps,record,n,n_init,obstacle)</span></code> (up in your function-cell) which takes</p>
 <ul class="simple">
 <li><p>the number of steps <code class="docutils literal notranslate"><span class="pre">steps</span></code> you want to run</p></li>
@@ -1524,8 +1425,8 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </ul>
 <p>Now (below) call your <code class="docutils literal notranslate"><span class="pre">Setup</span></code> and <code class="docutils literal notranslate"><span class="pre">Run</span></code> functions. Then plot the final configuration (something like <code class="docutils literal notranslate"><span class="pre">plt.matshow(us[-1])</span></code>).</p>
 <p>🦉Run for 201 steps recording every 100 steps.</p>
-<section id="answer">
-<h4>Answer:<a class="headerlink" href="#answer" title="Permalink to this headline">#</a></h4>
+<div class="section" id="answer">
+<h4>Answer:<a class="headerlink" href="#answer" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
@@ -1577,10 +1478,10 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="i-animation">
-<h3>i. Animation<a class="headerlink" href="#i-animation" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="i-animation">
+<h3>i. Animation<a class="headerlink" href="#i-animation" title="Permalink to this headline">¶</a></h3>
 <p>🦉Now write a function <code class="docutils literal notranslate"><span class="pre">AnimateMe(us_flat,vMax)</span></code> which is going to take a list of velocities <code class="docutils literal notranslate"><span class="pre">us_flat</span></code> (and maximum for the <code class="docutils literal notranslate"><span class="pre">vMax</span></code>) and going to return an animation which is going to be then produced by calling</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">anim</span> <span class="o">=</span> <span class="n">AnimateMe</span><span class="p">(</span><span class="n">us</span><span class="p">,</span><span class="n">vMax</span><span class="p">)</span>
 <span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
@@ -1598,8 +1499,8 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
     <span class="k">return</span> <span class="n">anim</span>
 </pre></div>
 </div>
-<section id="id7">
-<h4>Answer:<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id7">
+<h4>Answer:<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
@@ -1626,19 +1527,19 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="j-speed-test-ec">
-<h3>j. Speed Test (EC)<a class="headerlink" href="#j-speed-test-ec" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="j-speed-test-ec">
+<h3>j. Speed Test (EC)<a class="headerlink" href="#j-speed-test-ec" title="Permalink to this headline">¶</a></h3>
 <p><em>5 Points</em></p>
 <p>Our code for for <code class="docutils literal notranslate"><span class="pre">%time</span> <span class="pre">Run(2000,3000,Setup(),Setup(),GenerateCylinderObstacle())</span></code> takes between 45 and 60 seconds. We’ll give 5 points if you can make your code faster than 40 seconds runtime (on the server). Warning: we aren’t sure this is possible!</p>
-<section id="id8">
-<h4>Answer:<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
-</section>
-</section>
-</section>
-<section id="exercise-2-walls">
-<h2>Exercise 2: Walls<a class="headerlink" href="#exercise-2-walls" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id8">
+<h4>Answer:<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="exercise-2-walls">
+<h2>Exercise 2: Walls<a class="headerlink" href="#exercise-2-walls" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -1649,8 +1550,8 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <li><p>the other spans <span class="math notranslate nohighlight">\(200 \leq x \leq 210\)</span> and <span class="math notranslate nohighlight">\(n_y/4 \leq y \leq 3n_y/4\)</span></p></li>
 </ul>
 <p>🦉Run your code again with this new obstacle and generate a new animation.</p>
-<section id="id9">
-<h3>Answer:<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id9">
+<h3>Answer:<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
@@ -1706,27 +1607,27 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="exercise-3-something-new-ec">
-<h2>Exercise 3: Something new… (EC)<a class="headerlink" href="#exercise-3-something-new-ec" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="exercise-3-something-new-ec">
+<h2>Exercise 3: Something new… (EC)<a class="headerlink" href="#exercise-3-something-new-ec" title="Permalink to this headline">¶</a></h2>
 <p><em>(Extra credit: 5 points)</em></p>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
 <p>🦉Come up with something new and cool to do with this animation code.  Maybe try out some other interesting obstacles are add some friction to the walls or such.</p>
-<section id="id10">
-<h3>Answer:<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id10">
+<h3>Answer:<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p><strong>Acknowledgement:</strong> This assignment originally inspired from code from <a class="reference external" href="http://flowkit.com">flowkit.com</a></p>
 <ul class="simple">
 <li><p>Bryan Clark (original)</p></li>
 </ul>
 <p>Copyright: 2021</p>
 <hr class="docutils" />
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1750,11 +1651,9 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="Predator-Prey.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1770,28 +1669,24 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Clark; George Gollin; Ryan Levy<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Bryan Clark; George Gollin; Ryan Levy<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

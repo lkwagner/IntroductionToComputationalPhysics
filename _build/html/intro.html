@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>An Introduction to Modern Computational Physics &#8212; Physics 246</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,13 +39,12 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -60,21 +61,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -83,10 +70,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -104,15 +90,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
-                    An Introduction to Modern Computational Physics
-                </a>
-            </li>
-        </ul>
         <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   An Introduction to Modern Computational Physics
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
    N ways to measure
@@ -194,17 +179,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -212,117 +192,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/intro.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#course-logistics">
    Course Logistics
@@ -416,11 +340,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>An Introduction to Modern Computational Physics</h1>
@@ -530,12 +455,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="an-introduction-to-modern-computational-physics">
-<h1>An Introduction to Modern Computational Physics<a class="headerlink" href="#an-introduction-to-modern-computational-physics" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="an-introduction-to-modern-computational-physics">
+<h1>An Introduction to Modern Computational Physics<a class="headerlink" href="#an-introduction-to-modern-computational-physics" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>Physics 246, Fall 2021</p></li>
 <li><p>Thursday 4:00-5:50pm CST</p></li>
@@ -545,8 +469,80 @@ title="Print to PDF"
 </ul>
 <p>Welcome!  Computation is powerful. In this course, you are going to learn how to use computation to do amazing simulations: compute how general relativity changes the orbit of Mercury; simulate turbulence; compute the effect of predator and preys on an ecosystem; run a quantum algorithm; and more! We’ve searched and distilled from the world some of the coolest physics we know for you to learn to simulate. Our primary goal in this class will be to help you make these simulations.</p>
 <p>Here is an <a href="../classSummary/index.html">overview presentation</a> of what you will learn in this class.</p>
-<section id="course-logistics">
-<h2>Course Logistics<a class="headerlink" href="#course-logistics" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<p>Other</p>
+<ul class="simple">
+<li><p>N Ways of Measuring Pi</p></li>
+</ul>
+<p>Classical mechanics is the study of force and motion.  You will write a  classical mechanics code which is accurate to second order in time-step.  Then you will use this code for various activities
+including  to simulate the tossing of a ball computing the difference in its landing  with and without air resis</p>
+<p>Classical Dynamics</p>
+<ul class="simple">
+<li><p>Dynamics</p>
+<ul>
+<li><p>Tossing Balls with Air Resistance</p></li>
+</ul>
+</li>
+<li><p>Orbital Dynamics</p></li>
+<li><p>Single (Driven) Pendula</p></li>
+<li><p>Many Body Dynamics</p></li>
+</ul>
+<p>Chaos</p>
+<ul class="simple">
+<li><p>Double Pendula</p></li>
+<li><p>(Lorentz Attractors)</p></li>
+</ul>
+<p>Particle Physics</p>
+<ul class="simple">
+<li><p>Monte Carlo Simulation of Particle Physics Experiment</p></li>
+</ul>
+<p>Optimization:</p>
+<ul class="simple">
+<li><p>scipy optimization of balls hitting each other</p></li>
+<li><p>stochastic gradient descent of ML modes</p></li>
+</ul>
+<p>Astrophysics</p>
+<ul class="simple">
+<li><p>Orbital Dynamics</p></li>
+<li><p>Keplers Laws</p></li>
+<li><p>Mercury Precision</p></li>
+<li><p>Multiple Planets</p></li>
+<li><p>(early planetary formation)</p></li>
+<li><p>Exoplanets</p></li>
+<li><p>Classifying Galaxies</p></li>
+</ul>
+<p>Machine-Learning</p>
+<ul class="simple">
+<li><p>ML</p></li>
+</ul>
+<p>Biophysics</p>
+<ul class="simple">
+<li><p>Predator-Prey</p></li>
+</ul>
+<p>Fluid Dynamics</p>
+<ul class="simple">
+<li><p>Lattice Boltzmann</p></li>
+</ul>
+<p>Fourier Transform</p>
+<ul class="simple">
+<li><p>Exoplanets</p></li>
+</ul>
+<p>Monte Carlo</p>
+<ul class="simple">
+<li><p>N ways of Measuring Pi - Throwing Darts</p></li>
+<li><p>Unbiased Random Walks</p></li>
+<li><p>Markov Chains: Weather</p></li>
+<li><p>Markov Chains: Paramagnetism</p></li>
+<li><p>Markov Chains: Rubber Bands</p></li>
+<li><p>Continuous time Markov Chains for Predator-Prey</p></li>
+</ul>
+<p>Quantum Computing:</p>
+<ul class="simple">
+<li><p>Quantum Computing 1 and 2</p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="course-logistics">
+<h2>Course Logistics<a class="headerlink" href="#course-logistics" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Lectures:</strong> R 4:00-5:50</p></li>
 <li><p><strong>Professor:</strong> Bryan Clark</p>
@@ -562,8 +558,8 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
-<section id="online-tools-useful-links">
-<h3>Online Tools - <span class="xref myst">Useful Links</span><a class="headerlink" href="#online-tools-useful-links" title="Permalink to this headline">#</a></h3>
+<div class="section" id="online-tools-useful-links">
+<h3>Online Tools - <span class="xref myst">Useful Links</span><a class="headerlink" href="#online-tools-useful-links" title="Permalink to this headline">¶</a></h3>
 <p>See useful links for more information about how to use these tools</p>
 <ul class="simple">
 <li><p><strong>Campuswire</strong>:  We will use campuswire as a class forum;  a way to message the course staff and each other; and to submit your attendance question.</p></li>
@@ -571,10 +567,10 @@ title="Print to PDF"
 <li><p><strong>my.physics gradebook</strong>: You will find your grades here and your returned assignments.</p></li>
 </ul>
 <hr class="docutils" />
-</section>
-</section>
-<section id="calendar">
-<h2>Calendar<a class="headerlink" href="#calendar" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="calendar">
+<h2>Calendar<a class="headerlink" href="#calendar" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Date</p></th>
@@ -626,12 +622,12 @@ title="Print to PDF"
 </tr>
 </tbody>
 </table>
-</section>
+</div>
 <hr class="docutils" />
-<section id="coursework">
-<h2>Coursework<a class="headerlink" href="#coursework" title="Permalink to this headline">#</a></h2>
-<section id="computational-assignments">
-<h3>Computational Assignments<a class="headerlink" href="#computational-assignments" title="Permalink to this headline">#</a></h3>
+<div class="section" id="coursework">
+<h2>Coursework<a class="headerlink" href="#coursework" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="computational-assignments">
+<h3>Computational Assignments<a class="headerlink" href="#computational-assignments" title="Permalink to this headline">¶</a></h3>
 <p>The heart of this course will be a series of computational assignments.</p>
 <ul class="simple">
 <li><p>You will work on the assignments both during class and as homework.</p></li>
@@ -641,9 +637,9 @@ title="Print to PDF"
 <li><p>You may collaborate on assignments but must submit your own work.</p></li>
 <li><p>Homework will be returned through the <a class="reference external" href="https://my.physics.illinois.edu/gradebook/set.asp?subj=PHYS&amp;crsnum=246&amp;term=120208">my physics gradebook</a></p></li>
 </ul>
-</section>
-<section id="take-home-final">
-<h3>Take-Home Final<a class="headerlink" href="#take-home-final" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="take-home-final">
+<h3>Take-Home Final<a class="headerlink" href="#take-home-final" title="Permalink to this headline">¶</a></h3>
 <p>The take-home final is 5% of your grade will involve demonstrating and extending your work in class by doing something cool and interesting.  You must work alone on this (i.e. without collaboration).  The list of possible cool and interesting extensions are in the left-bar under “cool extensions for final.”    Many of these are projects that are scheduled for future versions of this course but just aren’t written yet (and so are at the difficulty level of the other course projects).  If you have a good idea that you would like to do, please let me know and I may approve it.  Each option can only be taken by one person on a first-come first-serve basis.  You can sign up on the google sheet at any point and also may change your project at any point.  Projects may be added as the semester goes on.  The projects are not all equally easy (but there are plenty of easy ones if that is your goal.)  The projects are graded on a very coarse-grained 5 point scale:</p>
 <ul class="simple">
 <li><p>0 points: didn’t submit anything</p></li>
@@ -653,17 +649,17 @@ title="Print to PDF"
 <li><p>2 and 3 points will interpolate between 1-4 points.</p></li>
 </ul>
 <p>For the take-home final you will put together a jupyter notebook that demonstrates your extension project.  The should have code and demonstrate the task but also be written in an expository way that other students could read and learn from.  We will post these projects in the the passworded area of the course website during the final period for your classmates to learn from.</p>
-</section>
-<section id="extra-credit">
-<h3>Extra Credit<a class="headerlink" href="#extra-credit" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="extra-credit">
+<h3>Extra Credit<a class="headerlink" href="#extra-credit" title="Permalink to this headline">¶</a></h3>
 <p>There will be occassional opportunities to get extra credit. To zeroth order these exist because I think they are cool and useful for understanding computational physics but I can’t justify within the 2 credit hours of the course.</p>
 <p>Extra credit assignments will often be described poorly (maybe even something like, `get a full solar system simulation working’). If you have questions about it, please ask before you spend too much time on it. Also, we have no obligation to make extra credit typo-free. Please try to answer the question we mean to be asking.</p>
 <p>For the extra credit, per exercise, the grading is all or nothing. We aren’t going to hunt for typos and give partial credit for sortof working code. The amount of extra credit per exercise/etc is listed on the assignment.</p>
 <hr class="docutils" />
-</section>
-</section>
-<section id="grading">
-<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="grading">
+<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Computational Assignments: 95%</p></li>
 <li><p>Take-home final: 5%</p></li>
@@ -687,40 +683,40 @@ title="Print to PDF"
 <p>Scores are inclusive of the bottom number - i.e. a 90 gets an A not an A-.
 All problem sets count for the same amount.  Unless otherwise noted, every exercise in a problem set counts an equal fraction of the assignment and every part (a,b,c,…) of an exercise counts as an equal fraction of the exercise. 5 points of the problem set will be for mandatory questions (e.g. time spent on assignment, references, collaborators).</p>
 <p>Sometimes there are typos in the assignment (although we are working hard to remove them). Please ask when confused! Don’t spin your wheels a long time on something that might be a typo. These aren’t trick questions - we are trying to ask reasonable things.</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="policies">
-<h2>Policies<a class="headerlink" href="#policies" title="Permalink to this headline">#</a></h2>
-<section id="covid">
-<h3>Covid<a class="headerlink" href="#covid" title="Permalink to this headline">#</a></h3>
+<div class="section" id="policies">
+<h2>Policies<a class="headerlink" href="#policies" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="covid">
+<h3>Covid<a class="headerlink" href="#covid" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Masks must be worn in class at all times</p></li>
 <li><p>You must be approved to enter the building according to your app.  I will check this so please don’t come to class if you aren’t.</p></li>
 <li><p>Please don’t come to class if you are feeling sick.   There will be plenty of remote opportunity to catch up.</p></li>
 <li><p>While social distancing is not required at this time it continues to be recommended and encouraged when possible to do so.  Toward that end, please sit someplace that allows socially distanced access.</p></li>
 </ul>
-</section>
-<section id="about-using-code-you-find-on-the-web">
-<h3>About using code you find on the web<a class="headerlink" href="#about-using-code-you-find-on-the-web" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="about-using-code-you-find-on-the-web">
+<h3>About using code you find on the web<a class="headerlink" href="#about-using-code-you-find-on-the-web" title="Permalink to this headline">¶</a></h3>
 <p>The quickest way to deal with the arcana of programing is to ask Google for examples of what you are seeking to accomplish. But you will need to use your judgment in doing this: the Google search “how do I use color maps in python?” is fine, while “show me a script that calculates pi” is not. And you should always credit the original source of code that you paste into your own programs in a comment that includes the URL for the original code. If an author says that his/her code is not to be copied or incorporated into your programs, then DON’T.</p>
 <p>I have two principal goals in this course. I want all of you to become fearless coders with the confidence to walk up to baffling problems and pound them into submission. And I want you to develop numerical descriptions of cool systems normally thought to be too difficult for students at your level, whose analytic descriptions might obscure the underlying physics. For this to work, you’ll need to write your own code.</p>
-</section>
-<section id="academic-integrity">
-<h3>Academic Integrity<a class="headerlink" href="#academic-integrity" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="academic-integrity">
+<h3>Academic Integrity<a class="headerlink" href="#academic-integrity" title="Permalink to this headline">¶</a></h3>
 <p>You must never submit the work of someone else as your own. We understand that many of you will find it helpful to work with other students to master Physics 246. But when you collaborate with your study group on homework assignments, you must be a full, active participant in developing the solutions that you submit for credit.</p>
 <p>It is cheating to receive answers from another student and then use them as your own. It is cheating to submit as your own work solutions that you find by searching on the worldwide web (though see “About using code you find on the web”), or by subscribing to an online service that suborns cheating. It is cheating—and a violation of U.S. copyright law—to give (or sell) course material to someone else who intends to redistribute and/or sell it.</p>
 <p>All activities in this course, are subject to the Academic Integrity rules as described in Article 1, Part 4, Academic Integrity, of the Student Code.</p>
 <hr class="docutils" />
-</section>
-</section>
-<section id="miscellany">
-<h2>Miscellany<a class="headerlink" href="#miscellany" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="miscellany">
+<h2>Miscellany<a class="headerlink" href="#miscellany" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://wiki.python.org/moin/BeginnersGuide/Programmers">Python Programming Resources</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/edu/python">Google’s Python Programming Class</a></p></li>
 </ul>
-<section id="why-this-course">
-<h3>Why this course?<a class="headerlink" href="#why-this-course" title="Permalink to this headline">#</a></h3>
+<div class="section" id="why-this-course">
+<h3>Why this course?<a class="headerlink" href="#why-this-course" title="Permalink to this headline">¶</a></h3>
 <p>As the needs of our students evolve—there is, for example, increasing focus on early readiness for research—the Physics faculty are obliged to adjust both what we teach, and how we teach.</p>
 <p>There is a rich tradition of innovation in engineering pedagogy at Illinois. Fifty years ago UIUC became the first school to teach its undergraduates to design computers. More recently, our colleagues have become national leaders in successful efforts to improve instructional outcomes in elementary physics. We intend to continue this Illinois tradition by incorporating computational literacy into the set of core competencies to be mastered by our students.</p>
 <p>Just as we require physics majors to enroll in courses taught by Mathematics, but teach the applications of mathematics to physics in our own courses, we hope to do the same with programming. We will continue to require that our students take an introductory course in Computer Science, while incorporating into our own courses machine-based approaches to problems that cannot be solved analytically. Examples include chaos and nonlinear phenomena; fluid dynamics; real-world electrodynamics; quantum mechanics of multi-electron atoms.</p>
@@ -732,21 +728,21 @@ The technical foundation for physics majors includes material in physics, mathem
 The previous course, Physics 298OWL, for obscure reasons requires us to append a three-letter code to the course number. Since the owl is the symbol of Athena—goddess of wisdom, inspiration, mathematics, strength, and other good things—“OWL” seemed like a sensible choice.
 This course has since evolved into Physics 246. And why 246? Because that’s the <a class="reference external" href="https://en.wikipedia.org/wiki/Vacuum_expectation_value">vacuum expectation value</a> of the <a class="reference external" href="https://en.wikipedia.org/wiki/Higgs_boson">Higgs field</a>.</p>
 <p><img alt="owl" src="owl.png" /></p>
-</section>
-</section>
-<section id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
 <p>The current version of this course is developed by Bryan Clark.  An earlier version of <a class="reference external" href="https://courses.physics.illinois.edu/phys298owl/fa2018/">this course</a> was developed and run by <a class="reference external" href="https://physics.illinois.edu/people/directory/profile/g-gollin">George Gollin</a> and this current version has non-trival overlapping units and problems.  The classifying galaxy assignment closely follows a tutorial at the Galaxy Zoo. The fluid dynamics assignment was originally inspired to get you to develop lattice Boltzmann code similar to that from <a class="reference external" href="http://flowkit.com">flowkit.com</a>.  The jupyter-ization of the course was done by Ryan Levy and Bryan Clark.</p>
-</section>
-<section id="related-courses">
-<h2>Related Courses<a class="headerlink" href="#related-courses" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="related-courses">
+<h2>Related Courses<a class="headerlink" href="#related-courses" title="Permalink to this headline">¶</a></h2>
 <p>Here are some number of related (but less exciting) courses which have similar goals.</p>
 <p>In <a class="reference external" href="http://theory.caltech.edu/~dsd/ph121ab/2019-2020/">Caltech</a> you write a smaller number of similar assignments (but with no guidance).</p>
 <p><a class="reference external" href="https://computationalthinking.mit.edu/Spring21/">MIT</a> runs a similar course in Julia with a nice assignment on climate-science.  You can do a more-from-scratch version of this assignment for your final if you want.</p>
-</section>
+</div>
 <div class="toctree-wrapper compound">
 </div>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -770,10 +766,8 @@ This course has since evolved into Physics 246. And why 246? Because that’s th
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
     <a class='right-next' id="next-link" href="N_Ways_of_Measuring_PI.html" title="next page">
     <div class="prev-next-info">
@@ -783,28 +777,24 @@ This course has since evolved into Physics 246. And why 246? Because that’s th
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Clark; George Gollin; Ryan Levy<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Bryan Clark; George Gollin; Ryan Levy<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

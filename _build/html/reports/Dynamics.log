@@ -1,48 +1,74 @@
 Traceback (most recent call last):
-  File "/Users/bkclark/Library/Python/3.9/lib/python/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/Users/bkclark/Library/Python/3.9/lib/python/site-packages/nbclient/client.py", line 1204, in execute
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/bkclark/Library/Python/3.9/lib/python/site-packages/nbclient/util.py", line 84, in wrapped
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Users/bkclark/Library/Python/3.9/lib/python/site-packages/nbclient/util.py", line 62, in just_run
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
     return loop.run_until_complete(coro)
-  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
     return future.result()
-  File "/Users/bkclark/Library/Python/3.9/lib/python/site-packages/nbclient/client.py", line 663, in async_execute
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
     await self.async_execute_cell(
-  File "/Users/bkclark/Library/Python/3.9/lib/python/site-packages/nbclient/client.py", line 965, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/bkclark/Library/Python/3.9/lib/python/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import numpy as np
-import matplotlib.pyplot as plt
-import scipy
-def resetMe(keepList=[]):
-    ll=%who_ls
-    keepList=keepList+['resetMe','np','plt','scipy']
-    for iiii in keepList:
-        if iiii in ll:
-            ll.remove(iiii)
-    for iiii in ll:
-        jjjj="^"+iiii+"$"
-        %reset_selective -f {jjjj}
-    ll=%who_ls
-    plt.rcParams.update({"font.size": 14})
-    return
-import datetime;datetime.datetime.now()
+from matplotlib import animation
+from IPython.display import HTML
+
+def animateMe(positions,fullLine=True):
+    # First set up the figure, the axis, and the plot element we want to animate
+    fig = plt.figure();
+    x_min=np.min(positions[:,0])
+    x_max=np.max(positions[:,0])*1.1
+    y_min=np.min(positions[:,1])
+    y_max=np.max(positions[:,1])*1.1
+
+    ax = plt.axes(xlim=(x_min, x_max), ylim=(y_min, y_max));
+    #line, = ax.plot([], [], lw=2);
+    line, = ax.plot([], [],'bo', ms=10);
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    plt.close(fig)
+    # initialization function: plot the background of each frame
+    def init():
+        line.set_data([], [])
+        return line,
+
+    # animation function.  This is called sequentially
+    def animate(i):
+        x = positions[:,0]
+        y = positions[:,1]
+        if fullLine:
+            line.set_data(positions[0:i,0], positions[0:i,1])
+        else:
+            line.set_data(positions[i,0], positions[i,1])
+#        line.set_markersize(10)
+        return line,
+
+    # call the animator.  blit=True means only re-draw the parts that have changed.
+    anim = animation.FuncAnimation(fig, animate, init_func=init,
+                                   frames=len(positions), interval=20, 
+                                   blit=True,repeat=False);
+    return anim
+
+anim=animateMe(positions,True)
+HTML(anim.to_jshtml())
 
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
-[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m/var/folders/8c/x9n91g7x7lqg0tt66yrmbwhm0000gn/T/ipykernel_33438/3120531430.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     38[0m     [0;32mreturn[0m [0manim[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     39[0m [0;34m[0m[0m
+[0;32m---> 40[0;31m [0manim[0m[0;34m=[0m[0manimateMe[0m[0;34m([0m[0mpositions[0m[0;34m,[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     41[0m [0mHTML[0m[0;34m([0m[0manim[0m[0;34m.[0m[0mto_jshtml[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'numpy'
-ModuleNotFoundError: No module named 'numpy'
+[0;31mNameError[0m: name 'positions' is not defined
+NameError: name 'positions' is not defined
 

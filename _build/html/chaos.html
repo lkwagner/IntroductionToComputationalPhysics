@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chaos &#8212; Physics 246</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,21 +39,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Many Body Simulations" href="OrbitalDynamics2.html" />
@@ -63,21 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,15 +93,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    An Introduction to Modern Computational Physics
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   An Introduction to Modern Computational Physics
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
    N ways to measure
@@ -197,17 +182,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -215,128 +195,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/chaos.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/chaos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-1-single-pendulum">
    Exercise 1. Single Pendulum
@@ -383,11 +296,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Chaos</h1>
@@ -450,12 +364,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="chaos">
-<h1>Chaos<a class="headerlink" href="#chaos" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="chaos">
+<h1>Chaos<a class="headerlink" href="#chaos" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
 <li><p><strong>Date:</strong></p></li>
@@ -493,21 +406,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">math</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2023, 8, 23, 16, 15, 16, 882040)
 </pre></div>
 </div>
 </div>
 </div>
 <p>In this project we are going to learn about pendula and chaos.  We will start with a single pendulum, examining phase space diagrams and animating trajectories, and moving toward a double pendulum. Then we’ll wrap up by using automatic differentiation to look at the same problem, recast in a different form, to write a more general solution to the double pendulum problem.</p>
-<section id="exercise-1-single-pendulum">
-<h2>Exercise 1. Single Pendulum<a class="headerlink" href="#exercise-1-single-pendulum" title="Permalink to this headline">#</a></h2>
+<div class="section" id="exercise-1-single-pendulum">
+<h2>Exercise 1. Single Pendulum<a class="headerlink" href="#exercise-1-single-pendulum" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -558,8 +464,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="a-a-single-pendula">
-<h3>a. A Single Pendula<a class="headerlink" href="#a-a-single-pendula" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-a-single-pendula">
+<h3>a. A Single Pendula<a class="headerlink" href="#a-a-single-pendula" title="Permalink to this headline">¶</a></h3>
 <p>When working with pendula, instead of keeping track of the position <span class="math notranslate nohighlight">\((x,y)\)</span>, we instead are going to keep track of the angle <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/pendula.png" width=400  alt="Answer (start)"></img><br></div><p>In this exercise, we are going to simulate a pendulum with a rigid rod <span class="math notranslate nohighlight">\(L\)</span> and a fixed mass <span class="math notranslate nohighlight">\(m\)</span> at the end of it.  We can define the position of the pendulum by the angle it makes with respect to hanging down (at <span class="math notranslate nohighlight">\(\theta=0\)</span>).</p>
 <p>You can force your code to use theta simply by giving initial conditions and velocities for a single dimension (i.e. <code class="docutils literal notranslate"><span class="pre">params['initPos']=np.array([0.1])</span></code> would start you pendulum at 0.1 radians.</p>
@@ -594,7 +500,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">e0475c412d29</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">c</span><span class="o">/</span><span class="n">x9n91g7x7lqg0tt66yrmbwhm0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_33523</span><span class="o">/</span><span class="mf">1087699608.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#RUN ME TO ANIMATE YOUR CODE</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ani</span><span class="o">=</span><span class="n">animateMe_singlePendula</span><span class="p">([</span><span class="n">positions</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
@@ -606,9 +512,9 @@ title="Print to PDF"
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:</strong> Does the phase space diagram match your expectations? Explain</p>
 <p><strong>A:</strong></p>
-</section>
-<section id="b-pendula-and-the-different-starting-positions">
-<h3>b. Pendula and the different starting positions<a class="headerlink" href="#b-pendula-and-the-different-starting-positions" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="b-pendula-and-the-different-starting-positions">
+<h3>b. Pendula and the different starting positions<a class="headerlink" href="#b-pendula-and-the-different-starting-positions" title="Permalink to this headline">¶</a></h3>
 <p>Recall in your intro mechanics class (Physics 211/etc) that you know the analytic solution for a pendulum is
 $<span class="math notranslate nohighlight">\(
 \theta(t) = \theta_0 \cos(\omega t)
@@ -646,9 +552,9 @@ However, that solution only works for <em>small angles</em>.</p>
 <p><strong>A:</strong></p>
 <p><strong>Q:</strong> What does the phase space diagram look like now? Do any of these initial conditions change the “simple” behaivor of the pendulum?</p>
 <p><strong>A:</strong></p>
-</section>
-<section id="c-damped-and-driven-and-phase-plots">
-<h3>c. Damped and Driven and phase plots<a class="headerlink" href="#c-damped-and-driven-and-phase-plots" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="c-damped-and-driven-and-phase-plots">
+<h3>c. Damped and Driven and phase plots<a class="headerlink" href="#c-damped-and-driven-and-phase-plots" title="Permalink to this headline">¶</a></h3>
 <p>The behavior of a “simple” pendulum becomes less simple when you add damping and drive the system.</p>
 <p>Suppose we make a pendulum from an object of mass <span class="math notranslate nohighlight">\(m\)</span> at the end of a rigid, massless rod of length <span class="math notranslate nohighlight">\(L\)</span>.  The rod is suspended from a bearing which exerts an angular velocity-dependent drag force on the pendulum. Because we are using a rod, not a string, the pendulum can swing in a full circle if it is moving sufficiently quickly. A motor attached to the pendulum provides a sinusoidally varying torque. Gravity acts on the pendulum in the usual way.</p>
 <p>The equation of motion for the pendulum is then
@@ -744,9 +650,9 @@ $<span class="math notranslate nohighlight">\(\begin{align}
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-<section id="d-simple-pendulum-phase-space-trajectory">
-<h3>d. Simple pendulum phase space trajectory<a class="headerlink" href="#d-simple-pendulum-phase-space-trajectory" title="Permalink to this headline">#</a></h3>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></div>
+<div class="section" id="d-simple-pendulum-phase-space-trajectory">
+<h3>d. Simple pendulum phase space trajectory<a class="headerlink" href="#d-simple-pendulum-phase-space-trajectory" title="Permalink to this headline">¶</a></h3>
 <p>The phase trajectories of driven nonlinear oscillators can be much more complicated than this. 🦉Please generate phase space diagrams for the simple pendulum using the parameters for version 2 and version 4 (shown below again). Note that <span class="math notranslate nohighlight">\(t_\textrm{max}=500\)</span></p>
 <table class="colwidths-auto table">
 <thead>
@@ -844,10 +750,10 @@ $<span class="math notranslate nohighlight">\(\begin{align}
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-</section>
-<section id="double-pendulum">
-<h2>2.  Double Pendulum<a class="headerlink" href="#double-pendulum" title="Permalink to this headline">#</a></h2>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></div>
+</div>
+<div class="section" id="double-pendulum">
+<h2>2.  Double Pendulum<a class="headerlink" href="#double-pendulum" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -908,8 +814,8 @@ $<span class="math notranslate nohighlight">\(\begin{align}
 </div>
 </div>
 </div>
-<section id="a-simulating-double-pendula">
-<h3>a. Simulating double pendula<a class="headerlink" href="#a-simulating-double-pendula" title="Permalink to this headline">#</a></h3>
+<div class="section" id="a-simulating-double-pendula">
+<h3>a. Simulating double pendula<a class="headerlink" href="#a-simulating-double-pendula" title="Permalink to this headline">¶</a></h3>
 <div><img src="https://clark.physics.illinois.edu/246img/doublePendula.png" width=600 alt="double pendula"></img><br></div><p>Modify your code to simulate a double pendula. Now instead of representing the location of your pendula with one <span class="math notranslate nohighlight">\(\theta\)</span> you need to use two <span class="math notranslate nohighlight">\(\theta\)</span>.  (Be careful you are dealing with the mass correctly).  Again, this can be mainly accomplished by playing with your initial conditions.</p>
 <p>Now, you need to get the force to work.  The force for a double pendulum is somewhat complicated.   To compute the force you either need to:</p>
 <ul class="simple">
@@ -979,9 +885,9 @@ $<span class="math notranslate nohighlight">\(\begin{align}
 <p><strong>A:</strong></p>
 <p><strong>Q:</strong> How does the behavior of the pendulum change compared to a simple pendulum as the initial angle is increase?</p>
 <p><strong>A:</strong></p>
-</section>
-<section id="b-chaos">
-<h3>b. Chaos<a class="headerlink" href="#b-chaos" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="b-chaos">
+<h3>b. Chaos<a class="headerlink" href="#b-chaos" title="Permalink to this headline">¶</a></h3>
 <p>Our goal now is to see that this double pendula is chaotic.  Chaos means that if the system starts with very similar initial conditions, that the result will look very different in the future (long times).   Go ahead and run a series of 10 initial conditions except that each one differs from the previous one by an initial angle on the second pendula of <span class="math notranslate nohighlight">\(10^{-4}\)</span>, i.e. <code class="docutils literal notranslate"><span class="pre">params['initPos'][0]+i*1e-4,params['initPos'][1]+(i+1)*1e-4</span></code>
 Animate them all simultaneously to see what happens.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
@@ -1016,9 +922,9 @@ Animate them all simultaneously to see what happens.</p>
 <li><p>Ex 2: Bryan Clark (original)</p></li>
 </ul>
 <p>© Copyright 2021</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1042,11 +948,9 @@ Animate them all simultaneously to see what happens.</p>
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="Exoplanets.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1062,28 +966,24 @@ Animate them all simultaneously to see what happens.</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Bryan Clark; George Gollin; Ryan Levy<br/>
-  
-      &copy; Copyright 2021.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Bryan Clark; George Gollin; Ryan Levy<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
