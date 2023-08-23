@@ -1,0 +1,60 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+
+def resetMe(keepList=[]):
+    ll=%who_ls
+    keepList=keepList+['resetMe','np','plt','math','jax','jnp','jit','grad']
+    for iiii in keepList:
+        if iiii in ll:
+            ll.remove(iiii)
+    for iiii in ll:
+        jjjj="^"+iiii+"$"
+        %reset_selective -f {jjjj}
+    ll=%who_ls
+    plt.rcParams.update({"font.size": 14})
+    return
+#resetMe()
+import datetime;datetime.datetime.now()
+
+#resetMe()
+SolarSystemParameters=dict()
+SolarSystemParameters["MercuryOrbitRadius"]=57.9e9 #meters
+SolarSystemParameters["MercuryPerihelion"]=46.0012e9 # meters
+SolarSystemParameters["MercuryAphelion"]=69.8169e9 # meters
+
+SolarSystemParameters["EarthRadius"]=6.371e6 #meters
+SolarSystemParameters["EarthRotatingVelocity"]=444.444 # meters per second
+SolarSystemParameters["EarthOrbitRadius"]=149.6e9 # meters
+SolarSystemParameters["EarthOrbitVelocity"]=30e3 # meters per secon
+SolarSystemParameters["EarthMass"]=5.972e24 # kg
+SolarSystemParameters["MoonOrbitRadius"]=363228.9e3
+SolarSystemParameters["MoonMass"]=7.34e22 # kg
+
+SolarSystemParameters["SunRadius"]=695.51e3 #meters
+SolarSystemParameters["SunMass"]=1.989e30 # kg
+SolarSystemParameters["G"]=6.67408e-11
+
+### ANSWER HERE
+
+### ANSWER HERE
+
+### ANSWER HERE
+
+### ANSWER HERE
+
+
+
+### ANSWER HERE
+
+
+
+### ANSWER HERE
+
+### ANSWER HERE
+
+### ANSWER HERE
+
+### ANSWER HERE
+
+

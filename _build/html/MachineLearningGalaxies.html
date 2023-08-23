@@ -1,0 +1,763 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Classifying Galaxies &#8212; Physics 246</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quantum Computing 1" href="QC1.html" />
+    <link rel="prev" title="Fluid Dynamics" href="FluidDynamics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/FD.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Physics 246</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    An Introduction to Modern Computational Physics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
+   N ways to measure
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dynamics.html">
+   Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="OrbitalDynamics.html">
+   Orbital Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Exoplanets.html">
+   Exoplanets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chaos.html">
+   Chaos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="OrbitalDynamics2.html">
+   Many Body Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ParticlePhysics.html">
+   Particle Physics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Random%20Walks.html">
+   Random Walks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Markov%20Chains.html">
+   Markov Chains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Predator-Prey.html">
+   Predator-Prey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="FluidDynamics.html">
+   Fluid Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Classifying Galaxies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QC1.html">
+   Quantum Computing 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QC2.html">
+   Quantum Computing 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Projects.html">
+   Cool Projects
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/MachineLearningGalaxies.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-machine-learning-on-galaxies">
+   Exercise 1: Machine Learning on Galaxies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-note-on-the-data">
+     A Note on the data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-galaxies">
+     a. Galaxies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-neural-network">
+     b. Neural Network
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-a-measure-of-goodness">
+     c. A measure of goodness
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-classification">
+     d. Classification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-mini-batches-and-vmap-extra-credit-5-points">
+     e.  Mini-batches and vmap (Extra Credit: 5 points)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Classifying Galaxies</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-machine-learning-on-galaxies">
+   Exercise 1: Machine Learning on Galaxies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-note-on-the-data">
+     A Note on the data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-galaxies">
+     a. Galaxies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-neural-network">
+     b. Neural Network
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-a-measure-of-goodness">
+     c. A measure of goodness
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-classification">
+     d. Classification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-mini-batches-and-vmap-extra-credit-5-points">
+     e.  Mini-batches and vmap (Extra Credit: 5 points)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="classifying-galaxies">
+<h1>Classifying Galaxies<a class="headerlink" href="#classifying-galaxies" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><strong>Author:</strong></p></li>
+<li><p><strong>Date:</strong></p></li>
+<li><p><strong>Time spent on this assignment:</strong></p></li>
+</ul>
+<p><em>This assignment closely follows a tutorial at the Galaxy Zoo.  You are not allowed to look up that tutorial when completing this assignment.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+<span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">jit</span>
+<span class="kn">import</span>  <span class="nn">jax</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">datetime</span><span class="p">;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">resetMe</span><span class="p">(</span><span class="n">keepList</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="n">keepList</span><span class="o">=</span><span class="n">keepList</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;resetMe&#39;</span><span class="p">,</span><span class="s1">&#39;np&#39;</span><span class="p">,</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span><span class="s1">&#39;math&#39;</span><span class="p">,</span><span class="s1">&#39;FuncAnimation&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;HTML&#39;</span><span class="p">,</span><span class="s1">&#39;itertools&#39;</span><span class="p">,</span><span class="s1">&#39;pickle&#39;</span><span class="p">,</span><span class="s1">&#39;testFunc&#39;</span><span class="p">,</span><span class="s1">&#39;jnp&#39;</span><span class="p">,</span><span class="s1">&#39;jax&#39;</span><span class="p">,</span><span class="s1">&#39;jit&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">keepList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+            <span class="n">ll</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">iiii</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+        <span class="n">jjjj</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="o">+</span><span class="n">iiii</span><span class="o">+</span><span class="s2">&quot;$&quot;</span>
+        <span class="o">%</span><span class="k">reset_selective</span> -f {jjjj}
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">jit</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-1-machine-learning-on-galaxies">
+<h2>Exercise 1: Machine Learning on Galaxies<a class="headerlink" href="#exercise-1-machine-learning-on-galaxies" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<p>In this assignment, we are going to learn how to automatically classify galaxies using a deep neural network. Our goal will be to take a picture of a galaxy and decide which category it falls into (disc, round, cigar shape, etc).</p>
+<p>We are going to get the pictures of our galaxies from the Sloan Digital Sky Survey and the labels from the Galaxy Zoo (where the public hand-categorizes the galaxies).  We will then write and train a neural network to do this classification. Our goal is to be at least 66% accuracy (one can do much better but it requires more work then is reasonable for this assignment).</p>
+<p>Let’s start by reading in the data. Run the following command to download a copy of the data we’ll need</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span>https://courses.physics.illinois.edu/phys246/fa2020/code/dataG.pkl.gz
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-08-17 01:48:12--  https://courses.physics.illinois.edu/phys246/fa2020/code/dataG.pkl.gz
+Resolving courses.physics.illinois.edu (courses.physics.illinois.edu)... 130.126.151.14
+Connecting to courses.physics.illinois.edu (courses.physics.illinois.edu)|130.126.151.14|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 84647509 (81M) [application/x-gzip]
+Saving to: ‘dataG.pkl.gz.1’
+
+dataG.pkl.gz.1      100%[===================&gt;]  80.73M   136MB/s    in 0.6s    
+
+2021-08-17 01:48:13 (136 MB/s) - ‘dataG.pkl.gz.1’ saved [84647509/84647509]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’ll unpack it to the format we need</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="p">(</span><span class="n">train_images_raw</span><span class="p">,</span><span class="n">train_labels</span><span class="p">,</span><span class="n">test_images_raw</span><span class="p">,</span><span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;dataG.pkl.gz&quot;</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.02 s, sys: 447 ms, total: 2.46 s
+Wall time: 2.47 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>here’s what you now have:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">train_images_raw</span></code> - images in the training set, shape: (17457, 69, 69, 1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">train_labels</span></code>     - labels that explain the image classification for the training set</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_images_raw</span></code>  - images for the test set, shape: (1940,69,69,1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_labels</span></code>      - labels that explain the image classification for the test set</p></li>
+</ul>
+<section id="a-note-on-the-data">
+<h3>A Note on the data<a class="headerlink" href="#a-note-on-the-data" title="Permalink to this headline">#</a></h3>
+<p>The original data has 3 channels - g,r,i bands - while this dataset has only 1 (g). This set also only includes a subset of labels.</p>
+<p>Why? Because we don’t want to overwelm the server with large storage for each student. You are welcome to redo this assignment on Google colab with the full channel set and see how well it does; you’ll need to download the full data we’ve provided:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!wget https://courses.physics.illinois.edu/phys246/fa2020/code/data.pkl.zip
+!unzip data.pkl.zip
+(train_images_raw,train_labels,test_images_raw,test_labels) = pickle.load(open(&quot;data.pkl&quot;,&#39;rb&#39;))
+</pre></div>
+</div>
+<p>and then change the reshape commands below. Feel free to reach out to us for help.</p>
+</section>
+<section id="a-galaxies">
+<h3>a. Galaxies<a class="headerlink" href="#a-galaxies" title="Permalink to this headline">#</a></h3>
+<p>Let’s now examine this data a bit.  We are first going to look at the training data.  The training data is what you are going to use to teach your neural network.  The test data is to check how good we are doing after (possibly during) training.  We won’t use it to train, though (this is to avoid overfitting; we want our neural network to learn how to classify galaxies but not memorize everything in the training set).</p>
+<p>We will start by plotting some of the galaxy images that we have loaded.  Do <code class="docutils literal notranslate"><span class="pre">plt.matshow(train_imagesP[0][:,:,0])</span></code> (This last <code class="docutils literal notranslate"><span class="pre">[:,:,0]</span></code> is because there are three layers to each of these galaxies and we just want to see the first layer. We’ve actually only included this first layer for you to save space, but if you want to use the full data this is necessary)</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot me here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>You should see a galaxy.  Now, let’s see what this galaxy should be classified as.  Go ahead and print out <code class="docutils literal notranslate"><span class="pre">train_labels[0]</span></code>.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## print out the label</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Note that it has a <code class="docutils literal notranslate"><span class="pre">1</span></code> in the second place.  This tells us that this is a smooth completely round galaxy. (the ordering is  <a class="reference external" href="https://astronn.readthedocs.io/en/latest/galaxy10.html">here</a>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Galaxy10 dataset (25753 images)
+├── *0* Class 0 (3461 images): Disk, Face-on, No Spiral
+├── *1* Class 1 (6997 images): Smooth, Completely round
+├── *2* Class 2 (6292 images): Smooth, in-between round
+├── Class 3 (394 images): Smooth, Cigar shaped
+├── *3* Class 4 (3060 images): Disk, Edge-on, Rounded Bulge
+├── Class 5 (17 images): Disk, Edge-on, Boxy Bulge
+├── Class 6 (1089 images): Disk, Edge-on, No Bulge
+├── *4* Class 7 (1932 images): Disk, Face-on, Tight Spiral
+├── Class 8 (1466 images): Disk, Face-on, Medium Spiral
+└── Class 9 (1045 images): Disk, Face-on, Loose Spiral
+</pre></div>
+</div>
+<p><img alt="Galaxy10 dataset" src="https://astronn.readthedocs.io/en/latest/_images/galaxy10_example.png" /></p>
+<p>We are going to use 5 sets, which are indicated with the <code class="docutils literal notranslate"><span class="pre">*#*</span></code></p>
+<p>Let’s instead display the image and label for image 98. We see that instead this is a disk galaxy (<em>this might depend on the randomness used in splitting up the training set so we need to check again when we re-pickle</em>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">train_images_raw</span><span class="p">[</span><span class="mi">98</span><span class="p">][:,:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_labels</span><span class="p">[</span><span class="mi">98</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 0. 0. 0. 0.]
+</pre></div>
+</div>
+<img alt="_images/MachineLearningGalaxies_27_1.png" src="_images/MachineLearningGalaxies_27_1.png" />
+</div>
+</div>
+<p>Let’s check the shape of our data.  Go ahead and print out <code class="docutils literal notranslate"><span class="pre">np.shape(train_images_raw))</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">train_images_raw</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(17457, 69, 69, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have 17457 images.  Each image is a <span class="math notranslate nohighlight">\(69 \times 69 \times 1\)</span> image.  We are going to give these pictures as inputs to our neural network.  It will be easier to give them a big <span class="math notranslate nohighlight">\(69 \times 69 \times 1\)</span> vector then a tensor like this.  Therefore, we should go ahead and reshape our data.  To do this, we can do <code class="docutils literal notranslate"><span class="pre">train_images=train_images_raw.reshape(len(train_images_raw),69*69*1)</span></code>  (Do the same thing for our <code class="docutils literal notranslate"><span class="pre">test_images_raw</span> <span class="pre">data</span></code>).  <strong>You also need to normalize the image data so it’s between 0 and 1.  To do that divide all your vectors by 256</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images_raw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_images_raw</span><span class="p">),</span><span class="mi">69</span><span class="o">*</span><span class="mi">69</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">256.</span>
+<span class="n">test_images</span>  <span class="o">=</span> <span class="n">test_images_raw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_images_raw</span><span class="p">),</span><span class="mi">69</span><span class="o">*</span><span class="mi">69</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">256.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will work with these reshaped vectors for most the rest of this assignment.</p>
+</section>
+<section id="b-neural-network">
+<h3>b. Neural Network<a class="headerlink" href="#b-neural-network" title="Permalink to this headline">#</a></h3>
+<p>Our next step is to write a neural network.   A neural network might sound complicated but it’s actually really simple.  All our neural network does is take the input vector (our reshaped image) to an output vector (of size 5 because we have five different ways to classify a galaxy).</p>
+<p>The equation for how to do this is
+<span class="math notranslate nohighlight">\(v_{out} = 1.0/(1+\exp(-(W_2 \textrm{tanh}(W_1 v_{in} + b_1) +b_2))\)</span>
+where</p>
+<ul class="simple">
+<li><p>W1 is a size 27648 x d matrix</p></li>
+<li><p>W2 is a size d x 5 matrix</p></li>
+<li><p>b1 is a size d vector</p></li>
+<li><p>b2 is a size 5 vector</p></li>
+</ul>
+<p>The last term: <span class="math notranslate nohighlight">\(1/(1+e^{-x})\)</span> ensures that all the numbers in <span class="math notranslate nohighlight">\(v_{out}\)</span> are between 0 and 1.</p>
+<p>Implement a function</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">net</span><span class="p">(</span><span class="n">params</span><span class="p">,</span><span class="n">imageVector</span><span class="p">):</span>
+   <span class="c1"># W1=params[0]</span>
+   <span class="c1"># b1=params[1]</span>
+   <span class="c1"># W2= params[2]</span>
+   <span class="c1"># b2 = params[3]</span>
+   <span class="c1"># return output</span>
+</pre></div>
+</div>
+<p>where params is a list that contains these parameters and imageVector is one of our reshaped images.</p>
+<p>Let’s test this out.  Generate a set of random parameters that have the correct dimension (for example to do this I used <code class="docutils literal notranslate"><span class="pre">0.1*np.random.randn(5,d)</span></code> for W2).   Then call <code class="docutils literal notranslate"><span class="pre">net(params,train_images[3])</span></code> and you should get what your current neural network guesses is the classification for the “3’rd” galaxy.  Use <span class="math notranslate nohighlight">\(d=100\)</span>.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Notice that the output isn’t a nice vector like <code class="docutils literal notranslate"><span class="pre">[0,0,0,0,1,0,0,0,0,0]</span></code>. Instead, it has ten different numbers between zero and one such as <code class="docutils literal notranslate"><span class="pre">[0.2400989</span> <span class="pre">,</span> <span class="pre">0.39862376,</span> <span class="pre">0.4565858</span> <span class="pre">,</span> <span class="pre">0.286503</span>&#160; <span class="pre">,</span> <span class="pre">0.734855</span>&#160; <span class="pre">]</span></code>  We will say that the neural network classifies the galaxy by whichever index is largest i.e. <code class="docutils literal notranslate"><span class="pre">np.argmax(outputVector)</span></code>. In this case it is the 0.8866 which corresponds to spot 4 or “Disk Edge on- rounded bulge” category.</p>
+</section>
+<section id="c-a-measure-of-goodness">
+<h3>c. A measure of goodness<a class="headerlink" href="#c-a-measure-of-goodness" title="Permalink to this headline">#</a></h3>
+<p>To quantify how good our neural network is, we will use two things:</p>
+<p>(1) <strong>Cross-entropy</strong>
+Let’s quantify how far off you are from the expected label (maybe it’s <code class="docutils literal notranslate"><span class="pre">[0,0,0,1,0]</span></code>) . A good way to quantify this is to use the cross entropy.  The cross-entropy is defined as
+$<span class="math notranslate nohighlight">\( \sum_i -y_i \log(a_i) - (1-y_i)\log(1-a_i)\)</span><span class="math notranslate nohighlight">\(
+where \)</span>y_i<span class="math notranslate nohighlight">\( is the \)</span>i’<span class="math notranslate nohighlight">\(th component of the exact label and \)</span>a_i<span class="math notranslate nohighlight">\( is the \)</span>i’$th component of the label you get as output from the neural network.</p>
+<p>Write a function
+<code class="docutils literal notranslate"><span class="pre">loss(params,</span> <span class="pre">imageVector,</span> <span class="pre">correctLabel)</span></code> that takes the parameters and the <code class="docutils literal notranslate"><span class="pre">imageVector</span></code>, runs the neural network to get the output <code class="docutils literal notranslate"><span class="pre">a</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">a=net(params,imageVector)</span></code>) and then returns the cross entropy.  Check the cross entropy you are getting. Our goal will be to minimize this cross entropy (if we do this, then our network will do a better job of getting the correct galaxy classification)</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>(2) <strong>Correct classification</strong>
+In addition to the cross-entropy, we care whether the winning labelling is correct. We will say that we’ve labelled it correctly if in our length 10 vector, the maximum value is where the 1 should be.  Write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">fractionCorrect(params,images,labels)</span></code> that says what fraction you got correct. (<code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> is probably useful here).  Run this on your test images and labels.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>You probably got about 30% correct with your random values of <code class="docutils literal notranslate"><span class="pre">w1,b1,w2,b2</span></code>. Now we have to do better.  We are going to work on getting our loss down (and this will get our fractionCorrect down).  Getting the loss down is easier because it depends continuously on the parameters).</p>
+<p>To make an objective function better, what we should do is to step in a direction where it gets better.  To do this, we are going to want to get the gradient.  We can use jax to get the gradient as we have in earlier assignments.</p>
+<p>Let’s define the gradient of the loss as
+<code class="docutils literal notranslate"><span class="pre">loss_grad</span> <span class="pre">=</span> <span class="pre">jit(jax.grad(jit(loss)))</span></code>.  (The <code class="docutils literal notranslate"><span class="pre">jit</span></code> are there to make things faster.  This is morally just <code class="docutils literal notranslate"><span class="pre">jax.grad(loss)</span></code> and that would work albeit be slower).</p>
+</section>
+<section id="d-classification">
+<h3>d. Classification<a class="headerlink" href="#d-classification" title="Permalink to this headline">#</a></h3>
+<p>Now all we need to do is to (over and over again)</p>
+<ul class="simple">
+<li><p>choose a random image in the <strong>training</strong> set.</p></li>
+<li><p>compute the gradient</p></li>
+<li><p>change the parameters by 0.1% of the gradient (called the <em>learning rate</em> <span class="math notranslate nohighlight">\(\eta\)</span>)</p></li>
+</ul>
+<p>This will make your result on this image marginally better.</p>
+<p>Every 2000 steps you might want to check the fraction of your test set that is now correct. Print it out as well as push it to a list.  You should find that your accuracy rises from 30% beyond 66%.  Plot your accuracy as a function of step for at least 50*2000, and if patient out to 100*2000.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Explore a couple images and see how the your neural network classifies it.  Also, it might be fun to go ahead and look at the ones that it classifies incorrectly whether its second choice was correct.  You can go ahead and explictily check this by looping over everything and collecting some statistics.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>We computed the gradient and took a step after every image.  It is better to average the gradient over some number (say ten) images and then take a step.  This is called a mini-batch.  Write some code to do mini-batches by just looping over ten images.  Then improve your code by figuring out to remove the extra loop and use <code class="docutils literal notranslate"><span class="pre">jax.vmap</span></code></p>
+</section>
+<section id="e-mini-batches-and-vmap-extra-credit-5-points">
+<h3>e.  Mini-batches and vmap (Extra Credit: 5 points)<a class="headerlink" href="#e-mini-batches-and-vmap-extra-credit-5-points" title="Permalink to this headline">#</a></h3>
+<p><strong>Acknowledgement:</strong> This assignment follows very closely a tutorial from <a class="reference external" href="http://GalaxyZoo.com">GalaxyZoo.com</a></p>
+<ul class="simple">
+<li><p>Bryan Clark and Ruyan Level (original)</p></li>
+</ul>
+<p>Copyright: 2021</p>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="FluidDynamics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Fluid Dynamics</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="QC1.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quantum Computing 1</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Bryan Clark; George Gollin; Ryan Levy<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

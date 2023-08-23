@@ -1,0 +1,1167 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Many Body Simulations &#8212; Physics 246</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Particle Physics" href="ParticlePhysics.html" />
+    <link rel="prev" title="Chaos" href="chaos.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/FD.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Physics 246</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    An Introduction to Modern Computational Physics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
+   N ways to measure
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dynamics.html">
+   Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="OrbitalDynamics.html">
+   Orbital Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Exoplanets.html">
+   Exoplanets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chaos.html">
+   Chaos
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Many Body Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ParticlePhysics.html">
+   Particle Physics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Random%20Walks.html">
+   Random Walks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Markov%20Chains.html">
+   Markov Chains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Predator-Prey.html">
+   Predator-Prey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="FluidDynamics.html">
+   Fluid Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MachineLearningGalaxies.html">
+   Classifying Galaxies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QC1.html">
+   Quantum Computing 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QC2.html">
+   Quantum Computing 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Projects.html">
+   Cool Projects
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/OrbitalDynamics2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#automatic-differentiation">
+   Automatic Differentiation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-easier-forces">
+   Exercise 1: Easier Forces
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-automatic-differentiation">
+     a. Automatic Differentiation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-forces-from-energy-and-two-orbiting-suns">
+   Exercise 2. Forces from Energy and Two Orbiting Suns
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-orbiting-suns">
+     a. Orbiting Suns
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-cleaning-up-the-mass">
+     b. Cleaning up the mass
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-three-planets">
+   Exercise 3. Three Planets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-three-planets">
+     a. Three Planets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-4-full-solar-system-dynamics-extra-credit">
+   Exercise 4: Full Solar System Dynamics (Extra Credit)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-symplectic-integration-ec-5-points">
+     a. Symplectic Integration (EC: 5 points)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-full-solar-system-ec-15-points">
+     b.  Full Solar System (EC: 15 points)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-voyager-simulation-ec-10-points">
+     c. Voyager Simulation (EC: 10 points)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-lagrange-points-ec-5-points">
+     d. Lagrange Points (EC: 5 points)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-the-nice-model-ec-35-points">
+     e.  The nice model (EC: 35 points)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-your-universe-ec-5-points">
+     f.  Your universe (EC: 5 points)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-5">
+   Exercise 5
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-solving-euler-lagrange-with-no-work">
+     a. Solving Euler-Lagrange with no work
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Many Body Simulations</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#automatic-differentiation">
+   Automatic Differentiation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-easier-forces">
+   Exercise 1: Easier Forces
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-automatic-differentiation">
+     a. Automatic Differentiation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-forces-from-energy-and-two-orbiting-suns">
+   Exercise 2. Forces from Energy and Two Orbiting Suns
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-orbiting-suns">
+     a. Orbiting Suns
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-cleaning-up-the-mass">
+     b. Cleaning up the mass
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-three-planets">
+   Exercise 3. Three Planets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-three-planets">
+     a. Three Planets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-4-full-solar-system-dynamics-extra-credit">
+   Exercise 4: Full Solar System Dynamics (Extra Credit)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-symplectic-integration-ec-5-points">
+     a. Symplectic Integration (EC: 5 points)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-full-solar-system-ec-15-points">
+     b.  Full Solar System (EC: 15 points)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-voyager-simulation-ec-10-points">
+     c. Voyager Simulation (EC: 10 points)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-lagrange-points-ec-5-points">
+     d. Lagrange Points (EC: 5 points)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-the-nice-model-ec-35-points">
+     e.  The nice model (EC: 35 points)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-your-universe-ec-5-points">
+     f.  Your universe (EC: 5 points)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-5">
+   Exercise 5
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-solving-euler-lagrange-with-no-work">
+     a. Solving Euler-Lagrange with no work
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="many-body-simulations">
+<h1>Many Body Simulations<a class="headerlink" href="#many-body-simulations" title="Permalink to this headline">#</a></h1>
+<p><em>The three-body problem and Mercury Precession</em></p>
+<ul class="simple">
+<li><p><strong>Author:</strong></p></li>
+<li><p><strong>Date:</strong></p></li>
+<li><p><strong>Time spent on this assignment:</strong></p></li>
+</ul>
+<p>In the previous assignment, you produced a simulation which did gravity simulations for one particle (like the Earth) with a non-moving central mass (like the Sun).  In this assignment, we will</p>
+<ul class="simple">
+<li><p>modify our simulation to work with an arbitrary number of bodies.</p></li>
+<li><p>Learn some things about using Jax, an important machine learning framework</p></li>
+</ul>
+<p>We will also use Jax to simulate pendulum in an easier way.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jax.config</span> <span class="kn">import</span> <span class="n">config</span>
+<span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;jax_enable_x64&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">jit</span><span class="p">,</span> <span class="n">grad</span>
+<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+<span class="kn">import</span> <span class="nn">jax</span>
+<span class="k">def</span> <span class="nf">resetMe</span><span class="p">(</span><span class="n">keepList</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="n">keepList</span><span class="o">=</span><span class="n">keepList</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;resetMe&#39;</span><span class="p">,</span><span class="s1">&#39;np&#39;</span><span class="p">,</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span><span class="s1">&#39;math&#39;</span><span class="p">,</span><span class="s1">&#39;jax&#39;</span><span class="p">,</span><span class="s1">&#39;jnp&#39;</span><span class="p">,</span><span class="s1">&#39;jit&#39;</span><span class="p">,</span><span class="s1">&#39;grad&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">keepList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+            <span class="n">ll</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">iiii</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+        <span class="n">jjjj</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="o">+</span><span class="n">iiii</span><span class="o">+</span><span class="s2">&quot;$&quot;</span>
+        <span class="o">%</span><span class="k">reset_selective</span> -f {jjjj}
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
+    <span class="k">return</span>
+<span class="n">resetMe</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">datetime</span><span class="p">;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">jax.config</span> <span class="kn">import</span> <span class="n">config</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;jax_enable_x64&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;jax&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resetMe</span><span class="p">()</span>
+<span class="n">SolarSystemParameters</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MercuryOrbitRadius&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">57.9e9</span>    <span class="c1">#meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MercuryPerihelion&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="mf">46.0012e9</span> <span class="c1"># meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MercuryAphelion&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="mf">69.8169e9</span> <span class="c1"># meters</span>
+
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthRadius&quot;</span><span class="p">]</span>           <span class="o">=</span> <span class="mf">6.371e6</span> <span class="c1">#meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthRotatingVelocity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">444.444</span> <span class="c1"># meters per second</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthOrbitRadius&quot;</span><span class="p">]</span>      <span class="o">=</span> <span class="mf">149.6e9</span> <span class="c1"># meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthOrbitVelocity&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="mf">30e3</span>    <span class="c1"># meters per secon</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthMass&quot;</span><span class="p">]</span>       <span class="o">=</span> <span class="mf">5.972e24</span> <span class="c1"># kg</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MoonOrbitRadius&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">363228.9e3</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MoonMass&quot;</span><span class="p">]</span>        <span class="o">=</span> <span class="mf">7.34e22</span> <span class="c1"># kg</span>
+
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;SunRadius&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">695.51e3</span> <span class="c1">#meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;SunMass&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="mf">1.989e30</span> <span class="c1"># kg</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">]</span>         <span class="o">=</span> <span class="mf">6.67408e-11</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="n">d433cb96ca7</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">resetMe</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">SolarSystemParameters</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MercuryOrbitRadius&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">57.9e9</span>    <span class="c1">#meters</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MercuryPerihelion&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="mf">46.0012e9</span> <span class="c1"># meters</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MercuryAphelion&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="mf">69.8169e9</span> <span class="c1"># meters</span>
+
+<span class="ne">NameError</span>: name &#39;resetMe&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<section id="automatic-differentiation">
+<h2>Automatic Differentiation<a class="headerlink" href="#automatic-differentiation" title="Permalink to this headline">#</a></h2>
+<p>Automatic differentiation is the process by which the derivative of a piece of code is automatically taken.  <a class="reference external" href="https://jax.readthedocs.io/en/latest/index.html">Jax</a> is a framework that allows you to do this.</p>
+<p>Suppose you had a function</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>🦉Go ahead and write a piece of code which plots this function for <span class="math notranslate nohighlight">\(-5 \leq x \leq 5\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### PUT YOUR PLOT HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can make a new function.  It’s going to call <code class="docutils literal notranslate"><span class="pre">grad(myFunction)</span></code> which will return not the output of <code class="docutils literal notranslate"><span class="pre">myFunction</span></code> but the output of its derivative.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myDerivFunction</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+   <span class="k">return</span> <span class="n">grad</span><span class="p">(</span><span class="n">myFunction</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plot this new function.  You should see that it’s the derivative of your other function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###Put your plot here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###Put your plot here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-1-easier-forces">
+<h2>Exercise 1: Easier Forces<a class="headerlink" href="#exercise-1-easier-forces" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<section id="a-automatic-differentiation">
+<h3>a. Automatic Differentiation<a class="headerlink" href="#a-automatic-differentiation" title="Permalink to this headline">#</a></h3>
+<p>For most forces (air resistance is an exception), we can get the force by taking the negative the gradient of the potential energy - i.e.
+<span class="math notranslate nohighlight">\(-\nabla^2 E(x,y,z) = -\partial E/\partial x -\partial E/\partial y - \partial E/\partial z \)</span></p>
+<p>This is advantageous because the energy is much easier to write down then the force.  For example, the gravitational energy between two particles is
+$<span class="math notranslate nohighlight">\( E(\vec{r_1},\vec{r_2}) = \frac{GMm}{|\vec{r_1}-\vec{r_2}|}\)</span>$</p>
+<p>🦉Implement the energy function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">E(t,pos,v,params)</span></code> where <code class="docutils literal notranslate"><span class="pre">pos</span></code> is the position and <code class="docutils literal notranslate"><span class="pre">v</span></code> is the velocity of an orbiting planet from the Sun at the origin.  If you are using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">np</span></code>) please replace it with <code class="docutils literal notranslate"><span class="pre">jnp</span></code> for this function (it will do the same thing but use the jax version of numpy).</p>
+<p>Your energy function should look like this</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">resetMe</span><span class="p">([</span><span class="s1">&#39;SolarSystemParameters&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">E</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">params</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    t: time</span>
+<span class="sd">    pos: position</span>
+<span class="sd">    vel: velocity</span>
+<span class="sd">    params: dictionary of params</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Force: the force</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>    
+    <span class="n">G</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">]</span> <span class="c1">#this is the gravitational constant #!#</span>
+    <span class="n">M</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">]</span>  <span class="c1"># this is the mass of the sun #!#</span>
+    <span class="n">m</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;m&#39;</span><span class="p">]</span> <span class="c1"># this is the mass of the object #!#</span>
+    <span class="k">return</span> <span class="n">G</span><span class="o">*</span><span class="n">M</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="n">jnp</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span><span class="c1">#!#</span>
+</pre></div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Now we are going to write a force function which uses jax to automatically compute the derivatives using automatic differentiation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">params</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">grad</span><span class="p">(</span><span class="n">E</span><span class="p">,</span><span class="mi">1</span><span class="p">)(</span><span class="n">t</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">grad(E,1)</span></code> takes the energy function and returns a new function which computes the gradient with respect to the first parameter (<code class="docutils literal notranslate"><span class="pre">pos</span></code>).  (If you are not amazed at this, you should be)</p>
+<p>🦉Go ahead and run your orbital dynamics using your new force function for Earth going around the sun (it will be slower unfortunately because jax numpy is slower then real numpy but it will still be useful for our purposes).  Plot this orbit and see that you get the same result as you previously did in an earlier homework.  Use a time-step (<code class="docutils literal notranslate"><span class="pre">dt</span></code>) of 1 day.  Run for a time of 95% of a year. You may have to remove all the <code class="docutils literal notranslate"><span class="pre">assert</span></code> which check for numpy arrays.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+</section>
+<section id="exercise-2-forces-from-energy-and-two-orbiting-suns">
+<h2>Exercise 2. Forces from Energy and Two Orbiting Suns<a class="headerlink" href="#exercise-2-forces-from-energy-and-two-orbiting-suns" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<section id="a-orbiting-suns">
+<h3>a. Orbiting Suns<a class="headerlink" href="#a-orbiting-suns" title="Permalink to this headline">#</a></h3>
+<p>Suppose instead of the Earth orbitting the Sun, we wanted to simulate two Suns (a binary star system). Because two suns have the same (or potentially similar) mass, we can’t use the assumption that we’ve used so far that the one star orbits the other.  Instead they are going to orbit around each other.  We can make a small number of changes to get our code to work with these two stars.</p>
+<p>🦉</p>
+<ul class="simple">
+<li><p>You will need now to send the position of both Sun’s around.  To do this, you should just have to change your <code class="docutils literal notranslate"><span class="pre">params</span></code> dictionary for the initial position (put one Sun at the Earth’s radius and one at (0,0) ) and the initial velocity (make one start at the velocity of the Earth and one have no velocity).  Your new initial position and velocities should now be an array of length four.</p></li>
+<li><p>Change your energy to be the difference of positions so that your <span class="math notranslate nohighlight">\(1/r\)</span> has the <span class="math notranslate nohighlight">\(r\)</span> being the difference beteween the two sun locations.</p></li>
+<li><p>Make sure no where else in your code you are assuming that there are only two coordinates. This is probably already the case but if it’s not, you should fix it.</p></li>
+<li><p><em>Minor Change:</em> If you have a crash radius on, turn it off.</p></li>
+</ul>
+<p>Run it for a year with the same time-step of 1 day.  Use two suns of the same mass.</p>
+<p>Plot the following:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y\)</span> vs <span class="math notranslate nohighlight">\(x\)</span> position of the two suns</p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span> vs <span class="math notranslate nohighlight">\(x\)</span> position of the two suns <em>subtracting off the center of mass velocity</em>.</p></li>
+</ul>
+<p>Also, animate <span class="math notranslate nohighlight">\(y\)</span> vs <span class="math notranslate nohighlight">\(x\)</span> as a function of time.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">get_cmap</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Accent&quot;</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">get_cmap</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>  <span class="c1"># type: matplotlib.colors.ListedColormap</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">cmap</span><span class="o">.</span><span class="n">colors</span>  <span class="c1"># type: list</span>
+
+<span class="k">def</span> <span class="nf">animateMe</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span><span class="n">fullLine</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="c1"># First set up the figure, the axis, and the plot element we want to animate</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">();</span>
+    <span class="n">x_min</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]))</span><span class="o">*</span><span class="mf">1.1</span>
+    <span class="n">x_max</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]))</span><span class="o">*</span><span class="mf">1.1</span>
+    <span class="n">y_min</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]))</span><span class="o">*</span><span class="mf">1.1</span>
+    <span class="n">y_max</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]))</span><span class="o">*</span><span class="mf">1.1</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">));</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_prop_cycle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+    <span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span><span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="c1"># initialization function: plot the background of each frame</span>
+    <span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+        <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
+
+    <span class="c1"># animation function.  This is called sequentially</span>
+    <span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">positions</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">positions</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ll</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">positions</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">xx</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ll</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">yy</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ll</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">fullLine</span><span class="p">:</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">,</span><span class="n">xx</span><span class="p">],</span> <span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">,</span><span class="n">yy</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">xx</span><span class="p">],</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">yy</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
+
+    <span class="c1"># call the animator.  blit=True means only re-draw the parts that have changed.</span>
+
+    <span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+                                   <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> 
+                                   <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">repeat</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">anim</span>
+
+
+<span class="n">anim</span><span class="o">=</span><span class="n">animateMe</span><span class="p">(</span><span class="n">positions</span><span class="p">[::</span><span class="mi">1</span><span class="p">,:],</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">4</span><span class="n">c334fbe5edb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> 
+<span class="g g-Whitespace">     </span><span class="mi">49</span> 
+<span class="ne">---&gt; </span><span class="mi">50</span> <span class="n">anim</span><span class="o">=</span><span class="n">animateMe</span><span class="p">(</span><span class="n">positions</span><span class="p">[::</span><span class="mi">1</span><span class="p">,:],</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+
+<span class="ne">NameError</span>: name &#39;positions&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<section id="b-cleaning-up-the-mass">
+<h3>b. Cleaning up the mass<a class="headerlink" href="#b-cleaning-up-the-mass" title="Permalink to this headline">#</a></h3>
+<p>🦉This time do the same calculation with one of the Sun’s having half the mass of the other.  Here you need to be careful when you compute the acceleration that you are using the right mass to divide the force of the right Sun.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+</section>
+<section id="exercise-3-three-planets">
+<h2>Exercise 3. Three Planets<a class="headerlink" href="#exercise-3-three-planets" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<section id="a-three-planets">
+<h3>a. Three Planets<a class="headerlink" href="#a-three-planets" title="Permalink to this headline">#</a></h3>
+<p>While the one and two body can be dealt with analytically, once you have a three-body problem you must use numerics.  In this exercise, modify your energy function to work with three particles (you should be computing three distances in this function).  🦉 Plot the <span class="math notranslate nohighlight">\(y\)</span> vs <span class="math notranslate nohighlight">\(x\)</span> for three particles all with a mass of  <code class="docutils literal notranslate"><span class="pre">m=1.49925038e+34</span></code> with<code class="docutils literal notranslate"><span class="pre">dt=60.*60.</span></code> for the following two sets of initial conditions.  Plot after subtracting out the center of mass! Animate them both.</p>
+<p><strong>Condition 1:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">param</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">60.</span><span class="o">*</span><span class="mf">60.</span><span class="o">*</span><span class="mf">24.0</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">params</span><span class="p">[</span><span class="s2">&quot;initPos&quot;</span><span class="p">]</span><span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">9.5000436e+11</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.4308753e+11</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.7000436e+11</span> <span class="p">,</span> <span class="mf">2.4308753e+11</span><span class="p">,</span>
+  <span class="mf">0.0000000e+00</span><span class="p">,</span>  <span class="mf">0.0000000e+00</span><span class="p">])</span>
+<span class="n">params</span><span class="p">[</span><span class="s2">&quot;initVel&quot;</span><span class="p">]</span><span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">466203.685</span> <span class="p">,</span> <span class="mf">432365.73</span> <span class="p">,</span>  <span class="mf">466203.685</span>  <span class="p">,</span><span class="mf">432365.73</span> <span class="p">,</span> <span class="o">-</span><span class="mf">932407.37</span> <span class="p">,</span> <span class="o">-</span><span class="mf">864731.48</span> <span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Condition 2:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">param</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">60.</span><span class="o">*</span><span class="mf">60.</span><span class="o">*</span><span class="mf">24.0</span><span class="o">*</span><span class="mi">1000</span>
+<span class="n">params</span><span class="p">[</span><span class="s2">&quot;initPos&quot;</span><span class="p">]</span><span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">8.75415651e+11</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.74475729e+11</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.55851880e+11</span> <span class="p">,</span> <span class="mf">2.26509575e+11</span><span class="p">,</span><span class="mf">0.00000000e+00</span><span class="p">,</span>  <span class="mf">0.00000000e+00</span><span class="p">])</span>
+<span class="n">params</span><span class="p">[</span><span class="s2">&quot;initVel&quot;</span><span class="p">]</span><span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">390853.52382274</span><span class="p">,</span>  <span class="mf">418580.80002714</span><span class="p">,</span>  <span class="mf">501291.7617827</span> <span class="p">,</span>  <span class="mf">456901.09924283</span><span class="p">,</span><span class="o">-</span><span class="mf">954861.69488255</span><span class="p">,</span> <span class="o">-</span><span class="mf">948996.44017539</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>and use a mass <code class="docutils literal notranslate"><span class="pre">m=1.49925038e+34</span></code>  for <code class="docutils literal notranslate"><span class="pre">T=60.*60.*24.0*1000</span></code> (start shorter for testing) and a <code class="docutils literal notranslate"><span class="pre">dT=60*60</span></code> Plot it out (I suggest using <code class="docutils literal notranslate"><span class="pre">--</span></code> for your plotting marker) as well as animate it.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#animate condition 1</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">get_cmap</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Accent&quot;</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">get_cmap</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>  <span class="c1"># type: matplotlib.colors.ListedColormap</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">cmap</span><span class="o">.</span><span class="n">colors</span>  <span class="c1"># type: list</span>
+
+<span class="k">def</span> <span class="nf">animateMe</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span><span class="n">fullLine</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="c1"># First set up the figure, the axis, and the plot element we want to animate</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">();</span>
+    <span class="n">x_min</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]))</span><span class="o">*</span><span class="mf">1.1</span>
+    <span class="n">x_max</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]))</span><span class="o">*</span><span class="mf">1.1</span>
+    <span class="n">y_min</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]))</span><span class="o">*</span><span class="mf">1.1</span>
+    <span class="n">y_max</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="nb">list</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]))</span><span class="o">*</span><span class="mf">1.1</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">));</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_prop_cycle</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+    <span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span><span class="s1">&#39;go&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="c1"># initialization function: plot the background of each frame</span>
+    <span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+        <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
+
+    <span class="c1"># animation function.  This is called sequentially</span>
+    <span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">positions</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">positions</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ll</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">positions</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">xx</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ll</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">yy</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ll</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">fullLine</span><span class="p">:</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">,</span><span class="n">xx</span><span class="p">],</span> <span class="n">positions</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">,</span><span class="n">yy</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">xx</span><span class="p">],</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">yy</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
+
+    <span class="c1"># call the animator.  blit=True means only re-draw the parts that have changed.</span>
+
+    <span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+                                   <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> 
+                                   <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">repeat</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">anim</span>
+
+
+<span class="n">stepSize</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span><span class="o">//</span><span class="mi">1000</span>
+<span class="n">anim</span><span class="o">=</span><span class="n">animateMe</span><span class="p">(</span><span class="n">positions</span><span class="p">[::</span><span class="n">stepSize</span><span class="p">,:],</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mi">0</span><span class="n">be8c01d3f4e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> 
+<span class="g g-Whitespace">     </span><span class="mi">51</span> 
+<span class="ne">---&gt; </span><span class="mi">52</span> <span class="n">stepSize</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span><span class="o">//</span><span class="mi">1000</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="n">anim</span><span class="o">=</span><span class="n">animateMe</span><span class="p">(</span><span class="n">positions</span><span class="p">[::</span><span class="n">stepSize</span><span class="p">,:],</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+
+<span class="ne">NameError</span>: name &#39;positions&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+</section>
+<section id="exercise-4-full-solar-system-dynamics-extra-credit">
+<h2>Exercise 4: Full Solar System Dynamics (Extra Credit)<a class="headerlink" href="#exercise-4-full-solar-system-dynamics-extra-credit" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<p><strong>(These don’t have to be done in order although succeeding in some of them will essentially complete others)</strong></p>
+<section id="a-symplectic-integration-ec-5-points">
+<h3>a. Symplectic Integration (EC: 5 points)<a class="headerlink" href="#a-symplectic-integration-ec-5-points" title="Permalink to this headline">#</a></h3>
+<p>Replace your second order integrator with a symplectic integrator.  Such an integrator has similar error profile but has a physical property that it conserves an energy for a (slightly different) Hamiltonian which makes it better for planetary simulations</p>
+</section>
+<section id="b-full-solar-system-ec-15-points">
+<h3>b.  Full Solar System (EC: 15 points)<a class="headerlink" href="#b-full-solar-system-ec-15-points" title="Permalink to this headline">#</a></h3>
+<p>Modify your simulation to work with an arbitrary number of bodies.  You want your energy function to have no “for loops” in it - only numpy calls.  (Also come ask me how to speed up your code by appropriate additions of &#64;jit). Then figure out how to get correct initial conditions for planets (astropy should help). Go ahead and implement a full solar system simulation for the eight planets.</p>
+</section>
+<section id="c-voyager-simulation-ec-10-points">
+<h3>c. Voyager Simulation (EC: 10 points)<a class="headerlink" href="#c-voyager-simulation-ec-10-points" title="Permalink to this headline">#</a></h3>
+<p>After finishing part (b), figure out reasonable initial conditions from Voyager 1 or Voyager 2 and get a flyby (of at least Jupiter and Saturn) to work correctly in your simulation.</p>
+</section>
+<section id="d-lagrange-points-ec-5-points">
+<h3>d. Lagrange Points (EC: 5 points)<a class="headerlink" href="#d-lagrange-points-ec-5-points" title="Permalink to this headline">#</a></h3>
+<p><strong>This problem can be done with only a three-body simulation working</strong></p>
+<p>Find the five lagrange points around the Earth-Sun system.  You can either do this by looking up/calculating where they should be or by doing a <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> to find them.  Show that they are lagrange points and show (by perturbing your satellite in the simulation at those points) that two of them are stable and the other three are unstable.</p>
+</section>
+<section id="e-the-nice-model-ec-35-points">
+<h3>e.  The nice model (EC: 35 points)<a class="headerlink" href="#e-the-nice-model-ec-35-points" title="Permalink to this headline">#</a></h3>
+<p>Simulate the nice model (<a class="reference external" href="https://en.wikipedia.org/wiki/Nice_model">https://en.wikipedia.org/wiki/Nice_model</a>) with the four gas giants planets and a thousand disk planetismal belt and show the gas giants move from their initial position to (something close) to their current position.</p>
+</section>
+<section id="f-your-universe-ec-5-points">
+<h3>f.  Your universe (EC: 5 points)<a class="headerlink" href="#f-your-universe-ec-5-points" title="Permalink to this headline">#</a></h3>
+<p>Setup a cool set of initial conditions for a multiple-body gravitational simulation and simulate!</p>
+</section>
+</section>
+<section id="exercise-5">
+<h2>Exercise 5<a class="headerlink" href="#exercise-5" title="Permalink to this headline">#</a></h2>
+<section id="a-solving-euler-lagrange-with-no-work">
+<h3>a. Solving Euler-Lagrange with no work<a class="headerlink" href="#a-solving-euler-lagrange-with-no-work" title="Permalink to this headline">#</a></h3>
+<p>Getting the dynamics for the double pendula working was somewhat tricky.  In particular, we had to work out the equations of motion which were somewhat painful.  Earlier we managed to avoid much of this work by using automatic differentiation on the energy. This doesn’t quite work here because of the constraints.  Instead we should <em>work in generalized coordinates and solve the Euler-Largrange equation.</em>. The Euler-Lagrange equation takes a <em>Lagrangian</em> <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> and produces a differential equation we can solve to get the equations of motion</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dt} \nabla_{dq/dt}\mathcal{L} = \nabla_{q} \mathcal{L}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\nabla_q\mathcal{L} = \frac{\partial\mathcal{L}}{\partial q}\)</span>
+Working in generalized coordinates just means working in some coordinates that recognize the constraints.  For example, by working with <span class="math notranslate nohighlight">\(\theta_1\)</span> and <span class="math notranslate nohighlight">\(\theta_2\)</span> we can’t violate the constraint of a rigid rod no matter what values we choose.   On the other hand, if we were to work with (<span class="math notranslate nohighlight">\(x_1, y_1,x_2,y_2\)</span>) of the masses we could choose parameters that would allow for the rod to be too long, or simulation errors could change the length of the rod.</p>
+<p>The Lagrangian equation is simple… The Lagrangian just <span class="math notranslate nohighlight">\(\mathcal{L}=T-V\)</span> where <span class="math notranslate nohighlight">\(T\)</span> is the kinetic energy and <span class="math notranslate nohighlight">\(V\)</span> is the potential energy. The kinetic energy is just <span class="math notranslate nohighlight">\(1/2 m_1 v_1^2 + 1/2 m_2 v_2^2\)</span> whereas the potential energy is <span class="math notranslate nohighlight">\(mgy_1 + mgy_2\)</span>.  Convert these into something which depends on <span class="math notranslate nohighlight">\(\theta_1\)</span>, <span class="math notranslate nohighlight">\(d{\theta_1}/dt=\omega_1\)</span> (and the <span class="math notranslate nohighlight">\(\theta_2\)</span> equivalents).<br />
+🦉 Write a python function that produces the Lagrangian.</p>
+<p>Now we need to solve the Euler-Lagrange equations.  If we call our generalized coordinates, <span class="math notranslate nohighlight">\(q\)</span> (i.e. <span class="math notranslate nohighlight">\(\theta\)</span>), then we need to solve them for <span class="math notranslate nohighlight">\( \frac{\mathrm{d}^2q}{ \mathrm{d}t^2}\)</span> (i.e <span class="math notranslate nohighlight">\( \frac{\mathrm{d}^2\theta}{ \mathrm{d}t^2}\)</span>.  Then we can treat this (times a mass <span class="math notranslate nohighlight">\(m\)</span>) as a force which we can put into our dynamics code.  Amazingly, there is an algorithm tht allows us to do this for any lagrangian.  See Appendix A of <a class="reference external" href="#fn1">[1]</a>, which we’ve copied here in our notation:</p>
+<div class="math notranslate nohighlight">
+\[
+ \frac{\mathrm{d}^2\theta}{ \mathrm{d}t^2} = (\nabla_\omega \nabla^T_\omega \mathcal{L})^{-1}[\nabla_\theta \mathcal{L}-(\nabla_\theta\nabla_\omega^T\mathcal{L})\omega]
+\]</div>
+<p>(where <span class="math notranslate nohighlight">\(\omega=\frac{d\theta}{dt}\)</span>)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">lagrangian</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="c1">#finish this...</span>
+    <span class="k">return</span> <span class="n">T</span><span class="o">-</span><span class="n">V</span>
+
+<span class="n">f1</span><span class="o">=</span><span class="n">jit</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">hessian</span><span class="p">(</span><span class="n">jit</span><span class="p">(</span><span class="n">lagrangian</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">f2</span><span class="o">=</span><span class="n">jit</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">jit</span><span class="p">(</span><span class="n">lagrangian</span><span class="p">),</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">f3</span><span class="o">=</span><span class="n">jit</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jacfwd</span><span class="p">(</span><span class="n">jit</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">jit</span><span class="p">(</span><span class="n">lagrangian</span><span class="p">),</span> <span class="mi">1</span><span class="p">)),</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Note the ordering of the parameters is important here.</p>
+<p>Now we can use these function to find an acceleration:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#...</span>
+<span class="c1">#now you can do this to find a:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">f1</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">vel</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">t</span><span class="p">))</span> <span class="o">@</span> <span class="p">(</span>
+        <span class="n">f2</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">f3</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="o">@</span> <span class="n">vel</span><span class="p">))</span>
+<span class="c1">#...</span>
+
+</pre></div>
+</div>
+<p>🦉 Now write code that takes any lagrangian and does the dynamics.  Verify it gives you the same answer from the double pendulum using forces.</p>
+<p>Notice that it now is essentially trivially to get a triple pendulum (or many other things) working.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><hr class="docutils" />
+<p>1 <a class="reference external" href="https://en.wikipedia.org/wiki/Tests_of_general_relativity#Perihelion_precession_of_Mercury">https://en.wikipedia.org/wiki/Tests_of_general_relativity#Perihelion_precession_of_Mercury</a></p>
+<p>2 <a class="reference external" href="http://arxiv.org/abs/1106.1568v1:">http://arxiv.org/abs/1106.1568v1:</a> “When effective theories predict: the # inevitability of Mercury’s anomalous perihelion precession,” James D. Wells, CERN Theoretical Physics (PH-TH), CH-1211 Geneva 23, Switzerland &amp; Department of Physics, University of Michigan, Ann Arbor, MI 48109, June 9, 2011.</p>
+<p>3 <a class="reference external" href="https://en.wikipedia.org/wiki/Two-body_problem_in_general_relativity#Precession_of_elliptical_orbits">https://en.wikipedia.org/wiki/Two-body_problem_in_general_relativity#Precession_of_elliptical_orbits</a>. I obtain this by taking the post-Newtonian term for the effective radial potential, then differentiating it.</p>
+<p>4 <a class="reference external" href="https://en.wikipedia.org/wiki/Solar_mass">https://en.wikipedia.org/wiki/Solar_mass</a></p>
+<p>5 <a class="reference external" href="http://nssdc.gsfc.nasa.gov/planetary/factsheet/mercuryfact.html">http://nssdc.gsfc.nasa.gov/planetary/factsheet/mercuryfact.html</a></p>
+<p>6 <a class="reference external" href="http://www.mathpages.com/home/kmath280/kmath280.htm">http://www.mathpages.com/home/kmath280/kmath280.htm</a></p>
+<hr class="docutils" />
+<p><span id="fn1"><sup>1</sup> <a class="reference external" href="https://arxiv.org/abs/2003.04630">https://arxiv.org/abs/2003.04630</a> </span></p>
+<p><strong>Acknowledgements:</strong></p>
+<ul class="simple">
+<li><p>Bryan Clark (original)</p></li>
+</ul>
+<p>© Copyright 2021</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="chaos.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chaos</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ParticlePhysics.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Particle Physics</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Bryan Clark; George Gollin; Ryan Levy<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,1094 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Exoplanets &#8212; Physics 246</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chaos" href="chaos.html" />
+    <link rel="prev" title="Orbital Dynamics" href="OrbitalDynamics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/FD.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Physics 246</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    An Introduction to Modern Computational Physics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
+   N ways to measure
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dynamics.html">
+   Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="OrbitalDynamics.html">
+   Orbital Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Exoplanets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chaos.html">
+   Chaos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="OrbitalDynamics2.html">
+   Many Body Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ParticlePhysics.html">
+   Particle Physics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Random%20Walks.html">
+   Random Walks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Markov%20Chains.html">
+   Markov Chains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Predator-Prey.html">
+   Predator-Prey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="FluidDynamics.html">
+   Fluid Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MachineLearningGalaxies.html">
+   Classifying Galaxies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QC1.html">
+   Quantum Computing 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QC2.html">
+   Quantum Computing 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Projects.html">
+   Cool Projects
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Exoplanets.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-signal-processing-and-fourier-transforms">
+   Exercise 1: Signal Processing and Fourier Transforms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background">
+     0. Background
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-variation-in-the-host-star-s-radial-velocity">
+     a. Variation in the host star’s radial velocity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-background-inclination-and-discrete-fourier-transforms">
+     b. Background - Inclination and (Discrete) Fourier Transforms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-implementing-a-dft">
+     c. Implementing a DFT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-calculating-projected-mass">
+     d. Calculating projected mass
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-epsilon-reticuli-data">
+   Exercise 2 - Epsilon Reticuli Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-obtain-the-data">
+     a. Obtain the Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-estimate-the-mass-of-hd-27442-b">
+     b. Estimate the mass of HD 27442 b
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-finding-the-best-velocity-extra-credit-10-points">
+   Exercise 3 - Finding the best velocity (extra credit - 10 points)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background-chi-2">
+     0. Background -
+     <span class="math notranslate nohighlight">
+      \(\chi^2\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-get-chi-2-working">
+     a. Get
+     <span class="math notranslate nohighlight">
+      \(\chi^2\)
+     </span>
+     working
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-find-a-better-fit-manual">
+     b. Find a better fit - Manual
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-find-a-better-fit-scipy">
+     c. Find a better fit -
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       scipy
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-4-putting-everything-together-extra-credit-5-points">
+   Exercise 4 - Putting everything together! (extra credit - 5 points)
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Exoplanets</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-signal-processing-and-fourier-transforms">
+   Exercise 1: Signal Processing and Fourier Transforms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background">
+     0. Background
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-variation-in-the-host-star-s-radial-velocity">
+     a. Variation in the host star’s radial velocity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-background-inclination-and-discrete-fourier-transforms">
+     b. Background - Inclination and (Discrete) Fourier Transforms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-implementing-a-dft">
+     c. Implementing a DFT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-calculating-projected-mass">
+     d. Calculating projected mass
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-epsilon-reticuli-data">
+   Exercise 2 - Epsilon Reticuli Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-obtain-the-data">
+     a. Obtain the Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-estimate-the-mass-of-hd-27442-b">
+     b. Estimate the mass of HD 27442 b
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-finding-the-best-velocity-extra-credit-10-points">
+   Exercise 3 - Finding the best velocity (extra credit - 10 points)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background-chi-2">
+     0. Background -
+     <span class="math notranslate nohighlight">
+      \(\chi^2\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-get-chi-2-working">
+     a. Get
+     <span class="math notranslate nohighlight">
+      \(\chi^2\)
+     </span>
+     working
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-find-a-better-fit-manual">
+     b. Find a better fit - Manual
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-find-a-better-fit-scipy">
+     c. Find a better fit -
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       scipy
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-4-putting-everything-together-extra-credit-5-points">
+   Exercise 4 - Putting everything together! (extra credit - 5 points)
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="exoplanets">
+<h1>Exoplanets<a class="headerlink" href="#exoplanets" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><strong>Author:</strong></p></li>
+<li><p><strong>Date:</strong></p></li>
+<li><p><strong>Time spent on this assignment:</strong></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">exo_helper</span> <span class="kn">import</span> <span class="n">get_planet_vxvy_barycentric</span>
+<span class="k">def</span> <span class="nf">resetMe</span><span class="p">(</span><span class="n">keepList</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="n">keepList</span><span class="o">=</span><span class="n">keepList</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;resetMe&#39;</span><span class="p">,</span><span class="s1">&#39;np&#39;</span><span class="p">,</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span><span class="s1">&#39;math&#39;</span><span class="p">,</span><span class="s1">&#39;get_planet_vxvy_barycentric&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">keepList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+            <span class="n">ll</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">iiii</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+        <span class="n">jjjj</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="o">+</span><span class="n">iiii</span><span class="o">+</span><span class="s2">&quot;$&quot;</span>
+        <span class="o">%</span><span class="k">reset_selective</span> -f {jjjj}
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">math</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SolarSystemParameters</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthOrbitRadius&quot;</span><span class="p">]</span>      <span class="o">=</span> <span class="mf">149.6e9</span> <span class="c1"># meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthMass&quot;</span><span class="p">]</span>       <span class="o">=</span> <span class="mf">5.972e24</span> <span class="c1"># kg</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MoonOrbitRadius&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">363228.9e3</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MoonMass&quot;</span><span class="p">]</span>        <span class="o">=</span> <span class="mf">7.34e22</span> <span class="c1"># kg</span>
+
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;JupiterMass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1898600.00e21</span> <span class="c1">#kg</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;VenusMass&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="mf">4868.5e21</span>     <span class="c1">#kg</span>
+
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;SunRadius&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">695.51e3</span> <span class="c1">#meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;SunMass&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="mf">1.989e30</span> <span class="c1"># kg</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">]</span>         <span class="o">=</span> <span class="mf">6.67408e-11</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-1-signal-processing-and-fourier-transforms">
+<h2>Exercise 1: Signal Processing and Fourier Transforms<a class="headerlink" href="#exercise-1-signal-processing-and-fourier-transforms" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<section id="background">
+<h3>0. Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h3>
+<p><strong>A brief history of exoplanet searches</strong></p>
+<p>Since the first confirmed detection in 1992 by Wolszczan &amp; Frail <a class="reference external" href="#fn1"><sup>1</sup></a> of a planet orbiting a distant star, the discovery of thousands of other exoplanets has become one of the greatest achievements of modern astronomy. (The detection of gravitational waves is another!)</p>
+<p>Thanks to advances in instrumentation and methods of data analysis, over 3,000 exoplanets have been identified to date in more than 2,000 star systems<a class="reference external" href="#fn2"><sup>2</sup></a>.  The features of these planetary systems—the eccentricity and inclination of planetary orbits, as well as the number of planets in a system—have varied more from system to system than had been expected.</p>
+<p>The quest for exoplanetary systems is driven in part by curiosity about our own solar system. In the 17th century Sir Isaac Newton realized that the solar system is more organized than is required by the laws of motion<a class="reference external" href="#fn3"><sup>3</sup></a>.  But for centuries we did not know how similar other planetary systems might be to our own, or even if it was common for other stars to have planets. Is the organization of our solar system unique? Is the Earth unusual in size, and in orbiting the sun in a habitable zone? How were the solar system and the other exoplanet systems formed? With a broad survey of exoplanets we can begin addressing some of these questions.</p>
+<p>The solar system comprises eight planets (nine if you cannot live without Pluto!), moving in nearly circular orbits around the sun with an average eccentricity of 0.06. Their orbital planes are nearly parallel to a plane that is perpendicular to the sun’s rotation axis. Most of the solar system’s angular momentum resides in the planets, with the sun’s rotational angular momentum contributing only about ~0.5% of the total. Inspired by these facts, the French scholar Pierre- Simon Laplace (1749 – 1827) devoted much of his life to constructing a theory of the motions of the planets, arguing that the stability of the solar system would not require “periodic divine intervention.” <a class="reference external" href="#fn4"><sup>4</sup></a></p>
+<p>In 1995 Mayor &amp; Queloz<a class="reference external" href="#fn5"><sup>5</sup></a> discovered the first exoplanet orbiting a sun-like star (a star with mass close to <span class="math notranslate nohighlight">\(M_\odot\)</span>, the solar mass). It is 51 Pegasi, 15.6 parsecs (50.9 light years) from us in the constellation Pegasus. Its planetary companion is 51 Pegasi b, now called “Dimidium,” a gas giant that is about half as massive as Jupiter. It was detected indirectly, through observation of a periodic variation in the Doppler shift of light from 51 Pegasi as the star and its planet orbited the two-body center of mass. This is one of the most effective techniques in the hunt for new planets.</p>
+<p>The following figure shows the number of planets discovered each year between 1995 and January 2017.<a class="reference external" href="#fn6"><sup>6</sup></a></p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets1.png" width=800 alt="confirmedExoplanets"></img><br></div><p><strong>Detection techniques</strong></p>
+<p>Here are some of the techniques used in searches for exoplanets.</p>
+<ol class="simple">
+<li><p>Doppler spectroscopy (gives planet mass). Searchers use the Doppler effect to measure the star’s velocity variation as the star and planet orbit their center of mass. The period of the spectral variation yields the planet’s mass from Kepler’s 3rd law. Depending on the mass of the star, Earth-sized exoplanets can be detected out to 50 to 1,000 parsecs (1 parsec = <span class="math notranslate nohighlight">\(1.0857 \times 10^{16}\)</span> m, about 3.26 lightyears), while Jupiter-sized planets can be found out to 1,000 parsecs.<a class="reference external" href="#fn7"><sup>7</sup></a> <a class="reference external" href="#fn8"><sup>8</sup></a></p></li>
+<li><p>Transient photometry (gives planet radius). When a planet crosses in front of its host star it will block a small amount of light that would otherwise reach the earth, causing a sometimes-detectable reduction in the star’s apparent brightness. The fractional change in brightness should be proportional to the ratio of the cross sectional areas of the planet and star. If we are able to estimate the size of the star, we can determine the planet’s radius.<a class="reference external" href="#fn9"><sup>9</sup></a>  A disadvantage of this technique is that it requires the earth-bound observer to reside close to the plane that contains the exoplanet’s orbit. This is not the case for most exoplanet systems! For example, the probability that a randomly placed distant observer could detect the earth’s transit across the disk of the sun would be somewhat less than a half percent.</p></li>
+<li><p>Pulsar timing variations (give planet mass). A pulsar is a rapidly spinning neutron star or white dwarf whose strong magnetic fields (<span class="math notranslate nohighlight">\(\sim 10^{10}\)</span> T) are not aligned with the object’s rotation axis. The rapid rotation of the star induces (changing) electric fields that generate a high-energy beam of protons and electrons. Astronomers can detect the radiofrequency signatures of the beam as it sweeps across earth’s line-of-sight to the pulsar. Because pulsar rotation rates are very regular—some are more precise than atomic clocks—the detected frequency on earth is very sensitive to anomalies, such as a Doppler shift caused by the influence of a companion planet.</p></li>
+<li><p>Direct imaging. Direct imaging of an exoplanet is difficult, but not impossible. In most cases the host star will outshine the intrinsic thermal radiation from the planet, but when the planet is big enough, far enough from its parent star, or hot enough to emit stronger radiation, it can actually be seen in images. For direct imaging, astronomers use “coronagraphs,” designed to block most light from the host star imaged by a camera, leaving the planet visible. An example is the HR 8799 system in the constellation Pegasus. Three of its planets, each with a mass several times grater than Jupiter’s, were first seen in 2008. A fourth was observed in 2009.<a class="reference external" href="#fn10"><sup>10</sup></a> It is also possible that “orphan” planets, which are not bound to a stars, might be detected by direct imaging.</p></li>
+</ol>
+<p>For more information about exoplanet detection see the various Wikipedia pages and review papers on the subject.<a class="reference external" href="#fn11"><sup>11</sup></a></p>
+<p><strong>Stellar spectra and Doppler shifts</strong></p>
+<p>When we look at a star, where are the “received” photons actually coming from? Think of a star as a sphere of plasma, comprising a huge number of moving ions and free electrons. In the interior of the star where the photons are produced, the density of charged particles is so high (about <span class="math notranslate nohighlight">\(10^{26}\)</span> particles per <span class="math notranslate nohighlight">\(cm^3\)</span> in the sun<a class="reference external" href="#fn12"><sup>12</sup></a>
+) and the environment so hot that propagating photons scatter frequently, typically within a centimeter. The photons that escape from a star without further scattering tend to come from a thin shell called the photosphere at the star’s surface.</p>
+<p>The observed features in stellar spectra—the profile of brightness as a function of wavelength, along with emission and absorption lines, arise from the physical processes taking place in the star’s photosphere (and deeper regions), as well as the atmospheres of the star and the earth. Much of the received light is blackbody radiation, the stellar equivalent of the glow from the hot coils of a toaster. But elements near the surface of the sun also emit and absorb light at frequencies corresponding to quantum transitions between energy levels, yielding bright and dark spectral lines. Absorption in the star’s atmosphere, as well as the earth’s (for ground-based observations), further shapes spectral observations. The following figure shows the hydrogen emission spectrum; the figure after that shows the solar spectrum arriving at the surface of the earth.<a class="reference external" href="#fn13"><sup>13</sup></a></p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets2.png" width=800 alt="confirmedExoplanets"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/exoplanets3.png" width=600 alt="confirmedExoplanets"></img><br></div><p>If a star is moving towards or away from the observer, the wavelengths of observed spectral features will be Doppler shifted, allowing a determination of <span class="math notranslate nohighlight">\(v_\textrm{rad}\)</span> , the radial (towards/away) component of the star’s velocity. The exact expression is</p>
+<div class="math notranslate nohighlight">
+\[ \lambda_\textrm{observed} = \lambda_\textrm{source} \sqrt{\frac{c+v_\textrm{rad} }{ c-v_\textrm{rm}}}\approx \lambda_\textrm{source} \left( 1+ \frac{v_\textrm{rad}}{c}\right)\]</div>
+<div class="math notranslate nohighlight">
+\[\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\lambda_\textrm{observed}-\lambda_\textrm{source} }{ \lambda_\textrm{source}} = \frac{v_\textrm{rad}}{c} \]</div>
+<p>Positive <span class="math notranslate nohighlight">\(v_\textrm{rad}\)</span> corresponds to motion away from the observer, which causes a “red-shift” to longer wavelengths. For example, a hydrogen line with wavelength 656.2724827 nm will shift by 0.01 nm for a radial velocity of <span class="math notranslate nohighlight">\(v_\textrm{rad} = 4.568 km/s\)</span>.<a class="reference external" href="#fn14"><sup>14</sup></a> (The Doppler shift for motion perpendicular to the observer’s line of sight is proportional to <span class="math notranslate nohighlight">\(v^2/c^2\)</span>, and is usually unobservable.)</p>
+<p>The plot below is a schematic representation of the spectral shift in response to radial motion.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets4.png" width=400 alt="NormalizedPower"></img><br></div><p>The star and planets in an exoplanetary system orbit the system’s barycenter (center of mass). As a result, the star’s radial velocity with respect to the earth will change with time, causing a time-dependent Doppler shift.</p>
+<p>The following figure shows the position of the solar system’s barycenter relative to the center of the sun over the course of a century. The motion is complex since the offset of the barycenter is determined primarily by the trajectories of several massive planets with different orbital periods. Even so, a distant observer will be able to pick out contributions to the sun’s Doppler shift with period 11.86 years (from Jupiter) and another with period 29.46 years (from Saturn).</p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets5.png" width=400 alt="confirmedExoplanets"></img><br></div><p>Exoplanet hunters look for time-varying Doppler shifts in stellar spectra. More colorfully <a class="reference external" href="#fn15"><sup>15</sup></a>:</p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets6.png" width=400 alt="exoplanetsComic"></img><br></div></section>
+<section id="a-variation-in-the-host-star-s-radial-velocity">
+<h3>a. Variation in the host star’s radial velocity<a class="headerlink" href="#a-variation-in-the-host-star-s-radial-velocity" title="Permalink to this headline">#</a></h3>
+<p>Arkushanangarushashutu<a class="reference external" href="#fn16"><sup>16</sup></a> (more commonly known as Asellus Australis, or <span class="math notranslate nohighlight">\(\delta\)</span> Cancri) is an orange giant in the constellation Cancer that lies close to the ecliptic, the plane defined by the earth’s orbit. An alien planet hunter in the Arkushanangarushashutu system would see our solar system almost edge-on, perhaps even observing the transit of planets across the disk of the sun.</p>
+<p>Here is a simplified diagram of the geometry, showing the sun and one planet. If we omit the remaining planets, the sun and the planet will move in circular orbits around their center of mass so that the Doppler shift seen at <span class="math notranslate nohighlight">\(\delta\)</span> Cancri will vary sinusoidally with time.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets7.png" width=800 alt="confirmedExoplanets"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/exoplanets8.png" width=800 alt="confirmedExoplanets"></img><br></div><p>From the observer’s perspective, the measured velocity variation is a projected quantity, since the Doppler shift is only sensitive to the component of velocity along the radial (line-of- sight) direction. The radial velocity is the inner product of the two vectors: (1) the unit vector along the observer’s line-of-sight and (2) the star’s velocity vector.</p>
+<p><strong>A lightning-fast tour of our special function</strong><br />
+To get our hands a little dirty and simulate the observed solar system radial velocities, we’ve gone and figured out the math and implemented it in a handy function!
+<code class="docutils literal notranslate"><span class="pre">get_planet_vxvy_barycentric(mass,t)</span></code> returns the planets’ x, y velocities in a barycentric (CM) coordinate system. Given the default masses below, the first item is the sun, the second Jupiter. If there’s a third mass (“Venus” let’s say), that’ll be the third entry.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the masses, in kg. The first is the sun, the second Jupiter, </span>
+<span class="c1"># the third Venus.  </span>
+<span class="c1"># See https://en.wikipedia.org/wiki/List_of_Solar_System_objects_by_size</span>
+<span class="n">mass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;SunMass&quot;</span><span class="p">],</span><span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;JupiterMass&quot;</span><span class="p">],</span><span class="mf">0.0</span><span class="p">])</span>
+<span class="c1"># get vx, vy for the sun + jupiter + venus.</span>
+<span class="n">vxList</span><span class="p">,</span> <span class="n">vyList</span> <span class="o">=</span> <span class="n">get_planet_vxvy_barycentric</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>🦉Please do the following. Generate a plot of the sun’s <span class="math notranslate nohighlight">\(x\)</span> component of velocity over a 25 year period, at 15 day intervals for just one planet (Jupiter). Please use 365.25 days as the length of one year.</p>
+<p>How much variation in wavelength would this induce in a 500 nm spectral line?</p>
+<p>Here is what I got:</p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets9.png" width=400 alt="confirmedExoplanets"></img><br></div><p>If we were to include a second planet, for example, one moving in Venus’ orbit, but with ten times as much mass, we’ll see wiggles at the Venusian orbital period superimposed on the larger Jovian-induced variation. Please set the Venusian mass to ten times its actual value of 4868.5e21, rather than zero.<br />
+🦉Generate another plot of the sun’s velocity. It should look like this:</p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets10.png" width=400 alt="confirmedExoplanets"></img><br></div><p>You should define the masses, in kg. The first is the sun, the second Jupiter, the third Venus. See <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Solar_System_objects_by_size">https://en.wikipedia.org/wiki/List_of_Solar_System_objects_by_size</a></p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>Note that this tuning of planet masses will not appreciably change the planet’s orbital period, since that is determined primarily by the mass of the host star.</p>
+</section>
+<section id="b-background-inclination-and-discrete-fourier-transforms">
+<h3>b. Background - Inclination and (Discrete) Fourier Transforms<a class="headerlink" href="#b-background-inclination-and-discrete-fourier-transforms" title="Permalink to this headline">#</a></h3>
+<p><strong>When the orbital plane is inclined</strong></p>
+<p>In the previous case, the observer is in the orbital plane of the sun-earth system, which maximizes the amplitude of the Doppler shift modulation. But the orientation of orbital planes of exoplanetary systems is going to be random, so let’s explore that now. Let’s move the observer slightly above the plane, and see what the measured velocity component looks like. See the diagram below:</p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets11.png" width=400 alt="confirmedExoplanets"></img><br></div><p>Here we define the inclination angle <span class="math notranslate nohighlight">\(i\)</span> as illustrated in the above diagram. When <span class="math notranslate nohighlight">\(i = 90^o\)</span> the observer is in the orbital plane of the exoplanet and the radial velocity of the star will be maximal. When <span class="math notranslate nohighlight">\(i = 0\)</span> the radial velocity is zero. More generally, the observed radial velocity will the product of the star’s velocity and <span class="math notranslate nohighlight">\(\sin(i)\)</span>. Note that the amplitude, but not the period of the Doppler modulation depends on <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p><strong>Mass estimate for the planet</strong></p>
+<p>Imagine that we have a binary system of one planet traveling around one star, with both bodies orbiting in circular paths around their center of mass. The periods of their orbits will be identical, of course. If the two objects are at distances astar and aplanet from their barycenter, the separation between the star and the planet will be a = <span class="math notranslate nohighlight">\(a_\textrm{star} + a_\textrm{planet}\)</span>. Further, the relationship between their masses and orbital radii is <span class="math notranslate nohighlight">\(M_\textrm{star}a_\textrm{star} = M_\textrm{planet}a_\textrm{planet}\)</span>.</p>
+<p>We can derive Kepler’s third law (that the square of the orbital period is proportional to the cube of the orbit’s semi-major axis) if we approximate the planet mass as negligible compared to the star’s, and the radius of the star’s orbit as negligible compared to the planet’s. Gravity provides the centripetal force that causes the planet to move in a circle with constant speed <span class="math notranslate nohighlight">\(v_\textrm{planet}\)</span> and orbital period <span class="math notranslate nohighlight">\(P\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{Gm_\textrm{star}m_\textrm{planet}}{\left(a_\textrm{planet}+a_\textrm{start} \right)^2} = \frac{m_\textrm{planet}v^2_\textrm{planet}}{a_\textrm{planet} }\]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{Gm_\textrm{star}}{a^2_\textrm{planet}} \approx \frac{v^2_\textrm{planet} }{a_\textrm{planet} } = \frac{1}{a_\textrm{planet} } \left( \frac{2\pi a_\textrm{planet}}{P} \right)^2\]</div>
+<div class="math notranslate nohighlight">
+\[ Gm_\textrm{start} \approx \left(\frac{2\pi}{P} \right)^2 a^3_\textrm{planet}\]</div>
+<p>That’s Kepler’s third law: the ratio of the cube of the radius and the square of the orbital period is constant.</p>
+<p>We are only able to measure two quantities: the period P and the radial velocity <span class="math notranslate nohighlight">\(v_r = v\sin(i)\)</span>. Do some more algebra:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+GM_{\text{star}} &amp;\approx \left(\frac{2\pi a_{\text{planet}}}{P}\right)^2 a_{\text{planet}}\\
+&amp;= \left(\frac{2\pi a_{\text{star}}}{P}\frac{m_{\text{star}}}{m_{\text{planet}}}\right)^2 a_{\text{star}} \frac{m_{\text{star}}}{m_{\text{planet}}}\\
+&amp;= \left(v_{\text{star}}\frac{m_{\text{star}}}{m_{\text{planet}}}\right)^2\frac{P}{2\pi}\frac{2\pi a_{\text{star}}}{P}\frac{m_{\text{star}}}{m_{\text{planet}}}\\
+&amp;=\left(v_{\text{star}}\frac{m_{\text{star}}}{m_{\text{planet}}}\right)^2\frac{P}{2\pi} v_{\text{star}}\frac{m_{\text{star}}}{m_{\text{planet}}} = \frac{P}{2\pi}\left(v_{\text{star}}\frac{m_{\text{star}}}{m_{\text{planet}}}\right)^3
+\end{align}
+\end{split}\]</div>
+<p>Do some more algebra:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+G m_{\text{star}} &amp;\approx \frac{P}{2\pi}\left( v_{\text{star}} \frac{m_{\text{star}}}{m_{\text{planet}}}\right)^3\\
+G\frac{m^3_{\text{planet}}}{m^2_{\text{star}}} &amp;= \frac{P}{2\pi}v^3_{\text{star}}\\
+\frac{m^3_{\text{planet}}}{m^2_{\text{star}}} &amp;= \frac{P\left(v_{\text{star}}\sin i\right)^3}{2\pi G \sin^3 i}
+\end{align}
+\end{split}\]</div>
+<p> <br />
+ <br />
+$<span class="math notranslate nohighlight">\(
+\begin{align}
+m^3_{\text{planet}}\sin^3 i &amp;= m^2_{\text{star}} \frac{P}{2\pi G}\left(v_{\text{star}}\sin i\right)^3\\
+m_{\text{planet}}\sin i &amp;= \left(\frac{m^2_{\text{star}} P}{2\pi G}\right)^{1/3} v_{\text{star}}\sin i\\
+&amp;=\left(\frac{m^2_{\text{star}} P}{2\pi G}\right)^{1/3} v_r\\
+&amp;\equiv m_{\text{projected}}.
+\end{align}
+\)</span>$</p>
+<p>To summarize,</p>
+<div class="math notranslate nohighlight">
+\[ \boxed{m_\textrm{projected} = \left( \frac{m^2_\textrm{star} P }{ 2\pi G } \right)^{1/3} v_r }\]</div>
+<p>Since we measure the period and the radial velocity, we can (if we have a good estimate of the star’s mass) determine a the “projected mass,” which is a lower limit on the planet’s mass since <span class="math notranslate nohighlight">\(m_\textrm{planet} \sin i \leq m_\textrm{planet}\)</span> . Since astronomers are generally able to make a reasonably good estimate of a star’s mass from its observable properties, we are able to evaluate the right side of the equation to solve for the planet’s projected mass.</p>
+<p><strong>Extracting the amplitude and period from our data</strong></p>
+<p>We would like to extract the planet’s projected mass from the radial velocity data. Recall that</p>
+<div class="math notranslate nohighlight">
+\[m_\textrm{projected} = \left( \frac{m^2_\textrm{star}P }{ 2\pi G} \right)^{1/3} v_r\]</div>
+<p>where <span class="math notranslate nohighlight">\(v_r\)</span> is the amplitude of the radial velocity modulating the Doppler shift in the stellar spectrum. There are many techniques that we might choose to fit for the periodic signal in the radial velocity data!</p>
+<p><em>Fourier transform</em></p>
+<p>One of the most powerful is to generate a Fourier transform of the time series data to plot the amplitude of the radial velocity as a function of frequency, rather than as a function of time. We should see strong peaks at the frequencies of any planetary orbits.</p>
+<p>Here’s an example. Let’s take the Fourier transform of the function of time f(t) to produce its Fourier transform <span class="math notranslate nohighlight">\(\hat{f}(\omega)\)</span>. Imagine that <span class="math notranslate nohighlight">\(f(t)=a\)</span> where <span class="math notranslate nohighlight">\(|t|&lt;\tau\)</span> and <span class="math notranslate nohighlight">\(f(t)=0\)</span> when <span class="math notranslate nohighlight">\(|t|&gt;\tau\)</span>.</p>
+<p>The definition of the Fourier transform of <span class="math notranslate nohighlight">\(f\)</span> is this:</p>
+<div class="math notranslate nohighlight">
+\[\hat{f}(\omega) = \frac{1}{\sqrt{2\pi} } \int_{-\infty}^\infty f(t) e^{-i\omega t} dt\]</div>
+<p>We expect that there will be significant contributions to the frequency distribution for frequencies with periods that are not long compared to <span class="math notranslate nohighlight">\(\tau\)</span>. It is easy to do the integral, so let’s see if this is borne out.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\hat{f}(\omega) &amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty} f(t) e^{-i\omega t} dt\\
+&amp;= \frac{1}{\sqrt{2\pi}}\int_{-\tau}^{+\tau} a e^{-i\omega t}dt\\
+&amp;= \frac{a}{-i\omega\sqrt{2 \pi}} \int_{-\tau}^{+\tau} e^{-i\omega t}d(-i\omega t)\\
+&amp;= \frac{a}{-i\omega\sqrt{2 \pi}} \left. e^{-i\omega t} \right|_{-\tau}^{+\tau}\\
+&amp;= \frac{a}{i\omega\sqrt{2 \pi}}\left[ e^{i\omega t} - e^{-i\omega t}\right]\\
+&amp;= \sqrt{\frac{2}{\pi}} \frac{a\sin\tau\omega}{\omega}.
+\end{align}
+\end{split}\]</div>
+<p>For low frequencies, when <span class="math notranslate nohighlight">\(\omega\)</span> is small compared to <span class="math notranslate nohighlight">\(1/\tau\)</span>, the function is nearly constant. For high frequencies it falls in amplitude like <span class="math notranslate nohighlight">\(1/\omega\)</span>, but is also modulated by the sine term. Here’s a graph:</p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets12.png" width=350 alt="confirmedExoplanets"></img><br></div><p>If instead we were to calculate the Fourier transform of a periodic function of time we would see a large peak at the frequency of the function.</p>
+<p>A very common application of Fourier transforms is to calculate the amplitude vs. frequency for a signal whose transport of energy is proportional to the square of the amplitude. In this circumstance we will have the power per unit frequency going like</p>
+<div class="math notranslate nohighlight">
+\[|\hat{f}(\omega)|^2 = \hat{f}^*(\omega)\hat{f}(\omega) = \left( Re \hat{f}(\omega) \right)^2 + \left(Im \hat{f}(\omega)\right)^2\]</div>
+<p>(An asterisk indicates taking the complex conjugate.)</p>
+<p><strong>Discrete Fourier Transform (DFT)</strong></p>
+<p>The Fourier transform discussed above can only be applied to functions that are well defined over a continuous range of times. But experimental data is often only available at discrete times, as is true for the Epsilon Reticuli data. Ground-based optical telescopes can only operate at night, in good weather!</p>
+<p>There are a number of techniques for extracting a frequency spectrum from a discrete data set. Some are appropriate for measurements separated by regular intervals, and some work for data sets in which measurements occur irregularly. The algorithms will tend to resemble the Fourier transform discussed above, but there will be subtle complications associated with the sampling rate and duration of the overall program of measurements.</p>
+<p>Let’s ignore these fine points for now and consider how to adapt the Fourier transform algorithm to sets of regularly spaced measurements. We’ll start with the solar velocity distributions you generated for <strong>1a</strong>.</p>
+<p>If we had somehow obtained a continuous function <span class="math notranslate nohighlight">\(v(t)\)</span> for the sun’s velocity we would generate the Fourier transform this way:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{v}(\omega) = \frac{1}{\sqrt{2\pi} } \int_{-\infty}^{\infty} v(t) e^{-i\omega t} dt.\]</div>
+<p>If instead we had made discrete measurements at times <span class="math notranslate nohighlight">\(t_0,t_1,t_2,...\)</span> each separated by <span class="math notranslate nohighlight">\(\Delta t\)</span> from the adjacent measurements we could approximate the integral as</p>
+<div class="math notranslate nohighlight">
+\[\hat{v}(\omega) = \frac{1}{\sqrt{2\pi} } \int_{-\infty}^{\infty} v(t) e^{-i\omega t} dt \approx \frac{1}{\sqrt{2\pi} } \sum_k \left[ v(t_k) e^{-i\omega t_k} \Delta t \right] \]</div>
+<p>Let’s see how well this works on the Jupiter/Venus data you generated above.</p>
+</section>
+<section id="c-implementing-a-dft">
+<h3>c. Implementing a DFT<a class="headerlink" href="#c-implementing-a-dft" title="Permalink to this headline">#</a></h3>
+<p>🦉Modify your code from <strong>1a</strong> so that it generates solar radial velocity data for 100 years, at 1 day intervals. (A year is 365.25 days long.) Make sure that you’ve made Venus ten times more massive than its true value so that your calculations use 4868.5e22 kg.</p>
+<p>Once that is working, you’ll use the time and velocity arrays when you add code that will calculate the discrete Fourier transform as described above for 500 different frequencies ω. Here are the parameters you should use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># frequency upper, lowe limits in 1/year:</span>
+<span class="n">f_max</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">f_min</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">100.</span>
+<span class="n">omega_max</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f_max</span>
+<span class="n">omega_min</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f_min</span>
+<span class="c1"># number of omega values to run through</span>
+<span class="n">number_omegas</span><span class="o">=</span><span class="mi">500</span>
+<span class="c1"># now the values we will loop over..</span>
+<span class="n">omega_array</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">omega_min</span><span class="p">,</span><span class="n">omega_max</span><span class="p">,</span><span class="n">number_omegas</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is perfectly fine to use years as your unit of time, as long as ω has units of inverse years. Let’s say that your time and velocity arrays are named <code class="docutils literal notranslate"><span class="pre">tarray</span></code> (values are in years) and <code class="docutils literal notranslate"><span class="pre">varray</span></code> (values are in m/s). For each <span class="math notranslate nohighlight">\(\omega\)</span> value you can do the sum like this (take note of the use of 1j as the square root of -1):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">FT_integral</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tarray</span><span class="p">)):</span>
+    <span class="n">FT_integral</span> <span class="o">+=</span> <span class="n">varray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">tarray</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> 
+<span class="n">FT_integral</span> <span class="o">=</span> <span class="n">FT_integral</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> List comprehensions can make a large speedup here! This code will be slow, but try and make it as fast as possible if you have time.</p>
+<p>🦉Calculate the square of the magnitude of <code class="docutils literal notranslate"><span class="pre">FT_integral</span></code> at each ω value, then graph that as a function of <span class="math notranslate nohighlight">\(\omega\)</span>.  You may want to use a logarithmic y scale. You should see two clear peaks, corresponding to the orbital frequencies of Jupiter and Venus.</p>
+<p>Here are my plots. Note that in the second I am plotting frequency <span class="math notranslate nohighlight">\(f\)</span>, and not <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span> along the horizontal axis.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets13.png" width=600 alt="confirmedExoplanets"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWERE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="d-calculating-projected-mass">
+<h3>d. Calculating projected mass<a class="headerlink" href="#d-calculating-projected-mass" title="Permalink to this headline">#</a></h3>
+<p>🦉Pick out the frequency that corresponds to the lower frequency peak and convert it to the orbital period. (In my plot the left peak is at .0848497/year, corresponding to 11.7855 years.) By combining that with the amplitude of the solar velocity, the known mass of the sun (<span class="math notranslate nohighlight">\(1.989 \times 10^{30}\)</span> kg), and other constants, use the formula for projected mass to estimate (a lower limit on) Jupiter’s mass:</p>
+<div class="math notranslate nohighlight">
+\[m_\textrm{projected} = \left( \frac{m^2_\textrm{star}P}{ 2\pi G }  \right)^{1/3} v_r\]</div>
+<p>How well did you do? Compare your value to the actual Jupiter mass of <span class="math notranslate nohighlight">\(1.898 \times 10^{27}\)</span> kg.  My code yields <span class="math notranslate nohighlight">\(2.0220276 × 10^{27}\)</span> kg.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p><strong>Q:</strong> How well did you do?</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>A:</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+</section>
+<section id="exercise-2-epsilon-reticuli-data">
+<h2>Exercise 2 - Epsilon Reticuli Data<a class="headerlink" href="#exercise-2-epsilon-reticuli-data" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<section id="a-obtain-the-data">
+<h3>a. Obtain the Data<a class="headerlink" href="#a-obtain-the-data" title="Permalink to this headline">#</a></h3>
+<p>Armed with an understanding of our model for radial velocity measurements, let’s take a look at real data from NASA.</p>
+<p>Epsilon Reticuli is a double star 59 light years away in the constellation Reticulum.<a class="reference external" href="#fn17"><sup>17</sup></a> The larger of the two stars is an orange sub-giant near the end of its life (it is on the way to becoming a red giant). Its smaller companion is a white dwarf, at a distance of 240 AU from the primary. (An AU is the radius of the earth’s orbit). Based on the spectral type (color and brightness) and our understanding of stellar evolution, astronomers estimate the mass of the primary to be ~1.2 <span class="math notranslate nohighlight">\(M_\odot\)</span>. NASA refers to the system using its “Henry Draper Catalogue”<a class="reference external" href="#fn18"><sup>18</sup></a> listing, HD 27442.</p>
+<p>In 2001 Butler et al. reported the discovery of HD 27442 b, an exoplanet orbiting the orange star at a distance of 1.2 AU. (As you might have noticed, astronomers name a star’s planets by following the name of the star with the letter b, c, d, etc. The host star is supposed to be the “a.” ) The planet is at least 1.5 times as massive as Jupiter, with an orbital period of 428 days.</p>
+<p>🦉Download the file <a class="reference external" href="https://courses.physics.illinois.edu/phys298owl/fa2019/code/UID_0019921_RVC_002.tbl.txt">UID_0019921_RVC_002.tbl.txt</a> from the code repository. We can do this with a trick:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span>https://courses.physics.illinois.edu/phys246/fa2020/code/UID_0019921_RVC_002.tbl.txt
+<span class="c1">#you can also download it manually and upload to the same folder of the Jupyter notebook</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zsh:1: command not found: wget
+</pre></div>
+</div>
+</div>
+</div>
+<p>The file contains data from a NASA exoplanet archive<a class="reference external" href="#fn19"><sup>19</sup></a>  that are fully “reduced,” meaning that corrections for the motions of the telescope, earth, sun, and solar system around the galactic center have been removed. Since the file is plain text, you can open it and read it with any editor, including Jupyter’s. A header listing information about the measurements comprises the first 22 lines of the file.</p>
+<p>The header is followed by tabular data of the measured radial velocity spanning a period of about eight years. The three columns in each line of data hold the Julian date, the radial velocity, and the measurement uncertainty in the velocity. The Julian date is the number of days since noon (universal time) on January 1, 4713 BC. (There is a good converter on the Naval Observatory’s web site: see <a class="reference external" href="http://aa.usno.navy.mil/data/docs/JulianDate.php.)">http://aa.usno.navy.mil/data/docs/JulianDate.php.)</a></p>
+<p>The first line of data is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">2450831.081551</span>    <span class="o">-</span><span class="mf">33.9</span>     <span class="mf">2.1</span>
+</pre></div>
+</div>
+<p>which corresponds to January 17, 1998, 13:57:26.0 UT.</p>
+<p>We can use various functions in numpy like loadtxt or genfromtxt to create arrays from tabular data. In this exercise, let’s try genfromtxt, which converts rows and columns of elements into strings, then converts each string into numbers.<a class="reference external" href="#fn20"><sup>20</sup></a>  Since you’ll want to skip the header, please use the “skip_header” option. Here is how this works:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># import data from file UID_0019921_RVC_002.tbl.txt
+data = np.genfromtxt(‘UID_0019921_RVC_002.tbl.txt’, skip_header=22)
+</pre></div>
+</div>
+<p>You can load an array of the zeroth column of data this way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time_array</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>🦉Please make a graph of the radial velocity as a function of year, setting the time of the first bin to zero. I suggest you set the plot’s aspect ratio via a set_aspect command so that the sinusoidal variations in velocity are easy to see:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mf">0.0125</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here’s what I get. You can see the periodic nature of the signal.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets15.png" width=600 alt="confirmedExoplanets"></img><br></div><p>You can get data using <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">np.genfromtxt('UID_0019921_RVC_002.tbl.txt',</span> <span class="pre">skip_header=22)</span> </code>.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="b-estimate-the-mass-of-hd-27442-b">
+<h3>b. Estimate the mass of HD 27442 b<a class="headerlink" href="#b-estimate-the-mass-of-hd-27442-b" title="Permalink to this headline">#</a></h3>
+<p>The stellar mass of HD 27442 is estimated to be 1.23 <span class="math notranslate nohighlight">\(M_\odot\)</span>  from spectral type identification. Modify your programs from above to feed the HD 27442 data into your discrete Fourier transform algorithm. Make a graph of the square of the amplitude vs. frequency; I suggest you choose the minimum and maximum frequencies (in 1/years) to be 0.2 and 4. Try evaluating the transform for 1,000 frequencies in that range. To determine the amplitude of the velocity curve use the maximum velocity value; we’ll explore this more later.</p>
+<p>Use your results for period and velocity amplitude to estimate the (lower limit on the) mass of HD 27442 b. For your information, here are my results and plots.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Epsilon</span> <span class="n">Reticuli</span> <span class="n">b</span> <span class="n">period</span> <span class="p">(</span><span class="n">years</span><span class="p">;</span> <span class="n">actual</span> <span class="n">value</span> <span class="ow">is</span> <span class="mf">1.17</span><span class="p">)</span> <span class="o">=</span>  <span class="mf">1.18113029085</span>
+<span class="n">projected</span> <span class="n">Epsilon</span> <span class="n">Reticuli</span> <span class="n">b</span> <span class="n">mass</span> <span class="p">(</span><span class="n">actual</span> <span class="ow">is</span> <span class="mf">2.961e+27</span><span class="p">)</span> <span class="o">=</span>  <span class="mf">3.27159127374e+27</span>
+ <span class="n">elapsed</span> <span class="n">running</span> <span class="n">time</span> <span class="o">=</span>  <span class="mf">0.6881752014160156</span>  <span class="n">seconds</span>
+</pre></div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets16.png" width=400 alt="confirmedExoplanets"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+</section>
+<section id="exercise-3-finding-the-best-velocity-extra-credit-10-points">
+<h2>Exercise 3 - Finding the best velocity (extra credit - 10 points)<a class="headerlink" href="#exercise-3-finding-the-best-velocity-extra-credit-10-points" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<section id="background-chi-2">
+<h3>0. Background - <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#background-chi-2" title="Permalink to this headline">#</a></h3>
+<p>We define the chi-squared as</p>
+<div class="math notranslate nohighlight">
+\[ \chi^2 = \sum_{i} \frac{\left(N_i - N_{predicted}\right)^2}{\sigma_i^2} \]</div>
+<p><span class="math notranslate nohighlight">\(N_i\)</span> is the observed value, <span class="math notranslate nohighlight">\(N_{predicted}\)</span> is the predicted value with a particular choice of parameters (for example, a given <span class="math notranslate nohighlight">\(v_r\)</span>), and <span class="math notranslate nohighlight">\(\sigma_i^2\)</span> is the square of the statistical uncertainty (usually taken to be standard deviation or RMS width) associated with the observed value.</p>
+<p>It is a very sensible measure to use in determining how well your parameters match the underlying reality governing the system you are studying: a good parameter set will tend to cause the predicted and observed values to agree to within about one standard deviation. It will be unusual for values to deviate from the expected value by a lot of sigmas, unless your parameters aren’t very good. And it will be unusual for the predicted and observed contents of a large number of bins to agree better than the statistical fluctuations ought to allow. As a result, the value of chi-squared will tend to be about the same as the number of bins in your histogram.</p>
+<p><strong>What do we mean by “best?”</strong></p>
+<p>Imagine that we determine some physical parameter— a star’s mass, for example—by performing an experiment and analyzing the resulting data. If we were to perform the same experiment many times we’d expect to find slightly different values of the star mass in each of our experiments due to statistical fluctuations in our data. If we plotted the values so obtained we’d probably find that they’d lie on some sort of Gaussian distribution.
+There are subtleties in defining what we mean by “best.” Is it best to use an analysis method that minimizes the width of our multiple-experiment distribution of results? Is it best to use a method that makes our single-experiment determination most likely to agree perfectly (though accidentally, due to fluctuations) with the underlying true value of the star mass? Or is some other measure appropriate?</p>
+<p>Perhaps an easy example of the ambiguities in the word “best” are more clear when considering a long-term investment strategy for, say, the college expenses of a family’s children. Naively, one might favor a strategy that, on average, maximizes the ultimate return on investment. But higher-return investments also incur more risk of loss of principal, so a sensible strategy will include consideration of both risk and return, as well as the time at which the funds must be available to pay for college.</p>
+<p>We tend to opt for minimizing the width of a hypothetical multi-experiment distribution. In most cases this is obtained by using a chi-squared test for evaluating how well our parameters are working.</p>
+</section>
+<section id="a-get-chi-2-working">
+<h3>a. Get <span class="math notranslate nohighlight">\(\chi^2\)</span> working<a class="headerlink" href="#a-get-chi-2-working" title="Permalink to this headline">#</a></h3>
+<p>Recall above that we used real exoplanet data and extracted the largest Fourier component <span class="math notranslate nohighlight">\(\omega\)</span>. In doing so, we essentially set the velocity curve to be <span class="math notranslate nohighlight">\(v(t) = v_r \cdot\sin(\omega t+\phi)\)</span>  where we chose <span class="math notranslate nohighlight">\(\omega\)</span> to be the largest Fourier component, and  <span class="math notranslate nohighlight">\(v_r\)</span> to be the maximum of the measured velocities. But what if the telescope wasn’t able to measure the actual maximum velocity? Not only that, how do we know that the points we pick are part of the Fourier component we chose?</p>
+<div><img src="https://clark.physics.illinois.edu/246img/exoplanets17.png" width=600 alt="confirmedExoplanets"></img><br></div><p>🦉Please modify your original code to get the error <span class="math notranslate nohighlight">\(\sigma_i\)</span> on the velocity measurements, which is the 3rd column of the data file. Then, to compare against, calculate the following values using your guess of <span class="math notranslate nohighlight">\(v_r\)</span>. Strictly speaking we should search for <span class="math notranslate nohighlight">\(\phi\)</span> but let’s just say it is <span class="math notranslate nohighlight">\(\phi=5.5\)</span> for now.<br />
+I find:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">starting</span> <span class="n">time</span> <span class="ow">is</span>  <span class="n">Tue</span> <span class="n">Jun</span> <span class="mi">26</span> <span class="mi">12</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">04</span> <span class="mi">2018</span>
+<span class="n">chisq</span> <span class="o">=</span>  <span class="mf">1075.4055336</span>
+<span class="n">ending</span> <span class="n">time</span> <span class="ow">is</span>  <span class="n">Tue</span> <span class="n">Jun</span> <span class="mi">26</span> <span class="mi">12</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">04</span> <span class="mi">2018</span>
+</pre></div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>In general, a <span class="math notranslate nohighlight">\(\chi^2\)</span> value of <span class="math notranslate nohighlight">\(N\)</span>, here which is 55, is what would constitute a good fit (why?). Instead we have a value almost 20 times that! We’ll try to get a better answer now.</p>
+</section>
+<section id="b-find-a-better-fit-manual">
+<h3>b. Find a better fit - Manual<a class="headerlink" href="#b-find-a-better-fit-manual" title="Permalink to this headline">#</a></h3>
+<p>In order to find out what the actual magnitude is, we’ll look at a best fit to determine the best <span class="math notranslate nohighlight">\(v_r\)</span>. First, determine a range of parameters <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> to look through. First try a range of <span class="math notranslate nohighlight">\(\pm5\)</span> from your original guess at <span class="math notranslate nohighlight">\(v_r\)</span> with 500 different velocities and a grid of 0 to 2π of length 200 for <span class="math notranslate nohighlight">\(\phi\)</span>.
+After you find the best <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> for the best <span class="math notranslate nohighlight">\(\chi^2\)</span>, calculate the new projected mass. I find that a smaller <span class="math notranslate nohighlight">\(v_r\)</span> fits the data better(!)</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="c-find-a-better-fit-scipy">
+<h3>c. Find a better fit - <code class="docutils literal notranslate"><span class="pre">scipy</span></code><a class="headerlink" href="#c-find-a-better-fit-scipy" title="Permalink to this headline">#</a></h3>
+<p>While searching through a range is (relatively) easy to code, there are algorithms to smartly search for the best answer. Rather than spend a lot of time (and maybe pain) writing our own, <code class="docutils literal notranslate"><span class="pre">scipy</span></code> comes with a prewritten one. To use it, first at the top of your file add</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+</pre></div>
+</div>
+<p>then define a function that takes 4 parameters <code class="docutils literal notranslate"><span class="pre">(params,time_array,rv_array,</span> <span class="pre">error_array)</span></code> and returns the vector with components <span class="math notranslate nohighlight">\(v_i-v(t_i)/\sigma_i\)</span>. Let’s call this function <code class="docutils literal notranslate"><span class="pre">errorfunc</span></code>. Parameters will be a list of [<code class="docutils literal notranslate"><span class="pre">A</span></code>,<code class="docutils literal notranslate"><span class="pre">phi</span></code>] so that we’re trying to fit something like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">phi</span><span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="o">*</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span> <span class="n">time_array</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>optional:</em> it’s quite useful to define a lambda function to do this, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">errorfunc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">params</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">sigmas</span> <span class="p">:</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">data</span><span class="p">)</span><span class="o">/</span><span class="n">sigmas</span>
+</pre></div>
+</div>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> routine, we also need a list of starting parameters, I suggest our initial guess:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameter_guess</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.4</span><span class="p">,</span><span class="mf">5.5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>then we just have to call the routine. So you can do something like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">A_best</span><span class="p">,</span><span class="n">phi_best</span><span class="p">),</span><span class="n">itWorked</span> <span class="o">=</span>
+<span class="n">optimize</span><span class="o">.</span><span class="n">leastsq</span><span class="p">(</span><span class="n">errorfunc</span><span class="p">,</span> <span class="n">parameter_guess</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">time_array</span><span class="p">,</span><span class="n">rv_array</span><span class="p">,</span><span class="n">sigma_array</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Notice that my function errfunc must be defined by</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">errfunc</span><span class="p">(</span><span class="n">params</span><span class="p">,</span><span class="n">time_array</span><span class="p">,</span><span class="n">rv_array</span><span class="p">,</span><span class="n">sigma_array</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>but you are free to change it, as long as it works. 🦉Determine the new star velocity based on the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> best fit and see how it changes with the projected mass</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+</section>
+<section id="exercise-4-putting-everything-together-extra-credit-5-points">
+<h2>Exercise 4 - Putting everything together! (extra credit - 5 points)<a class="headerlink" href="#exercise-4-putting-everything-together-extra-credit-5-points" title="Permalink to this headline">#</a></h2>
+<p>🦉Modify and use your orbital dynamics code (with midpoint) to simulate the sun/jupiter/venus system above producing the two projected velocity of the sun plots (see <strong>1a</strong>), one with and one without the (large) venus. You’ll need to have the planets also act on the sun, so that you now keep track of the sun’s motion. While in general it is needed, it is not necessary for the planets to act on each other here. Just have Sun&lt;-&gt;planet interactions and keep track of the three objects as they move.</p>
+<hr class="docutils" />
+<p>© Copyright 2020</p>
+<p>Originally developed by Monica Huang, Ryan Levy, and George Gollin for 298OWL<br />
+Ported to Jupyter and new material by BKC &amp; RL (2019)</p>
+<hr class="docutils" />
+<p><span id=“fn1”><sup>1</sup>Wolszczan, A.; Frail, D. A. (1992). “A planetary system around the millisecond pulsar PSR1257+12”. Nature. 355(6356): 145–147. </span></p>
+<p><span id=“fn2”><sup>2</sup>3,572 as of December 21, 2017: <a class="reference external" href="https://exoplanetarchive.ipac.caltech.edu/">https://exoplanetarchive.ipac.caltech.edu/</a>.</span></p>
+<p><span id=“fn3”><sup>3</sup>Original letter from Isaac Newton to Richard Bentley, dated 10 December 1692, The Newton project, 189.R.4.47, ff. 4A-5, Trinity College Library, Cambridge, UK</span></p>
+<p><span id=“fn4”><sup>4</sup> <a class="reference external" href="https://en.wikipedia.org/wiki/Pierre-Simon_Laplace">https://en.wikipedia.org/wiki/Pierre-Simon_Laplace</a>. The solar system is actually a chaotic system, capable of ejecting a planet now and then, so it is inaccurate to say that it is stable.</p>
+<p><span id=“fn5”><sup>5</sup> Mayor, Michael; Queloz, Didier (1995). “A Jupiter-mass companion to a solar-type star”. Nature. 378 (6555): 355– 359.</span></p>
+<p><span id=“fn6”><sup>6</sup>  <a class="reference external" href="https://en.wikipedia.org/wiki/Exoplanet">https://en.wikipedia.org/wiki/Exoplanet</a></span></p>
+<p><span id=“fn7”><sup>7</sup> One parsec is approximately 3.26 light years. It is the distance at which the mean radius of the earth’s orbit subtends one second of arc, or 4.848 microradians. The distance to Proxima Centauri, the closest star to the sun, is 4.243 light years, or 1.3 parsecs.</span></p>
+<p><span id=“fn8”><sup>8</sup> The diameter of our Milky Way is around 50 k parsecs, and its thickness is around 1 k parsecs. As a result, Doppler spectroscopy can only find planets in our home galaxy. </span></p>
+<p><span id=“fn9”><sup>9</sup>  Combining observations from 1 &amp; 2, we can estimate the planet’s density, and learn whether it’s more likely to be a gas giant or a rocky, possibly terrestrial planet. </span></p>
+<p><span id="fn10"><sup>10</sup> <a class="reference external" href="https://en.wikipedia.org/wiki/HR_8799">https://en.wikipedia.org/wiki/HR_8799</a> </span></p>
+<p><span id="fn11"><sup>11</sup>For example, <a class="reference external" href="https://en.wikipedia.org/wiki/Methods_of_detecting_exoplanets">https://en.wikipedia.org/wiki/Methods_of_detecting_exoplanets</a>; Udry S, Santos NC., 2007. Astron. Astrophys. 45:397-439; Winn JN., Fabrycky DC., 2015. Astron. Astrophys. 53:409-447. In February 2017, from Spitzer Space Telescope observation, NASA announced the discovery of the first known system of seven planets orbiting around a single star TRAPPIST-1. All are Earth-sized, with three are located in habitable zone. The system is seen nearly edge-on, and from the derived planetary orbital parameters, six have nearly circular orbits with eccentricity &lt; 0.1. Further, the orbits are almost co-planar. In the near future Spitzer, Hubble, Kepler, and the future James Webb Space Telescope will perform follow-up observations, hoping to determine their atmospheric composition (and therefore habitability). More details can be seen in Nature: Gillon, M., Triaud, A. H. M. J., Demory, B.-O., et al. 2017, Nature, 542, 456.</span></p>
+<p><span id="fn12"><sup>12</sup><a class="reference external" href="https://image.gsfc.nasa.gov/poetry/ask/a11354.html">https://image.gsfc.nasa.gov/poetry/ask/a11354.html</a>  </span></p>
+<p><span id="fn13"><sup>13</sup><a class="reference external" href="https://en.wikipedia.org/wiki/File:Hydrogen_spectrum.svg">https://en.wikipedia.org/wiki/File:Hydrogen_spectrum.svg</a>, <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Solar_Spectrum.png">https://commons.wikimedia.org/wiki/File:Solar_Spectrum.png</a>, This figure was prepared by Robert A. Rohde as part of the Global Warming Art project.</span></p>
+<p><span id="fn14"><sup>14</sup><a class="reference external" href="http://www.astronomynotes.com/light/s5.htm">http://www.astronomynotes.com/light/s5.htm</a>. The discussed spectral line is a fine-structure 2P – 3D, cited in Kramida 2010, Atomic Data and Nuclear Data Tables.</span></p>
+<p><span id ="fn15"><sup>15</sup> <a class="reference external" href="https://exoplanets.nasa.gov/exep/newslettersarchive-htmlfiles/2011July.html">https://exoplanets.nasa.gov/exep/newslettersarchive-htmlfiles/2011July.html</a></span></p>
+<p><span id="fn16"><sup>16</sup>Arkushanangarushashutu is about 130 lightyears away. The name is the longest of all star names, derived from ancient Babylonian, and meaning “the southeast star in the Crab.” See <a class="reference external" href="https://en.wikipedia.org/wiki/Delta_Cancri">https://en.wikipedia.org/wiki/Delta_Cancri</a>.</span></p>
+<p><span id="fn17"><sup>17</sup><a class="reference external" href="https://en.wikipedia.org/wiki/Epsilon_Reticuli">https://en.wikipedia.org/wiki/Epsilon_Reticuli</a></span></p>
+<p><span id="fn18"><sup>18</sup><a class="reference external" href="https://en.wikipedia.org/wiki/Henry_Draper_Catalogue">https://en.wikipedia.org/wiki/Henry_Draper_Catalogue</a></span></p>
+<p><span id="fn19"><sup>19</sup><a class="reference external" href="http://exoplanetarchive.ipac.caltech.edu/index.html">http://exoplanetarchive.ipac.caltech.edu/index.html</a></span></p>
+<p><span id="fn20"><sup>20</sup><a class="reference external" href="https://docs.scipy.org/doc/numpy/user/basics.io.genfromtxt.html">https://docs.scipy.org/doc/numpy/user/basics.io.genfromtxt.html</a></span></p>
+<hr class="docutils" />
+<p><strong>Acknowledgements:</strong></p>
+<ul class="simple">
+<li><p>Overall assignment + Ex. 1 and 2 Monica Huang and George Gollin (original);</p></li>
+<li><p>Ex. 3 Ryan Levy and Bryan Clark (original)</p></li>
+</ul>
+<p>© Copyright 2021</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="OrbitalDynamics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Orbital Dynamics</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="chaos.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chaos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Bryan Clark; George Gollin; Ryan Levy<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

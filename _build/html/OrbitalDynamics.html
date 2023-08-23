@@ -1,0 +1,1105 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Orbital Dynamics &#8212; Physics 246</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exoplanets" href="Exoplanets.html" />
+    <link rel="prev" title="Dynamics" href="Dynamics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/FD.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Physics 246</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    An Introduction to Modern Computational Physics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
+   N ways to measure
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dynamics.html">
+   Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Orbital Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Exoplanets.html">
+   Exoplanets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chaos.html">
+   Chaos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="OrbitalDynamics2.html">
+   Many Body Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ParticlePhysics.html">
+   Particle Physics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Random%20Walks.html">
+   Random Walks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Markov%20Chains.html">
+   Markov Chains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Predator-Prey.html">
+   Predator-Prey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="FluidDynamics.html">
+   Fluid Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MachineLearningGalaxies.html">
+   Classifying Galaxies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QC1.html">
+   Quantum Computing 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QC2.html">
+   Quantum Computing 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Projects.html">
+   Cool Projects
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/OrbitalDynamics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/OrbitalDynamics.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Orbital Dynamics
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overview">
+     Overview
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#warmups">
+     Warmups
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#planetary-parameters">
+       Planetary Parameters
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-dictionaries">
+       Using Dictionaries
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1-orbital-dynamics">
+     Exercise 1. Orbital Dynamics
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-modify-your-code-to-include-the-force-of-gravity">
+       a. Modify your code to include the force of gravity
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-earth-orbiting-the-sun">
+       b.  Earth Orbiting the Sun
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-animation">
+       c. Animation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-geosyncronous-orbit-extra-credit-5-points">
+       d. Geosyncronous Orbit (Extra Credit: 5 Points)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-2-kepler-s-laws">
+     Exercise 2. Kepler’s Laws
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-law-2">
+       a. Law 2
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-law-1-extra-credit-10-points">
+       b. Law 1 (Extra Credit: 10 points)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-law-3-extra-credit-10-points">
+       c. Law 3: (Extra Credit: 10 points)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background-just-information-no-work-on-this-problem">
+     Background (just information…no work on this problem)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-3-mercury-precision">
+     Exercise 3: Mercury Precision
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-mercury-without-general-relativity">
+       a.  Mercury without general relativity
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-mercury-with-general-relativity">
+       b.  Mercury with general relativity
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-4-transfer-orbits-extra-credit-10-points">
+   Exercise 4. Transfer Orbits (Extra Credit: 10 points)
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Orbital Dynamics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Orbital Dynamics
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overview">
+     Overview
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#warmups">
+     Warmups
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#planetary-parameters">
+       Planetary Parameters
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-dictionaries">
+       Using Dictionaries
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-1-orbital-dynamics">
+     Exercise 1. Orbital Dynamics
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-modify-your-code-to-include-the-force-of-gravity">
+       a. Modify your code to include the force of gravity
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-earth-orbiting-the-sun">
+       b.  Earth Orbiting the Sun
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-animation">
+       c. Animation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-geosyncronous-orbit-extra-credit-5-points">
+       d. Geosyncronous Orbit (Extra Credit: 5 Points)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-2-kepler-s-laws">
+     Exercise 2. Kepler’s Laws
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-law-2">
+       a. Law 2
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-law-1-extra-credit-10-points">
+       b. Law 1 (Extra Credit: 10 points)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-law-3-extra-credit-10-points">
+       c. Law 3: (Extra Credit: 10 points)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background-just-information-no-work-on-this-problem">
+     Background (just information…no work on this problem)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-3-mercury-precision">
+     Exercise 3: Mercury Precision
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-mercury-without-general-relativity">
+       a.  Mercury without general relativity
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-mercury-with-general-relativity">
+       b.  Mercury with general relativity
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-4-transfer-orbits-extra-credit-10-points">
+   Exercise 4. Transfer Orbits (Extra Credit: 10 points)
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="orbital-dynamics">
+<h1>Orbital Dynamics<a class="headerlink" href="#orbital-dynamics" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><strong>Author:</strong></p></li>
+<li><p><strong>Date:</strong></p></li>
+<li><p><strong>Time spent on this assignment:</strong></p></li>
+</ul>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<p>In this assignment we will learn how to simulate the orbital dynamics of a planet going around the sun (which we assume to be fixed).  We will then proceed to use simulation to test two of the most important physics results in the last 400 years.</p>
+<p>First, we will numerically validate Kepler’s Second Law: a planet sweeps out the same area of its orbit in equal time.  Kepler’s first law (all planets 🪐 orbit in ellipses) and Kepler’s third law (the square of the orbital period of a planet is directly proportional to the cube of the semi-major axis of its orbit) will be left as extra credit.</p>
+<p>Then we will see that general relativity alters the Newtonian law of gravitation in such a way that the planets no longer move in ellipses.  Instead, their closest approach to the sun (the perihelion) changes its location slightly as you go around the Sun.  Mesuring this effect in Mercury was one of the key original validations of general relativity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">resetMe</span><span class="p">(</span><span class="n">keepList</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="n">keepList</span><span class="o">=</span><span class="n">keepList</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;resetMe&#39;</span><span class="p">,</span><span class="s1">&#39;np&#39;</span><span class="p">,</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span><span class="s1">&#39;math&#39;</span><span class="p">,</span><span class="s1">&#39;jax&#39;</span><span class="p">,</span><span class="s1">&#39;jnp&#39;</span><span class="p">,</span><span class="s1">&#39;jit&#39;</span><span class="p">,</span><span class="s1">&#39;grad&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">keepList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+            <span class="n">ll</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">iiii</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+        <span class="n">jjjj</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="o">+</span><span class="n">iiii</span><span class="o">+</span><span class="s2">&quot;$&quot;</span>
+        <span class="o">%</span><span class="k">reset_selective</span> -f {jjjj}
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">})</span>
+    <span class="k">return</span>
+<span class="c1">#resetMe()</span>
+<span class="kn">import</span> <span class="nn">datetime</span><span class="p">;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">math</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="warmups">
+<h2>Warmups<a class="headerlink" href="#warmups" title="Permalink to this headline">#</a></h2>
+<section id="planetary-parameters">
+<h3>Planetary Parameters<a class="headerlink" href="#planetary-parameters" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#resetMe()</span>
+<span class="n">SolarSystemParameters</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MercuryOrbitRadius&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">57.9e9</span> <span class="c1">#meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MercuryPerihelion&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">46.0012e9</span> <span class="c1"># meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MercuryAphelion&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">69.8169e9</span> <span class="c1"># meters</span>
+
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthRadius&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">6.371e6</span> <span class="c1">#meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthRotatingVelocity&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">444.444</span> <span class="c1"># meters per second</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthOrbitRadius&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">149.6e9</span> <span class="c1"># meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthOrbitVelocity&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">30e3</span> <span class="c1"># meters per secon</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthMass&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">5.972e24</span> <span class="c1"># kg</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MoonOrbitRadius&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">363228.9e3</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MoonMass&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">7.34e22</span> <span class="c1"># kg</span>
+
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;SunRadius&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">695.51e3</span> <span class="c1">#meters</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;SunMass&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">1.989e30</span> <span class="c1"># kg</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">6.67408e-11</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-dictionaries">
+<h3>Using Dictionaries<a class="headerlink" href="#using-dictionaries" title="Permalink to this headline">#</a></h3>
+<p>We’ve defined some planetary parameters for you.  Use these parameters to plot a model of our solar system which includes the Sun, Earth and Mercury assuming that the planets orbit in circular motion.  (this doesn’t involve any simulations just plotting things to scale.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="exercise-1-orbital-dynamics">
+<h2>Exercise 1. Orbital Dynamics<a class="headerlink" href="#exercise-1-orbital-dynamics" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<section id="a-modify-your-code-to-include-the-force-of-gravity">
+<h3>a. Modify your code to include the force of gravity<a class="headerlink" href="#a-modify-your-code-to-include-the-force-of-gravity" title="Permalink to this headline">#</a></h3>
+<p>In Newton’s model the earth’s gravity is a central force that exerts an attractive pull</p>
+<div class="math notranslate nohighlight">
+\[\vec{F}(\vec{r}) = m\vec{a}(\vec{r}) = -\frac{Gm_\textrm{earth}m}{r^2}\hat{r}\]</div>
+<p>between the earth and another mass m. In the formula G is Newton’s constant, <span class="math notranslate nohighlight">\(6.674 \times 10^{-11} m^3/\textrm{kg}/\textrm{sec}^2\)</span>. The mass of the earth is approximately <span class="math notranslate nohighlight">\(5.972 \times 10^{24}\)</span> kg.  Because the gravitational force from the earth is proportional to an object’s mass, its gravitationally induced acceleration is independent of its mass.</p>
+<p>Let’s place the origin of a right handed coordinate system at the earth’s center, with the equator lying in the x,y plane and the x axis passing through <span class="math notranslate nohighlight">\(0^{\circ}\)</span> longitude. To simplify things let’s assume that the orbit of any object of interest lies in the <span class="math notranslate nohighlight">\(x,y\)</span> plane. As you can see in the following figure, the angle φ is taken with respect to the x axis. We are fixing <span class="math notranslate nohighlight">\(\theta = 90^{\circ}\)</span>.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/coord.png" width=400 alt="coordinate frame"></img><br></div><p>We can write the <span class="math notranslate nohighlight">\(x, y\)</span> components of the gravitational acceleration as</p>
+<div class="math notranslate nohighlight">
+\[a_x = -\frac{Gm_\textrm{earth} }{x^2+y^2}\cos \phi = - \frac{Gm_\textrm{earth} x }{(x^2+y^2)^{3/2}}\]</div>
+<div class="math notranslate nohighlight">
+\[a_y = -\frac{Gm_\textrm{earth} }{x^2+y^2}\sin \phi = - \frac{Gm_\textrm{earth} y }{(x^2+y^2)^{3/2}}\]</div>
+<p>🦉Modify your code to correctly incorporate gravity.</p>
+<p>Copy over your previous work for an integrator.  Assuming the sun is at (0,0) modify your Modify your force function to implement the gravitational force.  Use the parameters in your force function. Also modify your <code class="docutils literal notranslate"><span class="pre">Orbit</span></code> function to run for a time <code class="docutils literal notranslate"><span class="pre">params[&quot;T&quot;]</span></code> instead of when it hits the ground. In my code, I also put in a <code class="docutils literal notranslate"><span class="pre">param['CrashRadius']</span></code> that terminated my code in addition to <code class="docutils literal notranslate"><span class="pre">param[&quot;T&quot;]</span></code>.  Btw, if you use the “tab” button it will tell you what’s in your SolarSystemParameters dictionary.  There will be nothing to run here just the functions (you will make plots below)</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="b-earth-orbiting-the-sun">
+<h3>b.  Earth Orbiting the Sun<a class="headerlink" href="#b-earth-orbiting-the-sun" title="Permalink to this headline">#</a></h3>
+<p>Write some code to set up the parameters of the Earth orbiting the sun and then plot it.  Use a dt of 3600 seconds.  This will involve calling your functions from above. You will want to build a dictionary of <code class="docutils literal notranslate"><span class="pre">params</span></code>  which involve things like your initial positions (use Earth’s orbital radius), your initial velocity, the time step <code class="docutils literal notranslate"><span class="pre">dt</span></code> (use one day), etc.  You should be able to plot it as <code class="docutils literal notranslate"><span class="pre">plt.plot(positions[:,0],positions[:,1])</span></code>
+`</p>
+<!--
+To draw the Earth, I recommend something like:
+```python
+earth_radius = SolarSystemParameters["EarthRadius"] # m
+# create a (blank) figure so we can set some of its attributes. 
+fig = plt.figure()
+ax = fig.gca()
+# set labels and title; force square aspect ratio. 
+ax.set_xlabel("orbit x, km")
+ax.set_ylabel("orbit y, km")
+ax.set_title("GPS satellite trial orbit") 
+ax.set_aspect("equal")
+# plot stuff, 
+#plt.plot(xarray, yarray)
+# force the axes to be of equal scales... 
+rmax = np.max( (xarray**2+yarray**2)**0.5)
+pltmax = 1.05 * rmax
+plt.axis([-pltmax, pltmax, -pltmax, pltmax])
+# now draw the earth
+earth_disk = plt.Circle((0, 0), earth_radius , color = "#99FF99")
+fig.gca().add_artist(earth_disk)
+```
+--><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="c-animation">
+<h3>c. Animation<a class="headerlink" href="#c-animation" title="Permalink to this headline">#</a></h3>
+<p>Run the code below to plot an animation of your orbit.  Your coordinates have to be in positions.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="d-geosyncronous-orbit-extra-credit-5-points">
+<h3>d. Geosyncronous Orbit (Extra Credit: 5 Points)<a class="headerlink" href="#d-geosyncronous-orbit-extra-credit-5-points" title="Permalink to this headline">#</a></h3>
+<p>🦉Determine the height a spaceship needs to be above the surface of the Earth to be in circular Geosynchronous orbit. A geosynchronous orbit is one that stays over the same point of Earth for the entire orbit.   To determine this, we need to set up our orbit simulation to run for an Earth/Satellite simulation.</p>
+<p>A useful thing to know is that the velocity that you need to apply tangeant to a circular orbit to stay in a circular orbit of radius <span class="math notranslate nohighlight">\(r\)</span> is
+$<span class="math notranslate nohighlight">\( v = \sqrt{\frac{GM}{r}} \)</span>$</p>
+<p>Then compute the orbit of that trajectory.  To show that it’s geosynchronous you want it to produce an orbit that is a circle in one day.  You can make your <code class="docutils literal notranslate"><span class="pre">m</span></code> small (say 100 kg).  I recommend a <code class="docutils literal notranslate"><span class="pre">dt</span></code> of 1 second.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-kepler-s-laws">
+<h2>Exercise 2. Kepler’s Laws<a class="headerlink" href="#exercise-2-kepler-s-laws" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<p>Kepler developed three laws about planetary motion (using data from Tycho Brahe on planetary motion).  In this exercise you will explicitly check Kepler’s laws.</p>
+<p>The three laws are (from (<a class="reference external" href="https://en.wikipedia.org/wiki/Kepler%27s_laws_of_planetary_motion">wikipedia</a>):</p>
+<p>(1) The orbit of a planet is an ellipse with the Sun at one of the two foci.</p>
+<p>(2) A line segment joining a planet and the Sun sweeps out equal areas during equal intervals of time.</p>
+<p>(3) The square of the orbital period of a planet is directly proportional to the cube of the semi-major axis of its orbit.</p>
+<section id="a-law-2">
+<h3>a. Law 2<a class="headerlink" href="#a-law-2" title="Permalink to this headline">#</a></h3>
+<p>Kepler’s second law tells us that the planet sweeps out the same “area” of the ellipse in a fixed amount of time.<br />
+🦉Verify this by computing (and plotting) the area swept out in these two regions:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0.2 T_\textrm{orbit}&lt;t&lt;0.2T_\textrm{orbit}+0.1T_\textrm{orbit}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0.6 T_\textrm{orbit}&lt;t&lt;0.6 T_\textrm{orbit}+0.1T_\textrm{orbit}\)</span></p></li>
+</ul>
+<p>where <span class="math notranslate nohighlight">\(T_\textrm{orbit}\)</span> is the total time for an orbit.  Use Earth’s orbit to do this and a time-step of 1 hour.</p>
+<p>To compute the area, I summed a bunch of triangles that make up the points on the orbit.  Toward that end I found it useful to write a <code class="docutils literal notranslate"><span class="pre">TriangleArea</span></code> function.</p>
+<p>Here’s what my random orbit looks like (don’t worry about adding colors):</p>
+<div><img src="https://clark.physics.illinois.edu/246img/KeplerSecond.png" width=600  alt="Kepler Second Law"></img><br></div><p>You should report what your two areas are.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="b-law-1-extra-credit-10-points">
+<h3>b. Law 1 (Extra Credit: 10 points)<a class="headerlink" href="#b-law-1-extra-credit-10-points" title="Permalink to this headline">#</a></h3>
+<p>The first law tells us that the orbit is an ellipse and the sun is at a foci.  🦉To check this,</p>
+<ul class="simple">
+<li><p>Modify the constants in your code to emulate planets (i.e. let <code class="docutils literal notranslate"><span class="pre">M</span></code> be the mass of the sun, <span class="math notranslate nohighlight">\(M_\textrm{sun} = 1.989 \times 10^{30}\)</span> kg)</p></li>
+<li><p>Let <code class="docutils literal notranslate"><span class="pre">dt</span></code> be an hour</p></li>
+<li><p>Emulate some eccentric orbits.  To do this, change the initial velocity by a little bit.  This will give you some eccentric orbits.</p></li>
+<li><p>Check that the orbit you get is an ellipse with the sun is a foci.</p></li>
+</ul>
+<p>The latter is a little subtle.  To check that you have an ellipse, we should verify that the points (<code class="docutils literal notranslate"><span class="pre">orbit.xs</span></code>) satisfy the general equation for an ellipse.</p>
+<p>The general equation for an ellipse (<a class="reference external" href="https://math.stackexchange.com/questions/426150/what-is-the-general-equation-of-the-ellipse-that-is-not-in-the-origin-and-rotate">stackexchange</a>) is</p>
+<div class="math notranslate nohighlight">
+\[ \frac{((x-h)\cos(A) + (y-k)\sin(A))^2}{a^2} + \frac{((x-h)\sin(A) - (y-k)\cos(A))^2}{b^2} =1\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> is the length of the semi-major axis, <span class="math notranslate nohighlight">\(b\)</span> is the length of the semi-minor axis, <span class="math notranslate nohighlight">\((h,k)\)</span> is the center of the ellipse and <span class="math notranslate nohighlight">\(A\)</span> is the angle of the ellipse.</p>
+<p>Given a foci, we can compute the points closest and further from the loci, <span class="math notranslate nohighlight">\(p_{min}\)</span> and <span class="math notranslate nohighlight">\(p_{max}\)</span> which are at distance <span class="math notranslate nohighlight">\(r_{min}\)</span> and <span class="math notranslate nohighlight">\(r_{max}\)</span>.</p>
+<p>With these we can compute</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a=\frac{r_\textrm{min}+r_\textrm{max}}{2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b=\sqrt{r_\textrm{min}r_\textrm{max}}\)</span></p></li>
+<li><p>the center <span class="math notranslate nohighlight">\((h,k) = (p_\textrm{max}+p_\textrm{min})/2\)</span>.</p></li>
+<li><p>the semi-major axis <span class="math notranslate nohighlight">\(\vec{a}=(p_\textrm{max}-p_\textrm{min})\)</span></p></li>
+<li><p>the angle <span class="math notranslate nohighlight">\(A=\tan^{-1}[\vec{a}(1)/\vec{a}(0)]\)</span></p></li>
+</ul>
+<p>I wrote a function <code class="docutils literal notranslate"><span class="pre">CheckEllipse</span></code> that given a set of coordinates (and the foci of the sun at the origin) assumed it was an ellipse and checked if the points obeyed this equation.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="c-law-3-extra-credit-10-points">
+<h3>c. Law 3: (Extra Credit: 10 points)<a class="headerlink" href="#c-law-3-extra-credit-10-points" title="Permalink to this headline">#</a></h3>
+<p>Kepler’s third law tells us that the square of the orbital period of a planet is directly proportional to the cube of the semi-major axis of its orbit.</p>
+<p>In other words, <span class="math notranslate nohighlight">\(T^2 \propto a^3\)</span>.</p>
+<p><em>From Wikipedia quoting Kepler on finding the third law:</em>
+<img alt="image.png" src="attachment:image.png" /></p>
+<p>🦉Verify Kepler’s third law by computing the orbital period <span class="math notranslate nohighlight">\(T\)</span> (write a function that finds when your orbit essentially gets back to its starting place) and the semi-major axis (as you did above) for 25 different orbits.  To generate these orbits use random initial starting velocities of the form</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v_circ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">M</span><span class="o">/</span><span class="n">r0</span><span class="p">)</span>
+<span class="n">v0</span><span class="o">=</span><span class="p">[</span><span class="n">v_circ</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span><span class="o">*</span><span class="n">v_circ</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span><span class="o">*</span><span class="n">v_circ</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then graph <span class="math notranslate nohighlight">\(T^2\)</span> vs. <span class="math notranslate nohighlight">\(a^3\)</span> and show that this makes a line.  🦉Show that the slope of this line is
+$<span class="math notranslate nohighlight">\(\frac{GM}{4\pi^2}\)</span>$</p>
+<p>It is helpful to add code to your class that stops your simulation after you return to the starting point. This can be done by either:</p>
+<ul class="simple">
+<li><p>checking that the distance from the starting point gets further away-&gt;closer-&gt;further away</p></li>
+<li><p>monitoring the <span class="math notranslate nohighlight">\(r\)</span> of your planet</p></li>
+<li><p>by checking how close the <span class="math notranslate nohighlight">\(x\)</span> location is to your initial spot</p></li>
+</ul>
+<p>It’ll save you valuable running time if you implement this, but it is not necessary.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+</section>
+<section id="background-just-information-no-work-on-this-problem">
+<h2>Background (just information…no work on this problem)<a class="headerlink" href="#background-just-information-no-work-on-this-problem" title="Permalink to this headline">#</a></h2>
+<p><strong>Post-Newtonian gravitational orbits</strong></p>
+<p>Trajectories in <span class="math notranslate nohighlight">\(1/r^2\)</span> central force fields are conic sections: hyperbolas or parabolas for unbound objects, and ellipses for objects in bound orbits. A special property of an inverse-square force is that bound orbits close on themselves—the orientation in space of the ellipse remains fixed. But if gravity were to deviate from a purely inverse-square force law, bound orbits would not close (unless they were perfectly circular), and could not strictly be described as ellipses.</p>
+<p>One of the earliest tests of general relativity was its prediction for the rate at which Mercury’s orbit would change its orientation over time. Mercury’s distance from (the center of) the sun varies from 46,001,200 km at perihelion (the point at which Mercury is closest to the sun) to 69,816,900 km at aphelion, so it samples the strength of the sun’s gravitational pull over a significant range of distance.</p>
+<p>The orbit’s long axis precesses 574.1 seconds of arc per century. <a class="reference external" href="#fn1"><sup>1</sup></a>. (There are 3,600 seconds of arc in one degree.) Most of this is due to the perturbing effects of the other planets, but there is a measurable contribution of 43 seconds of arc per century from the small differences between the (approximately correct) Newtonian and (extraordinarily accurate) Einsteinian descriptions of gravity. The force law, according to general relativity, isn’t quite an inverse square relation. <a class="reference external" href="#fn2"><sup>2</sup></a></p>
+<p>The precession rate is small. During the course of one orbit of 87.969 days, the perihelion will shift by <span class="math notranslate nohighlight">\((5.022 \pm 0.005) \times 10^{-7}\)</span> radians due to general relativistic effects. This corresponds to a displacement in space of about 23 km for one orbit’s perihelion relative to the previous orbit’s, added to the much larger Newtonian perturbations from the other planets.</p>
+<p>In weak gravitational fields we can accommodate the effects of general relativity as a slight modification <a class="reference external" href="#fn3"><sup>3</sup></a> to the acceleration of a mass <span class="math notranslate nohighlight">\(m\)</span> in an almost-elliptical orbit around the sun:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{F(r)}{m} = \frac{GM_\odot}{r^2} + \frac{3r_s\left(v_\textrm{perihelion}r_\textrm{perihelion}\right)^2}{2r^4}\]</div>
+<p>where <span class="math notranslate nohighlight">\(M_\odot=1.98855 \times 10^{30}\)</span> kg is the mass of the sun.<a class="reference external" href="#fn4"><sup>4</sup></a>.  You may recall that the Schwarzschild radius <span class="math notranslate nohighlight">\(r_s\)</span> of an object of mass <span class="math notranslate nohighlight">\(M\)</span> is <span class="math notranslate nohighlight">\(2GM/c^2\)</span>, and that the sun’s <span class="math notranslate nohighlight">\(r_s\)</span> is 2,953.36 meters.  For Mercury <span class="math notranslate nohighlight">\(v_\textrm{perihelion}=58,980\)</span> m/s while <span class="math notranslate nohighlight">\(r_\textrm{perihelion} = 46,001,200\)</span> km.  (Note that the formula requires the perihelion radius to be expressed in meters.)<a class="reference external" href="#fn5"><sup>5</sup></a></p>
+<p>Just for your information, here is a table of contributions to the Newtonian precession of Mercury’s perihelion from the other planets. The largest come from Venus (because it is so close to Mercury) and Jupiter (because it is so massive). These are taken from the work of the 19th century astronomer Urban LeVerrier.<a class="reference external" href="#fn6"><sup>6</sup></a>.  I think they’re probably reasonable approximations to the exact values.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>planet</p></th>
+<th class="head"><p>arc-seconds per century</p></th>
+<th class="head"><p>microradians per orbit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Venus</p></td>
+<td><p>280.6</p></td>
+<td><p>3.28</p></td>
+</tr>
+<tr class="row-odd"><td><p>Earth</p></td>
+<td><p>83.6</p></td>
+<td><p>0.98</p></td>
+</tr>
+<tr class="row-even"><td><p>Mars</p></td>
+<td><p>2.6</p></td>
+<td><p>0.03</p></td>
+</tr>
+<tr class="row-odd"><td><p>asteroids</p></td>
+<td><p>not calculated <br />(perhaps ~0.13)</p></td>
+<td><p>0.002</p></td>
+</tr>
+<tr class="row-even"><td><p>Jupiter</p></td>
+<td><p>152.6</p></td>
+<td><p>1.78</p></td>
+</tr>
+<tr class="row-odd"><td><p>Saturn</p></td>
+<td><p>7.2</p></td>
+<td><p>0.08</p></td>
+</tr>
+<tr class="row-even"><td><p>Uranus</p></td>
+<td><p>0.1</p></td>
+<td><p>0.001</p></td>
+</tr>
+<tr class="row-odd"><td><p>Neptune</p></td>
+<td><p>not calculated <br />(perhaps ~0.04)</p></td>
+<td><p>0.0005</p></td>
+</tr>
+<tr class="row-even"><td><p>Pluto</p></td>
+<td><p>Pluto was discovered in 1930. <br />(should be negligible)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Total</p></td>
+<td><p>526.7</p></td>
+<td><p>6.15</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exercise-3-mercury-precision">
+<h2>Exercise 3: Mercury Precision<a class="headerlink" href="#exercise-3-mercury-precision" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<p>Our goal in this exercise is to determine how general relativity affects the precision of Mercury.  We know from Kepler’s laws that objects orbiting around a central body orbit in an ellipse.  That means the second time around their orbit they come back to the same place that they started.  If you have more then two bodies (like above) or if there are corrections to gravity from general relativity (which there are), then you aren’t going to come back exactly to the same place.  Instead the orbit precesses around.  There’s a good picture <a class="reference external" href="https://aether.lbl.gov/www/classes/p10/gr/PrecessionperihelionMercury.htm">here</a>.</p>
+<p>In this assignment, it will be important to work with all your arrays being <em><strong>long doubles</strong></em>.   You should be able to accomplish this mainly by setting the initial conditions of your array to long double.</p>
+<p>To measure the precision you want measure the angle between two consecutive perihelions (the closest distance on ellipse of the orbit). The most sensible thing is to start at the perihelion and then measure its closest distance when it comes around again.  This is not too hard to do but a bit tricky to get correct.  Here is a good prescription:</p>
+<ul class="simple">
+<li><p>Start at the perihelion.</p></li>
+<li><p>Perform slightly more then one orbit (say 10% more)</p></li>
+<li><p>Measure the index in the array for the closest distance you get when you come back around.  To avoid measuring the fact that you are close at your “starting” location, I recommend that you look for your closest distance that isn’t in the first quarter of the orbit.</p></li>
+<li><p>Now, because you are taking discrete time steps, the closest location you find might not actually be the closest location (because maybe it got closer somewhere between the steps you took).  This will matter for this measurement.  To fix this, let’s interpolate between around this part of the orbit.</p>
+<ul>
+<li><p>Take the three points before and after the position you found in the orbit</p></li>
+<li><p>Fit a quadratic curve around this part of the orbit: <code class="docutils literal notranslate"><span class="pre">line=np.polyfit(x,y,2)</span></code></p></li>
+<li><p>Find the closest location of this curve by producing a new array with 100000 points which goes from the three points before and after the position you found <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code></p></li>
+<li><p>Get the angle between the lines (sun,original perihelion) and (sun, new perihelion)</p></li>
+</ul>
+</li>
+</ul>
+<p>It will probably help you if you write a function perihelion that takes the positions array and generates the angle of precision.</p>
+<section id="a-mercury-without-general-relativity">
+<h3>a.  Mercury without general relativity<a class="headerlink" href="#a-mercury-without-general-relativity" title="Permalink to this headline">#</a></h3>
+<p>For our first step, we will compute the precession when we don’t have the relativistic term on.  If our integration was perfect, we should get zero. As we recall from earlier assignments, we know that that there is some time-step errors associated with our integration.  So instead of getting zero, we would expect to get something very close to zero.</p>
+<p>You are going to base your Mercury perihelion code on your orbital code from previous units. Let’s start by setting up your code for simulating Mercury’s orbit:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_\textrm{min}=4.60012 \times 10^{10}\)</span> m</p></li>
+<li><p><span class="math notranslate nohighlight">\(v=5.898 \times 10^{4}\)</span> m/s</p></li>
+<li><p><span class="math notranslate nohighlight">\(T=60 \times 60 \times 24 \times 88 *1.1\)</span> sec  (1.1 Mercury Years)</p></li>
+<li><p><span class="math notranslate nohighlight">\(dt=60\)</span>  sec.</p></li>
+</ul>
+<p>🦉Plot the orbit of the eccentric Mercury and  report the closest (both with and without interpolation) and furthest distance your simulation gets from the sun as well as your precision.</p>
+<p>When you run, use <code class="docutils literal notranslate"><span class="pre">%time</span> <span class="pre">orbit.Run()</span></code> to measure how long it takes.</p>
+<p>I get that the run takes approximately 7 seconds and get</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">minimum</span> <span class="n">location</span> <span class="n">before</span> <span class="n">interpolation</span> <span class="ow">is</span>  <span class="mf">46001200000.51781079</span>
+<span class="n">The</span> <span class="n">minimum</span> <span class="n">location</span> <span class="n">after</span> <span class="n">interpolation</span> <span class="ow">is</span>  <span class="mf">46001199999.997996964</span>
+<span class="n">The</span> <span class="n">maximum</span> <span class="n">location</span> <span class="ow">is</span>  <span class="mf">2.2018129525667883981e+21</span>
+<span class="n">The</span> <span class="n">precision</span> <span class="n">angle</span> <span class="n">I</span> <span class="n">get</span> <span class="ow">is</span>  <span class="o">-</span><span class="mf">0.028552737845785832</span> <span class="n">radians</span>
+</pre></div>
+</div>
+<p>We will consider -0.03 microradians essentially zero.</p>
+<p><em>It is often very useful to make a plot of your zoomed in orbit and the interpolated line. If you aren’t getting the right answer, you should do this!</em></p>
+<p><strong>HINT:</strong> For this assignment you need to get 5 points around the closest distance (the second time around the orbit <em>not</em> where you start.  You should get</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                    <span class="n">y</span>                    <span class="n">r</span> 
+<span class="o">-</span><span class="mf">10087525.09595282</span> <span class="mf">46001199082.443085</span> <span class="mf">46001200188.48122315</span>
+<span class="o">-</span><span class="mf">6548725.141774705</span> <span class="mf">46001199613.28912</span> <span class="mf">46001200079.42697562</span>
+<span class="o">-</span><span class="mf">3009925.1554468116</span> <span class="mf">46001199918.30062</span> <span class="mf">46001200016.772504188</span>
+<span class="mf">528874.8456577625</span> <span class="mf">46001199997.47758</span> <span class="mf">46001200000.517809045</span>
+<span class="mf">4067674.8441659217</span> <span class="mf">46001199850.81999</span> <span class="mf">46001200030.66289309</span>
+<span class="mf">7606474.822704569</span> <span class="mf">46001199478.327866</span> <span class="mf">46001200107.20775908</span>
+</pre></div>
+</div>
+<p>If you’re not getting this, then you should check again.  Then you need to interpolate through this data (<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">line=np.polyfit(x,y,2)</span></code>).  Finally, you should get that the nearest distance is (after interpolation) something very close to <code class="docutils literal notranslate"><span class="pre">46001199999.997996964</span></code>.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<section id="b-mercury-with-general-relativity">
+<h3>b.  Mercury with general relativity<a class="headerlink" href="#b-mercury-with-general-relativity" title="Permalink to this headline">#</a></h3>
+<p>Now turn on the effects of general relativity (by modifying your force) and do the same computation.</p>
+<p>The post-Newtonian modification to the gravitational acceleration experienced by Mercury adds an extra term after the inverse-square Newtonian term:
+$<span class="math notranslate nohighlight">\( \frac{F(r)}{m} = \frac{GM_\odot}{r^2} + \frac{3r_s\left(v_\textrm{perihelion}r_\textrm{perihelion}\right)^2}{2r^4}\)</span>$</p>
+<p>The Schwarzschild radius of the sun is <span class="math notranslate nohighlight">\(r_S = 2,953.36\)</span> meters. Mercury’s speed at perihelion is
+<span class="math notranslate nohighlight">\(v_\textrm{perihelion} = 58,980\)</span> m/s while its <span class="math notranslate nohighlight">\(r_\textrm{perihelion} = 4.60012e10\)</span> m. Recall that you should start with <span class="math notranslate nohighlight">\(dt=0.1\)</span> and <span class="math notranslate nohighlight">\(M_{sun} = 1.98855e30\)</span></p>
+<p>🦉Please add the post-Newtonian term to the acceleration of gravity,</p>
+<p>I now get (in 11 seconds)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">minimum</span> <span class="n">location</span> <span class="n">before</span> <span class="n">interpolation</span> <span class="ow">is</span>  <span class="mf">46001200000.654238053</span>
+<span class="n">The</span> <span class="n">minimum</span> <span class="n">location</span> <span class="n">after</span> <span class="n">interpolation</span> <span class="ow">is</span>  <span class="mf">46001199999.99801791</span>
+<span class="n">The</span> <span class="n">maximum</span> <span class="n">location</span> <span class="ow">is</span>  <span class="mf">46923484445.272278626</span>
+<span class="n">The</span> <span class="n">precision</span> <span class="n">angle</span> <span class="n">I</span> <span class="n">get</span> <span class="ow">is</span>  <span class="mf">0.4887683792163817</span>
+</pre></div>
+</div>
+<p>Note that the actual value is 0.5022 microradians per orbit. That’s pretty good!</p>
+<p><strong>HINT:</strong> For this assignment you need to get 5 points around the closest distance (the second time around the orbit <em>not</em> where you start.  You should get</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                   <span class="n">y</span>                   <span class="n">r</span>
+<span class="o">-</span><span class="mf">9998967.016889445</span> <span class="mf">46001199099.338745</span> <span class="mf">46001200186.04237594</span>
+<span class="o">-</span><span class="mf">6460167.061694921</span> <span class="mf">46001199624.2306</span> <span class="mf">46001200077.84657632</span>
+<span class="o">-</span><span class="mf">2921367.0747853755</span> <span class="mf">46001199923.28789</span> <span class="mf">46001200016.05052716</span>
+<span class="mf">617432.9264660933</span> <span class="mf">46001199996.51061</span> <span class="mf">46001200000.654237192</span>
+<span class="mf">4156232.9246863867</span> <span class="mf">46001199843.898766</span> <span class="mf">46001200031.65769507</span>
+<span class="mf">7695032.902502406</span> <span class="mf">46001199465.452354</span> <span class="mf">46001200109.060909245</span>
+</pre></div>
+</div>
+<p>If you’re not getting this, then you should check again.  Then you need to interpolate through this data (<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">line=np.polyfit(x,y,2)</span></code>).  Finally, you should get that the nearest distance is (after interpolation) something very close to <code class="docutils literal notranslate"><span class="pre">46001199999.99801791</span></code>.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exercise-4-transfer-orbits-extra-credit-10-points">
+<h1>Exercise 4. Transfer Orbits (Extra Credit: 10 points)<a class="headerlink" href="#exercise-4-transfer-orbits-extra-credit-10-points" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<p>If you are trying to get spacecraft around the solar system, an important thing to be able to do is to get a spacecraft from one point to another point in a time <span class="math notranslate nohighlight">\(T\)</span>.  To do this, the spacecraft will need to choose a particular velocity (speed and direction) to be heading in. Write a function <code class="docutils literal notranslate"><span class="pre">Transfer(pos1,pos2,T)</span></code> which determines the velocity to get the spacecraft from pos1 to pos2 in time T.</p>
+<hr class="docutils" />
+<p>© Copyright 2020</p>
+<ul class="simple">
+<li><p>Ex 1: George Gollin (original); Bryan Clark (modifications)</p></li>
+<li><p>Ex 2: Bryan Clark (original)</p></li>
+<li><p>Ex 3: George Gollin (original); Bryan Clark (modifications)</p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Dynamics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Dynamics</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Exoplanets.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exoplanets</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Bryan Clark; George Gollin; Ryan Levy<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

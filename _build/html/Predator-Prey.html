@@ -1,0 +1,1175 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Predator-Prey &#8212; Physics 246</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fluid Dynamics" href="FluidDynamics.html" />
+    <link rel="prev" title="Markov Chains" href="Markov%20Chains.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/FD.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Physics 246</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    An Introduction to Modern Computational Physics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
+   N ways to measure
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dynamics.html">
+   Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="OrbitalDynamics.html">
+   Orbital Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Exoplanets.html">
+   Exoplanets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chaos.html">
+   Chaos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="OrbitalDynamics2.html">
+   Many Body Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ParticlePhysics.html">
+   Particle Physics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Random%20Walks.html">
+   Random Walks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Markov%20Chains.html">
+   Markov Chains
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Predator-Prey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="FluidDynamics.html">
+   Fluid Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MachineLearningGalaxies.html">
+   Classifying Galaxies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QC1.html">
+   Quantum Computing 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QC2.html">
+   Quantum Computing 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Projects.html">
+   Cool Projects
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Predator-Prey.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   0. Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-solving-the-predatory-prey-differential-equations">
+   Exercise 1: Solving the predatory-prey differential equations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-modifying-your-code-to-run-predator-prey-equations">
+     a. Modifying your code to run predator-prey equations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-building-plots">
+     b. Building Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-predator-phase-space-plots">
+     c.  Predator Phase Space Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-stationary-points">
+     d. Stationary points
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-stochasticity-in-predator-prey-equations">
+   Exercise 2: Stochasticity in Predator-Prey equations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-the-first-bunny">
+     a.  The first bunny
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-a-faster-algorithm-to-find-the-first-bunny">
+     b. A faster algorithm to find the first bunny.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-continuous-time-markov-chain">
+     c. Continuous time markov chain
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-stochastic-populations">
+     d.  Stochastic Populations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-stationary-again">
+     e. Stationary again
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-extinction">
+     e. Extinction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-window-averaging-cleaning-data">
+     f. Window Averaging (cleaning data)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-agent-based-predator-prey-simulation">
+   Exercise 3:  Agent Based Predator-Prey Simulation
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Predator-Prey</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   0. Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-solving-the-predatory-prey-differential-equations">
+   Exercise 1: Solving the predatory-prey differential equations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-modifying-your-code-to-run-predator-prey-equations">
+     a. Modifying your code to run predator-prey equations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-building-plots">
+     b. Building Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-predator-phase-space-plots">
+     c.  Predator Phase Space Plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-stationary-points">
+     d. Stationary points
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-stochasticity-in-predator-prey-equations">
+   Exercise 2: Stochasticity in Predator-Prey equations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-the-first-bunny">
+     a.  The first bunny
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-a-faster-algorithm-to-find-the-first-bunny">
+     b. A faster algorithm to find the first bunny.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-continuous-time-markov-chain">
+     c. Continuous time markov chain
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-stochastic-populations">
+     d.  Stochastic Populations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-stationary-again">
+     e. Stationary again
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-extinction">
+     e. Extinction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-window-averaging-cleaning-data">
+     f. Window Averaging (cleaning data)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-agent-based-predator-prey-simulation">
+   Exercise 3:  Agent Based Predator-Prey Simulation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="predator-prey">
+<h1>Predator-Prey<a class="headerlink" href="#predator-prey" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><strong>Author:</strong></p></li>
+<li><p><strong>Date:</strong></p></li>
+<li><p><strong>Time spent on this assignment:</strong></p></li>
+</ul>
+<p>Remember to execute this cell to load numpy and pylab.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">field</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
+<span class="kn">from</span>  <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;animation.embed_limit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">128</span>
+
+<span class="k">def</span> <span class="nf">resetMe</span><span class="p">(</span><span class="n">keepList</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="n">keepList</span><span class="o">=</span><span class="n">keepList</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;resetMe&#39;</span><span class="p">,</span><span class="s1">&#39;np&#39;</span><span class="p">,</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span><span class="s1">&#39;scipy&#39;</span><span class="p">,</span><span class="s1">&#39;scipy.optimize&#39;</span><span class="p">,</span><span class="s1">&#39;dataclass&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">keepList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+            <span class="n">ll</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">iiii</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+        <span class="n">jjjj</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="o">+</span><span class="n">iiii</span><span class="o">+</span><span class="s2">&quot;$&quot;</span>
+        <span class="o">%</span><span class="k">reset_selective</span> -f {jjjj}
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="background">
+<h2>0. Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
+<p>In this assignment we are going to consider the evolution of predators and preys within an ecosystem.</p>
+<p>We will focus on a single population of prey <span class="math notranslate nohighlight">\(F\)</span> (foxes) and a single population of predators <span class="math notranslate nohighlight">\(B\)</span> (bunnies).</p>
+<p>Three possible things can happen:</p>
+<ol>
+<li><p>Prey reproduce.
+Each prey produces <span class="math notranslate nohighlight">\(\alpha \Delta t\)</span> new prey in the unit of time <span class="math notranslate nohighlight">\(\Delta t\)</span>.  Therefore, the total number of new prey generated at time <span class="math notranslate nohighlight">\(t\)</span> depends linearly on how many prey <span class="math notranslate nohighlight">\(B(t)\)</span> there is with <span class="math notranslate nohighlight">\(\Delta B(t) = \alpha B(t) \Delta t\)</span>. We can write this as a differential equation</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\frac{dB(t)}{dt} = \alpha B(t)\)</span></p></li>
+</ul>
+</li>
+<li><p>Predators die.
+Like reproduction, the total number of predators that die at time <span class="math notranslate nohighlight">\(t\)</span> depends linearly on the total number of predators <span class="math notranslate nohighlight">\(F(t)\)</span> such that the change <span class="math notranslate nohighlight">\(\Delta F(t) = -\gamma F(t) \Delta t\)</span>.  We can write this as a differential equation</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\frac{dF(t)}{dt} \propto -\gamma F(t)\)</span></p></li>
+</ul>
+</li>
+<li><p>Predators eat prey.</p>
+<p>The rate at which predators and prey run into each other is going to depend multiplicatively as <span class="math notranslate nohighlight">\(F(t)B(t)\)</span>.  One way to think about this is if I scatter predators and prey randomly over a grid, the probability that they will be at the same place goes as <span class="math notranslate nohighlight">\(\propto F(t)B(t)\)</span>.</p>
+<ul class="simple">
+<li><p>If a prey gets eaten, then it’s gone so the change in prey is <span class="math notranslate nohighlight">\(\Delta B(t) = -\beta F(t)B(t)\)</span>.</p></li>
+<li><p>If a predator eats a prey then it is no longer hungry and can reproduce and so <span class="math notranslate nohighlight">\(\Delta F(t) = D F(t) B(t)\)</span>.<br />
+We can write these as the differential equations</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(\frac{dB(t)}{dt} = -\beta F(t)B(t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{dF(t)}{dt}  = D F(t)B(t)\)</span></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Combining 1-3 gives us two coupled equations:</p>
+<div class="math notranslate nohighlight">
+\[ \boxed{\frac{dB(t)}{dt} = \alpha B(t) - \beta F(t) B(t)}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{\frac{dF(t)}{dt} = D F(t) B(t) - \gamma F(t)}
+\]</div>
+<p>These are called the <strong>Lotka-Volterra equations</strong></p>
+</section>
+<section id="exercise-1-solving-the-predatory-prey-differential-equations">
+<h2>Exercise 1: Solving the predatory-prey differential equations<a class="headerlink" href="#exercise-1-solving-the-predatory-prey-differential-equations" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<section id="a-modifying-your-code-to-run-predator-prey-equations">
+<h3>a. Modifying your code to run predator-prey equations<a class="headerlink" href="#a-modifying-your-code-to-run-predator-prey-equations" title="Permalink to this headline">#</a></h3>
+<p>In this exercise we will solve the differential equations which correspond to the predator-prey equations.  🦉Modify your dynamics code to solve these differential equations.  I found it less confusing to just switch it so it works directly with <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(F\)</span>.  You can just use Euler integration (i.e, the first order-methods).</p>
+<p><em>Note:</em> Notice that before we dealt with a second order equation, but this is only first order.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<section id="b-building-plots">
+<h3>b. Building Plots<a class="headerlink" href="#b-building-plots" title="Permalink to this headline">#</a></h3>
+<p>Let’s set <span class="math notranslate nohighlight">\(\alpha=1.0\)</span>, <span class="math notranslate nohighlight">\(\beta=0.005\)</span>, <span class="math notranslate nohighlight">\(\gamma=0.6\)</span> and <span class="math notranslate nohighlight">\(D=0.003\)</span>.  Use a timestep <span class="math notranslate nohighlight">\(dt=0.01\)</span></p>
+<p>We are going to start with <span class="math notranslate nohighlight">\(400\)</span> prey (bunnies) and <span class="math notranslate nohighlight">\(200\)</span> predators (foxes).</p>
+<p>Set up your code to run for time <span class="math notranslate nohighlight">\(T=50\)</span></p>
+<p>🦉Plot two graphs</p>
+<ul class="simple">
+<li><p>Population vs time</p>
+<ul>
+<li><p>prey   (Bunnies) vs time.</p></li>
+<li><p>predator (Foxes) vs time.</p></li>
+</ul>
+</li>
+<li><p>predator vs prey (a phase space plot)</p></li>
+</ul>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>This latter plot (predator vs prey) is called a limit cycle.  This means that if I start with a given number of predators and prey, the total number cycles in this periodic pattern forever.  You can see this either by seeing that you are in a limit cycle or by seeing that there is periodicity in the prey vs. time plots above.</p>
+<p><strong>Q: Does the predator or prey increase first?</strong></p>
+<p><strong>Q: Does the predator or prey peak to its maximum.  Does this change if you flip the starting populations so the predator starts with more then the prey?</strong></p>
+<p><strong>Q: Looking at the phase space plot, does the largest number of predators correspond to the largest number of prey</strong></p>
+<p>A:</p>
+<p>A:</p>
+<p>A:</p>
+</section>
+<section id="c-predator-phase-space-plots">
+<h3>c.  Predator Phase Space Plots<a class="headerlink" href="#c-predator-phase-space-plots" title="Permalink to this headline">#</a></h3>
+<p>🦉Generate the phase space plots for a <span class="math notranslate nohighlight">\(x\)</span> prey and <span class="math notranslate nohighlight">\(x/2\)</span> predators for <span class="math notranslate nohighlight">\(x \in \{50,100,200,400,600,800,1000,1200,1600\}\)</span>. (Use the same initial conditions above).
+Also generate a plot of the minimum prey seen during an ecosystem simulation for a given number of starting prey.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q: Which do you think are most likely to avoid extinction given these parameters?</strong></p>
+<p><strong>Q:  What is the minimum amount of prey you ever see in your simulation?</strong></p>
+<p>A:</p>
+<p>A:</p>
+</section>
+<section id="d-stationary-points">
+<h3>d. Stationary points<a class="headerlink" href="#d-stationary-points" title="Permalink to this headline">#</a></h3>
+<p>An interesting question we can ask: <strong>is there is some number of prey and predators we can start with so that the total number of prey and predators never change?</strong>  This would be called a fixed point or stationary point.</p>
+<p>One approach is to figure this out analtyically.  Instead, in this part we will determine it numerically. 🦉 To accomplish this, let’s write a function <code class="docutils literal notranslate"><span class="pre">getDeviation(initial_population)</span></code> which takes the initial population as a list <code class="docutils literal notranslate"><span class="pre">[preyPopulation,predatorPopulation]</span></code> and returns the standard deviation of the number of prey (<code class="docutils literal notranslate"><span class="pre">np.std(listOfPreyVsTime)</span></code>).  If the total number of prey never change then its standard deviation will be zero. Therefore we’ve created a minimization problem.</p>
+<p>Now, all we have to do is call <code class="docutils literal notranslate"><span class="pre">getDeviation</span></code> a bunch of times with different parameters and figure out when it returns zero.  There are lots of rich and interesting approaches to optimization problems like this, but we don’t have time to explore them.  Here we are going to use a package from python calling <code class="docutils literal notranslate"><span class="pre">out=scipy.optimize.minimize(getDeviation,x0)</span></code>.  When it’s finished running, if you print <code class="docutils literal notranslate"><span class="pre">out.x</span></code> you can see which parameters it found.</p>
+<p><strong>Change D from 0.003 to 0.001 here</strong></p>
+<p>🦉Run the optimization and report the number of predator and prey you find.</p>
+<p>Then make a plot of</p>
+<ul class="simple">
+<li><p>prey vs. time and predator vs. time for these initial conditions</p></li>
+<li><p>a phase plot of predator vs prey using these initial conditions
+.</p></li>
+</ul>
+<div class="alert alert-info" style="color:black;">
+<i>Note:</i> On my machine, I had to round the answer to get the proper initial starting point. If you get, for example, 99.99999998, round it to 100
+</div><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q: Qualitatively what do phase plots look like in this case?</strong></p>
+<p>A:</p>
+</section>
+</section>
+<section id="exercise-2-stochasticity-in-predator-prey-equations">
+<h2>Exercise 2: Stochasticity in Predator-Prey equations<a class="headerlink" href="#exercise-2-stochasticity-in-predator-prey-equations" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<p><strong>Problems with simulating the ecosystem using the Lotka-Volterra equations:</strong></p>
+<p>There are two qualitative problems with simulating ecosystems in this way:</p>
+<p>(1) In our simulations so far, we have found either stationary points or limit cycles.  Both of these are unrealistic.  Ecosystems are more dynamic then this.  It’s not the case that once you have a certain population of predator/prey it returns to this number over and over again forever.</p>
+<p><em>Where is this coming from:</em>  We are simulating the ecosystem deterministically - there is no randomness involved.  Deterministic equations essentially can only do a few things: they can converge to fixed points, limit cycles or be chaotic.</p>
+<p>(2) centi-bunnies:  You may have noticed in your simulations that you ocassionally saw that your ecosystem had 1/100 of a bunny and that this 1/100 of a bunny recovered into a respectable population of 8000 bunnies.  This seems somewhat problematic. Our previous approach to simulation regularly involve fractional animals and can never have an extinction event.  To go beyond this we need to remove the deterministic nature of the equations by doing something stochastic and we need to recognize the discrete integer-ness of animals.</p>
+<section id="a-the-first-bunny">
+<h3>a.  The first bunny<a class="headerlink" href="#a-the-first-bunny" title="Permalink to this headline">#</a></h3>
+<p>Let’s think about what <span class="math notranslate nohighlight">\(dB = \alpha B(t) dt\)</span> means.  Previously we thought that it meant that in a unit of time <span class="math notranslate nohighlight">\(\Delta t\)</span> we got <span class="math notranslate nohighlight">\(\alpha B(t) \Delta t\)</span> new prey.  But if <span class="math notranslate nohighlight">\(\alpha B(t)\)</span> is 0.2 and <span class="math notranslate nohighlight">\(\Delta t=0.1\)</span> we don’t get 0.02 bunnies. Instead we can think of it stochasticallly interpreting the probability density of getting one whole new bunny as <span class="math notranslate nohighlight">\(20\%\)</span> and so the probability of getting a new bunny in a small interval <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(0.2 \Delta t\)</span>.</p>
+<p>We now ask the following question:  What is the probability of getting your first bunny after time <span class="math notranslate nohighlight">\(T+\Delta t\)</span>. Well, we’ve taken <span class="math notranslate nohighlight">\(T/\Delta t + 1\)</span> steps. You have to not have gotten a bunny the first <span class="math notranslate nohighlight">\(T/\Delta t\)</span> steps. That probability is <span class="math notranslate nohighlight">\((1-0.2 \Delta t)^{T/\Delta t}\)</span>.  The probability of getting a bunny at step <span class="math notranslate nohighlight">\(T/\Delta t+1\)</span> is <span class="math notranslate nohighlight">\(0.2 \Delta t\)</span>.   So the total probability density is <span class="math notranslate nohighlight">\((1-0.2 \Delta t)^{(T/\Delta t)} \times 0.2\)</span></p>
+<p>Suppose we take the limit where <span class="math notranslate nohighlight">\(\Delta t \rightarrow 0\)</span>  The the probability we get a bunny in an interval <span class="math notranslate nohighlight">\(\Delta t\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[ 0.2 \Delta t e^{-0.2 T}\]</div>
+<p><img alt="image.png" src="attachment:image.png" /></p>
+<p>Let’s test this.</p>
+<p>We can write a function <code class="docutils literal notranslate"><span class="pre">TimeOfFirstBunny(alpha,deltaT)</span></code> which takes the</p>
+<ul class="simple">
+<li><p>rate <span class="math notranslate nohighlight">\(\alpha\)</span> (which is 0.2 in the above example) and</p></li>
+<li><p>time-step <span class="math notranslate nohighlight">\(\Delta t\)</span></p></li>
+</ul>
+<p>and then returns the</p>
+<ul class="simple">
+<li><p>first time we get one whole  bunny.</p></li>
+</ul>
+<p>This function should just loop over steps <span class="math notranslate nohighlight">\(dt\)</span> and return the time <span class="math notranslate nohighlight">\(t\)</span> if a random number is less then <span class="math notranslate nohighlight">\(\alpha \Delta t\)</span>.</p>
+<p>🦉Run this function 10000 times with <span class="math notranslate nohighlight">\(\alpha=1\)</span> and <span class="math notranslate nohighlight">\(dt=0.01\)</span> and plot it with <code class="docutils literal notranslate"><span class="pre">plt.hist(ts,100,density=1)</span></code> (100 sets the number of bins and <code class="docutils literal notranslate"><span class="pre">density=1</span></code> makes sure it is a normalized histogram).</p>
+<p>On the same plot, go ahead and plot
+$<span class="math notranslate nohighlight">\(P_B(T) = \alpha \exp[-\alpha T]\)</span>$</p>
+<p>from <span class="math notranslate nohighlight">\(T\in[0,35]\)</span> to compare them. (Recall that if you have a numpy array you can do math operations on them using functions like <code class="docutils literal notranslate"><span class="pre">np.exp</span></code>)</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div>
+</section>
+<section id="b-a-faster-algorithm-to-find-the-first-bunny">
+<h3>b. A faster algorithm to find the first bunny.<a class="headerlink" href="#b-a-faster-algorithm-to-find-the-first-bunny" title="Permalink to this headline">#</a></h3>
+<p>Waiting to determine the time of first of bunny using <strong>a.</strong> is pretty slow. There is another algorithm that’s much faster (in the limit of <span class="math notranslate nohighlight">\(\Delta t\rightarrow 0\)</span>).  The time to first bunny is
+$<span class="math notranslate nohighlight">\(t= -\log(r)/\alpha\)</span><span class="math notranslate nohighlight">\(
+where \)</span>r$ is a uniform random number between 0 and 1.</p>
+<p>Instead of analytically verifying this, let’s check this numerically.</p>
+<p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">TimeOfFirstBunny2(alpha,deltaT)</span></code> which returns <span class="math notranslate nohighlight">\(-\log(r)/\alpha\)</span> and make a plot comparing it to <span class="math notranslate nohighlight">\(\alpha \exp[-\alpha T]\)</span>.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<section id="c-continuous-time-markov-chain">
+<h3>c. Continuous time markov chain<a class="headerlink" href="#c-continuous-time-markov-chain" title="Permalink to this headline">#</a></h3>
+<p>We will now use this to build a stochastic algorithm for predator-prey. Let’s translate everything we did above into this new continuous time language:</p>
+<ol class="simple">
+<li><p>Prey reproduce at rate <span class="math notranslate nohighlight">\(\alpha B(t)\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\frac{dB(t)}{dt} = \alpha B(t)\)</span></p></li>
+<li><p>At time <span class="math notranslate nohighlight">\(t_1=-\log(r)/(\alpha B(t))\)</span>, the prey <span class="math notranslate nohighlight">\(B \rightarrow B+1\)</span></p></li>
+</ul>
+</li>
+<li><p>Predators die at rate <span class="math notranslate nohighlight">\(\gamma F(t)\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\frac{dF(t)}{dt} \propto -\gamma F(t)\)</span></p></li>
+<li><p>At time <span class="math notranslate nohighlight">\(t_2=-\log(r)/(\gamma F(t))\)</span>, the predator <span class="math notranslate nohighlight">\(F \rightarrow F-1\)</span></p></li>
+</ul>
+</li>
+<li><p>Predators eat prey at rate <span class="math notranslate nohighlight">\(\beta F(t)B(t)\)</span> which cause predators to reproduce at <span class="math notranslate nohighlight">\(D F(t)B(t)\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\frac{dB(t)}{dt} = -\beta F(t)B(t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{dF(t)}{dt}  = D F(t)B(t)\)</span></p></li>
+<li><p>At time <span class="math notranslate nohighlight">\(t_{3a}=-\log(r)/(\beta F(t)B(t))\)</span> the prey <span class="math notranslate nohighlight">\(B \rightarrow B-1\)</span></p></li>
+<li><p>At time <span class="math notranslate nohighlight">\(t_{3b}=-\log(r)/(DF(t)B(t))\)</span> the predator <span class="math notranslate nohighlight">\(F \rightarrow F+1\)</span>.</p>
+<ul>
+<li><p>This latter point is a bit weird but works. Both the fox eating the bunny, and the reproduction of new foxes is proportional to how much the fox eats, so these two processes in practice can be separated in this way.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Now for our algorithm:</p>
+<ul class="simple">
+<li><p>Compute times <span class="math notranslate nohighlight">\(t_1, t_2, t_{3a}, t_{3b}\)</span>.</p>
+<ul>
+<li><p><em>use a different random number <span class="math notranslate nohighlight">\(r\)</span> for each <span class="math notranslate nohighlight">\(t_i\)</span>, don’t share the same <span class="math notranslate nohighlight">\(r\)</span></em></p></li>
+</ul>
+</li>
+<li><p>One of these times <span class="math notranslate nohighlight">\(t_i\)</span> happens first.</p></li>
+<li><p>Perform event<span class="math notranslate nohighlight">\(_i\)</span> (add a prey, or remove a predator, etc.) Update <span class="math notranslate nohighlight">\(t \rightarrow t+t_i\)</span>.</p></li>
+<li><p>Forget about all the other times (the rates have changed..you have more prey or something).</p>
+<ul>
+<li><p>It feels funny that this is legit, but it is.  (This comes from the fact that poisson processes are memoryless).</p></li>
+</ul>
+</li>
+<li><p>check that we don’t have 0 Prey or Predators. If we do, stop the simulation.</p></li>
+<li><p>Do it over again.</p></li>
+</ul>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">RunEcosystem</span></code> which inputs:</p>
+<ul class="simple">
+<li><p>total time <span class="math notranslate nohighlight">\(T\)</span></p></li>
+<li><p>Initial conditions <span class="math notranslate nohighlight">\(B_0\)</span> and <span class="math notranslate nohighlight">\(F_0\)</span><br />
+and make sure to keep track of <span class="math notranslate nohighlight">\(\alpha,\beta,\gamma,D\)</span>.</p></li>
+</ul>
+<p>Then have <code class="docutils literal notranslate"><span class="pre">RunEcosystem</span></code> apply this stochastic algorithm for time <span class="math notranslate nohighlight">\(T\)</span> and return</p>
+<ul class="simple">
+<li><p>a list <code class="docutils literal notranslate"><span class="pre">ts</span></code> of times <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p>a list <code class="docutils literal notranslate"><span class="pre">Bs</span></code> of prey <span class="math notranslate nohighlight">\(B\)</span> at those times.</p></li>
+<li><p>a list of <code class="docutils literal notranslate"><span class="pre">Fs</span></code> of prey <span class="math notranslate nohighlight">\(F\)</span> at those times.</p></li>
+</ul>
+<p>Notice now that your times will not equally spaced!</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<section id="d-stochastic-populations">
+<h3>d.  Stochastic Populations<a class="headerlink" href="#d-stochastic-populations" title="Permalink to this headline">#</a></h3>
+<p>🦉Plot</p>
+<ul class="simple">
+<li><p>Population vs t</p>
+<ul>
+<li><p>prey vs t</p></li>
+<li><p>predators vs t</p></li>
+</ul>
+</li>
+<li><p>Phase plot (predator vs prey)</p></li>
+</ul>
+<p>for <span class="math notranslate nohighlight">\(T=50\)</span>, <span class="math notranslate nohighlight">\(B(t=0)=100\)</span>, <span class="math notranslate nohighlight">\(F(t=0)=50\)</span>, and <span class="math notranslate nohighlight">\(\alpha\)</span>=1.0, <span class="math notranslate nohighlight">\(\beta\)</span>=0.005, <span class="math notranslate nohighlight">\(\gamma=0.6\)</span>, and <span class="math notranslate nohighlight">\(D=0.003\)</span></p>
+<p>On the same plots, show the results for the deterministic algorithms. Run it a few times to see the effect of stochasticity.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<section id="e-stationary-again">
+<h3>e. Stationary again<a class="headerlink" href="#e-stationary-again" title="Permalink to this headline">#</a></h3>
+<p>🦉Do the same thing as <strong>d.</strong> for the parameters you found above which give you a stationary point. Don’t forget to change <span class="math notranslate nohighlight">\(D=0.001\)</span> For this, go out to <span class="math notranslate nohighlight">\(T=1000\)</span></p>
+<p><strong>Q:</strong> Do the number of bunnies change as a function of time?</p>
+<p><strong>Q:</strong> Qualitatively what do you feel is the effect of running the simulation at the stationary point?</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSEWR ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>A:</p>
+<p>A:</p>
+</section>
+<section id="e-extinction">
+<h3>e. Extinction<a class="headerlink" href="#e-extinction" title="Permalink to this headline">#</a></h3>
+<p>In this part we are going to determine the amount of time until one of the two species goes extinct given the initial number of prey/predators. Let’s call this an extinction event.</p>
+<p>Use parameters</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha=1.0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta=0.008\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma=0.3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(D=0.002\)</span></p></li>
+</ul>
+<p>and assume we start with the same number of predators and prey.</p>
+<p>🦉For <span class="math notranslate nohighlight">\(B_0\in\)</span> <code class="docutils literal notranslate"><span class="pre">preyNum</span></code> w/ <code class="docutils literal notranslate"><span class="pre">preyNum=np.arange(20,600,1)</span></code>, run your ecosystem until there is one extinction event. Record the time <span class="math notranslate nohighlight">\(t\)</span> this event happened and graph <span class="math notranslate nohighlight">\(t\)</span> vs. initial prey number.</p>
+<div class="alert alert-info" style="color:black">
+Because of the randomness involved, this may take a while to run (~5 minutes). Feel free to test this with <code>np.arange(20,60,1)</code> first.
+</div><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<section id="f-window-averaging-cleaning-data">
+<h3>f. Window Averaging (cleaning data)<a class="headerlink" href="#f-window-averaging-cleaning-data" title="Permalink to this headline">#</a></h3>
+<p>This data is going to look noisy. 🦉To make it look nicer do a running mean of your data with a window-size of 20 and plot it. This will be smoother.</p>
+<p>What value is your largest time to extinction (post window-averaging)? I find my results are around 160-190</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:</strong> I would have expected that this curve would be more monotonic. The more prey you had, the less likely anyone would go extinct.  Is this correct? Qualitatively describe what the curve suggests.</p>
+<p>A:</p>
+</section>
+</section>
+<section id="exercise-3-agent-based-predator-prey-simulation">
+<h2>Exercise 3:  Agent Based Predator-Prey Simulation<a class="headerlink" href="#exercise-3-agent-based-predator-prey-simulation" title="Permalink to this headline">#</a></h2>
+<p><em>This problem is challenging and only worth 20/100 of the points with problem 1 and problem 2 being worth 40/100 each of this assignment</em></p>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<p>In this exercise, we want to simulate an agent-based model of the predator-prey simulation.  Instead of the previous exercises where you are using a differential equation, here we are going to simulate each individual bunny and fox separately as an <em>agent</em>.  These bunnies and foxes are going to live on a <span class="math notranslate nohighlight">\(s \times s\)</span> grid.  Foxes will keep track of how full they are.  All foxes are born with a fullness amount <span class="math notranslate nohighlight">\(F\)</span>.   The dynamics of our simulation will be:</p>
+<ul class="simple">
+<li><p>The bunnies and foxes will be allowed to move around the grid.   At each time step, every bunny and every fox will decide either to stay where they are or try to move in one of four directions.  If they decide to try to move, they will move if its empty of the same type of animal (i.e. foxes don’t move to where foxes are).  If someone is in the direction they wanted to go, they will stay where they are.</p></li>
+<li><p>Every time step, the fox gets <span class="math notranslate nohighlight">\(f\)</span> less full.</p></li>
+<li><p>When the foxes and bunnies are on the same grid point (after everyone moves) one fox on that grid (pick arbitrarily) eats all the bunnies on that grid. The foxes full-ness increases by the number of bunnies they eat.</p></li>
+<li><p>An <span class="math notranslate nohighlight">\(\alpha\)</span> fraction of bunnies reproduce (appearing at the same location) at each time-step.</p></li>
+<li><p>All foxes whose full <span class="math notranslate nohighlight">\(F\)</span> is more then <span class="math notranslate nohighlight">\(R\)</span>, reproduce (at the same location) at each time-step.</p></li>
+<li><p>All foxes whose full <span class="math notranslate nohighlight">\(F\)</span> is less then 0 starve.</p></li>
+</ul>
+<p>To do this, we are going to have a class to store each “fox” or “bunny”:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">fox</span><span class="p">:</span>
+    <span class="n">location</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">full</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">bunny</span><span class="p">:</span>
+    <span class="n">location</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">eaten</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>   
+</pre></div>
+</div>
+<p>The fox starts full with an amount 2 and the bunny starts not eaten.   There is no default location for them.</p>
+<p>To set up a fox you can do <code class="docutils literal notranslate"><span class="pre">myFox=fox()</span></code> and to access the location of the fox you can do <code class="docutils literal notranslate"><span class="pre">myFox.location</span></code>.  If you want to push your fox back onto a list you can do <code class="docutils literal notranslate"><span class="pre">myList.append(fox())</span></code>.</p>
+<p>To implement this project, you will use four data structures:</p>
+<ul class="simple">
+<li><p>a list of foxes</p></li>
+<li><p>a list of bunnies</p></li>
+<li><p>a <span class="math notranslate nohighlight">\(s\times s\)</span> numpy array foxLocations that shows how many foxes are in each grid</p></li>
+<li><p>a <span class="math notranslate nohighlight">\(s\times s\)</span> numpy array bunnyLocations that shows how many bunnies are in each grid.</p></li>
+</ul>
+<p>To set things up, first set up the grid with a density of 10% bunnies and 1% foxes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">foxLocations</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">*</span><span class="n">size</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">.99</span><span class="p">,</span><span class="mf">0.01</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">)</span>
+<span class="n">bunnyLocations</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">*</span><span class="n">size</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">.9</span><span class="p">,</span><span class="mf">0.1</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Write code</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">LocationsToList</span><span class="p">(</span><span class="n">locations</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>which takes the bunnyLocations (foxLocations) and generate a list of bunnies (foxes) with correctly intialized <code class="docutils literal notranslate"><span class="pre">fox.Location</span></code> and <code class="docutils literal notranslate"><span class="pre">bunny.Location</span></code> parameters  -i.e.  suppose your grid has bunnies at locations (1,2) and (4,3).  Then <code class="docutils literal notranslate"><span class="pre">LocationToList(bunnyLocations)</span></code> should return something like the bunnies list from</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">bunnies</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">bunnies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bunny</span><span class="p">())</span>
+    <span class="n">bunnies</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">bunnies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bunny</span><span class="p">())</span>
+    <span class="n">bunnies</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">bunnies</span>
+</pre></div>
+</div>
+<p>(obviously you have to make this work no matter what’s in bunnyLocations).</p>
+<p>Also write a function</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">GetLocations</span><span class="p">(</span><span class="n">animalList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>that does the opposite.  It tkes the list of bunnies (foxes) and produces the location array of bunnies (foxes).</p>
+<p>You can test that these work by call <code class="docutils literal notranslate"><span class="pre">LocationsToList(GetLocations(LocationsToList(myLocations)))</span></code> to get back the same thing you started with.</p>
+<p>Your next step is to write a function</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Move</span><span class="p">(</span><span class="n">creature</span><span class="p">,</span><span class="n">creatureLocations</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which (say we are doing foxes)</p>
+<ul class="simple">
+<li><p>loops over all the foxes</p>
+<ul>
+<li><p>for each fox flips a nine-sided coin and decides whether to stay or go a particular direction</p></li>
+<li><p>attempts to go that direction and does so if no fox is there (otherwise stays put)</p></li>
+<li><p>Update the location in the fox class and <strong>updates the location array of the fox appropriately</strong>  You should check when you leave the function that the locations are still correct.</p></li>
+</ul>
+</li>
+</ul>
+<p>You should be able to check that you move class works.  One good test is to make a bunch of moves and verify that the total number of creatures stays fixed. Also check that <code class="docutils literal notranslate"><span class="pre">np.sum(foxLocations)</span></code> and <code class="docutils literal notranslate"><span class="pre">len(foxes)</span></code> is the same.  Also check that <code class="docutils literal notranslate"><span class="pre">np.max(foxLocations)</span></code> is one and <code class="docutils literal notranslate"><span class="pre">np.min(foxLocations)</span></code> is zero.</p>
+<p>After you’ve written the move function, now you can write the function</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Eat</span><span class="p">(</span><span class="n">bunnies</span><span class="p">,</span><span class="n">foxes</span><span class="p">,</span><span class="n">bunnyLocations</span><span class="p">,</span><span class="n">foxLocations</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>If there are foxes and bunnies on the same cell, have the foxes eat all the bunnies making sure you update</p>
+<ul class="simple">
+<li><p>the bunny locations (they’re gone)</p></li>
+<li><p>the bunny eaten flag</p></li>
+<li><p>the fox full state</p></li>
+</ul>
+<p>Also remove any eaten bunnies by the end of the function.</p>
+<p>Finally, implement two reproduce functions separately for foxes and bunnies.  The fox function should do the following:</p>
+<ul class="simple">
+<li><p>if the foxes full state is <span class="math notranslate nohighlight">\(\leq 0\)</span> then the fox starves</p></li>
+<li><p>if the foxes full state is <span class="math notranslate nohighlight">\(\geq 5\)</span> then the fox reproduces.</p></li>
+</ul>
+<p>The bunny function should do the following:</p>
+<ul class="simple">
+<li><p>an <span class="math notranslate nohighlight">\(\alpha\)</span>’th fraction of the bunnies should reproduce.</p></li>
+</ul>
+<p>Use</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha=0.01\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(R=5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s=80\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f=0.1\)</span></p></li>
+</ul>
+<p>Run your code and plot both</p>
+<ul class="simple">
+<li><p>bunnies and foxes vs. time</p></li>
+<li><p>a phase plot of foxes vs. bunnies</p></li>
+<li><p>an animation (see the code below).  To do the animation you need to keep snapshots of the fox-locations and bunny-locations at each step.</p></li>
+</ul>
+<p>You should see features reminiscent of your previous work.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assumes locsF and locsB is a list of locations at each time step</span>
+
+<span class="k">def</span> <span class="nf">AnimateMe</span><span class="p">():</span>
+
+    <span class="k">def</span> <span class="nf">GetData</span><span class="p">(</span><span class="n">mm</span><span class="p">):</span>
+        <span class="n">mm</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">locsF</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">maskFox</span><span class="o">=</span><span class="n">locsF</span><span class="p">[</span><span class="n">mm</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span>
+        <span class="n">maskBunny</span><span class="o">=</span><span class="n">locsB</span><span class="p">[</span><span class="n">mm</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span>
+        <span class="n">toShow</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">maskFox</span><span class="p">))</span>
+        <span class="n">toShow</span><span class="p">[</span><span class="n">maskFox</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+        <span class="n">toShow</span><span class="p">[</span><span class="n">maskBunny</span><span class="p">]</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">toShow</span>
+
+    <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> 
+
+    <span class="n">plot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">GetData</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">GetData</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">plot</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">GetData</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">plot</span><span class="p">,</span>
+
+    <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+    <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">locsF</span><span class="p">),</span> <span class="n">interval</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">repeat</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">anim</span>
+<span class="n">anim</span><span class="o">=</span><span class="n">AnimateMe</span><span class="p">()</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mf">4e9</span><span class="n">aeb9874e8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="k">return</span> <span class="n">anim</span>
+<span class="ne">---&gt; </span><span class="mi">31</span> <span class="n">anim</span><span class="o">=</span><span class="n">AnimateMe</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+
+<span class="nn">&lt;ipython-input-15-4e9aeb9874e8&gt;</span> in <span class="ni">AnimateMe</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="k">return</span> <span class="n">toShow</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> 
+<span class="ne">---&gt; </span><span class="mi">14</span>     <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> 
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">plot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">GetData</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div>
+<p><strong>Acknowledgements:</strong></p>
+<ul class="simple">
+<li><p>Bryan Clark (original)</p></li>
+</ul>
+<p>© Copyright 2020</p>
+<p>–</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Markov%20Chains.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Markov Chains</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="FluidDynamics.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fluid Dynamics</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Bryan Clark; George Gollin; Ryan Levy<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

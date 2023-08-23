@@ -1,0 +1,53 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+from exo_helper import get_planet_vxvy_barycentric
+def resetMe(keepList=[]):
+    ll=%who_ls
+    keepList=keepList+['resetMe','np','plt','math','get_planet_vxvy_barycentric']
+    for iiii in keepList:
+        if iiii in ll:
+            ll.remove(iiii)
+    for iiii in ll:
+        jjjj="^"+iiii+"$"
+        %reset_selective -f {jjjj}
+    ll=%who_ls
+    return
+
+SolarSystemParameters=dict()
+SolarSystemParameters["EarthOrbitRadius"]      = 149.6e9 # meters
+SolarSystemParameters["EarthMass"]       = 5.972e24 # kg
+SolarSystemParameters["MoonOrbitRadius"] = 363228.9e3
+SolarSystemParameters["MoonMass"]        = 7.34e22 # kg
+
+SolarSystemParameters["JupiterMass"] = 1898600.00e21 #kg
+SolarSystemParameters["VenusMass"]   = 4868.5e21     #kg
+
+SolarSystemParameters["SunRadius"] = 695.51e3 #meters
+SolarSystemParameters["SunMass"]   = 1.989e30 # kg
+SolarSystemParameters["G"]         = 6.67408e-11
+
+### ANSWER HERE
+
+### ANSWERE HERE
+
+### ANSWER HERE
+
+!wget https://courses.physics.illinois.edu/phys246/fa2020/code/UID_0019921_RVC_002.tbl.txt
+#you can also download it manually and upload to the same folder of the Jupyter notebook
+
+### ANSWER HERE
+
+### ANSWER HERE
+
+###ANSWER HERE
+
+#### ANSWER HERE
+
+### ANSWER HERE
+
+
+
+
+
+

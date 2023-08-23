@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: N_Ways_of_Measuring_PI #done
+- file: Dynamics
+- file: Exoplanets.ipynb #done
+- file: chaos.ipynb
+- file: ParticlePhysics #done
+- file: Markov Chains
+

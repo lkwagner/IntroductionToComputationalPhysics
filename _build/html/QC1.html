@@ -1,0 +1,1406 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Quantum Computing 1 &#8212; Physics 246</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quantum Computing 2" href="QC2.html" />
+    <link rel="prev" title="Classifying Galaxies" href="MachineLearningGalaxies.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/FD.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Physics 246</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    An Introduction to Modern Computational Physics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="N_Ways_of_Measuring_PI.html">
+   N ways to measure
+   <span class="math notranslate nohighlight">
+    \(\pi\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dynamics.html">
+   Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="OrbitalDynamics.html">
+   Orbital Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Exoplanets.html">
+   Exoplanets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chaos.html">
+   Chaos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="OrbitalDynamics2.html">
+   Many Body Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ParticlePhysics.html">
+   Particle Physics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Random%20Walks.html">
+   Random Walks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Markov%20Chains.html">
+   Markov Chains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Predator-Prey.html">
+   Predator-Prey
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="FluidDynamics.html">
+   Fluid Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MachineLearningGalaxies.html">
+   Classifying Galaxies
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Quantum Computing 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QC2.html">
+   Quantum Computing 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Projects.html">
+   Cool Projects
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/QC1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-a-single-qubit-33-points">
+   Exercise 1: A Single Qubit (33 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-two-qubits-34-points">
+   Exercise 2: Two qubits (34 points)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-control-not-gates">
+     a. Control-not gates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-build-an-epr-pair">
+     b.  Build an EPR Pair
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-measuring-epr-pairs">
+     c. Measuring EPR Pairs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-running-on-an-actual-quantum-computer">
+     d. Running on an actual Quantum Computer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-entanglement">
+     e. Entanglement
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-quantum-key-distribution-ec-20-points">
+   Exercise 3 Quantum Key Distribution (EC - 20 points)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-one-time-pads">
+     a. One time pads
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-eve-s-arrival">
+     b. Eve’s arrival
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-an-improved-protocol">
+     c. An improved protocol
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-eve-in-the-improved-protocol">
+     d. Eve in the improved protocol
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-not-flipping-shared-coins">
+     e.  Not flipping shared coins
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-4-building-up-tools-ec-10-points">
+   Exercise 4: Building up tools (EC - 10 points)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-initializing-a-binary-number">
+     a. Initializing a binary number
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-a-sum-over-all-states">
+     b. A sum over all states
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-angle-of-a-random-gate">
+     c.  Angle of a random gate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-inverting-a-cnot">
+     d. Inverting a CNOT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-deferred-measurements">
+     e. Deferred Measurements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Quantum Computing 1</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1-a-single-qubit-33-points">
+   Exercise 1: A Single Qubit (33 points)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-two-qubits-34-points">
+   Exercise 2: Two qubits (34 points)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-control-not-gates">
+     a. Control-not gates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-build-an-epr-pair">
+     b.  Build an EPR Pair
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-measuring-epr-pairs">
+     c. Measuring EPR Pairs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-running-on-an-actual-quantum-computer">
+     d. Running on an actual Quantum Computer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-entanglement">
+     e. Entanglement
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-quantum-key-distribution-ec-20-points">
+   Exercise 3 Quantum Key Distribution (EC - 20 points)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-one-time-pads">
+     a. One time pads
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-eve-s-arrival">
+     b. Eve’s arrival
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-an-improved-protocol">
+     c. An improved protocol
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-eve-in-the-improved-protocol">
+     d. Eve in the improved protocol
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-not-flipping-shared-coins">
+     e.  Not flipping shared coins
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-4-building-up-tools-ec-10-points">
+   Exercise 4: Building up tools (EC - 10 points)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-initializing-a-binary-number">
+     a. Initializing a binary number
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-a-sum-over-all-states">
+     b. A sum over all states
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-angle-of-a-random-gate">
+     c.  Angle of a random gate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-inverting-a-cnot">
+     d. Inverting a CNOT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-deferred-measurements">
+     e. Deferred Measurements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="quantum-computing-1">
+<h1>Quantum Computing 1<a class="headerlink" href="#quantum-computing-1" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><strong>Author:</strong></p></li>
+<li><p><strong>Date:</strong></p></li>
+<li><p><strong>Time Spent on this Assignment:</strong></p></li>
+</ul>
+<p>To install qiskit, open a terminal and type (copy/paste):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=/software/Jupyterhub/jupyterhub-base-kernel/bin:$PATH
+export LD_LIBRARY_PATH=/software/Jupyterhub/jupyterhub-base-kernel/lib
+source ~/owl/bin/activate; pip install qiskit; exit
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">qiskit</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">qiskit.visualization</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">qiskit</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;qiskit&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Today we will do most our simulations on a classical simulator that runs on the OWL server.  But, we will run one thing on an actual quantum computer.  To do that, you need to sign up for the quantum computer. Go ahead and sign up for a quantum computing account here: <a class="reference external" href="https://quantum-computing.ibm.com/login">https://quantum-computing.ibm.com/login</a></p>
+<p>You will need to put your API key into the commented out section below so it will know to run your code on the quantum computer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first do IBMQ.save_account(&quot;your API Key&quot;)</span>
+<span class="n">IBMQ</span><span class="o">.</span><span class="n">load_account</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AccountProvider for IBMQ(hub=&#39;ibm-q&#39;, group=&#39;open&#39;, project=&#39;main&#39;)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a link to the picture of the machine you will be running on:
+<a class="reference external" href="https://github.com/Qiskit/ibmq-device-information/tree/master/backends/yorktown/V1">https://github.com/Qiskit/ibmq-device-information/tree/master/backends/yorktown/V1</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RunMe</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span><span class="n">num_shots</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
+    <span class="n">backend</span> <span class="o">=</span> <span class="n">BasicAer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;qasm_simulator&#39;</span><span class="p">)</span>
+    <span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span><span class="n">shots</span><span class="o">=</span><span class="n">num_shots</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">RunMeState</span><span class="p">(</span><span class="n">qc</span><span class="p">):</span>
+    <span class="n">backend</span> <span class="o">=</span> <span class="n">BasicAer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">&#39;statevector_simulator&#39;</span><span class="p">)</span>
+    <span class="n">job</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span> <span class="n">backend</span><span class="p">,</span><span class="n">shots</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">RunMeQC</span><span class="p">(</span><span class="n">qc</span><span class="p">):</span>
+    <span class="n">provider</span> <span class="o">=</span> <span class="n">IBMQ</span><span class="o">.</span><span class="n">get_provider</span><span class="p">(</span><span class="n">hub</span><span class="o">=</span><span class="s1">&#39;ibm-q&#39;</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">qiskit.providers.ibmq</span> <span class="kn">import</span> <span class="n">least_busy</span>
+    <span class="n">small_devices</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">backends</span><span class="p">(</span><span class="n">filters</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">configuration</span><span class="p">()</span><span class="o">.</span><span class="n">n_qubits</span> <span class="o">==</span> <span class="mi">5</span>
+                                       <span class="ow">and</span> <span class="ow">not</span> <span class="n">x</span><span class="o">.</span><span class="n">configuration</span><span class="p">()</span><span class="o">.</span><span class="n">simulator</span><span class="p">)</span>
+    <span class="n">backend</span> <span class="o">=</span> <span class="n">least_busy</span><span class="p">(</span><span class="n">small_devices</span><span class="p">)</span>
+    <span class="n">jobReal</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jobReal</span>
+
+
+<span class="k">def</span> <span class="nf">StateToBinary</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">wires</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">))))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="n">wires</span><span class="p">):</span>
+        <span class="n">myFormat</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">wires</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;b&quot;</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;|&#39;</span><span class="p">,</span><span class="nb">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">myFormat</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-1-a-single-qubit-33-points">
+<h2>Exercise 1: A Single Qubit (33 points)<a class="headerlink" href="#exercise-1-a-single-qubit-33-points" title="Permalink to this headline">#</a></h2>
+<p>We are going to think about quantum computers today.  More specifically, we are going to think about quantum circuits.  Both quantum and classical circuits have wires and gates.  Quantum circuits have the added constraint that the total number of wires must be the same through the whole computation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/QC1_10_0.png" src="_images/QC1_10_0.png" />
+</div>
+</div>
+<p>We can think of classical circuit as one which takes a binary number as input (on,off,off,on) &lt;–&gt; (1,0,0,1) to a binary number as output.</p>
+<p>For example a wire with a not gate on it takes <span class="math notranslate nohighlight">\(0\rightarrow 1\)</span> and <span class="math notranslate nohighlight">\(1 \rightarrow 0\)</span></p>
+<p>Quantum circuits are similar.  They take binary numbers to other binary numbers.  A quantum <code class="docutils literal notranslate"><span class="pre">not</span></code> gate takes <span class="math notranslate nohighlight">\(0 \rightarrow 1\)</span> and <span class="math notranslate nohighlight">\(1 \rightarrow 0.\)</span></p>
+<p>Let’s start by drawing our first circuit.  This circuit has one quantum wire. We are going to put a “not” gate (called X here).  By default, the input to our circuits is always “0”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quantumWires</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantumWires</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># this is a quantum NOT Gate.</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/QC1_12_0.png" src="_images/QC1_12_0.png" />
+</div>
+</div>
+<p>We are now going to run our circuit.  There are three ways we can run circuits:</p>
+<ul class="simple">
+<li><p>Run it on a real quantum computer -  <code class="docutils literal notranslate"><span class="pre">RunMeQC</span></code></p></li>
+<li><p>Run it on a simulated quantum computer - <code class="docutils literal notranslate"><span class="pre">RunMe</span></code></p></li>
+<li><p>Run it on a simulated quantum computer and cheat by looking what’s going on under the hood (you can’t do this in the real world but there are some advantages of a simulation).  - <code class="docutils literal notranslate"><span class="pre">RunMeState</span></code></p></li>
+</ul>
+<p>Let’s start by running our simulation (and looking under the hood).  Call <code class="docutils literal notranslate"><span class="pre">results=RunMeState(qc)</span></code> on our quantum circuit. We can then get the vector (look under the hood) by calling <code class="docutils literal notranslate"><span class="pre">StateToBinary(results.get_statevector())</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## add stuff here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Modify your circuit now and put two <code class="docutils literal notranslate"><span class="pre">not</span></code> gates in a row.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###This should be your modified circuit</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1+0j) | 0 &gt;
+</pre></div>
+</div>
+<img alt="_images/QC1_17_1.png" src="_images/QC1_17_1.png" />
+</div>
+</div>
+<p>Now, what is particularly interesting about quantum gates is you can be in a situation where it can take <span class="math notranslate nohighlight">\(|0\rangle\)</span> and returns a state which is partially <span class="math notranslate nohighlight">\(|0\rangle\)</span> and partially <span class="math notranslate nohighlight">\(|1\rangle\)</span>.    For example, the Hadamard gate (<code class="docutils literal notranslate"><span class="pre">qc.h</span></code>), turns <span class="math notranslate nohighlight">\(|0\rangle\)</span> into “half” <span class="math notranslate nohighlight">\(|0\rangle\)</span> and “half” <span class="math notranslate nohighlight">\(|1\rangle\)</span>.  More concretely, you end up with the state
+<span class="math notranslate nohighlight">\(|0\rangle \rightarrow \frac{1}{\sqrt{2}} \left(|0\rangle + |1\rangle \right)\)</span>.  Look at the state after the Hadamard.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##Make a circuit with a Hadamard in it</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So far we’ve been cheating by looking at the quantum state. In the real world, you can’t do that.  Instead you have to measure at the end of your circuit.  To add a measure you have to do two things. First, you need a classical wire. We will switch</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">qc=QuantumCircuit(1)</span></code> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">qc=QuantumCircuit(1,1)</span></code> # one classical wire and one quantum wire</p></li>
+<li><p>Then at the end we have to add a measurement: <code class="docutils literal notranslate"><span class="pre">qc.measure([0],[0])</span></code> (measure quantum wire “1” on classical wire “1”)</p></li>
+</ul>
+<p>Go ahead and draw the new circuit that has one Hadamard gate and a measure</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Make your circuit here</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">d515b797a2e6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;qc&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can run it on a legitimate simulator by doing <code class="docutils literal notranslate"><span class="pre">results=RunMe(qc)</span></code>. Once we’ve run it, we are going to want to see the result of our measurement.  In practice, what <code class="docutils literal notranslate"><span class="pre">RunMe</span></code> is currently doing is running it 1024 times as each measurement is going to give you something random.  (You can look up to see what <code class="docutils literal notranslate"><span class="pre">RunMe</span></code> is doing).  Now, we should plot how many of the measurements is “0” and how many of the measurements is “1”.  To do this, we can do <code class="docutils literal notranslate"><span class="pre">plot_histogram(results.get_counts())</span></code>  You can just see the counts by doing <code class="docutils literal notranslate"><span class="pre">print(results.get_counts())</span></code> Produce plots for</p>
+<ul class="simple">
+<li><p>the circuit with one Hadamard wire.</p></li>
+<li><p>the circuit with one Not wire.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Run the circuit and plot the results here for EPR</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Run the circuit and plot the results here for Not gate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/QC1_24_0.png" src="_images/QC1_24_0.png" />
+</div>
+</div>
+<p>You should see that the circuit with the “hadamard” gates gives half <span class="math notranslate nohighlight">\(|0\rangle\)</span> and half <span class="math notranslate nohighlight">\(|1\rangle\)</span> whereas the “not” gate always gives <span class="math notranslate nohighlight">\(|1\rangle\)</span></p>
+<p>So far we’ve seen we can get half <span class="math notranslate nohighlight">\(|0\rangle\)</span> and half <span class="math notranslate nohighlight">\(|1\rangle\)</span>.  We can also adjust states to get more of <span class="math notranslate nohighlight">\(|1\rangle\)</span> then <span class="math notranslate nohighlight">\(|0\rangle\)</span> (or visa versa).  Generically we can get a state
+<span class="math notranslate nohighlight">\(\cos(\theta) |0\rangle + \sin(\theta) e^{i\phi} |1\rangle\)</span>.</p>
+<p>If we had such a state, after measurement we get “0” with probability <span class="math notranslate nohighlight">\(\cos^2\theta\)</span> and “1” with probability <span class="math notranslate nohighlight">\(\sin^2\theta\)</span>.<br />
+Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\theta =1\)</span> so we either get “0” or “1”.</p>
+<p>To produce this state, we can use the gate <code class="docutils literal notranslate"><span class="pre">qc.rx(-2*theta,wire)</span></code> which takes <span class="math notranslate nohighlight">\(|0\rangle \rightarrow \cos \theta |0\rangle + \sin \theta |1\rangle\)</span></p>
+<ul class="simple">
+<li><p>Produce a histogram with <span class="math notranslate nohighlight">\(\theta=0.5\)</span> and check to make sure it gives you the right fraction of zero and one.</p></li>
+<li><p>Write a for loop which runs the circuit for 100 <span class="math notranslate nohighlight">\(\theta\)</span> between 0 and <span class="math notranslate nohighlight">\(\pi\)</span> and make sure the counts of “0” are approximately <span class="math notranslate nohighlight">\(1024 \times \cos^2\theta\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Make the circuit and plot the measurements for the theta=0.5 . Check that it&#39;s correct</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7701511529340699 0.22984884706593015
+</pre></div>
+</div>
+<img alt="_images/QC1_27_1.png" src="_images/QC1_27_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myData</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">thetas</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">thetas</span><span class="p">:</span>
+  <span class="c1"># do stuff here</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span><span class="mi">1024</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">thetas</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span><span class="n">myData</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-5-657d144bcbb0&gt;&quot;</span><span class="gt">, line </span><span class="mi">5</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span><span class="mi">1024</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">thetas</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+      <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2-two-qubits-34-points">
+<h2>Exercise 2: Two qubits (34 points)<a class="headerlink" href="#exercise-2-two-qubits-34-points" title="Permalink to this headline">#</a></h2>
+<p>In this exercise we will see how to build quantum states of two qubits.</p>
+<section id="a-control-not-gates">
+<h3>a. Control-not gates<a class="headerlink" href="#a-control-not-gates" title="Permalink to this headline">#</a></h3>
+<p><em>The controlled-not gate:</em> The key gate for two qubits is the control-not gate (<code class="docutils literal notranslate"><span class="pre">qc.cx(0,1)</span></code>.  The key gate “nots” the second wire (wire 1) if the first wire is “1” (wire 0).  Let’s check it out.  Apply the “control-not” to a state <span class="math notranslate nohighlight">\(|00\rangle\)</span> and to a state <span class="math notranslate nohighlight">\(|10\rangle\)</span> and print out the state (i.e. <code class="docutils literal notranslate"><span class="pre">RunMeState</span></code>). Don’t put in a measurement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Circuit here applying control-not to |00&gt;.  Print the state when you&#39;re done.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1+0j) | 00 &gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Circuit here applying control-not to |10&gt;.  Print the state when you&#39;re done.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1+0j) | 11 &gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-build-an-epr-pair">
+<h3>b.  Build an EPR Pair<a class="headerlink" href="#b-build-an-epr-pair" title="Permalink to this headline">#</a></h3>
+<p>The most interesting two qubit state is an EPR pair, <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\left(|00\rangle + |11\rangle\right)\)</span>.    You can build it with two gates that you have seen earlier in this assignment.  Go ahead and try different things and figure out how to build yourself an EPR pair.  You can start out with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quantumWires</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">classicalWires</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantumWires</span><span class="p">,</span><span class="n">classicalWires</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to start out a quantum circuit with two quantum wires (and two classical wires that you can do measurements on later).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Make an EPR Pair. It can be done with Hadamards and CNOTs.  Run it and look at the state when you&#39;re done. </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="c-measuring-epr-pairs">
+<h3>c. Measuring EPR Pairs<a class="headerlink" href="#c-measuring-epr-pairs" title="Permalink to this headline">#</a></h3>
+<p>Let’s go ahead and measure your EPR circuit above by adding the measurement and plotting it below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Do the same thing with the EPR Pair but now look at the measurements.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is something very powerful here.  If you get a “0” on the top wire, then you always get a “0” on the bottom wire.  If you get a “1” on the top wire, then you get a “1” on bottom wire.  This is even the case if these wires are taken miles apart before you measure.</p>
+</section>
+<section id="d-running-on-an-actual-quantum-computer">
+<h3>d. Running on an actual Quantum Computer<a class="headerlink" href="#d-running-on-an-actual-quantum-computer" title="Permalink to this headline">#</a></h3>
+<p>Now we are going to build an EPR pair on an actual quantum computer.  To do this you need to build your quantum circuit again (with measurement) for building an EPR pair and then call <code class="docutils literal notranslate"><span class="pre">job=RunQC(qc)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Remake your circuit and run it on a real live quantum computer.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once you have run that, your job is sent off to a quantum computer. It may take a bit of time to run.  To check whether it has run yet, we need to do</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">status</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">queue_position</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>You should run these lines until your job status is <code class="docutils literal notranslate"><span class="pre">JobStatus.DONE</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">status</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">queue_position</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>JobStatus.INITIALIZING
+None
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that your job has gotten off the quantum computer we can now query it.  To get the counts do
+<code class="docutils literal notranslate"><span class="pre">job.result().get_counts</span></code>.  Go ahead and plot a histogram of them.</p>
+<p>You should notice that you don’t get perfect correlation anymore.  Current quantum computers are not particularly good.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#go ahead and make a histogram of the results.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="e-entanglement">
+<h3>e. Entanglement<a class="headerlink" href="#e-entanglement" title="Permalink to this headline">#</a></h3>
+<p>The EPR pair is called entangled.<br />
+<strong>Not entangled</strong> means<br />
+Pr(wires measures “00”)  = Pr(wire 0 measures “0”) <span class="math notranslate nohighlight">\(\times\)</span> Pr(wire 1 measures “0”)
+<em>Note that when you check things you aren’t going to get this exactly even if things are independent because things are stochastic.  If you’re careful you can compute error bars but otherwise use reasonable judgement</em></p>
+<p>We want to check if things are entangled.  To accomplish this, let’s write a function to measure the probability that wire <span class="math notranslate nohighlight">\(i\)</span> is 0 - i.e. <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">wire_i_probability(myCounts,wire_i)</span></code> (you can assume <code class="docutils literal notranslate"><span class="pre">wire_i</span></code> will either be 0 or 1).</p>
+<p>Now write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">wires_probability(myCounts)</span></code> which returns the probability that the two wires are “00”.</p>
+<p>Given these two functions we want to see which circuits produce entangled states.  In particular check</p>
+<ul class="simple">
+<li><p>The EPR Pair</p></li>
+<li><p>A circuit you generate which has no two wire gates in it (i.e. no CNOT)
+and demonstrate what you find.</p></li>
+</ul>
+<p><em>You should run this with the simulator and not on the quantum computer.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Measure the probability of getting &quot;0&quot; on the wire `wire`</span>
+<span class="k">def</span> <span class="nf">Probability</span><span class="p">(</span><span class="n">myCounts</span><span class="p">,</span><span class="n">wire</span><span class="p">):</span>
+    <span class="n">zeroProb</span><span class="o">=</span><span class="mf">0.0</span>
+    <span class="k">if</span> <span class="n">wire</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+
+    <span class="k">elif</span> <span class="n">wire</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">zeroProb</span><span class="o">/</span><span class="mf">1024.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Now check the entanglement of the EPR pair and a state you make only using 1-qubit gates.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-3-quantum-key-distribution-ec-20-points">
+<h2>Exercise 3 Quantum Key Distribution (EC - 20 points)<a class="headerlink" href="#exercise-3-quantum-key-distribution-ec-20-points" title="Permalink to this headline">#</a></h2>
+<section id="a-one-time-pads">
+<h3>a. One time pads<a class="headerlink" href="#a-one-time-pads" title="Permalink to this headline">#</a></h3>
+<p>If Alice and Bob have two identical secret books of bits which agree, they could send secret messages to each other. Here’s a way to make a bunch of secret bits by sharing a quantum state.  After the quantum state is produced, they can separate their wires to be far apart.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">MakeSinglet</span><span class="p">(</span><span class="n">qc</span><span class="p">):</span>
+    <span class="n">aliceWire</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">bobWire</span><span class="o">=</span><span class="mi">1</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">aliceWire</span><span class="p">)</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="n">aliceWire</span><span class="p">,</span><span class="n">bobWire</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">MakeSharedState</span><span class="p">(</span><span class="n">qc</span><span class="p">):</span>
+    <span class="n">MakeSinglet</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">qc</span>
+
+<span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">=</span><span class="n">MakeSharedState</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/QC1_56_0.png" src="_images/QC1_56_0.png" />
+</div>
+</div>
+<p>Let <code class="docutils literal notranslate"><span class="pre">AliceWire=0</span></code> and <code class="docutils literal notranslate"><span class="pre">BobWire=1</span></code> .</p>
+<ul class="simple">
+<li><p>Add some measurement to the circuit above</p></li>
+<li><p>execute this circuit 100 times (use <code class="docutils literal notranslate"><span class="pre">RunMe(qc,1)</span></code> so you only run one copy of it)</p></li>
+<li><p>store a list of Alice and Bob’s bits and report what fraction of the time they agree.</p></li>
+</ul>
+<p>For this latter task I find the following helpful: <code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">theKey=list(result.get_counts().keys())[0]</span></code>. <code class="docutils literal notranslate"><span class="pre">theKey</span></code> will be the bitstring of measured state <em>in reversed order</em> (i.e. <code class="docutils literal notranslate"><span class="pre">theKey[0]</span></code> is q0, <code class="docutils literal notranslate"><span class="pre">theKey[1]</span></code> is q1, etc)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aliceBits</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">bobBits</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1">## After measurement how often do Alice and Bob&#39;s bits agree.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;They agree this fraction of the time: &quot;</span> <span class="p">,</span><span class="n">amountAgree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">f96726f9186e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">bobBits</span><span class="o">=</span><span class="p">[]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">## After measurement how often do Alice and Bob&#39;s bits agree.</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+
+<span class="ne">NameError</span>: name &#39;qc&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-eve-s-arrival">
+<h3>b. Eve’s arrival<a class="headerlink" href="#b-eve-s-arrival" title="Permalink to this headline">#</a></h3>
+<p>Unfortunately this approach has a problem.  Suppose that you’re sending an EPR pair to Alice and the eavesdropper Eve gets a hold of it.  Is their a way to have Eve sneakily get the message without Alice and Bob noticing?  Add some circuit for Eve.  Assume that she can do anything she wants to the state (and her wire) after the shared state is made but before it’s shipped off to Alice and Bob.</p>
+<p>Then, measure what fraction of the time Alice and Bob agree and what fraction of the time Eve has successfully figured out the bit.</p>
+<p><img alt="image.png" src="attachment:image.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AliceBits</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">EveBits</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">BobBits</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">eveWire</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">=</span><span class="n">MakeSharedState</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span>
+<span class="c1">###What can Eve do here so that she knows the secret bit and can&#39;t be detected by Alice and Bob</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">([</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+<span class="c1">### Eve is done now. </span>
+
+<span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>  <span class="c1">#this is your measure from earlier. </span>
+
+<span class="c1">###How often do Alice and Bob&#39;s bits agree.</span>
+<span class="c1">### How often do Alice and Eve&#39;s bits agree.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">35</span><span class="n">d1d42d0720</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">BobBits</span><span class="o">=</span><span class="p">[]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">eveWire</span><span class="o">=</span><span class="mi">2</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">qc</span><span class="o">=</span><span class="n">MakeSharedState</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">###What can Eve do here so that she knows the secret bit and can&#39;t be detected by Alice and Bob</span>
+
+<span class="ne">NameError</span>: name &#39;QuantumCircuit&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you’ve done it correctly you should find that Alice and Bob always agree but also Alice and Eve also always agree.  So our protocol was a good way to share some secrete bits but doesn’t work if Even can get a hold of the state before Alice and Bob gert it.  We need an improved protocol.</p>
+</section>
+<section id="c-an-improved-protocol">
+<h3>c. An improved protocol<a class="headerlink" href="#c-an-improved-protocol" title="Permalink to this headline">#</a></h3>
+<p>Let’s remove Eve for the moment and work on an improved protocol.
+Suppose Alice and Bob agree that for each of the 100 trials, Alice and Bob are going to flip a shared coin and decide to randomly put a Hadamard on both their wires if you get heads (<code class="docutils literal notranslate"><span class="pre">np.random.random()&gt;0.5</span></code>) and leave it alone otherwise (<em>Yes - I know flipping a shared coin is cheating.  We will fix it later</em>).  Emulate this new protocol and see how often Alice and Bob’s bits agree?  Store also an array which specifies when you decided to add the Hadamard.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Build here the improved protocol and see how often Alice and Bob&#39;s bits agree.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-eve-in-the-improved-protocol">
+<h3>d. Eve in the improved protocol<a class="headerlink" href="#d-eve-in-the-improved-protocol" title="Permalink to this headline">#</a></h3>
+<p>Now add Eve back using your approach from (b).  How often do Alice and Bob agree?  How often do Alice and Eve agree?   Suppose Alice and Bob were willing to talk some - can they catch Eve’s eavsdropping and still have some useful random bits left if Eve wasn’t listening.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the same Eve technique as you did in (b) and see how often they agree.  If Alice and Bob&#39;s bits don&#39;t </span>
+<span class="c1"># always agree is their a way for Alice and Bob to then detect Eve&#39;s eavesdropping while still having</span>
+<span class="c1"># some one-time pad bits left.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Alice and Bob Agree:  0.74
+Alice and Eve Agree:  0.71
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="e-not-flipping-shared-coins">
+<h3>e.  Not flipping shared coins<a class="headerlink" href="#e-not-flipping-shared-coins" title="Permalink to this headline">#</a></h3>
+<p>In practice, Alice and Bob can’t randomly choose to both use the Hadamard gate at the same time.   Let’s assume instead they independently add a random Hadamard gate.  Modify your code to do this and record when Bob and Alice chose Hadamard.  Now write some code to allow Alice and Bob to identify when there is eavesdropping. To do this, Alice and Bob need to not only talk about what answers they got but also whether not they both added their Hadamard gate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HadamardA</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">HadamardB</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="c1">## Now remove the cheating from the approach.  </span>
+<span class="c1">## This time, Alice and Bob are going to have to talk about both the decisions they made (Hadamard or not)</span>
+<span class="c1">## as well as what result they get</span>
+
+<span class="n">mask</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">HadamardA</span><span class="p">)</span><span class="o">==</span><span class="p">(</span><span class="n">HadamardB</span><span class="p">)</span>
+
+<span class="c1">## How often do they agree if we only consider the cases when they made the same choice. </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mi">0</span><span class="n">a1f5e87666f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1">## as well as what result they get</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">mask</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">HadamardA</span><span class="p">)</span><span class="o">==</span><span class="p">(</span><span class="n">HadamardB</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1">## How often do they agree if we only consider the cases when they made the same choice.</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-4-building-up-tools-ec-10-points">
+<h2>Exercise 4: Building up tools (EC - 10 points)<a class="headerlink" href="#exercise-4-building-up-tools-ec-10-points" title="Permalink to this headline">#</a></h2>
+<p>Now we are going to build up some tools and intuition so we can learn to build more complicated circuits.</p>
+<section id="a-initializing-a-binary-number">
+<h3>a. Initializing a binary number<a class="headerlink" href="#a-initializing-a-binary-number" title="Permalink to this headline">#</a></h3>
+<p>Often it is useful to get some binary state (like <span class="math notranslate nohighlight">\(|0110\rangle\)</span>) into your quantum computer.  Write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">Init(qc,myBinaryNumber)</span></code> which generates the state <span class="math notranslate nohighlight">\(|\textrm{myBinaryNumber}\rangle\)</span>. Run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Init</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span><span class="s1">&#39;011&#39;</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Init</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span><span class="n">myString</span><span class="o">=</span><span class="s1">&#39;000&#39;</span><span class="p">):</span>
+    <span class="c1">#write me</span>
+
+<span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">Init</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span><span class="s1">&#39;011&#39;</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-16-64a1f88e0e9c&gt;&quot;</span><span class="gt">, line </span><span class="mi">4</span>
+    <span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+     <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b-a-sum-over-all-states">
+<h3>b. A sum over all states<a class="headerlink" href="#b-a-sum-over-all-states" title="Permalink to this headline">#</a></h3>
+<p>A useful state to be able to make is
+$<span class="math notranslate nohighlight">\(\frac{1}{\sqrt{N}}\sum_{i=1}^N |i\rangle\)</span>$</p>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">AllSum(qc,w)</span></code> which adds this circuit to qc for <span class="math notranslate nohighlight">\(N=2^w\)</span>.  Run it with <span class="math notranslate nohighlight">\(w=5\)</span> and draw out your circuit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qr</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">cr</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
+<span class="n">AllSum</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
+
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="mi">7</span><span class="n">c39755fd900</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">qr</span> <span class="o">=</span> <span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">cr</span> <span class="o">=</span> <span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">AllSum</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;QuantumRegister&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now run the state on your simulator and measure how often you get various states.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run me looking at the measurements and see what happens</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="c-angle-of-a-random-gate">
+<h3>c.  Angle of a random gate<a class="headerlink" href="#c-angle-of-a-random-gate" title="Permalink to this headline">#</a></h3>
+<p>In this section, we are going to start out with a <span class="math notranslate nohighlight">\(R_z(\theta)\)</span> gate but we don’t know what <span class="math notranslate nohighlight">\(\theta\)</span> is.  Your goal is to use other gates to figure out <span class="math notranslate nohighlight">\(\theta\)</span>.  Write some code which returns your guess of <span class="math notranslate nohighlight">\(\theta\)</span>.  To add your random gate to your circuit, you may call RandomGate(qc).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RandomGateHelp</span><span class="p">():</span>
+    <span class="n">theta</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="k">def</span> <span class="nf">RandomGate</span><span class="p">(</span><span class="n">qc</span><span class="p">):</span>
+        <span class="n">qc</span><span class="o">.</span><span class="n">rz</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">RandomGate</span>
+
+<span class="n">RandomGate</span><span class="o">=</span><span class="n">RandomGateHelp</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ReturnTheta</span><span class="p">():</span>
+    <span class="n">qr</span><span class="o">=</span><span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">cr</span><span class="o">=</span><span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
+    <span class="c1">#change this function somehow</span>
+    <span class="n">RandomGate</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">result</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span>
+    <span class="n">myCounts</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">myCounts</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">0.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Theta is &quot;</span><span class="p">,</span><span class="n">ReturnTheta</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="mi">1</span><span class="n">a8f8b58a905</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="nb">print</span><span class="p">(</span><span class="n">myCounts</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">return</span> <span class="mf">0.0</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Theta is &quot;</span><span class="p">,</span><span class="n">ReturnTheta</span><span class="p">())</span>
+
+<span class="nn">&lt;ipython-input-19-1a8f8b58a905&gt;</span> in <span class="ni">ReturnTheta</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">ReturnTheta</span><span class="p">():</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">qr</span><span class="o">=</span><span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">cr</span><span class="o">=</span><span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1">#change this function somehow</span>
+
+<span class="ne">NameError</span>: name &#39;QuantumRegister&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-inverting-a-cnot">
+<h3>d. Inverting a CNOT<a class="headerlink" href="#d-inverting-a-cnot" title="Permalink to this headline">#</a></h3>
+<p>Suppose you have a quantum computer which can generate a CNOT where the control wire is smaller then the NOT wire - i.e. <code class="docutils literal notranslate"><span class="pre">qc.cx(i,j)</span></code> where <span class="math notranslate nohighlight">\(i&lt;j\)</span>.  Now, you need the gate <code class="docutils literal notranslate"><span class="pre">qc.cx(j,i)</span></code> . Figure out how to use 1-qubit gates and <code class="docutils literal notranslate"><span class="pre">qc.cx(i,j)</span></code> to build the gate <code class="docutils literal notranslate"><span class="pre">qc.cx(j,i)</span></code> and demonstrate that it works.  <em>Hint:</em> You can do this with one CNOT some number of Hadamards.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="e-deferred-measurements">
+<h3>e. Deferred Measurements<a class="headerlink" href="#e-deferred-measurements" title="Permalink to this headline">#</a></h3>
+<p>Suppose you have a calculation where you do a measurement in the middle of your simulation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qr</span><span class="o">=</span><span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cr</span><span class="o">=</span><span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">rx</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">rz</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">3.</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">rx</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">5.</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">rz</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">5.</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">ry</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/QC1_92_0.png" src="_images/QC1_92_0.png" />
+</div>
+</div>
+<p>We can measure the probabilities of the output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_histogram</span><span class="p">(</span><span class="n">RunMe</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span><span class="o">.</span><span class="n">get_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/QC1_94_0.png" src="_images/QC1_94_0.png" />
+</div>
+</div>
+<p>We want to rewrite the circuit on two wires so that you can do all the measurements at the end.  Figure out how to pull this off and show that you get the same probability distribution over the first wire.  You should be able to do this essentially independently of the gates that I include on the top wire. <em>Hint:</em> You want to essentially copy what would have been the result of the measurement to the bottom wire.  Then you can measure the bottom wire whenever since there are no gates there.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qr</span><span class="o">=</span><span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">cr</span><span class="o">=</span><span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
+<span class="c1"># do stuff before the measurement which is the last thing you do</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">)</span>
+<span class="c1">#only plot the probability of wire 1. You want to get the same result. </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="mi">58</span><span class="n">c437e115d3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">qr</span><span class="o">=</span><span class="n">QuantumRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">cr</span><span class="o">=</span><span class="n">ClassicalRegister</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">qr</span><span class="p">,</span><span class="n">cr</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># do stuff before the measurement which is the last thing you do</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;QuantumRegister&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Acknowledgement:</strong></p>
+<ul class="simple">
+<li><p>Bryan Clark and Ryan Level (original)</p></li>
+</ul>
+<p>Copyright: 2021</p>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="MachineLearningGalaxies.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Classifying Galaxies</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="QC2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quantum Computing 2</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Bryan Clark; George Gollin; Ryan Levy<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
