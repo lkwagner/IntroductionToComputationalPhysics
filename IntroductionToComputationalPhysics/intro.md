@@ -1,6 +1,6 @@
 # An Introduction to Modern Computational Physics
 
-* Physics 246, Fall 2021
+* Physics 246, Fall 2023
 * Thursday 4:00-5:50pm CST
 * Room: Loomis 222
 * 2 credit hours
@@ -9,7 +9,7 @@
 
 Welcome!  Computation is powerful. In this course, you are going to learn how to use computation to do amazing simulations: compute how general relativity changes the orbit of Mercury; simulate turbulence; compute the effect of predator and preys on an ecosystem; run a quantum algorithm; and more! We've searched and distilled from the world some of the coolest physics we know for you to learn to simulate. Our primary goal in this class will be to help you make these simulations.  
 
-Here is an <a href="clark.physics.illinois.edu/classSummary/index.html">overview presentation</a> of what you will learn in this class.
+Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">overview presentation</a> of what you will learn in this class.
 
 
 ---
@@ -25,11 +25,11 @@ Here is an <a href="clark.physics.illinois.edu/classSummary/index.html">overview
      - Office Hours: TBA
 
 
-#### Online Tools - [Useful Links](secure/links.html)
-See useful links for more information about how to use these tools
+#### Online Tools
+
 
 * **Campuswire**:  We will use campuswire as a class forum;  a way to message the course staff and each other; and to submit your attendance question.
-* **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with hte professor and the TA (but no one else).
+* **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with hte professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will e there later when you go to google colab!
 * **my.physics gradebook**: You will find your grades here and your returned assignments.
 
 ---
@@ -64,6 +64,7 @@ The heart of this course will be a series of computational assignments.
 * Each assignment is due at the beginning of the next class unless otherwise noted. You may turn assignment in up to one week late for 50% credit (except that all assignments are strictly due the day before reading day).
 *  Solutions to the homeworks will not be given.
 * The assignments consist of 95% of your grade.
+* Partial credit exists but will be limited.  
 * You may collaborate on assignments but must submit your own work.
 * Homework will be returned through the [my physics gradebook](https://my.physics.illinois.edu/gradebook/set.asp?subj=PHYS&crsnum=246&term=120208)
 
@@ -116,19 +117,17 @@ Sometimes there are typos in the assignment (although we are working hard to rem
 
 ### Policies
 
-#### Covid 
+#### Attendance  
 
-* Masks must be worn in class at all times
-* You must be approved to enter the building according to your app.  I will check this so please don't come to class if you aren't.
-* Please don't come to class if you are feeling sick.   There will be plenty of remote opportunity to catch up.  
-* While social distancing is not required at this time it continues to be recommended and encouraged when possible to do so.  Toward that end, please sit someplace that allows socially distanced access. 
+There is no attendance required for class (although we believe that coming to class will be helpful!)  That said, **please do not attend class if you are sick**.  In such a case, we will work with you to make sure you get caught up.  No notes for sickness, etc are required. 
 
 #### About using code you find on the web
 The quickest way to deal with the arcana of programing is to ask Google for examples of what you are seeking to accomplish. But you will need to use your judgment in doing this: the Google search “how do I use color maps in python?” is fine, while “show me a script that calculates pi” is not. And you should always credit the original source of code that you paste into your own programs in a comment that includes the URL for the original code. If an author says that his/her code is not to be copied or incorporated into your programs, then DON’T.
 
-I have two principal goals in this course. I want all of you to become fearless coders with the confidence to walk up to baffling problems and pound them into submission. And I want you to develop numerical descriptions of cool systems normally thought to be too difficult for students at your level, whose analytic descriptions might obscure the underlying physics. For this to work, you’ll need to write your own code.
+The goal of this course is for you to deeply understand this material. For this to work, you’ll need to write your own code.
 
-
+#### About Large Langauge Models
+In a similar vein, you aren't allowed to use LLM for help.  This includes chatGPT, google bard, claude, etc. 
 
 #### Academic Integrity
 You must never submit the work of someone else as your own. We understand that many of you will find it helpful to work with other students to master Physics 246. But when you collaborate with your study group on homework assignments, you must be a full, active participant in developing the solutions that you submit for credit.
@@ -141,7 +140,11 @@ All activities in this course, are subject to the Academic Integrity rules as de
 
 ---
 
-### Miscellany
+### Useful Python 
+* Intro Python Jupyter Notebooks:
+   * [https://clark.phyiscs.illinois.edu/1-basic-python-demo]
+   * [https://clark.phyiscs.illinois.edu/2-numpy-demo.ipynb]
+   * [https://clark.phyiscs.illinois.edu/3-matplotlib-demo.ipynb]
 * [Python Programming Resources](https://wiki.python.org/moin/BeginnersGuide/Programmers)
 * [Google's Python Programming Class](https://developers.google.com/edu/python)
  
@@ -158,14 +161,8 @@ This course is a first step. From it, we expect that students will come away wit
 **Background:**
 The technical foundation for physics majors includes material in physics, mathematics, computer science, and chemistry. But though the courses taught outside the Physics Department provide an excellent introduction to important subjects, they are insufficiently dense in application to specific physics topics to stand on their own. We find this to be especially true in mathematics and computer science. Consequently, the Physics Department offers undergraduate and graduate courses on mathematical methods for physics, as well as a graduate course in computation.
 
-Recently we have now added two new undergraduate courses in computational physics: this course and 498CMP. By simulating physical systems and observing their (simulated) behaviors, students can more efficiently grasp concepts that might be otherwise obscured by mathematical equations. By developing their computational skills, students are better prepared to assist in data acquisition and analysis tasks in a research setting. In addition, about half of our graduating majors choose employment over graduate study; they often report that prospective employers are seeking to hire employees with computational skills.
+Recently we have now added two new undergraduate courses in computational physics: this course and 446. By simulating physical systems and observing their (simulated) behaviors, students can more efficiently grasp concepts that might be otherwise obscured by mathematical equations. By developing their computational skills, students are better prepared to assist in data acquisition and analysis tasks in a research setting. In addition, about half of our graduating majors choose employment over graduate study; they often report that prospective employers are seeking to hire employees with computational skills.
 
-**Owls? 246?**
-The previous course, Physics 298OWL, for obscure reasons requires us to append a three-letter code to the course number. Since the owl is the symbol of Athena—goddess of wisdom, inspiration, mathematics, strength, and other good things—"OWL" seemed like a sensible choice.
-This course has since evolved into Physics 246. And why 246? Because that's the [vacuum expectation value](https://en.wikipedia.org/wiki/Vacuum_expectation_value) of the [Higgs field](https://en.wikipedia.org/wiki/Higgs_boson).
-
-
-![owl](owl.png)
 
 ### Acknowledgements
 The current version of this course is developed by Bryan Clark.  An earlier version of [this course](https://courses.physics.illinois.edu/phys298owl/fa2018/) was developed and run by [George Gollin](https://physics.illinois.edu/people/directory/profile/g-gollin) and this current version has non-trival overlapping units and problems.  The classifying galaxy assignment closely follows a tutorial at the Galaxy Zoo. The fluid dynamics assignment was originally inspired to get you to develop lattice Boltzmann code similar to that from flowkit.com.  The jupyter-ization of the course was done by Ryan Levy and Bryan Clark.
@@ -176,4 +173,4 @@ Here are some number of related (but less exciting) courses which have similar g
 
 In [Caltech](http://theory.caltech.edu/~dsd/ph121ab/2019-2020/) you write a smaller number of similar assignments (but with no guidance).
 
-[MIT](https://computationalthinking.mit.edu/Spring21/) runs a similar course in Julia with a nice assignment on climate-science.  You can do a more-from-scratch version of this assignment for your final if you want. 
+[MIT](https://computationalthinking.mit.edu/Spring21/) runs a similar course in Julia.
