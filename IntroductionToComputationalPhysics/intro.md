@@ -22,7 +22,7 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 
   - **TA:** Siddharth Mansingh 
      - email: sm38@illinois.edu
-     - Office Hours: TBA
+     - Office Hours: Thursday 9:00-10:00 am CST, Engineering Sciences Building, Room 3117
 
 
 #### Online Tools
