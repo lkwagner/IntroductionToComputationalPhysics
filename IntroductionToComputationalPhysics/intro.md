@@ -29,7 +29,11 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 
 
 * **Campuswire**:  We will use campuswire as a class forum;  a way to message the course staff and each other; and to submit your attendance question.
-* **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with hte professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will e there later when you go to google colab!
+<<<<<<< HEAD
+* **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with hte professor and the TA (but no one else).  You can load it into google colab by just hitting the button on the jupyter book.  Please make sure you then immediately save a copy to your drive!
+=======
+* **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will e there later when you go to google colab!
+>>>>>>> 208840534ba0a7332abe03a2bdbb0552b157f66d
 * **my.physics gradebook**: You will find your grades here and your returned assignments.
 
 ---
@@ -38,20 +42,20 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 
 |Date   |Assignment   |
 |---|---|
-|August 26	| N Ways to Measure PI  |
-|September 2	|Dynamics   |
-|September 9	|Orbital Dynamics  |
-|September 16	|Exoplanets   |
-|September 23	|Chaos   |
-|September 30 	|Many-Body Simulations|
-|October 7	|Particle Physics    |
-|October 14	|Random Walks |
-|October 21   	|Markov Chains   |
-|October 28 	|Predator-Prey  |
-|November 4  	|Fluid Dynamics
-|November 11	| Classifying Galaxies|
-|November 18	|Quantum Computing I and II|
-|December 2|Quantum Computing Hardware  |
+|August 24	| N Ways to Measure PI  |
+|August 31	|Dynamics   |
+|September 7	|Orbital Dynamics  |
+|September 14	|Exoplanets   |
+|September 21	|Chaos   |
+|September 28 	|Many-Body Simulations|
+|October 5	|Particle Physics    |
+|October 12	|Random Walks |
+|October 19   	|Markov Chains   |
+|October 26 	|Predator-Prey  |
+|November 2  	|Fluid Dynamics
+|November 9	| Classifying Galaxies|
+|November 16	|Fluxonium Qubits|
+|November 30| Quantum Computing  |
 
 
 ---
