@@ -6,7 +6,7 @@ root: intro
 chapters:
 - file: N_Ways_of_Measuring_PI #done
 - file: Dynamics
-- file: OrbitalDynamics
+- file: OrbitalDynamics.ipynb
 - file: Exoplanets #done
 - file: chaos
 - file: OrbitalDynamics2
