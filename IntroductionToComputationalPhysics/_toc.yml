@@ -9,9 +9,9 @@ chapters:
 - file: OrbitalDynamics.ipynb
 - file: Exoplanets #done
 - file: chaos
+- file: Random Walks # done (minus PIMC)
 - file: OrbitalDynamics2
 - file: ParticlePhysics #done
-- file: Random Walks # done (minus PIMC)
 - file: Markov Chains #done (minus PIMC)
 - file: Predator-Prey
 - file: FluidDynamics
