@@ -12,9 +12,9 @@ chapters:
 - file: Random Walks # done (minus PIMC)
 - file: Markov Chains #done (minus PIMC)
 - file: Predator-Prey
-- file: OrbitalDynamics2
 - file: ParticlePhysics #done
 - file: FluidDynamics
+- file: OrbitalDynamics2
 - file: MachineLearningGalaxies ######
 - file: QC1 #done (minus PIMC)
 - file: QC2 #done (minus PIMC)
