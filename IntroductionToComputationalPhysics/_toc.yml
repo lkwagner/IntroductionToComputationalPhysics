@@ -14,8 +14,8 @@ chapters:
 - file: Predator-Prey
 - file: ParticlePhysics #done
 - file: FluidDynamics
-- file: OrbitalDynamics2
 - file: MachineLearningGalaxies ######
+- file: OrbitalDynamics2
 - file: QC1 #done (minus PIMC)
 - file: QC2 #done (minus PIMC)
 - file: Projects
