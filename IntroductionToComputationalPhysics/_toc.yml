@@ -15,7 +15,7 @@ chapters:
 - file: ParticlePhysics #done
 - file: FluidDynamics
 - file: MachineLearningGalaxies ######
-- file: OrbitalDynamics2
 - file: QC1 #done (minus PIMC)
 - file: QC2 #done (minus PIMC)
+- file: OrbitalDynamics2
 - file: Projects
