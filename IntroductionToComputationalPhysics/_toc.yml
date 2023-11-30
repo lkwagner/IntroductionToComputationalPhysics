@@ -17,5 +17,7 @@ chapters:
 - file: MachineLearningGalaxies ######
 - file: QC1 #done (minus PIMC)
 - file: QC2 #done (minus PIMC)
+- file: Climate
 - file: OrbitalDynamics2
+- file: QC2_old.ipynb
 - file: Projects
