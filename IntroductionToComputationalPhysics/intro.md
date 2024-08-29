@@ -44,8 +44,8 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 |Date   |Assignment   |
 |---|---|
 |August 29	| N Ways to Measure PI  |
-|September 6	|Dynamics   |
-|September 13	|Orbital Dynamics  |
+|September 5	|Dynamics   |
+|September 12	|Orbital Dynamics  |
 |September 19	|Exoplanets   |
 |September 26	|Chaos   |
 |October 3 	|Many-Body Simulations|
