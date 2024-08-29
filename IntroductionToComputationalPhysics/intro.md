@@ -1,6 +1,6 @@
 # An Introduction to Modern Computational Physics
 
-* Physics 246, Fall 2023
+* Physics 246, Fall 2024
 * Thursday 4:00-5:50pm CST
 * Room: Loomis 222
 * 2 credit hours
@@ -15,7 +15,7 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 ---
 
 ### Course Logistics
- - **Lectures:** R 4:00-5:50
+ - **Lectures:** R 4:00-5:50, 222 Loomis
  - **Professor:** Bryan Clark
     - email: bkclark@illinois.edu
     - Office Hours: TBA
