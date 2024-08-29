@@ -21,14 +21,17 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
     - Office Hours: TBA
 
   - **TA(s):** 
-
+    - Matthew Thibodeau
+      - email: mt24@illinois.edu
+      - Office Hours: 3pm Monday, location TBA
 
 #### Online Tools
 
 
 * **Campuswire**:  We will use campuswire as a class forum;  a way to message the course staff and each other; and to submit your attendance question.
-* **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will e there later when you go to google colab!
-* **my.physics gradebook**: You will find your grades here and your returned assignments.
+* **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!
+* **Canvas**: You will submit your projcts via Canvas, which will also contain your grades here and your returned assignments. There will be two Canvas assignments per course project: one where you must submit the "Sharing" link for your Colab document containing your project solution, and another where you must submit a printout of your Colab document in .pdf format. Both submissions are required for each project to obtain credit.
+* **my.physics gradebook**: Assignment grades will also be entered here.
 
 ---
 
@@ -67,13 +70,17 @@ The heart of this course will be a series of computational assignments.
 * The assignments consist of 95% of your grade.
 * Partial credit exists but will be limited.  
 * You may collaborate on assignments but must submit your own work.
-* Homework will be submitted through canvas.  Instructions for submitting your work:
-   * [...]
 * You may not use generative AI, LLM's, etc.  **You must turn this off in google colab**. 
 
+##### Instructions for submitting your assignments
+Once you are finished working on an assignment, first make sure that it is shared with the course staff by clicking "Share" in the upper right hand corner in the Colab window and adding us via email address (bkclark@illinois.edu, mt24@illinois.edu, and cychow2@illinois.edu). Then, at the bottom of that same "Share" menu, click "Copy Link" to get the sharing link to your Colab document. Next, save a .pdf printout copy of your Colab document. This can be done by clicking "File" and then "Print," and then saving the printout as a .pdf via your operating system.
+
+Assignments are submitted via Canvas, which requires two simple steps. Each week, there will be two assignment submission pages availale in Canvas, one titled "[Assigment Title] (Colab link)" and one titled "[Assigment Title] (PDF file)." First, paste the aforementioned sharing link into the "... (Colab link)" assignment and then submit that assignment. Second, upload your printout .pdf file into the "... (PDF file)" assignment and then submit that assignment. 
+
+We will review both the printout and Colab code while grading your assignment, so please refrain from editing the Colab document after the submission deadline.
 
 #### Final Project
-During the final period, you will put together a project that demonstrates something in computational physics.  It can be an extension of some of the work that you did in class or something new.  This project can be done in small groups (2-3 people).  Projects have to be approved by course staff.  For your project you will submit a jupyter notebook (in the spirit of what you've don ein class but expository) as well as give a 5 minute presentation during the finals period for the course. 
+During the final period, you will put together a project that demonstrates something in computational physics.  It can be an extension of some of the work that you did in class or something new.  This project can be done in small groups (2-3 people).  Projects have to be approved by course staff.  For your project you will submit a jupyter notebook (in the spirit of what you've done in class but expository) as well as give a 5 minute presentation during the finals period for the course. 
 
 #### Extra Credit
 There will be occassional opportunities to get extra credit. To zeroth order these exist because I think they are cool and useful for understanding computational physics but I can't justify within the 2 credit hours of the course.
@@ -88,7 +95,7 @@ For the extra credit, per exercise, the grading is all or nothing. We aren't goi
 * Final Project: 5%
 
 Your final numerical score is computed as
-100 x (0.95 x (Homework Points + Extra Credit Ponts)/(Total Homework Points) + 0.05 x Final
+100 x (0.95 x (Homework Points + Extra Credit Ponts)/(Total Homework Points) + 0.05 x Final)
 
 The final breakdown of how your grade depends on your numerical score goes as:
 * 100+: A+
@@ -122,14 +129,14 @@ The quickest way to deal with the arcana of programing is to ask Google for exam
 The goal of this course is for you to deeply understand this material. For this to work, you’ll need to write your own code.
 
 #### About Large Langauge Models
-In a similar vein, you aren't allowed to use LLM for help.  This includes chatGPT, google bard, claude, etc. **You must turn off the generative AI in colab if you have it on (which it might be by default)**. 
+In a similar vein, you aren't allowed to use LLM for help.  This includes chatGPT, google bard/gemini, claude, etc. **You must turn off the generative AI in colab if you have it on (which it might be by default)**. 
 
 #### Academic Integrity
 You must never submit the work of someone else as your own. We understand that many of you will find it helpful to work with other students to master Physics 246. But when you collaborate with your study group on homework assignments, you must be a full, active participant in developing the solutions that you submit for credit.
 
 It is cheating to receive answers from another student and then use them as your own. It is cheating to submit as your own work solutions that you find by searching on the worldwide web (though see "About using code you find on the web") It is cheating—and a violation of U.S. copyright law—to give (or sell) course material to someone else who intends to redistribute and/or sell it.
 
-All activities in this course, are subject to the Academic Integrity rules as described in Article 1, Part 4, Academic Integrity, of the Student Code.
+All activities in this course are subject to the Academic Integrity rules as described in Article 1, Part 4, Academic Integrity, of the Student Code.
 
 
 
