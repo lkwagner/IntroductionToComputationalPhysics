@@ -10,14 +10,13 @@ chapters:
 - file: Exoplanets #done
 - file: chaos
 - file: Random Walks # done (minus PIMC)
-- file: Markov Chains #done (minus PIMC)
-- file: Predator-Prey
+- file: Markov Chains #done 
 - file: ParticlePhysics #done
+- file: Climate
+- file: Predator-Prey
 - file: FluidDynamics
 - file: MachineLearningGalaxies ######
-- file: QC1 #done (minus PIMC)
-- file: QC2 #done (minus PIMC)
-- file: Climate
+- file: QC1 #done 
+- file: QC2 #done 
 - file: OrbitalDynamics2
 - file: QC2_old.ipynb
-- file: Projects
