@@ -148,9 +148,9 @@ All activities in this course are subject to the Academic Integrity rules as des
 
 ### Useful Python 
 * Intro Python Jupyter Notebooks:
-   * [https://clark.physics.illinois.edu/1-basic-python-demo](Basic Python Demo)
-   * [https://clark.physics.illinois.edu/2-numpy-demo.ipynb](Numpy Demo)
-   * [https://clark.physics.illinois.edu/3-matplotlib-demo.ipynb](Matplotlib Demo)
+   * [Basic Python Demo](https://clark.physics.illinois.edu/1-basic-python-demo.ipynb)
+   * [Numpy Demo](https://clark.physics.illinois.edu/2-numpy-demo.ipynb)
+   * [Matplotlib Demo](https://clark.physics.illinois.edu/3-matplotlib-demo.ipynb)
 * [Python Programming Resources](https://wiki.python.org/moin/BeginnersGuide/Programmers)
 * [Google's Python Programming Class](https://developers.google.com/edu/python)
  
