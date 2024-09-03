@@ -18,7 +18,7 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
  - **Lectures:** R 4:00-5:50, 222 Loomis
  - **Professor:** Bryan Clark
     - email: bkclark@illinois.edu
-    - Office Hours: TBA
+    - Office Hours: 1PM Thursday, outside ESB 2111
 
   - **TA(s):** 
     - Matthew Thibodeau
