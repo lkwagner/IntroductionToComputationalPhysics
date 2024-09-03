@@ -26,7 +26,7 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
       - Office Hours: 3pm Monday, location TBA
     - Chun Yu Chow
       - email: cychow2@illinois.edu
-      - Office Hours, 12pm Tuesday, ESB 3137
+      - Office Hours, 2pm Tuesday, ESB 3137
         
 #### Online Tools
 
