@@ -13,10 +13,10 @@ chapters:
 - file: Markov Chains #done 
 - file: Predator-Prey
 - file: MachineLearningGalaxies ######
-- file: Climate
+- file: ParticlePhysics #done
 - file: FluidDynamics
+- file: Climate
 - file: QC1 #done 
 - file: QC2 #done 
-- file: OrbitalDynamics2
-- file: QC2_old.ipynb
-- file: ParticlePhysics #done
+# - file: OrbitalDynamics2
+# - file: QC2_old.ipynb
