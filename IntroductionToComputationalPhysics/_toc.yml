@@ -9,13 +9,13 @@ chapters:
 - file: OrbitalDynamics.ipynb
 - file: Exoplanets #done
 - file: chaos
+- file: ParticlePhysics #done
+- file: MachineLearningGalaxies ######
 - file: Random Walks # done (minus PIMC)
 - file: Markov Chains #done 
 - file: Predator-Prey
-- file: MachineLearningGalaxies ######
-- file: ParticlePhysics #done
-- file: FluidDynamics
 - file: Climate
+- file: FluidDynamics
 - file: QC1 #done 
 - file: QC2 #done 
 # - file: OrbitalDynamics2
