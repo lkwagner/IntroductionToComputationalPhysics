@@ -2,7 +2,7 @@
 
 * Physics 246, Fall 2024
 * Thursday 4:00-5:50pm CST
-* Room: Loomis 222
+* Room: Loomis 276
 * 2 credit hours
 * Course Texts: This one!
 
@@ -15,18 +15,18 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 ---
 
 ### Course Logistics
- - **Lectures:** R 4:00-5:50, 222 Loomis
- - **Professor:** Bryan Clark
-    - email: bkclark@illinois.edu
-    - Office Hours: 1PM Thursday, outside ESB 2111
+ - **Lectures:** R 4:00-5:50, 276 Loomis
+ - **Professor:** Lucas Wagner
+    - email: lkwagner@illinois.edu
+    - Office Hours: 
 
   - **TA(s):** 
-    - Matthew Thibodeau
-      - email: mt24@illinois.edu
-      - Office Hours: 3pm Monday, ESB 3110
-    - Chun Yu Chow
-      - email: cychow2@illinois.edu
-      - Office Hours, 2pm Tuesday, ESB 3137
+    - Abby Keenan
+      - email: akeenan@illinois.edu
+      - Office Hours: 
+    - Surkhab Kaur
+      - email: surkhab2@illinois.edu
+      - Office Hours:
         
 #### Online Tools
 
@@ -43,20 +43,20 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 
 |Date   |Assignment   |
 |---|---|
-|August 29	| N Ways to Measure PI  |
-|September 5	|Dynamics   |
-|September 12	|Orbital Dynamics  |
-|September 19	|Exoplanets   |
-|September 26	|Chaos   |
-|October 3 	|Many-Body Simulations|
-|October 10	|Particle Physics    |
-|October 17	|Random Walks |
-|October 24   	|Markov Chains   |
-|October 31 	|Predator-Prey  |
-|November 7  	|Fluid Dynamics
-|November 14	| Classifying Galaxies|
-|November 21	|Fluxonium Qubits|
-|December 5| Quantum Computing  |
+|Jan 27	| N Ways to Measure PI  |
+|Jan 31	|Dynamics   |
+|Feb 6	|Orbital Dynamics  |
+|Feb 13	|Exoplanets   |
+|Feb 20	|Chaos   |
+|Feb 27 	|Many-Body Simulations|
+|Mar 6	|Particle Physics    |
+|Mar 13	|Random Walks |
+|Mar 27   	|Markov Chains   |
+|Apr 3 	|Predator-Prey  |
+|Apr 10  	|Fluid Dynamics
+|Apr 17	| Classifying Galaxies|
+|Apr 24	|Fluxonium Qubits|
+|May 1| Quantum Computing  |
 
 
 ---
