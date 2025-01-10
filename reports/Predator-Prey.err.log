@@ -1,0 +1,76 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Assumes locsF and locsB is a list of locations at each time step
+
+def AnimateMe():
+
+    def GetData(mm):
+        mm=min(mm,len(locsF)-3)
+        maskFox=locsF[mm]>0
+        maskBunny=locsB[mm]>0
+        toShow=np.zeros(np.shape(maskFox))
+        toShow[maskFox]=1
+        toShow[maskBunny]=-1
+        return toShow
+
+    fig=plt.figure(figsize=(20,10)) 
+
+    plot = plt.imshow(GetData(0))
+    plt.axis('image')
+
+    def init():
+        plot.set_data(GetData(0))
+        return plot
+
+    def update(j):
+        plot.set_array(GetData(j))
+        return plot,
+
+    from IPython.display import HTML
+    anim = FuncAnimation(fig, update, frames=len(locsF), interval = 30, blit=True,repeat=False)
+    plt.close()
+    return anim
+anim=AnimateMe()
+HTML(anim.to_jshtml())
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[16], line 31[0m
+[1;32m     29[0m     plt[38;5;241m.[39mclose()
+[1;32m     30[0m     [38;5;28;01mreturn[39;00m anim
+[0;32m---> 31[0m anim[38;5;241m=[39m[43mAnimateMe[49m[43m([49m[43m)[49m
+[1;32m     32[0m HTML(anim[38;5;241m.[39mto_jshtml())
+
+Cell [0;32mIn[16], line 16[0m, in [0;36mAnimateMe[0;34m()[0m
+[1;32m     12[0m     [38;5;28;01mreturn[39;00m toShow
+[1;32m     14[0m fig[38;5;241m=[39mplt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m20[39m,[38;5;241m10[39m)) 
+[0;32m---> 16[0m plot [38;5;241m=[39m plt[38;5;241m.[39mimshow([43mGetData[49m[43m([49m[38;5;241;43m0[39;49m[43m)[49m)
+[1;32m     17[0m plt[38;5;241m.[39maxis([38;5;124m'[39m[38;5;124mimage[39m[38;5;124m'[39m)
+[1;32m     19[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21minit[39m():
+
+Cell [0;32mIn[16], line 6[0m, in [0;36mAnimateMe.<locals>.GetData[0;34m(mm)[0m
+[1;32m      5[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21mGetData[39m(mm):
+[0;32m----> 6[0m     mm[38;5;241m=[39m[38;5;28mmin[39m(mm,[38;5;28mlen[39m([43mlocsF[49m)[38;5;241m-[39m[38;5;241m3[39m)
+[1;32m      7[0m     maskFox[38;5;241m=[39mlocsF[mm][38;5;241m>[39m[38;5;241m0[39m
+[1;32m      8[0m     maskBunny[38;5;241m=[39mlocsB[mm][38;5;241m>[39m[38;5;241m0[39m
+
+[0;31mNameError[0m: name 'locsF' is not defined
+

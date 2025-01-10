@@ -1,0 +1,79 @@
+Traceback (most recent call last):
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/bkclark/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Assumes locsF and locsB is a list of locations at each time step
+
+def AnimateMe():
+
+    def GetData(mm):
+        mm=min(mm,len(locsF)-3)
+        maskFox=locsF[mm]>0
+        maskBunny=locsB[mm]>0
+        toShow=np.zeros(np.shape(maskFox))
+        toShow[maskFox]=1
+        toShow[maskBunny]=-1
+        return toShow
+
+    fig=plt.figure(figsize=(20,10)) 
+
+    plot = plt.imshow(GetData(0))
+    plt.axis('image')
+
+    def init():
+        plot.set_data(GetData(0))
+        return plot
+
+    def update(j):
+        plot.set_array(GetData(j))
+        return plot,
+
+    from IPython.display import HTML
+    anim = FuncAnimation(fig, update, frames=len(locsF), interval = 30, blit=True,repeat=False)
+    plt.close()
+    return anim
+anim=AnimateMe()
+HTML(anim.to_jshtml())
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m/var/folders/8c/x9n91g7x7lqg0tt66yrmbwhm0000gn/T/ipykernel_33487/684311496.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     29[0m     [0mplt[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     30[0m     [0;32mreturn[0m [0manim[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 31[0;31m [0manim[0m[0;34m=[0m[0mAnimateMe[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     32[0m [0mHTML[0m[0;34m([0m[0manim[0m[0;34m.[0m[0mto_jshtml[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/var/folders/8c/x9n91g7x7lqg0tt66yrmbwhm0000gn/T/ipykernel_33487/684311496.py[0m in [0;36mAnimateMe[0;34m()[0m
+[1;32m     14[0m     [0mfig[0m[0;34m=[0m[0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m20[0m[0;34m,[0m[0;36m10[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m [0;34m[0m[0m
+[0;32m---> 16[0;31m     [0mplot[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0mimshow[0m[0;34m([0m[0mGetData[0m[0;34m([0m[0;36m0[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     17[0m     [0mplt[0m[0;34m.[0m[0maxis[0m[0;34m([0m[0;34m'image'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     18[0m [0;34m[0m[0m
+
+[0;32m/var/folders/8c/x9n91g7x7lqg0tt66yrmbwhm0000gn/T/ipykernel_33487/684311496.py[0m in [0;36mGetData[0;34m(mm)[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m     [0;32mdef[0m [0mGetData[0m[0;34m([0m[0mmm[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m         [0mmm[0m[0;34m=[0m[0mmin[0m[0;34m([0m[0mmm[0m[0;34m,[0m[0mlen[0m[0;34m([0m[0mlocsF[0m[0;34m)[0m[0;34m-[0m[0;36m3[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m         [0mmaskFox[0m[0;34m=[0m[0mlocsF[0m[0;34m[[0m[0mmm[0m[0;34m][0m[0;34m>[0m[0;36m0[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m         [0mmaskBunny[0m[0;34m=[0m[0mlocsB[0m[0;34m[[0m[0mmm[0m[0;34m][0m[0;34m>[0m[0;36m0[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'locsF' is not defined
+NameError: name 'locsF' is not defined
+

@@ -1,0 +1,1188 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Quantum Computing &#8212; Physics 246</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'QC1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Building a Physical Qubit" href="QC2.html" />
+    <link rel="prev" title="Fluid Dynamics" href="FluidDynamics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/FD.png" class="logo__image only-light" alt="Physics 246 - Home"/>
+    <img src="_static/FD.png" class="logo__image only-dark pst-js-only" alt="Physics 246 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    An Introduction to Modern Computational Physics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="N_Ways_of_Measuring_PI.html">N ways to measure <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dynamics.html">Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OrbitalDynamics.html">Orbital Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exoplanets.html">Exoplanets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaos.html">Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParticlePhysics.html">Particle Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearningGalaxies.html">Classifying Galaxies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Random%20Walks.html">Random Walks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Markov%20Chains.html">Markov Chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Predator-Prey.html">Predator-Prey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Climate.html">Climate Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FluidDynamics.html">Fluid Dynamics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QC2.html">Building a Physical Qubit</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/QC1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/QC1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Quantum Computing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-a-single-qubit-33-points">Exercise 1: A Single Qubit (33 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-a-one-qubit-state">a. A one qubit state</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-one-qubit-gates">b. One qubit gates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-seeing-the-rotation">c.  Seeing the rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-measuring-the-state">d. Measuring the state</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-two-qubits-34-points">Exercise 2: Two qubits (34 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-control-not-gates">a. Control-not gates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-build-an-epr-pair">b.  Build an EPR Pair</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-measuring-epr-pairs">c. Measuring EPR Pairs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-grover-s-algorithm">Exercise 3:  Grover’s Algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-control-control-control-z">a. Control-Control-Control Z</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-all-hadamards">b. All Hadamards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-flipallbutzero">c. FlipAllButZero</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-invert">d. Invert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-running-grover-s-algorithm">e. Running Grover’s Algorithm</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="quantum-computing">
+<h1>Quantum Computing<a class="headerlink" href="#quantum-computing" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Author:</strong></p></li>
+<li><p><strong>Date:</strong></p></li>
+<li><p><strong>Time Spent on this Assignment:</strong></p></li>
+</ul>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>qiskit<span class="o">[</span>visualization<span class="o">]</span><span class="p">;</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>qutip
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>qiskit_aer<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting qiskit[visualization]
+  Downloading qiskit-1.3.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting rustworkx&gt;=0.15.0 (from qiskit[visualization])
+  Downloading rustworkx-0.15.1-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.9 kB)
+Requirement already satisfied: numpy&lt;3,&gt;=1.17 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (2.0.2)
+Requirement already satisfied: scipy&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (1.13.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting sympy&gt;=1.3 (from qiskit[visualization])
+  Downloading sympy-1.13.3-py3-none-any.whl.metadata (12 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting dill&gt;=0.3 (from qiskit[visualization])
+  Downloading dill-0.3.9-py3-none-any.whl.metadata (10 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.8.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (2.9.0.post0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting stevedore&gt;=3.0.0 (from qiskit[visualization])
+  Downloading stevedore-5.4.0-py3-none-any.whl.metadata (2.3 kB)
+Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (4.12.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting symengine&lt;0.14,&gt;=0.11 (from qiskit[visualization])
+  Downloading symengine-0.13.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.2 kB)
+Requirement already satisfied: matplotlib&gt;=3.3 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (3.9.4)
+Collecting pydot (from qiskit[visualization])
+  Downloading pydot-3.0.4-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: Pillow&gt;=4.2.1 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (11.1.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pylatexenc&gt;=1.4 (from qiskit[visualization])
+  Downloading pylatexenc-2.10.tar.gz (162 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25hCollecting seaborn&gt;=0.9.0 (from qiskit[visualization])
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.3.0)
+Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (4.55.3)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.4.7)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (24.2)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (3.2.1)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (6.5.2)
+Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.0-&gt;qiskit[visualization]) (1.17.0)
+Requirement already satisfied: pandas&gt;=1.2 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from seaborn&gt;=0.9.0-&gt;qiskit[visualization]) (2.2.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pbr&gt;=2.0.0 (from stevedore&gt;=3.0.0-&gt;qiskit[visualization])
+  Downloading pbr-6.1.0-py2.py3-none-any.whl.metadata (3.4 kB)
+Collecting mpmath&lt;1.4,&gt;=1.1.0 (from sympy&gt;=1.3-&gt;qiskit[visualization])
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: zipp&gt;=3.1.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib&gt;=3.3-&gt;qiskit[visualization]) (3.21.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2020.1 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from pandas&gt;=1.2-&gt;seaborn&gt;=0.9.0-&gt;qiskit[visualization]) (2024.2)
+Requirement already satisfied: tzdata&gt;=2022.7 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from pandas&gt;=1.2-&gt;seaborn&gt;=0.9.0-&gt;qiskit[visualization]) (2024.2)
+Downloading dill-0.3.9-py3-none-any.whl (119 kB)
+Downloading rustworkx-0.15.1-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.0/2.0 MB</span> <span class=" -Color -Color-Red">146.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading seaborn-0.13.2-py3-none-any.whl (294 kB)
+Downloading stevedore-5.4.0-py3-none-any.whl (49 kB)
+Downloading symengine-0.13.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (49.7 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/49.7 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green">36.2/49.7 MB</span> <span class=" -Color -Color-Red">181.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">49.7/49.7 MB</span> <span class=" -Color -Color-Red">134.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading sympy-1.13.3-py3-none-any.whl (6.2 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/6.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.2/6.2 MB</span> <span class=" -Color -Color-Red">182.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading pydot-3.0.4-py3-none-any.whl (35 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading qiskit-1.3.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.7 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/6.7 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.7/6.7 MB</span> <span class=" -Color -Color-Red">155.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/536.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">536.2/536.2 kB</span> <span class=" -Color -Color-Red">60.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading pbr-6.1.0-py2.py3-none-any.whl (108 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building wheels for collected packages: pylatexenc
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for pylatexenc (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25h  Created wheel for pylatexenc: filename=pylatexenc-2.10-py3-none-any.whl size=136834 sha256=485e035b0338bdb54a034d9db8707b51c721ba8957895137e8050717f5f09fed
+  Stored in directory: /home/runner/.cache/pip/wheels/a3/68/66/2f15abd0673d83c02f354115feedeb89c3daed2ac319b11090
+Successfully built pylatexenc
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pylatexenc, mpmath, sympy, symengine, rustworkx, pydot, pbr, dill, stevedore, seaborn, qiskit
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed dill-0.3.9 mpmath-1.3.0 pbr-6.1.0 pydot-3.0.4 pylatexenc-2.10 qiskit-1.3.1 rustworkx-0.15.1 seaborn-0.13.2 stevedore-5.4.0 symengine-0.13.0 sympy-1.13.3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting qutip
+  Downloading qutip-5.0.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.2 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.22 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qutip) (2.0.2)
+Requirement already satisfied: scipy&gt;=1.9 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qutip) (1.13.1)
+Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qutip) (24.2)
+Downloading qutip-5.0.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (24.5 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/24.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">24.4/24.5 MB</span> <span class=" -Color -Color-Red">157.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">24.5/24.5 MB</span> <span class=" -Color -Color-Red">117.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: qutip
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed qutip-5.0.4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting qiskit_aer
+  Downloading qiskit_aer-0.15.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.0 kB)
+Requirement already satisfied: qiskit&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit_aer) (1.3.1)
+Requirement already satisfied: numpy&gt;=1.16.3 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit_aer) (2.0.2)
+Requirement already satisfied: scipy&gt;=1.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit_aer) (1.13.1)
+Requirement already satisfied: psutil&gt;=5 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit_aer) (6.1.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: rustworkx&gt;=0.15.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.15.1)
+Requirement already satisfied: sympy&gt;=1.3 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (1.13.3)
+Requirement already satisfied: dill&gt;=0.3 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.3.9)
+Requirement already satisfied: python-dateutil&gt;=2.8.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (2.9.0.post0)
+Requirement already satisfied: stevedore&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (5.4.0)
+Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (4.12.2)
+Requirement already satisfied: symengine&lt;0.14,&gt;=0.11 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.13.0)
+Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.0-&gt;qiskit&gt;=1.1.0-&gt;qiskit_aer) (1.17.0)
+Requirement already satisfied: pbr&gt;=2.0.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from stevedore&gt;=3.0.0-&gt;qiskit&gt;=1.1.0-&gt;qiskit_aer) (6.1.0)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from sympy&gt;=1.3-&gt;qiskit&gt;=1.1.0-&gt;qiskit_aer) (1.3.0)
+Downloading qiskit_aer-0.15.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/12.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.3/12.3 MB</span> <span class=" -Color -Color-Red">114.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: qiskit_aer
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed qiskit_aer-0.15.1
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">qiskit</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">qutip</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qiskit</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">transpile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qiskit_aer</span><span class="w"> </span><span class="kn">import</span> <span class="n">AerSimulator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qiskit.visualization</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_histogram</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+  <span class="n">numQubits</span><span class="o">=</span><span class="n">circuit</span><span class="o">.</span><span class="n">num_qubits</span>
+  <span class="k">if</span> <span class="n">a</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+    <span class="n">numQubits</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">numQubits</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)</span>
+    <span class="n">initCircuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)</span>
+    <span class="n">initCircuit</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">=</span><span class="n">AddCircuits</span><span class="p">([</span><span class="n">initCircuit</span><span class="p">,</span><span class="n">circuit</span><span class="p">])</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">save_statevector</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;myStateVector&#39;</span><span class="p">)</span>
+  <span class="n">compiled_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">simulator</span><span class="p">)</span>
+  <span class="n">resultA</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">compiled_circuit</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+  <span class="n">forward</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">numQubits</span><span class="p">))</span>
+  <span class="n">reverse</span><span class="o">=</span><span class="n">forward</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">forward</span><span class="p">,</span><span class="n">reverse</span><span class="p">)</span>
+  <span class="n">compiled_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">simulator</span><span class="p">)</span>
+  <span class="n">resultB</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">compiled_circuit</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">resultA</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="s1">&#39;myStateVector&#39;</span><span class="p">],</span><span class="n">resultB</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">MakeState</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+  <span class="n">numWires</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">)))))</span>
+  <span class="n">qc1</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">numWires</span><span class="p">,</span><span class="n">numWires</span><span class="p">)</span>
+  <span class="n">qc1</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="n">a</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">qc1</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">a</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PrintDirac</span><span class="p">(</span><span class="n">out_state_a</span><span class="p">):</span>
+  <span class="n">out_state</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">out_state_a</span><span class="p">)</span>
+  <span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">out_state</span><span class="p">)</span>
+  <span class="n">num_qubits</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">out_state</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">l</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">out_state</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="mi">0</span><span class="p">):</span>
+      <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out_state</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;|&#39;</span><span class="o">+</span><span class="nb">bin</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">num_qubits</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39; + &#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PlotBloch</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">bb</span><span class="p">):</span>
+  <span class="n">vv</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="n">a</span><span class="o">=</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">b</span><span class="o">=</span><span class="n">vv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">b</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">b</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">a</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+  <span class="n">bb</span><span class="o">.</span><span class="n">add_vectors</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">])</span>
+  <span class="k">return</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PlotState</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">plotAll</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">myTitle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">plotAll</span><span class="p">:</span>
+    <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">//</span><span class="mi">2</span>
+  <span class="n">vv</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+  <span class="n">vv</span><span class="p">[:]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="p">]</span>
+  <span class="n">vv</span><span class="o">=</span><span class="n">vv</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">idx</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vv</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">idx</span><span class="p">)],[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">i</span><span class="p">)],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">idx</span><span class="p">)],[</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">i</span><span class="p">)],</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">idx</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vv</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">idx</span><span class="o">+</span><span class="mf">0.1</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mf">0.1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">i</span><span class="p">)],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">idx</span><span class="o">+</span><span class="mf">0.1</span><span class="p">],[</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">i</span><span class="p">)],</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+  <span class="n">avg</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">avg</span><span class="p">),</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">myTitle</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">AddCircuits</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">):</span>
+  <span class="n">numQubits</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">num_qubits</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">theCircuits</span><span class="p">])</span>
+  <span class="n">numQubits</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numQubits</span><span class="p">)</span>
+  <span class="n">circuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">numQubits</span><span class="p">,</span><span class="n">numQubits</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">)):</span>
+    <span class="n">circuit</span><span class="o">=</span><span class="n">circuit</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">qubits</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">theCircuits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)))</span>
+  <span class="k">return</span> <span class="n">circuit</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">Mark</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+  <span class="n">circuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+
+  <span class="n">myString</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">binary_repr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="n">N</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">myString</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">myString</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;0&#39;</span><span class="p">:</span>
+      <span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+  <span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">mcx</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;noancilla&#39;</span><span class="p">)</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">myString</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">myString</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;0&#39;</span><span class="p">:</span>
+      <span class="n">circuit</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">circuit</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">InitializeCircuitRandom</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+  <span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">N</span><span class="p">)</span>
+  <span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+  <span class="n">circuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+  <span class="k">return</span> <span class="n">circuit</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">InitializeCircuit</span><span class="p">(</span><span class="n">my_string</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+  <span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">my_string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+  <span class="k">return</span> <span class="n">circuit</span>
+
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">AerSimulator</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-1-a-single-qubit-33-points">
+<h2>Exercise 1: A Single Qubit (33 points)<a class="headerlink" href="#exercise-1-a-single-qubit-33-points" title="Link to this heading">#</a></h2>
+<section id="a-a-one-qubit-state">
+<h3>a. A one qubit state<a class="headerlink" href="#a-a-one-qubit-state" title="Link to this heading">#</a></h3>
+<p>A quantum state consists of a certain fraction of <span class="math notranslate nohighlight">\(|0\rangle\)</span> and a certain fraction of <span class="math notranslate nohighlight">\(|1\rangle\)</span> - i.e.  <span class="math notranslate nohighlight">\(\sqrt{0.3} |0\rangle - \sqrt{0.7} |1\rangle\)</span>.</p>
+<p>We can plot this state in a variety of ways.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">state</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.3</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.7</span><span class="p">)])</span>
+<span class="n">state</span><span class="o">=</span><span class="n">MakeState</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="n">PrintDirac</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="n">PlotState</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="n">b</span><span class="o">=</span><span class="n">qutip</span><span class="o">.</span><span class="n">Bloch</span><span class="p">()</span>
+<span class="n">PlotBloch</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Go ahead and try it out</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>Let’s go ahead and plot these three states</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(|0\rangle \equiv [1,0]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(|1\rangle \equiv [0,1]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(1/\sqrt{2} |0\rangle + 1/\sqrt{2} |1\rangle \equiv [1/\sqrt{2},1/\sqrt{2}]\)</span></p></li>
+</ul>
+<p>Pay special attention to where those three states are on the Bloch Sphere</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="b-one-qubit-gates">
+<h3>b. One qubit gates<a class="headerlink" href="#b-one-qubit-gates" title="Link to this heading">#</a></h3>
+<p>Quantum circuits are made out of quantum gates. Let us start by considering 1-qubit gates.  The 1-qubit gate rotates states around the Bloch sphere.  Three special gates are <code class="docutils literal notranslate"><span class="pre">rx</span></code>, <code class="docutils literal notranslate"><span class="pre">ry</span></code>, and <code class="docutils literal notranslate"><span class="pre">rz</span></code> which respectively rotate around the X, Y, and Z axis. These gates take an angle and a wire - i.e. <code class="docutils literal notranslate"><span class="pre">rx(1/3*np.pi,0)</span></code> will rotate <span class="math notranslate nohighlight">\(1/3 \pi\)</span> around the X axis.</p>
+<p>To set up your circuit you can do</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#Build your circuit here</span>
+<span class="n">state</span><span class="p">,</span><span class="n">measure</span> <span class="o">=</span> <span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span> <span class="c1">#&lt;--- This runs the circuit</span>
+<span class="c1"># now you can plot the circuit</span>
+</pre></div>
+</div>
+<p>Go ahead and figure out how to use <code class="docutils literal notranslate"><span class="pre">rx</span></code> gate to move from a <span class="math notranslate nohighlight">\(|0\rangle\)</span> to a <span class="math notranslate nohighlight">\(|1\rangle\)</span> state.</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Now we want to go ahead and use <code class="docutils literal notranslate"><span class="pre">ry</span></code> to go from <span class="math notranslate nohighlight">\(|0\rangle \rightarrow 1/\sqrt{2}|0\rangle + 1/\sqrt{2}|1\rangle\)</span>.  Write such a circuit.  Then check to see what your circuit does to the state <span class="math notranslate nohighlight">\(|1\rangle\)</span> (you can get this using your other circuit from above).</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>So far we’ve seen we can get half <span class="math notranslate nohighlight">\(|0\rangle\)</span> and half <span class="math notranslate nohighlight">\(|1\rangle\)</span>.  We can also adjust states to get more of <span class="math notranslate nohighlight">\(|1\rangle\)</span> then <span class="math notranslate nohighlight">\(|0\rangle\)</span> (or visa versa).  Generically we can get a state
+<span class="math notranslate nohighlight">\(\cos(\theta) |0\rangle + \sin(\theta) e^{i\phi} |1\rangle\)</span>.</p>
+<p>If we had such a state, after measurement we get “0” with probability <span class="math notranslate nohighlight">\(\cos^2\theta\)</span> and “1” with probability <span class="math notranslate nohighlight">\(\sin^2\theta\)</span>.<br />
+Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\theta =1\)</span> so we either get “0” or “1”.</p>
+<p>To produce this state with <span class="math notranslate nohighlight">\(\phi=0\)</span>, we can use the gate <code class="docutils literal notranslate"><span class="pre">qc.ry(2*theta,wire)</span></code> which takes <span class="math notranslate nohighlight">\(|0\rangle \rightarrow \cos \theta |0\rangle + \sin \theta |1\rangle\)</span></p>
+<p>Produce the state <span class="math notranslate nohighlight">\(\cos(0.5)|0\rangle + \sin(0.5)|1\rangle\)</span> and check to make sure it gives you the right amplitudes.</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>Now, make a circuit that rotates  <code class="docutils literal notranslate"><span class="pre">rx</span></code> and <code class="docutils literal notranslate"><span class="pre">rz</span></code> both by <span class="math notranslate nohighlight">\(0.3 \pi\)</span>.</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>Notice that by smartly choosing the angles around <code class="docutils literal notranslate"><span class="pre">rx</span></code> and <code class="docutils literal notranslate"><span class="pre">rz</span></code> and then <code class="docutils literal notranslate"><span class="pre">rx</span></code> again you can produce an arbitrary rotation on the sphere and therefore take <span class="math notranslate nohighlight">\(|0\rangle\)</span> and <span class="math notranslate nohighlight">\(|1\rangle\)</span> to any two orthogonal states.</p>
+</section>
+<section id="c-seeing-the-rotation">
+<h3>c.  Seeing the rotation<a class="headerlink" href="#c-seeing-the-rotation" title="Link to this heading">#</a></h3>
+<p>We would like to plot the rotation around the bloch sphere.  We can do this as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">=</span><span class="n">qutip</span><span class="o">.</span><span class="n">Bloch</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.1</span><span class="p">):</span>
+  <span class="n">quantumWires</span><span class="o">=</span><span class="mi">1</span>
+  <span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantumWires</span><span class="p">,</span><span class="n">quantumWires</span><span class="p">)</span>
+  <span class="c1"># rotate around the x-axis by angle theta</span>
+  <span class="n">vec</span><span class="p">,</span><span class="n">output</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span>
+  <span class="n">PlotBloch</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="d-measuring-the-state">
+<h3>d. Measuring the state<a class="headerlink" href="#d-measuring-the-state" title="Link to this heading">#</a></h3>
+<p>So far we’ve been cheating by looking at the quantum state. In the real world, you can’t do that.  Instead you have to measure at the end of your circuit.  The RunMe circuit returns two parameters.  The second one is measurement outcomes - i.e.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="p">,</span><span class="n">measure</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>can then plot the measurement outcomes by doing</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_histgoram</span><span class="p">(</span><span class="n">measure</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Go ahead and measure the outcomes of a state rotated around the X axis by <span class="math notranslate nohighlight">\(0.3\pi\)</span>. See that it gives you the expected raction of 0 and 1.  Remember that the probability should be equal to the amplitude squared.</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+</section>
+<section id="exercise-2-two-qubits-34-points">
+<h2>Exercise 2: Two qubits (34 points)<a class="headerlink" href="#exercise-2-two-qubits-34-points" title="Link to this heading">#</a></h2>
+<p>In this exercise we will see how to build quantum states of two qubits.</p>
+<section id="a-control-not-gates">
+<h3>a. Control-not gates<a class="headerlink" href="#a-control-not-gates" title="Link to this heading">#</a></h3>
+<p><em>The controlled-not gate:</em> The key gate for two qubits is the control-not gate (<code class="docutils literal notranslate"><span class="pre">circuit.cx(0,1)</span></code>).  The key gate “nots” the second wire (wire 1) if the first wire is “1” (wire 0).  Let’s check it out.  Apply the “control-not” to a state <span class="math notranslate nohighlight">\(|00\rangle\)</span> and to a state <span class="math notranslate nohighlight">\(|10\rangle\)</span> and print out the state (not the measurement outcome)</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="b-build-an-epr-pair">
+<h3>b.  Build an EPR Pair<a class="headerlink" href="#b-build-an-epr-pair" title="Link to this heading">#</a></h3>
+<p>The most interesting two qubit state is an EPR pair, <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}}\left(|00\rangle + |11\rangle\right)\)</span>.    You can build it with a Hadamard and a CNOT.  Go ahead and try different things and figure out how to build yourself an EPR pair.  You can start out with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quantumWires</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">classicalWires</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantumWires</span><span class="p">,</span><span class="n">classicalWires</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to start out a quantum circuit with two wires.  You can’t plot this on the bloch sphere but you can still plot it with <code class="docutils literal notranslate"><span class="pre">PlotState</span></code>.  =</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="c-measuring-epr-pairs">
+<h3>c. Measuring EPR Pairs<a class="headerlink" href="#c-measuring-epr-pairs" title="Link to this heading">#</a></h3>
+<p>Now that you’ve made an EPR pair, let’s go ahead and measure your EPR circuit above plotting the histogram of your measurements.</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>There is something very powerful here.  If you get a “0” on the top wire, then you always get a “0” on the bottom wire.  If you get a “1” on the top wire, then you get a “1” on bottom wire.  This is even the case if these wires are taken miles apart before you measure.</p>
+</section>
+</section>
+<section id="exercise-3-grover-s-algorithm">
+<h2>Exercise 3:  Grover’s Algorithm<a class="headerlink" href="#exercise-3-grover-s-algorithm" title="Link to this heading">#</a></h2>
+<p>In this exercise, we are going to implement Grover’s algorithm.  Grover’s algorithm takes a unitary which marks an element <span class="math notranslate nohighlight">\(i\)</span> and uses that as a subroutine with more circuit elements so that, after measurementt, you sample the marked element <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>To do this we are going to need to put together a lot of different circuit elements.  Let’s start with the unitary which does the marking which we will give you.  In this case it’s going to mark element 3 by taking it and changing its sign.  Go ahead and run this to see explicitly what it does.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Check Mark</span>
+<span class="n">circuit</span><span class="o">=</span><span class="n">InitializeCircuitRandom</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="n">myTitle</span><span class="o">=</span><span class="s2">&quot;Initial Random State&quot;</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">=</span><span class="n">Mark</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="n">myTitle</span><span class="o">=</span><span class="s2">&quot;Hopefully marked state&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><section id="a-control-control-control-z">
+<h3>a. Control-Control-Control Z<a class="headerlink" href="#a-control-control-control-z" title="Link to this heading">#</a></h3>
+<p>Define a function <code class="docutils literal notranslate"><span class="pre">controlZ(N)</span></code> which generates the control-control-control-control Z on <span class="math notranslate nohighlight">\(n\)</span> qubits.  The first <span class="math notranslate nohighlight">\(n-1\)</span> qubits are targets which have to be 1 for the last Z qubit to happen.</p>
+<p>This is an example for <code class="docutils literal notranslate"><span class="pre">controlZ(5)</span></code>.</p>
+<img src="https://clark.physics.illinois.edu/qcPics/controlZ.png" width="300">
+<p>You can get a control-control-control-control-x from qiskit by doing the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">.</span><span class="n">mcx</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;noancilla&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(N-1\)</span> is the numer of target wires.</p>
+<p>Test out your circuit by using the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">initCircuit</span><span class="o">=</span><span class="n">InitializeCircuit</span><span class="p">(</span><span class="s1">&#39;11110&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1">#initCircuit=InitializeCircuit(&#39;11010&#39;,5)</span>
+<span class="n">initCircuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">=</span><span class="n">AddCircuits</span><span class="p">([</span><span class="n">initCircuit</span><span class="p">,</span><span class="n">ControlZ</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<span class="n">PrintDirac</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should get something close to</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">0.7071067811865475</span><span class="o">+</span><span class="mf">8.659560562354932e-17</span><span class="n">j</span><span class="p">)</span><span class="o">|</span><span class="mi">11110</span><span class="o">&gt;</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.7071067811865476</span><span class="o">-</span><span class="mf">8.659560562354934e-17</span><span class="n">j</span><span class="p">)</span><span class="o">|</span><span class="mi">11111</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>and then if you comment out the second initialization with <code class="docutils literal notranslate"><span class="pre">11010</span></code> you will get</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">0.7071067811865476</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">|</span><span class="mi">11010</span><span class="o">&gt;</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.7071067811865475</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">|</span><span class="mi">11011</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="b-all-hadamards">
+<h3>b. All Hadamards<a class="headerlink" href="#b-all-hadamards" title="Link to this heading">#</a></h3>
+<p>Define a function <code class="docutils literal notranslate"><span class="pre">AllHadamard(n)</span></code> which builds <span class="math notranslate nohighlight">\(n\)</span> wires of Hadamards</p>
+<img src="https://clark.physics.illinois.edu/qcPics/allHadamard.png" width="100">
+<p>Check it by the following test:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">=</span><span class="n">AllHadamard</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and seeing that it produces a state which is uniform.  This is what we will use for the start of Grover’s algorithm.</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="c-flipallbutzero">
+<h3>c. FlipAllButZero<a class="headerlink" href="#c-flipallbutzero" title="Link to this heading">#</a></h3>
+<p>Define <code class="docutils literal notranslate"><span class="pre">FlipAllButZero(n)</span></code>. which should flip all but the zero configurations on <span class="math notranslate nohighlight">\(n\)</span> bits.  It will us <span class="math notranslate nohighlight">\(n+1\)</span> wires (you need an ancilla).  The example below is the output for FlipAllbutZero(4)</p>
+<img src="https://clark.physics.illinois.edu/qcPics/allZero.png" width="300">
+<p>You might want to add some circuits together.  To add these circuits you can do</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AddCircuits</span><span class="p">([</span><span class="n">circuit1</span><span class="p">,</span><span class="n">circuit2</span><span class="p">,</span><span class="n">circuit3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>You can test it your result by doing</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">=</span><span class="n">InitializeCircuitRandom</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="n">myTitle</span><span class="o">=</span><span class="s2">&quot;Initial State&quot;</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">=</span><span class="n">FlipAllButZero</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="n">myTitle</span><span class="o">=</span><span class="s2">&quot;Flipped Circuit&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should find that everything but the zero flipped.  It is ok if you are finding the zero flipped and nothing else.  Quantum states aren’t defined up to a global phase and so the flipping of everything is equivalent to doing nothing.</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="d-invert">
+<h3>d. Invert<a class="headerlink" href="#d-invert" title="Link to this heading">#</a></h3>
+<p>Define the <code class="docutils literal notranslate"><span class="pre">Invert(N)</span></code> function.  This will also be on <span class="math notranslate nohighlight">\(N+1\)</span> wires.  Here you need to add together the AllHadamard and FlipAllButZero and AllHadamard again.</p>
+<img src="https://clark.physics.illinois.edu/qcPics/invert.png" width="300">
+<p>You can test it in the following way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">=</span><span class="n">InitializeCircuitRandom</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">=</span><span class="n">Invert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will generate a random state and then invert it around the mean (shown in a blue dotted line).  Your mean before and after should be the same and everything else should flip around that dotted line.  (Also everything totally flipping is still allowed)</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="e-running-grover-s-algorithm">
+<h3>e. Running Grover’s Algorithm<a class="headerlink" href="#e-running-grover-s-algorithm" title="Link to this heading">#</a></h3>
+<p>Put everything together to run Grover’s algorithm.</p>
+<img src="https://clark.physics.illinois.edu/qcPics/Grovers.png" width="600">
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p><strong>Acknowledgement:</strong></p>
+<ul class="simple">
+<li><p>Bryan Clark (original)</p></li>
+</ul>
+<p>Copyright: 2025</p>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="FluidDynamics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fluid Dynamics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="QC2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Building a Physical Qubit</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-a-single-qubit-33-points">Exercise 1: A Single Qubit (33 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-a-one-qubit-state">a. A one qubit state</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-one-qubit-gates">b. One qubit gates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-seeing-the-rotation">c.  Seeing the rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-measuring-the-state">d. Measuring the state</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-two-qubits-34-points">Exercise 2: Two qubits (34 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-control-not-gates">a. Control-not gates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-build-an-epr-pair">b.  Build an EPR Pair</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-measuring-epr-pairs">c. Measuring EPR Pairs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-grover-s-algorithm">Exercise 3:  Grover’s Algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-control-control-control-z">a. Control-Control-Control Z</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-all-hadamards">b. All Hadamards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-flipallbutzero">c. FlipAllButZero</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-invert">d. Invert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-running-grover-s-algorithm">e. Running Grover’s Algorithm</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bryan Clark; George Gollin; Ryan Levy
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

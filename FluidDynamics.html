@@ -1,0 +1,1738 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Fluid Dynamics &#8212; Physics 246</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'FluidDynamics';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quantum Computing" href="QC1.html" />
+    <link rel="prev" title="Climate Dynamics" href="Climate.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/FD.png" class="logo__image only-light" alt="Physics 246 - Home"/>
+    <img src="_static/FD.png" class="logo__image only-dark pst-js-only" alt="Physics 246 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    An Introduction to Modern Computational Physics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="N_Ways_of_Measuring_PI.html">N ways to measure <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dynamics.html">Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OrbitalDynamics.html">Orbital Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exoplanets.html">Exoplanets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaos.html">Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParticlePhysics.html">Particle Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearningGalaxies.html">Classifying Galaxies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Random%20Walks.html">Random Walks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Markov%20Chains.html">Markov Chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Predator-Prey.html">Predator-Prey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Climate.html">Climate Dynamics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fluid Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QC1.html">Quantum Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QC2.html">Building a Physical Qubit</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/FluidDynamics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/FluidDynamics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fluid Dynamics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-warmup">Python Warmup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">Useful functions:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup-using-np-roll">Warmup - using <code class="docutils literal notranslate"><span class="pre">np.roll</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-fluid-dynamics">Exercise 1: Fluid Dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-making-some-obstacles">a.  Making some obstacles</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test">Test:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-microscopic-velocities-v-i">b.  Microscopic velocities <span class="math notranslate nohighlight">\(v_i\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Test:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-computing-macroscopic-quantities-from-the-microscopic-density">c. Computing macroscopic quantities from the microscopic density</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-np-einsum">optional - <code class="docutils literal notranslate"><span class="pre">np.einsum</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Test:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-getting-the-equilibrium-microscopic-densities">d. Getting the equilibrium microscopic densities.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Test:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-implementing-collision">d. Implementing collision</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Test:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-moving">e. Moving</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">Tests:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-boundary-conditions">f.  Boundary conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Test:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-setting-up-the-initial-conditions">g. Setting up the initial conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Test:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#h-putting-it-all-together">h. Putting it all together</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-animation">i. Animation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Answer:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#j-speed-test-ec">j. Speed Test (EC)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Answer:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-walls">Exercise 2: Walls</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Answer:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-something-new-ec">Exercise 3: Something new… (EC)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Answer:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div><img src="https://clark.physics.illinois.edu/246img/FD_intro.png" width=1000  alt="Answer (start)"></img><br></div>
+<section class="tex2jax_ignore mathjax_ignore" id="fluid-dynamics">
+<h1>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Author:</strong></p></li>
+<li><p><strong>Date:</strong></p></li>
+<li><p><strong>Time spent on this assignment:</strong></p></li>
+</ul>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">resetMe</span><span class="p">(</span><span class="n">keepList</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="n">keepList</span><span class="o">=</span><span class="n">keepList</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;resetMe&#39;</span><span class="p">,</span><span class="s1">&#39;np&#39;</span><span class="p">,</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span><span class="s1">&#39;math&#39;</span><span class="p">,</span><span class="s1">&#39;FuncAnimation&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;HTML&#39;</span><span class="p">,</span><span class="s1">&#39;itertools&#39;</span><span class="p">,</span><span class="s1">&#39;pickle&#39;</span><span class="p">,</span><span class="s1">&#39;testFunc&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">keepList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+            <span class="n">ll</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">iiii</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+        <span class="n">jjjj</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="o">+</span><span class="n">iiii</span><span class="o">+</span><span class="s2">&quot;$&quot;</span>
+        <span class="o">%</span><span class="k">reset_selective</span> -f {jjjj}
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="k">return</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">testFunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">inFiles</span><span class="p">,</span><span class="n">outFiles</span><span class="p">):</span>
+    <span class="n">inputs</span>  <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">inFiles</span><span class="p">]</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">outFiles</span><span class="p">]</span>
+    <span class="n">result</span>  <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">allGood</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="p">,)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">outputs</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="o">&gt;</span> <span class="mf">1e-14</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed test for&quot;</span><span class="p">,</span><span class="n">outFiles</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">i</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">outputs</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
+            <span class="n">allGood</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">allGood</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Passed!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>       <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Failed :(&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Download the test files here, or download from the website and upload &amp; unzip them to wherever this notebook file is</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span>https://courses.physics.illinois.edu/phys246/fa2020/code/TestFiles.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unzip<span class="w"> </span>TestFiles.zip
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2025-01-10 19:34:46--  https://courses.physics.illinois.edu/phys246/fa2020/code/TestFiles.zip
+Resolving courses.physics.illinois.edu (courses.physics.illinois.edu)... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>130.126.151.14
+Connecting to courses.physics.illinois.edu (courses.physics.illinois.edu)|130.126.151.14|:443... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
+Length: 53041362 (51M) [application/x-zip-compressed]
+Saving to: ‘TestFiles.zip’
+
+
+TestFiles.zip         0%[                    ]       0  --.-KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         0%[                    ] 160.00K   735KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         1%[                    ] 656.00K  1.48MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         4%[                    ]   2.09M  3.24MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        12%[=&gt;                  ]   6.45M  7.50MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        37%[======&gt;             ]  18.73M  17.5MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        69%[============&gt;       ]  34.97M  27.2MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip       100%[===================&gt;]  50.58M  34.6MB/s    in 1.5s    
+
+2025-01-10 19:34:47 (34.6 MB/s) - ‘TestFiles.zip’ saved [53041362/53041362]
+
+Archive:  TestFiles.zip
+  inflating: Microscopic_after_move.dat  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: Microscopic.dat         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: rho_after_Micro2Macro.dat  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: Microscopic_after_bounce.dat  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: Microscopic2.dat        
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: Microscopic_after_moveDensity.dat  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: Microscopic_after_boundary.dat  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: u_after_Micro2Macro.dat  
+  inflating: Microscopic_after_collision.dat  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: Microscopic_after_equilibrium.dat  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="python-warmup">
+<h2>Python Warmup<a class="headerlink" href="#python-warmup" title="Link to this heading">#</a></h2>
+<section id="useful-functions">
+<h3>Useful functions:<a class="headerlink" href="#useful-functions" title="Link to this heading">#</a></h3>
+<p>Before we begin, we want to highlight some functions that you may find useful in this assignment. The last one we’ll explore in more depth as well.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.zeros([dimensions])</span></code> - create an array filled with all zeros.
+*Ex: <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">np.zeros([9,10,10])</span></code> creates a (9,10,10) array of all zeros</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.ones([dimensions])</span></code> - same thing as <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> but with all ones.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.empty([dimensoons])</span></code> - same thing as <code class="docutils literal notranslate"><span class="pre">np,zeros</span></code> but fills array with garbage. Very fast compared to the above.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.roll(x,shift,axis)</span></code> - shift array <code class="docutils literal notranslate"><span class="pre">x</span></code> by <code class="docutils literal notranslate"><span class="pre">shift</span></code> along <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p></li>
+</ul>
+</section>
+<section id="warmup-using-np-roll">
+<h3>Warmup - using <code class="docutils literal notranslate"><span class="pre">np.roll</span></code><a class="headerlink" href="#warmup-using-np-roll" title="Link to this heading">#</a></h3>
+<p>Something we’ll see later in this assignment is the need to shift elements right,left,up,down, and diagonally. Let’s make a little test problem to illustrate how this works.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run me!</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11 12 13 14]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’ll want to shift every element in <code class="docutils literal notranslate"><span class="pre">x</span></code> to the right, where we wrap everything around the edge. Rather than figuring this out with a for loop, we’ll employ <code class="docutils literal notranslate"><span class="pre">np.roll</span></code> to do it fast!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11 12 13 14]] 
+
+[[ 4  0  1  2  3]
+ [ 9  5  6  7  8]
+ [14 10 11 12 13]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s disect that command. The first <code class="docutils literal notranslate"><span class="pre">(0,1)</span></code> means don’t shift the “y” direction, and to shift the “x” direction by +1. The next command <code class="docutils literal notranslate"><span class="pre">(0,1)</span></code> means to apply the shift to the two axes.<br />
+Now let’s go left:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11 12 13 14]] 
+
+[[ 1  2  3  4  0]
+ [ 6  7  8  9  5]
+ [11 12 13 14 10]]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>🦉 Now we’ll try to implement a section of the Cha-Cha Slide(<a class="reference external" href="https://genius.com/Dj-casper-cha-cha-slide-lyrics">Lyrics</a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>♫Now it&#39;s time to get funky
+To the right now, to the left
+Take it back now y&#39;all♪
+</pre></div>
+</div>
+<p>Make your <code class="docutils literal notranslate"><span class="pre">x</span></code> array go right, then left, then “down”. Your output should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span> <span class="mi">4</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">9</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">14</span> <span class="mi">10</span> <span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span><span class="p">]]</span>
+<span class="p">[[</span> <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span>  <span class="mi">5</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span> <span class="mi">14</span> <span class="mi">10</span><span class="p">]]</span>
+<span class="p">[[</span> <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">10</span> <span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span> <span class="mi">14</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>(Notice how down isn’t what you may expect…)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+<span class="c1">#!Stop</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 4  0  1  2  3]
+ [ 9  5  6  7  8]
+ [14 10 11 12 13]]
+[[ 1  2  3  4  0]
+ [ 6  7  8  9  5]
+ [11 12 13 14 10]]
+[[ 5  6  7  8  9]
+ [10 11 12 13 14]
+ [ 0  1  2  3  4]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>🦉In a special version of the song, the next line goes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>♫ Take it diagonally up and to the right now y&#39;all
+</pre></div>
+</div>
+<p>Implement this array move, you should get:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">14</span> <span class="mi">10</span> <span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">4</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mi">9</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span> <span class="c1">#!#</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[14 10 11 12 13]
+ [ 4  0  1  2  3]
+ [ 9  5  6  7  8]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now you’re a ~~Cha-Cha Slide~~ <code class="docutils literal notranslate"><span class="pre">np.roll</span></code> master!</p>
+</section>
+</section>
+<section id="exercise-1-fluid-dynamics">
+<h2>Exercise 1: Fluid Dynamics<a class="headerlink" href="#exercise-1-fluid-dynamics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<p>In this assignment you will produce a fluid dynamics simulations.  We are going to develop a number of functions which you will store in the cell below (as well as some global variables that we will use throughout this exercise).</p>
+<p>The global variables are</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">=</span><span class="mi">520</span><span class="p">;</span> <span class="n">ny</span><span class="o">=</span><span class="mi">180</span> <span class="c1">#size of our simulation</span>
+</pre></div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><div class="alert alert-danger" style="color:black">
+<p>If you have a function that takes in an array <code>n</code>, always make a new variable to return:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">doMath</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># nout = n.copy() #notice the .copy(), so that they aren&#39;t the same object</span>
+    <span class="n">nout</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">5</span>
+    <span class="k">return</span> <span class="n">nout</span>
+</pre></div>
+</div>
+</div><section id="a-making-some-obstacles">
+<h3>a.  Making some obstacles<a class="headerlink" href="#a-making-some-obstacles" title="Link to this heading">#</a></h3>
+<p>To simulate the real world on the computer, we’ll break the tunnel into <span class="math notranslate nohighlight">\(n_x\times n_y\)</span> squares which we’ll call <em>voxels</em>.</p>
+<p>Your simulation will be doing fluid dynamics in a <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> “tunnel” which has some objects within it.  These objects will be represented by a boolean <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> size array <code class="docutils literal notranslate"><span class="pre">obstacle=np.empty((nx,ny),dtype='bool')</span></code> which should be <code class="docutils literal notranslate"><span class="pre">True</span></code> where the obstacle is and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. For example,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">obstacle</span><span class="p">[:,:]</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">obstacle</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">70</span><span class="p">,</span><span class="mi">50</span><span class="p">:</span><span class="mi">70</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
+</pre></div>
+</div>
+<p>would set up a square <span class="math notranslate nohighlight">\(20 \times 20\)</span> object inside our tunnel.</p>
+<p>🦉Add a <code class="docutils literal notranslate"><span class="pre">GenerateCylinderObstacle()</span></code>  function to the “function-cell” above which generates a object which is a cylinder located at <span class="math notranslate nohighlight">\((n_x/4,n_y/2)\)</span> with a radius of <span class="math notranslate nohighlight">\(n_y/9\)</span></p>
+<p>If you do <code class="docutils literal notranslate"><span class="pre">plt.matshow(GenerateCylinderObstacle())</span></code> it should look like this</p>
+<div><img src="https://clark.physics.illinois.edu/246img/FDObstacle.png" width=600 alt="Answer (start)"></img><br></div><div class="alert alert-warning" style="color:black">
+<b>Do not use the word <code>object</code> as a variable!</b> <br />Notice how <code>object</code> is green in a cell - this means it is a special keyword.<br /> 
+</div><section id="test">
+<h4>Test:<a class="headerlink" href="#test" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Call your function here to see if if works. </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">GenerateCylinderObstacle</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cool Name plot&quot;</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&quot;images/object.png&quot;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+            
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">## Call your function here to see if if works. </span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">GenerateCylinderObstacle</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cool Name plot&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#plt.savefig(&quot;images/object.png&quot;)</span>
+
+<span class="ne">NameError</span>: name &#39;GenerateCylinderObstacle&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+<section id="b-microscopic-velocities-v-i">
+<h2>b.  Microscopic velocities <span class="math notranslate nohighlight">\(v_i\)</span><a class="headerlink" href="#b-microscopic-velocities-v-i" title="Link to this heading">#</a></h2>
+<p>To simulate the real world on the computer, we’ll break the tunnel into <span class="math notranslate nohighlight">\(n_x\times n_y\)</span> squares which we’ll call <em>voxels</em>.</p>
+<p>The key quantity in your simulation is  nine microscopic degrees of freedom</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n_k(i,j)\)</span> where <span class="math notranslate nohighlight">\(0\leq k \leq 8\)</span> and <span class="math notranslate nohighlight">\((i,j)\)</span> are over the <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> voxels of your simulation</p></li>
+</ul>
+<p>which are going to be nine different densities (for each voxel <span class="math notranslate nohighlight">\((i,j)\)</span>) which correspond to the density of a fluid at <span class="math notranslate nohighlight">\((i,j)\)</span> moving in nine different directions (or velocities <span class="math notranslate nohighlight">\(v_k\)</span>):</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n_0\)</span>: stationary fluid moving at velocity <span class="math notranslate nohighlight">\(v_0=(0,0)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n_1\)</span>: fluid moving up moving at velocity <span class="math notranslate nohighlight">\(v_1=(0,1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n_2\)</span>: fluid moving down at velocity <span class="math notranslate nohighlight">\(v_2=(0,-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n_3\)</span>: fluid moving right at velocity <span class="math notranslate nohighlight">\(v_3=(1,0)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n_4\)</span>: fluid moving left at velocity <span class="math notranslate nohighlight">\(v_4=(-1,0)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n_5\)</span>: fluid moving left-down at velocity <span class="math notranslate nohighlight">\(v_5=(-1,-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n_6\)</span>: fluid moving left-up at velocity <span class="math notranslate nohighlight">\(v_6=(-1,1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n_7\)</span>: fluid moving right-down at velocity <span class="math notranslate nohighlight">\(v_7=(1,-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n_8\)</span>: fluid moving right-up at velocity <span class="math notranslate nohighlight">\(v_8=(1,1)\)</span></p></li>
+</ul>
+<p>It will be useful to have access to these microscopic velocities as global variables.  🦉<strong>Go ahead and add to the top of your “function-cell” the various velocities:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p><strong>Plot these (below) as</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>and make sure it looks like</p>
+<div><img src="https://clark.physics.illinois.edu/246img/FD_direction.png" width=300 alt="Answer (start)"></img><br></div>
+<section id="id1">
+<h3>Test:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plot your microscopic velocities</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&quot;images/densityDirection.png&quot;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">4062129112.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.2</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;v&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>We will represent the microscopic densities by a variable</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n=np.zeros(9,nx,ny)</span></code></p></li>
+</ul>
+<p>The high level algorithm for fluid dynamics is very simple.  After setting up the initial conditions, we loop many times doing</p>
+<ul class="simple">
+<li><p>Adjust boundary conditions</p></li>
+<li><p>Collide the microscopic densities</p></li>
+<li><p>Move the microscopic densities</p></li>
+</ul>
+</section>
+<section id="c-computing-macroscopic-quantities-from-the-microscopic-density">
+<h3>c. Computing macroscopic quantities from the microscopic density<a class="headerlink" href="#c-computing-macroscopic-quantities-from-the-microscopic-density" title="Link to this heading">#</a></h3>
+<p>Given the microscopic densities, there are two macroscopic quanties:</p>
+<ul class="simple">
+<li><p>the macroscopic density <span class="math notranslate nohighlight">\(\rho(i,j)=\sum_k n_k\)</span> (<em>size: <span class="math notranslate nohighlight">\(n_x \times n_y\)</span></em>)</p></li>
+<li><p>the macroscopic velocity <span class="math notranslate nohighlight">\(\vec{u}(i,j) \equiv (u_x(i,j),u_y(i,j))\)</span> (<em>size: <span class="math notranslate nohighlight">\(2 \times n_x \times n_y\)</span></em>) where</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(u_x(i,j) = 1/\rho \sum_k v_{k,x} n_k(i,j)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(u_y(i,j) = 1/\rho \sum_k v_{k,y} n_k(i,j)\)</span></p></li>
+</ul>
+</li>
+</ul>
+<p>which you will compute using the function (you will write) <code class="docutils literal notranslate"><span class="pre">(rho,u)</span> <span class="pre">=</span> <span class="pre">Micro2Macro(n)</span></code></p>
+<p>🦉Go ahead and write this function and add it to your ‘function-cell’</p>
+<p>You can test it using these lines of code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="n">Micro2Macro</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;rho_after_Micro2Macro.dat&quot;</span><span class="p">,</span><span class="s2">&quot;u_after_Micro2Macro.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>and see if it print two zeros (which is a success!)</p>
+<p><strong>Tip:</strong> Because <code class="docutils literal notranslate"><span class="pre">u</span></code> is <span class="math notranslate nohighlight">\((2,n_x,n_y)\)</span>, we can get <code class="docutils literal notranslate"><span class="pre">ux</span></code> by doing <code class="docutils literal notranslate"><span class="pre">u[0]</span></code> (which is then a <span class="math notranslate nohighlight">\((n_x,n_y)\)</span> array) and <code class="docutils literal notranslate"><span class="pre">uy</span></code> by doing <code class="docutils literal notranslate"><span class="pre">u[1]</span></code>.</p>
+<section id="optional-np-einsum">
+<h4>optional - <code class="docutils literal notranslate"><span class="pre">np.einsum</span></code><a class="headerlink" href="#optional-np-einsum" title="Link to this heading">#</a></h4>
+<p>Figuring out the summations effeciently can be a pain, but we can use <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.einsum.html"><code class="docutils literal notranslate"><span class="pre">np.einsum</span></code></a> help out here. Figure out how to rewrite the above problem with einstein summation notation. To use the function, if we have
+$<span class="math notranslate nohighlight">\(
+A_{ijk}\cdot B_{dk} = C_{ijd},
+\)</span>$
+we’d use then call:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;ijk,dk-&gt;ijd&quot;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h4>Test:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
+<span class="c1">#import pickle</span>
+<span class="c1">#np.random.seed(30)</span>
+<span class="c1">#microscopicDensity=np.random.random((9,nx,ny))</span>
+<span class="c1">#pickle.dump( microscopicDensity, open( &quot;Microscopic.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">#(rho,u)=Micro2Macro(microscopicDensity)</span>
+<span class="c1">#pickle.dump( rho, open( &quot;rho_after_Micro2Macro.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">#pickle.dump( u, open( &quot;u_after_Micro2Macro.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">#!Stop</span>
+<span class="n">testFunc</span><span class="p">(</span><span class="n">Micro2Macro</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;rho_after_Micro2Macro.dat&quot;</span><span class="p">,</span><span class="s2">&quot;u_after_Micro2Macro.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">2093376147.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">#pickle.dump( u, open( &quot;u_after_Micro2Macro.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#!Stop</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">testFunc</span><span class="p">(</span><span class="n">Micro2Macro</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;rho_after_Micro2Macro.dat&quot;</span><span class="p">,</span><span class="s2">&quot;u_after_Micro2Macro.dat&quot;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;Micro2Macro&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="d-getting-the-equilibrium-microscopic-densities">
+<h3>d. Getting the equilibrium microscopic densities.<a class="headerlink" href="#d-getting-the-equilibrium-microscopic-densities" title="Link to this heading">#</a></h3>
+<p>Given the macroscopic densities <span class="math notranslate nohighlight">\(\rho\)</span> and <span class="math notranslate nohighlight">\(\vec{u}\)</span>, there is a <em>equilibrium</em> microscopic densities <span class="math notranslate nohighlight">\(n_{eq}\)</span> (<em>size: <span class="math notranslate nohighlight">\(9 \times n_x \times n_y\)</span></em>) which you will compute using <code class="docutils literal notranslate"><span class="pre">n_eq=Macro2Equilibrium(rho,u)</span></code></p>
+<p>The relevant formula for this is</p>
+<div class="math notranslate nohighlight">
+\[ n^{eq}(v_k) \equiv n_k^{eq} =  \omega_k \rho \left(1 + 3 \vec{v_k} \cdot \vec{u} + \frac{9}{2}(\vec{v_k} \cdot \vec{u})^2- \frac{3}{2}(\vec{u}\cdot \vec{u}) \right)  \tag{A} \]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega_{0}=4/9\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_{1-4}=1/9\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_{5-8}=1/36\)</span></p></li>
+</ul>
+<p>Given some microscopic densities <span class="math notranslate nohighlight">\(n\)</span> you should be able then to figure out the equilibrium microscopic densities <span class="math notranslate nohighlight">\(n_{eq}\)</span>.</p>
+<p>🦉Write the functions <code class="docutils literal notranslate"><span class="pre">Macro2Equilibrium</span></code> adding them to your “function-cell”</p>
+<p>You can test it by checking if</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="n">Macro2Equilibrium</span><span class="p">,[</span><span class="s2">&quot;rho_after_Micro2Macro.dat&quot;</span><span class="p">,</span><span class="s2">&quot;u_after_Micro2Macro.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_equilibrium.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>is equal to zero.</p>
+<section id="id3">
+<h4>Test:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pickle.dump( microscopicDensity, open( &quot;Microscopic_after_equilibrium.dat&quot;, &quot;wb&quot; ) ) #!#</span>
+<span class="n">testFunc</span><span class="p">(</span><span class="n">Macro2Equilibrium</span><span class="p">,[</span><span class="s2">&quot;rho_after_Micro2Macro.dat&quot;</span><span class="p">,</span><span class="s2">&quot;u_after_Micro2Macro.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_equilibrium.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">2887498537.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#pickle.dump( microscopicDensity, open( &quot;Microscopic_after_equilibrium.dat&quot;, &quot;wb&quot; ) ) #!#</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">testFunc</span><span class="p">(</span><span class="n">Macro2Equilibrium</span><span class="p">,[</span><span class="s2">&quot;rho_after_Micro2Macro.dat&quot;</span><span class="p">,</span><span class="s2">&quot;u_after_Micro2Macro.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_equilibrium.dat&quot;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;Macro2Equilibrium&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="d-implementing-collision">
+<h3>d. Implementing collision<a class="headerlink" href="#d-implementing-collision" title="Link to this heading">#</a></h3>
+<p>Once you can compute these quantities, the next step is to implement the collision step.</p>
+<p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">Collision(n,obstacle)</span></code> which returns the density <code class="docutils literal notranslate"><span class="pre">n</span></code> after collision.  Put it in your function-cell above.</p>
+<p>When we collide the microscopic densities, we get new microscopic densities given as</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nout</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">(1-omega)</span> <span class="pre">+</span> <span class="pre">omega</span> <span class="pre">*</span> <span class="pre">neq</span></code></p></li>
+</ul>
+<p>Here are the steps for the function: <span class="math notranslate nohighlight">\(\phantom{}\)</span></p>
+<ol class="arabic simple">
+<li><p>Calculate <code class="docutils literal notranslate"><span class="pre">neq</span></code><br />
+a. take the microscopic densities <span class="math notranslate nohighlight">\(\rightarrow\)</span> compute the macroscopic density and velocity <code class="docutils literal notranslate"><span class="pre">(rho,u)</span> <span class="pre">=</span> <span class="pre">Micro2Macro(n)</span></code><br />
+b. take the macroscopic density and velocity <span class="math notranslate nohighlight">\(\rightarrow\)</span> compute the equilibrium microscopic densities <code class="docutils literal notranslate"><span class="pre">neq=Macro2Equilibrium(rho,u)</span></code></p></li>
+<li><p>Calculate <code class="docutils literal notranslate"><span class="pre">nout</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">(1-omega)</span> <span class="pre">+</span> <span class="pre">omega</span> <span class="pre">*</span> <span class="pre">neq</span></code><br />
+a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity parameter.  We will use <span class="math notranslate nohighlight">\(\omega =1.9572953736654806\)</span></p></li>
+<li><p>We moved fluid where the obstacle is, so we need to undo this. Reset all <code class="docutils literal notranslate"><span class="pre">nout</span></code> where the obstacle is to be the same as <code class="docutils literal notranslate"><span class="pre">n</span></code></p></li>
+</ol>
+<p>Test with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Collision</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_collision.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<section id="id4">
+<h4>Test:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pickle.dump( Collision(microscopicDensity,GenerateCylinderObstacle()), open( &quot;Microscopic_after_collision.dat&quot;, &quot;wb&quot; ) ) #!#</span>
+
+<span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Collision</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_collision.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">727106097.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#pickle.dump( Collision(microscopicDensity,GenerateCylinderObstacle()), open( &quot;Microscopic_after_collision.dat&quot;, &quot;wb&quot; ) ) #!#</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Collision</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_collision.dat&quot;</span><span class="p">])</span>
+
+<span class="nn">/var/folders/5z/1xxxzf610_7gxv7scl0v99240000gn/T/ipykernel_1449/3739739110.py</span> in <span class="ni">testFunc</span><span class="nt">(func, inFiles, outFiles)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">def</span><span class="w"> </span><span class="nf">testFunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">inFiles</span><span class="p">,</span><span class="n">outFiles</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">22</span>     <span class="n">inputs</span>  <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">inFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">outFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">result</span>  <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="nn">/var/folders/5z/1xxxzf610_7gxv7scl0v99240000gn/T/ipykernel_1449/3739739110.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">def</span><span class="w"> </span><span class="nf">testFunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">inFiles</span><span class="p">,</span><span class="n">outFiles</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">22</span>     <span class="n">inputs</span>  <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">inFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">outFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">result</span>  <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;Microscopic.dat&#39;
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="e-moving">
+<h3>e. Moving<a class="headerlink" href="#e-moving" title="Link to this heading">#</a></h3>
+<p>We’ll now move on to getting the fluid to move. This will be a function called, surprise, <code class="docutils literal notranslate"><span class="pre">Move(n,obstacle)</span></code>. But first we need to helper functions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Bounce(n,obstacle)</span></code></p>
+<ul>
+<li><p>bounce the velocities - that is every velocity where the obstacle is gets reversed</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MoveDensity(n)</span></code></p>
+<ul>
+<li><p>Move all your densities in the direction of the velocity (<em>hint</em> the velocity tells you where to move it)</p></li>
+<li><p>Assume periodic boundary conditions here</p></li>
+</ul>
+</li>
+</ul>
+<p>Thus a <code class="docutils literal notranslate"><span class="pre">Move(n,obstacle)</span></code> call is just a <code class="docutils literal notranslate"><span class="pre">Bounce</span></code> then <code class="docutils literal notranslate"><span class="pre">MoveDensity</span></code>. 🦉Write this function and test!</p>
+<p>Test:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Bounce</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_bounce.dat&quot;</span><span class="p">])</span>
+
+<span class="n">testFunc</span><span class="p">(</span><span class="n">MoveDensity</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_moveDensity.dat&quot;</span><span class="p">])</span>
+
+<span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_move.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<section id="tests">
+<h4>Tests:<a class="headerlink" href="#tests" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
+<span class="c1">#pickle.dump( MoveDensity(microscopicDensity), open( &quot;Microscopic_after_moveDensity.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">##pickle.dump( MoveDensity(microscopicDensity,GenerateCylinderObstacle()), open( &quot;Microscopic_after_collision.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">##print(np.max(np.abs(Collision(microscopicDensity,GenerateCylinderObstacle())-pickle.load( open( &quot;Microscopic_after_collision.dat&quot;, &quot;rb&quot; ) ))))</span>
+<span class="c1">#microscopicDensity=pickle.load( open( &quot;Microscopic.dat&quot;, &quot;rb&quot; ) )</span>
+<span class="c1">#pickle.dump( Bounce(microscopicDensity,GenerateCylinderObstacle()), open( &quot;Microscopic_after_bounce.dat&quot;, &quot;wb&quot; ))</span>
+<span class="c1">#microscopicDensity=pickle.load( open( &quot;Microscopic.dat&quot;, &quot;rb&quot; ) )</span>
+<span class="c1">#pickle.dump( Move(microscopicDensity,GenerateCylinderObstacle()), open( &quot;Microscopic_after_move.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">#!Stop</span>
+
+<span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Bounce</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_bounce.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">1549029420.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#!Stop</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Bounce</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_bounce.dat&quot;</span><span class="p">])</span>
+
+<span class="nn">/var/folders/5z/1xxxzf610_7gxv7scl0v99240000gn/T/ipykernel_1449/3739739110.py</span> in <span class="ni">testFunc</span><span class="nt">(func, inFiles, outFiles)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">def</span><span class="w"> </span><span class="nf">testFunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">inFiles</span><span class="p">,</span><span class="n">outFiles</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">22</span>     <span class="n">inputs</span>  <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">inFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">outFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">result</span>  <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="nn">/var/folders/5z/1xxxzf610_7gxv7scl0v99240000gn/T/ipykernel_1449/3739739110.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">def</span><span class="w"> </span><span class="nf">testFunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">inFiles</span><span class="p">,</span><span class="n">outFiles</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">22</span>     <span class="n">inputs</span>  <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">inFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">outFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">result</span>  <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;Microscopic.dat&#39;
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="n">MoveDensity</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_moveDensity.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">3243438587.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">testFunc</span><span class="p">(</span><span class="n">MoveDensity</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_moveDensity.dat&quot;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;MoveDensity&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_move.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">1149084007.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_move.dat&quot;</span><span class="p">])</span>
+
+<span class="nn">/var/folders/5z/1xxxzf610_7gxv7scl0v99240000gn/T/ipykernel_1449/3739739110.py</span> in <span class="ni">testFunc</span><span class="nt">(func, inFiles, outFiles)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">def</span><span class="w"> </span><span class="nf">testFunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">inFiles</span><span class="p">,</span><span class="n">outFiles</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">22</span>     <span class="n">inputs</span>  <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">inFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">outFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">result</span>  <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="nn">/var/folders/5z/1xxxzf610_7gxv7scl0v99240000gn/T/ipykernel_1449/3739739110.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">def</span><span class="w"> </span><span class="nf">testFunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">inFiles</span><span class="p">,</span><span class="n">outFiles</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">22</span>     <span class="n">inputs</span>  <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">inFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">outFiles</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">result</span>  <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;Microscopic.dat&#39;
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="f-boundary-conditions">
+<h3>f.  Boundary conditions<a class="headerlink" href="#f-boundary-conditions" title="Link to this heading">#</a></h3>
+<p>In the y-direction, we are just going to assume that the boundary conditions are periodic. For the x-direction, we are going to assign certain boundary conditions on the left and right.</p>
+<p>Let’s call this function <code class="docutils literal notranslate"><span class="pre">FixBoundary(n,n_init)</span></code> which applies these boundary conditions and returns the new density <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p><strong>Left:</strong> we are going to assume that there is a flow - this means that the microscopic densities are the same at each step.  Therefore, what we should do is simply replace the current densities on the left-most row with the initial microscopic densities (<code class="docutils literal notranslate"><span class="pre">n_init</span></code>).</p>
+<p><strong>Right:</strong> we are going to assume that the gradient is zero - i.e. the important physics has dissapeared by this point.  To do this, we will set</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop over all microscopic velocities vL that are going left </span>
+   <span class="n">nout</span><span class="p">[</span><span class="n">vL</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">nout</span><span class="p">[</span><span class="n">vL</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,:]</span> 
+</pre></div>
+</div>
+<p><em>Hint:</em> there are 3 <code class="docutils literal notranslate"><span class="pre">vL</span></code>s.</p>
+<p>🦉Put all of this together and run the next test!</p>
+<p>Testing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="n">FixBoundary</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">,</span><span class="s2">&quot;Microscopic2.dat&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Microscopic_after_boundary.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<section id="id5">
+<h4>Test:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
+<span class="c1">#microscopicDensity2=np.random.random((9,nx,ny))</span>
+<span class="c1">#pickle.dump(microscopicDensity2,open( &quot;Microscopic2.dat&quot;,&quot;wb&quot;))</span>
+<span class="c1">#pickle.dump( FixBoundary(microscopicDensity,microscopicDensity2), open( &quot;Microscopic_after_boundary.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">#!Stop</span>
+<span class="n">testFunc</span><span class="p">(</span><span class="n">FixBoundary</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">,</span><span class="s2">&quot;Microscopic2.dat&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Microscopic_after_boundary.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">239426050.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#pickle.dump( FixBoundary(microscopicDensity,microscopicDensity2), open( &quot;Microscopic_after_boundary.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#!Stop</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">testFunc</span><span class="p">(</span><span class="n">FixBoundary</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">,</span><span class="s2">&quot;Microscopic2.dat&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Microscopic_after_boundary.dat&quot;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;FixBoundary&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="g-setting-up-the-initial-conditions">
+<h3>g. Setting up the initial conditions<a class="headerlink" href="#g-setting-up-the-initial-conditions" title="Link to this heading">#</a></h3>
+<p>We need to generate an initial conditions. The way that we are going to do that is</p>
+<ul class="simple">
+<li><p>pick some macroscopic density <span class="math notranslate nohighlight">\(\rho\)</span> of size <span class="math notranslate nohighlight">\((n_x,n_y)\)</span> (uniformly equal to 1.0) and a</p></li>
+<li><p>macroscopic velocity <span class="math notranslate nohighlight">\(\vec{u}(i,j)\)</span> (sizes <span class="math notranslate nohighlight">\((2,n_x,n_y)\)</span>)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0.04*(1.0+1e-4*np.sin(y/(ny)*2*np.pi))</span></code> in the x-direction (aka 0). This introduces a very tiny anisotropy to the system.</p></li>
+<li><p>zero in the y-direction (aka 1)</p></li>
+</ul>
+</li>
+<li><p>compute the equilibrium density <span class="math notranslate nohighlight">\(n_{eq}\)</span> associated with the initial density and velocities.<br />
+<strong>Use (and return) this as the initial conditions</strong></p></li>
+</ul>
+<p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">Setup()</span></code> which returns the initial microscopic densities.  Remember to save this as you will need it to apply your boundary conditions.</p>
+<p>I get the following when I visualize it as <code class="docutils literal notranslate"><span class="pre">plt.matshow(Setup()[3].transpose())</span></code></p>
+<div><img src="https://clark.physics.illinois.edu/246img/FD_initialCondition.png" width=800  alt="Answer (start)"></img><br></div>
+<p>A quick test here is just to check that the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All good?&quot;</span><span class="p">,(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.443377991</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)</span> <span class="ow">and</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.0245774711</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)))</span>
+</pre></div>
+</div>
+<section id="id6">
+<h4>Test:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All good?&quot;</span><span class="p">,(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.443377991</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)</span> <span class="ow">and</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.0245774711</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">4075721444.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All good?&quot;</span><span class="p">,(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.443377991</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)</span> <span class="ow">and</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.0245774711</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)))</span>
+
+<span class="ne">NameError</span>: name &#39;Setup&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="h-putting-it-all-together">
+<h3>h. Putting it all together<a class="headerlink" href="#h-putting-it-all-together" title="Link to this heading">#</a></h3>
+<p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">Run(steps,record,n,n_init,obstacle)</span></code> (up in your function-cell) which takes</p>
+<ul class="simple">
+<li><p>the number of steps <code class="docutils literal notranslate"><span class="pre">steps</span></code> you want to run</p></li>
+<li><p>how often you want to <code class="docutils literal notranslate"><span class="pre">record</span></code> the velocity and density</p></li>
+<li><p>the microscopic densities <code class="docutils literal notranslate"><span class="pre">n</span></code> to start running from</p></li>
+<li><p>as well as the initial microscopic densities <code class="docutils literal notranslate"><span class="pre">n_init</span></code> for the boundary conditions (often equal to <code class="docutils literal notranslate"><span class="pre">n.copy()</span></code>)</p></li>
+<li><p>and the obstacle boolean array.</p></li>
+</ul>
+<p>Each step consists of:</p>
+<ol class="arabic simple">
+<li><p>Adjust boundary conditions</p></li>
+<li><p>Collide the microscopic densities</p></li>
+<li><p>Move the microscopic densities</p></li>
+</ol>
+<p>It should return</p>
+<ul class="simple">
+<li><p>a list of macroscopic densities <code class="docutils literal notranslate"><span class="pre">rhos</span></code></p></li>
+<li><p>a list of macroscopic velocities <code class="docutils literal notranslate"><span class="pre">us</span></code></p>
+<ul>
+<li><p>This will be <code class="docutils literal notranslate"><span class="pre">u2=</span></code><span class="math notranslate nohighlight">\(\sqrt{\vec{u}\cdot\vec{u}}\)</span></p></li>
+<li><p>To help us later, store these as <code class="docutils literal notranslate"><span class="pre">u2.transpose()</span></code></p></li>
+</ul>
+</li>
+<li><p>the last microscopic density <code class="docutils literal notranslate"><span class="pre">n</span></code></p></li>
+</ul>
+<p>Now (below) call your <code class="docutils literal notranslate"><span class="pre">Setup</span></code> and <code class="docutils literal notranslate"><span class="pre">Run</span></code> functions. Then plot the final configuration (something like <code class="docutils literal notranslate"><span class="pre">plt.matshow(us[-1])</span></code>).</p>
+<p>🦉Run for 2001 steps recording every 100 steps.</p>
+<section id="answer">
+<h4>Answer:<a class="headerlink" href="#answer" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
+<span class="n">fin</span><span class="o">=</span><span class="n">Setup</span><span class="p">()</span>
+<span class="n">feq_init</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">obstacle</span><span class="o">=</span><span class="n">GenerateCylinderObstacle</span><span class="p">()</span>
+<span class="c1">#!Stop</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">1772239070.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#!Start</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">fin</span><span class="o">=</span><span class="n">Setup</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">feq_init</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">obstacle</span><span class="o">=</span><span class="n">GenerateCylinderObstacle</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#!Stop</span>
+
+<span class="ne">NameError</span>: name &#39;Setup&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
+<span class="n">fins</span><span class="o">=</span><span class="n">rhos</span><span class="o">=</span><span class="n">us</span><span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">21</span>
+<span class="n">fins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
+    <span class="o">%</span><span class="k">time</span> (rhos[i],us[i],fins[i+1])=Run(2001,100,fins[i],feq_init,obstacle)
+<span class="c1">#!Stop</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">104084777.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#!Start</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fins</span><span class="o">=</span><span class="n">rhos</span><span class="o">=</span><span class="n">us</span><span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">21</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">fins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;(rhos[i],us[i],fins[i+1])=Run(2000,100,fins[i],feq_init,obstacle)&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;fin&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="i-animation">
+<h3>i. Animation<a class="headerlink" href="#i-animation" title="Link to this heading">#</a></h3>
+<p>🦉Now write a function <code class="docutils literal notranslate"><span class="pre">AnimateMe(us_flat,vMax)</span></code> which is going to take a list of velocities <code class="docutils literal notranslate"><span class="pre">us_flat</span></code> (and maximum for the <code class="docutils literal notranslate"><span class="pre">vMax</span></code>) and going to return an animation which is going to be then produced by calling</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">anim</span> <span class="o">=</span> <span class="n">AnimateMe</span><span class="p">(</span><span class="n">us</span><span class="p">,</span><span class="n">vMax</span><span class="p">)</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>This function will look like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">AnimateMe</span><span class="p">(</span><span class="n">us_flat</span><span class="p">,</span><span class="n">vMax</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">us_flat</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Reds</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">vMax</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+         <span class="n">cax</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">us_flat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="n">anim</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">us_flat</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">anim</span>
+</pre></div>
+</div>
+<section id="id7">
+<h4>Answer:<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
+<span class="n">us_flat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">us</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="c1">#us_flat = list(itertools.chain.from_iterable(us[0:17]))</span>
+<span class="n">anim</span><span class="o">=</span><span class="n">AnimateMe</span><span class="p">(</span><span class="n">us_flat</span><span class="p">,</span><span class="mf">0.07</span><span class="p">)</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+<span class="c1">#!Stop</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">1102925857.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#!Start</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">us_flat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">us</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#us_flat = list(itertools.chain.from_iterable(us[0:17]))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">anim</span><span class="o">=</span><span class="n">AnimateMe</span><span class="p">(</span><span class="n">us_flat</span><span class="p">,</span><span class="mf">0.07</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+
+<span class="ne">TypeError</span>: &#39;NoneType&#39; object is not iterable
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="j-speed-test-ec">
+<h3>j. Speed Test (EC)<a class="headerlink" href="#j-speed-test-ec" title="Link to this heading">#</a></h3>
+<p><em>5 Points</em></p>
+<p>Our code for for <code class="docutils literal notranslate"><span class="pre">%time</span> <span class="pre">Run(2000,3000,Setup(),Setup(),GenerateCylinderObstacle())</span></code> takes between 45 and 60 seconds. We’ll give 5 points if you can make your code faster than 40 seconds runtime (on the server). Warning: we aren’t sure this is possible!</p>
+<section id="id8">
+<h4>Answer:<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+</section>
+</section>
+</section>
+<section id="exercise-2-walls">
+<h2>Exercise 2: Walls<a class="headerlink" href="#exercise-2-walls" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<p>In this exercise we are going to use all the same code but generate a different object.  Here generate an object which consists of two walls:</p>
+<ul class="simple">
+<li><p>one spans <span class="math notranslate nohighlight">\(50 \leq x \leq 60\)</span> and <span class="math notranslate nohighlight">\(n_y/4 \leq y \leq 3n_y/4\)</span></p></li>
+<li><p>the other spans <span class="math notranslate nohighlight">\(200 \leq x \leq 210\)</span> and <span class="math notranslate nohighlight">\(n_y/4 \leq y \leq 3n_y/4\)</span></p></li>
+</ul>
+<p>🦉Run your code again with this new obstacle and generate a new animation.</p>
+<section id="id9">
+<h3>Answer:<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
+<span class="n">fin</span><span class="o">=</span><span class="n">Setup</span><span class="p">()</span>
+<span class="n">feq_init</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">obstacle</span><span class="o">=</span><span class="n">GenerateWallObstacle</span><span class="p">()</span>
+<span class="n">fins</span><span class="o">=</span><span class="n">rhos</span><span class="o">=</span><span class="n">us</span><span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">21</span>
+<span class="n">fins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
+    <span class="o">%</span><span class="k">time</span> (rhos[i],us[i],fins[i+1])=Run(2000,100,fins[i],feq_init,obstacle)
+<span class="c1">#!Stop</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">165298796.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#!Start</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">fin</span><span class="o">=</span><span class="n">Setup</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">feq_init</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">obstacle</span><span class="o">=</span><span class="n">GenerateWallObstacle</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;Setup&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Start</span>
+<span class="n">us_flat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">us</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">anim</span><span class="o">=</span><span class="n">AnimateMe</span><span class="p">(</span><span class="n">us_flat</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+<span class="c1">#!Stop</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">z</span><span class="o">/</span><span class="mi">1</span><span class="n">xxxzf610_7gxv7scl0v99240000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1449</span><span class="o">/</span><span class="mf">129420736.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#!Start</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">us_flat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">us</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">anim</span><span class="o">=</span><span class="n">AnimateMe</span><span class="p">(</span><span class="n">us_flat</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#!Stop</span>
+
+<span class="ne">TypeError</span>: &#39;NoneType&#39; object is not iterable
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="exercise-3-something-new-ec">
+<h2>Exercise 3: Something new… (EC)<a class="headerlink" href="#exercise-3-something-new-ec" title="Link to this heading">#</a></h2>
+<p><em>(Extra credit: 5 points)</em></p>
+<ul class="simple">
+<li><p><strong>List of collaborators:</strong></p></li>
+<li><p><strong>References you used in developing your code:</strong></p></li>
+</ul>
+<p>🦉Come up with something new and cool to do with this animation code.  Maybe try out some other interesting obstacles are add some friction to the walls or such.</p>
+<section id="id10">
+<h3>Answer:<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p><strong>Acknowledgement:</strong> This assignment originally inspired from code from flowkit.com</p>
+<ul class="simple">
+<li><p>Bryan Clark (original)</p></li>
+</ul>
+<p>Copyright: 2021</p>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Climate.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Climate Dynamics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="QC1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quantum Computing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-warmup">Python Warmup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">Useful functions:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup-using-np-roll">Warmup - using <code class="docutils literal notranslate"><span class="pre">np.roll</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-fluid-dynamics">Exercise 1: Fluid Dynamics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-making-some-obstacles">a.  Making some obstacles</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test">Test:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-microscopic-velocities-v-i">b.  Microscopic velocities <span class="math notranslate nohighlight">\(v_i\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Test:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-computing-macroscopic-quantities-from-the-microscopic-density">c. Computing macroscopic quantities from the microscopic density</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-np-einsum">optional - <code class="docutils literal notranslate"><span class="pre">np.einsum</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Test:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-getting-the-equilibrium-microscopic-densities">d. Getting the equilibrium microscopic densities.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Test:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-implementing-collision">d. Implementing collision</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Test:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-moving">e. Moving</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">Tests:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-boundary-conditions">f.  Boundary conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Test:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#g-setting-up-the-initial-conditions">g. Setting up the initial conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Test:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#h-putting-it-all-together">h. Putting it all together</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-animation">i. Animation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Answer:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#j-speed-test-ec">j. Speed Test (EC)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Answer:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-walls">Exercise 2: Walls</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Answer:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-something-new-ec">Exercise 3: Something new… (EC)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Answer:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bryan Clark; George Gollin; Ryan Levy
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

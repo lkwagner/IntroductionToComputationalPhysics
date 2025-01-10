@@ -1,0 +1,943 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Building a Physical Qubit &#8212; Physics 246</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'QC2';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Quantum Computing" href="QC1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/FD.png" class="logo__image only-light" alt="Physics 246 - Home"/>
+    <img src="_static/FD.png" class="logo__image only-dark pst-js-only" alt="Physics 246 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    An Introduction to Modern Computational Physics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="N_Ways_of_Measuring_PI.html">N ways to measure <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dynamics.html">Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OrbitalDynamics.html">Orbital Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exoplanets.html">Exoplanets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chaos.html">Chaos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ParticlePhysics.html">Particle Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MachineLearningGalaxies.html">Classifying Galaxies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Random%20Walks.html">Random Walks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Markov%20Chains.html">Markov Chains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Predator-Prey.html">Predator-Prey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Climate.html">Climate Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FluidDynamics.html">Fluid Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QC1.html">Quantum Computing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Building a Physical Qubit</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/QC2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/QC2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Building a Physical Qubit</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exericise-0-what-abstract-gate-are-you-trying-to-implement">Exericise 0:  What Abstract Gate are you trying to implement?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-abstract-model-of-computation">a. Abstract Model of Computation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-particle-in-a-box">Exercise 1:  Particle in a box</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hamiltonian-for-a-particle-in-a-box">a. Hamiltonian for a Particle in a Box</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-time-evolution">b. Time Evolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-state-overlaps">c. State overlaps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-fluxonium">Exercise 2: Fluxonium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-fluxonium-hamiltonian">a. Fluxonium Hamiltonian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">b. Time Evolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-the-bloch-sphere">c.  The Bloch Sphere</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="building-a-physical-qubit">
+<h1>Building a Physical Qubit<a class="headerlink" href="#building-a-physical-qubit" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Author:</p></li>
+<li><p>Date:</p></li>
+<li><p>Time spent on this assignment:</p></li>
+</ul>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>qiskit<span class="o">[</span>visualization<span class="o">]</span><span class="p">;</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>qutip
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>qiskit_aer<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit[visualization] in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (1.3.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: rustworkx&gt;=0.15.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (0.15.1)
+Requirement already satisfied: numpy&lt;3,&gt;=1.17 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (2.0.2)
+Requirement already satisfied: scipy&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (1.13.1)
+Requirement already satisfied: sympy&gt;=1.3 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (1.13.3)
+Requirement already satisfied: dill&gt;=0.3 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (0.3.9)
+Requirement already satisfied: python-dateutil&gt;=2.8.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (2.9.0.post0)
+Requirement already satisfied: stevedore&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (5.4.0)
+Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (4.12.2)
+Requirement already satisfied: symengine&lt;0.14,&gt;=0.11 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (0.13.0)
+Requirement already satisfied: matplotlib&gt;=3.3 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (3.9.4)
+Requirement already satisfied: pydot in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (3.0.4)
+Requirement already satisfied: Pillow&gt;=4.2.1 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (11.1.0)
+Requirement already satisfied: pylatexenc&gt;=1.4 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (2.10)
+Requirement already satisfied: seaborn&gt;=0.9.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit[visualization]) (0.13.2)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.3.0)
+Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (4.55.3)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.4.7)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (24.2)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (3.2.1)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (6.5.2)
+Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.0-&gt;qiskit[visualization]) (1.17.0)
+Requirement already satisfied: pandas&gt;=1.2 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from seaborn&gt;=0.9.0-&gt;qiskit[visualization]) (2.2.3)
+Requirement already satisfied: pbr&gt;=2.0.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from stevedore&gt;=3.0.0-&gt;qiskit[visualization]) (6.1.0)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from sympy&gt;=1.3-&gt;qiskit[visualization]) (1.3.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: zipp&gt;=3.1.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib&gt;=3.3-&gt;qiskit[visualization]) (3.21.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2020.1 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from pandas&gt;=1.2-&gt;seaborn&gt;=0.9.0-&gt;qiskit[visualization]) (2024.2)
+Requirement already satisfied: tzdata&gt;=2022.7 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from pandas&gt;=1.2-&gt;seaborn&gt;=0.9.0-&gt;qiskit[visualization]) (2024.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qutip in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (5.0.4)
+Requirement already satisfied: numpy&gt;=1.22 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qutip) (2.0.2)
+Requirement already satisfied: scipy&gt;=1.9 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qutip) (1.13.1)
+Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qutip) (24.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit_aer in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (0.15.1)
+Requirement already satisfied: qiskit&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit_aer) (1.3.1)
+Requirement already satisfied: numpy&gt;=1.16.3 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit_aer) (2.0.2)
+Requirement already satisfied: scipy&gt;=1.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit_aer) (1.13.1)
+Requirement already satisfied: psutil&gt;=5 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit_aer) (6.1.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: rustworkx&gt;=0.15.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.15.1)
+Requirement already satisfied: sympy&gt;=1.3 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (1.13.3)
+Requirement already satisfied: dill&gt;=0.3 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.3.9)
+Requirement already satisfied: python-dateutil&gt;=2.8.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (2.9.0.post0)
+Requirement already satisfied: stevedore&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (5.4.0)
+Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (4.12.2)
+Requirement already satisfied: symengine&lt;0.14,&gt;=0.11 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.13.0)
+Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from python-dateutil&gt;=2.8.0-&gt;qiskit&gt;=1.1.0-&gt;qiskit_aer) (1.17.0)
+Requirement already satisfied: pbr&gt;=2.0.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from stevedore&gt;=3.0.0-&gt;qiskit&gt;=1.1.0-&gt;qiskit_aer) (6.1.0)
+Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.9.21/x64/lib/python3.9/site-packages (from sympy&gt;=1.3-&gt;qiskit&gt;=1.1.0-&gt;qiskit_aer) (1.3.0)
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.linalg</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.animation</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">animation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">qiskit</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">qutip</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qiskit</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">transpile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qiskit_aer</span><span class="w"> </span><span class="kn">import</span> <span class="n">AerSimulator</span>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">resetMe</span><span class="p">(</span><span class="n">keepList</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="n">keepList</span><span class="o">=</span><span class="n">keepList</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;resetMe&#39;</span><span class="p">,</span><span class="s1">&#39;np&#39;</span><span class="p">,</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span><span class="s1">&#39;random&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">keepList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+            <span class="n">ll</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">iiii</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
+        <span class="n">jjjj</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="o">+</span><span class="n">iiii</span><span class="o">+</span><span class="s2">&quot;$&quot;</span>
+        <span class="o">%</span><span class="k">reset_selective</span> -f {jjjj}
+    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="k">return</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="p">;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">AddCircuits</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">):</span>
+  <span class="n">numQubits</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">num_qubits</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">theCircuits</span><span class="p">])</span>
+  <span class="n">numQubits</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numQubits</span><span class="p">)</span>
+  <span class="n">circuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">numQubits</span><span class="p">,</span><span class="n">numQubits</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">)):</span>
+    <span class="n">circuit</span><span class="o">=</span><span class="n">circuit</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">qubits</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">theCircuits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)))</span>
+  <span class="k">return</span> <span class="n">circuit</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+  <span class="n">numQubits</span><span class="o">=</span><span class="n">circuit</span><span class="o">.</span><span class="n">num_qubits</span>
+  <span class="k">if</span> <span class="n">a</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+    <span class="n">numQubits</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">numQubits</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)</span>
+    <span class="n">initCircuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)</span>
+    <span class="n">initCircuit</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">circuit</span><span class="o">=</span><span class="n">AddCircuits</span><span class="p">([</span><span class="n">initCircuit</span><span class="p">,</span><span class="n">circuit</span><span class="p">])</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">save_statevector</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;myStateVector&#39;</span><span class="p">)</span>
+  <span class="n">compiled_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">simulator</span><span class="p">)</span>
+  <span class="n">resultA</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">compiled_circuit</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+  <span class="n">forward</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">numQubits</span><span class="p">))</span>
+  <span class="n">reverse</span><span class="o">=</span><span class="n">forward</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+  <span class="n">circuit</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">forward</span><span class="p">,</span><span class="n">reverse</span><span class="p">)</span>
+  <span class="n">compiled_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">simulator</span><span class="p">)</span>
+  <span class="n">resultB</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">compiled_circuit</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">resultA</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="s1">&#39;myStateVector&#39;</span><span class="p">],</span><span class="n">resultB</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">MakeState</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+  <span class="n">numWires</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">)))))</span>
+  <span class="n">qc1</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">numWires</span><span class="p">,</span><span class="n">numWires</span><span class="p">)</span>
+  <span class="n">qc1</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="n">a</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">qc1</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">a</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">PlotBloch</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">bb</span><span class="p">):</span>
+  <span class="n">vv</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+  <span class="n">a</span><span class="o">=</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">b</span><span class="o">=</span><span class="n">vv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">b</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">b</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">a</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+  <span class="n">bb</span><span class="o">.</span><span class="n">add_vectors</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">])</span>
+  <span class="k">return</span>
+
+<span class="n">simulator</span> <span class="o">=</span> <span class="n">AerSimulator</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>So far we’ve learned about quantum computing as an abstract model of computation. We can represent a qubit as a vector of length 2 (and can represent <span class="math notranslate nohighlight">\(n\)</span> qubits as a vector of length <span class="math notranslate nohighlight">\(2^n\)</span>).</p>
+<p>In this section our goal is to understand how we actually build a quantum computer in the real world (and here we will only focus on 1 qubit).</p>
+<p>Our goal will be to understand how you represent one qubit and apply a gate to it.</p>
+<p>There are various different physical realizations of a qubit.  In this assignment, we will look at quantum electronic circuits.</p>
+</section>
+<section id="exericise-0-what-abstract-gate-are-you-trying-to-implement">
+<h2>Exericise 0:  What Abstract Gate are you trying to implement?<a class="headerlink" href="#exericise-0-what-abstract-gate-are-you-trying-to-implement" title="Link to this heading">#</a></h2>
+<section id="a-abstract-model-of-computation">
+<h3>a. Abstract Model of Computation<a class="headerlink" href="#a-abstract-model-of-computation" title="Link to this heading">#</a></h3>
+<p>Our target here is we want to go ahead and implement a gate using electronics.  The gate we are going to implement is the following gate:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">.</span><span class="n">rx</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">50.</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">rz</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">50.</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s start by implementing this in qiskit.</p>
+<p>Run the gate <span class="math notranslate nohighlight">\(k\)</span> times (from <span class="math notranslate nohighlight">\(0 \leq k &lt; 400\)</span>) and graph (with two lines) the probability you would measure “0” and the probability you would measure “1” as a function of <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>We know that the state of a single qubit is <span class="math notranslate nohighlight">\(\alpha |0\rangle + \beta |1\rangle\)</span> where <span class="math notranslate nohighlight">\(|\alpha|^2 + |\beta|^2=1\)</span>.   We might think that we could then represent the qubit by a point <span class="math notranslate nohighlight">\((\alpha, \beta)\)</span> which is on a circle of radius 1.  But <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are complex numbers so it’s not quite that simple - instead you can represent the qubit as a point on a sphere.  This is called the Bloch sphere.  (Technical point: You might think that you need four numbers to represent two complex numbers but it’s actually only three because of the normalization and relative phase).</p>
+<p>At the moment, it’s not important that you know how to perform this mapping but to understand for every qubit there is a point that it appears on the bloch sphere.</p>
+<p>Plot the path of this gate (iterated over and over) on the Bloch sphere using something like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">qutip</span><span class="o">.</span><span class="n">Bloch</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">[::</span><span class="mi">10</span><span class="p">]:</span>
+  <span class="n">PlotBloch</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+</section>
+<hr class="docutils" />
+<section id="exercise-1-particle-in-a-box">
+<h2>Exercise 1:  Particle in a box<a class="headerlink" href="#exercise-1-particle-in-a-box" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>List of collaborators:</p></li>
+<li><p>References you used in developing your code:</p></li>
+</ul>
+<p>We will need to begin by learning or recalling some aspects about quantum mechanics. There are three key things that you need to know about quantum mechanics:</p>
+<ul class="simple">
+<li><p>In quantum mechanics, the “rules” of the physical system are represented by a matrix called the Hamiltonian <span class="math notranslate nohighlight">\(H\)</span>  (in many ways,  the classical analogue of the energy) and the state of your system is represented by a vector <span class="math notranslate nohighlight">\(\Psi\)</span>.</p></li>
+<li><p>If your quantum is in state <span class="math notranslate nohighlight">\(\Psi(0)\)</span> at time 0, you can figure out what your Hamiltonian is at time <span class="math notranslate nohighlight">\(t\)</span> by
+$<span class="math notranslate nohighlight">\(\Psi(t) = \exp[-i t H] \Psi(0).\)</span>$
+In order to do that matrix exponential you can use</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expH</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">expm</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="n">j</span> <span class="o">*</span> <span class="n">H</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you are going to a large time <span class="math notranslate nohighlight">\(t\)</span>, it will often make sense to break it apart into a number of <span class="math notranslate nohighlight">\(T/\delta t\)</span> smaller time steps each of size <span class="math notranslate nohighlight">\(\delta t\)</span>.  This will let you record information about your quantum state at each time step <span class="math notranslate nohighlight">\(\delta t\)</span> - i.e. something like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">ts</span><span class="p">:</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">expm</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="n">j</span> <span class="o">*</span> <span class="n">H</span> <span class="o">*</span> <span class="n">delta_t</span><span class="p">)</span> <span class="o">@</span> <span class="n">psi</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>There are special quantum states <span class="math notranslate nohighlight">\(\Psi_i\)</span> which don’t change in time under time evolution.  These states are the eigenstates of <span class="math notranslate nohighlight">\(H\)</span>.  You can get the i’th eigenstate of <span class="math notranslate nohighlight">\(H\)</span> by doing</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H</span><span class="p">)[</span><span class="mi">1</span><span class="p">][:,</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="a-hamiltonian-for-a-particle-in-a-box">
+<h2>a. Hamiltonian for a Particle in a Box<a class="headerlink" href="#a-hamiltonian-for-a-particle-in-a-box" title="Link to this heading">#</a></h2>
+<p>We can start by working with a particle in a box.  Consider a particle in a box of length 20 spanning <span class="math notranslate nohighlight">\(-10 \leq x \leq 10\)</span>.</p>
+<p>The Hamiltonian for a particle in a box is</p>
+<div class="math notranslate nohighlight">
+\[ H=-\frac{\partial^2 }{\partial x^2} \]</div>
+<p>with hard walls for any <span class="math notranslate nohighlight">\(|x|\geq 20\)</span> outside the box.</p>
+<p>We need to convert this into a matrix. To do that, we should know from calculus that the stencil for a second derivative is</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial^2 }{\partial x^2} \equiv \frac{f(x+\delta) - 2 f(x) + f(x-\delta)}{\delta^2} \]</div>
+<p>We can let the rows and columns of the matrix <span class="math notranslate nohighlight">\(H\)</span> be indexed by the values of <span class="math notranslate nohighlight">\(x\)</span> - to get the values of <span class="math notranslate nohighlight">\(x\)</span>, we can do</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">delta_x</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">delta_x</span><span class="p">,</span> <span class="n">delta_x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then the above stencil corresponds to the matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H[i,j] = \begin{cases}
+2/(\delta x)^2 &amp; \text{if } i == j \\
+-1/(\delta x)^2 &amp; \text{if } \textrm{abs}(i-j)== 1\\
+0 &amp; \text{otherwise }
+\end{cases}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Make the Hamiltonian matrix H</p></li>
+<li><p>diagonalize it and</p></li>
+<li><p>plot the first four eigenstates <span class="math notranslate nohighlight">\(v_a, v_b, v_c, v_d\)</span> You should recognize the solutions to the particle in a box.</p></li>
+</ul>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>The eigenvalues for a particle in a box are quantized.  They should be equal to</p>
+<div class="math notranslate nohighlight">
+\[E_n = \frac{\pi^2}{L^2}n^2\]</div>
+<p>for <span class="math notranslate nohighlight">\(n=\{1,2,...\}\)</span>.</p>
+<p>Plot the lowest five eigen-energies and compare them against this formula (they should be close but possibly not quite on because the delta_x is too big)</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<section id="b-time-evolution">
+<h2>b. Time Evolution<a class="headerlink" href="#b-time-evolution" title="Link to this heading">#</a></h2>
+<p>Our next step will be to implement time evolution.  Let us start by trying to time-evolve <span class="math notranslate nohighlight">\(v_a\)</span> under the Hamiltonian <span class="math notranslate nohighlight">\(H\)</span>.  Recall that eigenstates should be stationary (and so don’t evolve in time).  Therefore, under time evolution we should find that this state always looks the same.  Let’s check this.</p>
+<p>Using</p>
+<ul class="simple">
+<li><p>a total time of <span class="math notranslate nohighlight">\(T=5\)</span></p></li>
+<li><p>a time step of <span class="math notranslate nohighlight">\(\delta t=0.1\)</span></p></li>
+</ul>
+<p>Plot the value of <span class="math notranslate nohighlight">\(|v(t)|\)</span> at time steps <span class="math notranslate nohighlight">\(t=\{0,1,3,5\}\)</span>.
+The absolute value is necessary because under time-evolution the wave-function can become complex (one could also plot the phase of the wave-function if desired but don’t worry about this).</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>You should have noticed that our previous time evolution was pretty uninteresting as nothing changed under the time evolution.  Our next step will be to implement time evolution on a more complicated state.</p>
+<p>We will consider two states:</p>
+<div class="math notranslate nohighlight">
+\[v_0=\frac{1}{\sqrt{2}}(v_a+v_b)\]</div>
+<div class="math notranslate nohighlight">
+\[v_1=\frac{1}{\sqrt{2}}(v_a-v_b)\]</div>
+<p>These two states are orthogonal on each other - i.e. <code class="docutils literal notranslate"><span class="pre">np.vdot(v0,v1)=0</span></code>.  You can check this.</p>
+<p>We want to do time evolution with our Hamiltonian on the state <span class="math notranslate nohighlight">\(v_0\)</span>.<br />
+Perform time evolution</p>
+<ul class="simple">
+<li><p>starting at <span class="math notranslate nohighlight">\(v_0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta t=0.1\)</span></p></li>
+<li><p>for time <span class="math notranslate nohighlight">\(T=50\)</span></p></li>
+<li><p>and graph the result at <span class="math notranslate nohighlight">\(T=\{4.0,18.3,41.0\}\)</span></p></li>
+<li><p>Also graph (with dotted lines - <code class="docutils literal notranslate"><span class="pre">linestyle=&quot;--&quot;</span></code>) <span class="math notranslate nohighlight">\(v_0\)</span> and <span class="math notranslate nohighlight">\(v_1\)</span></p></li>
+</ul>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<section id="c-state-overlaps">
+<h2>c. State overlaps<a class="headerlink" href="#c-state-overlaps" title="Link to this heading">#</a></h2>
+<p>We’ve seen that our time evolution slowly moves us from state <span class="math notranslate nohighlight">\(v_0\)</span> to state <span class="math notranslate nohighlight">\(v_1\)</span> over a time over a time of <span class="math notranslate nohighlight">\(T=41\)</span>.   In between, <span class="math notranslate nohighlight">\(T=0\)</span> and <span class="math notranslate nohighlight">\(T=41\)</span>, the state is a little bit of <span class="math notranslate nohighlight">\(v_0\)</span> and a little bit of <span class="math notranslate nohighlight">\(v_1\)</span>.  We would like to quantify this better by computing the overlap with these two states as a function of time.</p>
+<p>We have a state <span class="math notranslate nohighlight">\(v(t)\)</span>.  To compute the overlap with <span class="math notranslate nohighlight">\(v_0\)</span> we can just do
+<code class="docutils literal notranslate"><span class="pre">np.vdot(v</span> <span class="pre">,</span> <span class="pre">v_0)</span></code>.</p>
+<p>This overlap is a complex number.   We can only plot real numbers so if we want to plot it, we need to plot something like</p>
+<ul class="simple">
+<li><p>the absolute value <code class="docutils literal notranslate"><span class="pre">np.abs(...)</span></code> (or its square) and</p></li>
+<li><p>phase <code class="docutils literal notranslate"><span class="pre">np.angle(...)</span></code> or</p></li>
+</ul>
+<p>Plot as a function of time from <span class="math notranslate nohighlight">\(T=0\)</span> to <span class="math notranslate nohighlight">\(T=100\)</span> the absolute value squared of the overlap of <span class="math notranslate nohighlight">\(v(t)\)</span> with both <span class="math notranslate nohighlight">\(v_0\)</span> and <span class="math notranslate nohighlight">\(v_1\)</span>.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Now we can get our first inkling of how you might build a qubit and a (always-on and hence not-very-useful) gate.</p>
+<p>Suppose someone comes to you with a particle in a box. There are many eigenstates for that particle in the box: <span class="math notranslate nohighlight">\(v_0, v_1, v_2, v_3, ...\)</span></p>
+<p>You pick two of those eigenstates (let’s say <span class="math notranslate nohighlight">\(v_0\)</span> and <span class="math notranslate nohighlight">\(v_1\)</span>) and claim that those are the states that correspond to <span class="math notranslate nohighlight">\(|0\rangle\)</span> and <span class="math notranslate nohighlight">\(|1\rangle\)</span>.</p>
+<p>This particle-in-a-box is now a qubit.  The other eigenstates we ignore (and are hoping that you never accidentally get stuck in - this would cause an error).</p>
+<p>Now a gate is something that takes you from one quantum state to another.  For example, a not gate should take</p>
+<div class="math notranslate nohighlight">
+\[|0\rangle \rightarrow |1\rangle\]</div>
+<div class="math notranslate nohighlight">
+\[|1\rangle \rightarrow |0\rangle\]</div>
+<p>Looking at our previous results, we can see that if we just have a particle-in-a-box that it implements a not-gate every <span class="math notranslate nohighlight">\(T=41.0\)</span> seconds.</p>
+<p>This is a little bit unsatsifying because it’s not like we can turn our Hamiltonian on and off.  We really need a Hamiltonian <span class="math notranslate nohighlight">\(H(\theta)\)</span> where we have some knob <span class="math notranslate nohighlight">\(\theta\)</span> that we can change so we can turn gates on and off.</p>
+<p>In the next exercise, we will see how to go about this.</p>
+</section>
+<section id="exercise-2-fluxonium">
+<h2>Exercise 2: Fluxonium<a class="headerlink" href="#exercise-2-fluxonium" title="Link to this heading">#</a></h2>
+<p>In the previous exercise, we worked on a particle-in-a-box.  Unfortuantely, you don’t run into such physical systems particular often.  In this exercise, we will work with something more realistic:  a fluxonium built out of various electronic components.</p>
+<p>Here is the electronic circuit for a fluxonium qubit:</p>
+<div><img src="https://scqubits.readthedocs.io/en/latest/_images/fluxonium.png" width=400 align=left alt="Answer (start)"></img><br></div>
+<p>The fluxoinum qubit consists of three electronic components: a capacitor, an inductor, and a Josephson junction.  You’re probably familiar with capacitors and inductors. You regularly run into them in classical circuits.  A Josephson junction is an electronic component which sandwhiches an insulator between two superconducting materials.  Across the Josephson junction there is a change in the phase <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+<p>Typically in a circuit you need to keep track of the voltage and current.  When you have a Josephson Junction you need to keep track also of the phase.</p>
+<p>In electronics you might have treated the circuit classically righting out the classical energy of the circuit - i.e. <span class="math notranslate nohighlight">\(E=\frac{1}{2}CV^2+ \frac{1}{2}LI^2\)</span>  In quantum mechanics, instead of writing out an energy for our circuit, we write out a Hamiltonian <span class="math notranslate nohighlight">\(H\)</span>.</p>
+</section>
+<section id="a-fluxonium-hamiltonian">
+<h2>a. Fluxonium Hamiltonian<a class="headerlink" href="#a-fluxonium-hamiltonian" title="Link to this heading">#</a></h2>
+<p>The relevant Hamiltonian for this circuit is</p>
+<div class="math notranslate nohighlight">
+\[H=-4E_\text{C}\frac{\partial^2 }{\partial \phi^2}+\frac{1}{2}E_L \phi^2 -E_\text{J}\cos(\phi-\varphi_\text{ext}) \]</div>
+<p>where <span class="math notranslate nohighlight">\(E_C\)</span> is the charging energy, <span class="math notranslate nohighlight">\(E_J\)</span> the Josephson energy and <span class="math notranslate nohighlight">\(E_L\)</span> the inductive energy.</p>
+<p>In the particle-in-a-box we were working with <span class="math notranslate nohighlight">\(x\)</span>. Here you should just mentally replace  <span class="math notranslate nohighlight">\(\phi\)</span> with <span class="math notranslate nohighlight">\(x\)</span>.  Just like earlier we will let <span class="math notranslate nohighlight">\(-10\leq \phi \leq 10\)</span>.</p>
+<p>Now we can look at this Hamiltonian.  The first term, <span class="math notranslate nohighlight">\(-4E_\text{C}\frac{\partial^2 }{\partial \phi^2}\)</span> you’ve already seen; this is the particle-in-a-box term (notice the extra factor of <span class="math notranslate nohighlight">\(4E_C\)</span>). You already know how to build the matrix for this term.  This term is caused by the capacitor.  Essentially the capacitor would like the wave-function (when drawn in the <span class="math notranslate nohighlight">\(\phi\)</span> basis) to be more spread out.</p>
+<p>We will then need to add a matrix for the the inductor term and the Josephson junction term.  Both of these terms will be diagonal matrices.</p>
+<p>The term <span class="math notranslate nohighlight">\(\frac{1}{2}E_L \phi^2\)</span> is the Hamiltonian for the inductor and has the matrix <span class="math notranslate nohighlight">\(H[\phi,\phi] = \frac{1}{2}E_L \phi^2\)</span> (and zero otherwise)</p>
+<p>The term <span class="math notranslate nohighlight">\(E_\text{J}\cos(\phi-\varphi_\text{ext})\)</span> is the Hamiltonian for the inductor and has the matrix  <span class="math notranslate nohighlight">\(H[\phi,\phi] = E_\text{J}\cos(\phi-\varphi_\text{ext})\)</span> (and zero otherwise).</p>
+<p><span class="math notranslate nohighlight">\(\varphi_\text{ext}\)</span> is a number that you (as an experimentalist) get to control as a knob.  It corresponds to the amount of magnetic flux (caused by sticking a manget in the right place) you drive through a hole in the circuit.</p>
+<p>By changing this we will be able to turn circuit elements on and off.</p>
+<p>Build this Hamiltonian for <span class="math notranslate nohighlight">\(H\)</span>.  Use the following parameters:</p>
+<ul class="simple">
+<li><p>Ec=0.5</p></li>
+<li><p>El=0.8</p></li>
+<li><p>Ej=4</p></li>
+<li><p><span class="math notranslate nohighlight">\(\varphi_\text{ext}=\pi\)</span></p></li>
+</ul>
+<p>As in the previous case, we want to diagonalize our Hamiltonian and find some number of eigenstates.  Plot the first three eigenstates as well as eigenvalues.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<section id="id1">
+<h2>b. Time Evolution<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>We are going to use the first two eigenstates <span class="math notranslate nohighlight">\(v_0\)</span> and <span class="math notranslate nohighlight">\(v_1\)</span> as the <span class="math notranslate nohighlight">\(|0\rangle\)</span> and <span class="math notranslate nohighlight">\(|1\rangle\)</span> states for our qubit. Then we are going to see how manipulating <span class="math notranslate nohighlight">\(\varphi_\textrm{ext}\)</span> allows us to turn on and off different gates.</p>
+<p>We have already decided what our eigenstates are <span class="math notranslate nohighlight">\(|0\rangle\)</span> and <span class="math notranslate nohighlight">\(|1\rangle\)</span> are going to be. Let’s imagine that we have set up our eigenstate into state <span class="math notranslate nohighlight">\(|0\rangle\)</span>.  Now, we imagine that we change our magnetic field to <span class="math notranslate nohighlight">\(\pi + 0.00360 \times 2\pi\)</span>.  Then the eigenstate (from the previous external field) is going to change based on our new field.  Do time evolution with this Hamiltonian for a</p>
+<ul class="simple">
+<li><p>time <span class="math notranslate nohighlight">\(T=100\)</span> with</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta t=0.1\)</span> and</p></li>
+<li><p>plot the overlap squared with the states <span class="math notranslate nohighlight">\(|0\rangle\)</span> and <span class="math notranslate nohighlight">\(|1\rangle\)</span>.</p></li>
+</ul>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>You will notice that by changing the magnetic field by a tiny amount and waiting for about 24 seconds, we’ve implemented a gate which takes <span class="math notranslate nohighlight">\(|0\rangle\)</span> to half <span class="math notranslate nohighlight">\(|0\rangle\)</span> and half <span class="math notranslate nohighlight">\(|1\rangle\)</span>.  Because this is probabilities that you are measuring, actually this gate is taking <span class="math notranslate nohighlight">\(|0\rangle \rightarrow \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle)\)</span> (actually the plot you made isn’t sufficient information to distinguish between <span class="math notranslate nohighlight">\(+|1\rangle\)</span> and <span class="math notranslate nohighlight">\(-|1\rangle\)</span>.</p>
+<p>Actually, if you want more seconds (or less seconds) you actually get a whole manifold of states.  In the next two sections, we will better understand the manifold of gates we’ve made.</p>
+</section>
+<section id="c-the-bloch-sphere">
+<h2>c.  The Bloch Sphere<a class="headerlink" href="#c-the-bloch-sphere" title="Link to this heading">#</a></h2>
+<p>Using your results from (b), plot on the Bloch sphere your gate.
+Identify where on the Bloch sphere the initial point is and the point at <span class="math notranslate nohighlight">\(T=44\)</span> seconds.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="QC1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Quantum Computing</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exericise-0-what-abstract-gate-are-you-trying-to-implement">Exericise 0:  What Abstract Gate are you trying to implement?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-abstract-model-of-computation">a. Abstract Model of Computation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-particle-in-a-box">Exercise 1:  Particle in a box</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hamiltonian-for-a-particle-in-a-box">a. Hamiltonian for a Particle in a Box</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-time-evolution">b. Time Evolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-state-overlaps">c. State overlaps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-fluxonium">Exercise 2: Fluxonium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-fluxonium-hamiltonian">a. Fluxonium Hamiltonian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">b. Time Evolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-the-bloch-sphere">c.  The Bloch Sphere</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bryan Clark; George Gollin; Ryan Levy
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
