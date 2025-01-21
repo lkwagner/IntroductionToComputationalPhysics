@@ -38,12 +38,12 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 ---
 
 ### Calendar
-(Some of these projects might swap around)
+(These are the dates that we work on the assignment in class; the assignments are due one week later)
 
 |Date   |Assignment   |
 |---|---|
-|Jan 27	| N Ways to Measure PI  |
-|Jan 31	|Dynamics   |
+|Jan 23	| N Ways to Measure PI  |
+|Jan 30	|Dynamics   |
 |Feb 6	|Orbital Dynamics  |
 |Feb 13	|Exoplanets   |
 |Feb 20	|Chaos   |
@@ -76,7 +76,7 @@ The heart of this course will be a series of computational assignments.
 
 (instructions-for-submitting-your-assignments)=
 ##### Instructions for submitting your assignments
-Once you are finished working on an assignment, first make sure that it is shared with the course staff by clicking "Share" in the upper right hand corner in the Colab window and adding us via email address (bkclark@illinois.edu, mt24@illinois.edu, and cychow2@illinois.edu). Then, at the bottom of that same "Share" menu, click "Copy Link" to get the sharing link to your Colab document. Next, save a .pdf printout copy of your Colab document. This can be done by clicking "File" and then "Print," and then saving the printout as a .pdf via your operating system.
+Once you are finished working on an assignment, first make sure that it is shared with the course staff by clicking "Share" in the upper right hand corner in the Colab window and adding us via email address. Then, at the bottom of that same "Share" menu, click "Copy Link" to get the sharing link to your Colab document. Next, save a .pdf printout copy of your Colab document. This can be done by clicking "File" and then "Print," and then saving the printout as a .pdf via your operating system.
 
 Assignments are submitted via Canvas, which requires two simple steps. Each week, there will be two assignment submission pages availale in Canvas, one titled "[Assigment Title] (Colab link)" and one titled "[Assigment Title] (PDF file)." First, paste the aforementioned sharing link into the "... (Colab link)" assignment and then submit that assignment. Second, upload your printout .pdf file into the "... (PDF file)" assignment and then submit that assignment. 
 
