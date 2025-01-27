@@ -47,15 +47,15 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 |Feb 6	|Orbital Dynamics  |
 |Feb 13	|Exoplanets   |
 |Feb 20	|Chaos   |
-|Feb 27 	|Many-Body Simulations|
-|Mar 6	|Particle Physics    |
+|Feb 27 	|Particle Physics|
+|Mar 6	|Classifying Galaxies    |
 |Mar 13	|Random Walks |
 |Mar 27   	|Markov Chains   |
 |Apr 3 	|Predator-Prey  |
-|Apr 10  	|Fluid Dynamics
-|Apr 17	| Classifying Galaxies|
-|Apr 24	|Fluxonium Qubits|
-|May 1| Quantum Computing  |
+|Apr 10  	|Climate Dynamics
+|Apr 17	| Fluid Dynamics |
+|Apr 24	|Quantum Computing|
+|May 1| Building a Physical Qbit  |
 
 
 ---
