@@ -76,9 +76,16 @@ The heart of this course will be a series of computational assignments.
 
 (instructions-for-submitting-your-assignments)=
 ##### Instructions for submitting your assignments
-Once you are finished working on an assignment, first make sure that it is shared with the course staff by clicking "Share" in the upper right hand corner in the Colab window and adding us via email address. Then, at the bottom of that same "Share" menu, click "Copy Link" to get the sharing link to your Colab document. Next, save a .pdf printout copy of your Colab document. This can be done by clicking "File" and then "Print," and then saving the printout as a .pdf via your operating system.
+Once you are finished working on an assignment, first make sure that it is shared with the course staff by clicking "Share" in the upper right hand corner in the Colab window and adding us via email address. Then, at the bottom of that same "Share" menu, click "Copy Link" to get the sharing link to your Colab document. Next, save a .pdf printout copy of your Colab document. This can be done by the following code
+```
+from google.colab import drive
+drive.mount('/content/drive')
+!cp /content/drive/MyDrive/Colab\ Notebooks/Dynamics.ipynb ./
+!jupyter nbconvert --to HTML "Dynamics.ipynb"
+```
+where you replace your filenames above with the appropriate ones for your assignment. Then open the HTML file in your web browser and print from there.
 
-Assignments are submitted via Canvas, which requires two simple steps. Each week, there will be two assignment submission pages availale in Canvas, one titled "[Assigment Title] (Colab link)" and one titled "[Assigment Title] (PDF file)." First, paste the aforementioned sharing link into the "... (Colab link)" assignment and then submit that assignment. Second, upload your printout .pdf file into the "... (PDF file)" assignment and then submit that assignment. 
+Assignments are submitted via Canvas, which requires two simple steps.  First, paste the aforementioned sharing link into the "... (Colab link)" section. Second, upload your printout .pdf file into the "... (PDF file)" section and then submit that assignment. 
 
 We will review both the printout and Colab code while grading your assignment, so please refrain from editing the Colab document after the submission deadline.
 
