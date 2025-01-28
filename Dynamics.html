@@ -457,7 +457,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 1, 27, 20, 16, 22, 55247)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 1, 28, 15, 48, 12, 527153)
 </pre></div>
 </div>
 </div>
@@ -567,6 +567,10 @@ myVel**2 is 	 [0.04 6.25]
 <span class="nb">print</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">])</span>
 <span class="n">dt</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span>
 <span class="c1">#print(params[&quot;temperature&quot;]) # this won&#39;t work!</span>
+
+<span class="c1"># equivalent to the above:</span>
+<span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="n">mass</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="s2">&quot;mass&quot;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -595,7 +599,7 @@ myVel**2 is 	 [0.04 6.25]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bbbffc93163100be2598832be20931d00b3a0480f662e66c41d88a81516394ad.png" src="_images/bbbffc93163100be2598832be20931d00b3a0480f662e66c41d88a81516394ad.png" />
+<img alt="_images/0b3d19323b75ef55dd2055b0405f8d71f84804541d37cd08eca6e189f0c03e5d.png" src="_images/0b3d19323b75ef55dd2055b0405f8d71f84804541d37cd08eca6e189f0c03e5d.png" />
 </div>
 </div>
 <p>Here is an example of such data.  You want to figure out what this relationship is.   To do this, you can use
@@ -609,8 +613,11 @@ myVel**2 is 	 [0.04 6.25]
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try it here</span>
-<span class="n">myLine</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#!#</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myLine</span><span class="p">)</span> <span class="c1">#!#</span>
+<span class="n">myLine</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
+                  <span class="n">y</span><span class="p">,</span>
+                  <span class="mi">1</span> <span class="c1"># degree of the polynomial</span>
+                  <span class="p">)</span> <span class="c1"># returns the polynomial coefficients in descending order</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The slope is </span><span class="si">{</span><span class="n">myLine</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> and the intercept is </span><span class="si">{</span><span class="n">myLine</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">myLine</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">myLine</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -623,10 +630,10 @@ myVel**2 is 	 [0.04 6.25]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.36313122 -0.01991638]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 1.3669994110353536 and the intercept is -0.025013135609482165
 </pre></div>
 </div>
-<img alt="_images/33e5527b3628cb643049986eaa3f23ac5f7ae6e2d9fd056fc571d29f489bffb7.png" src="_images/33e5527b3628cb643049986eaa3f23ac5f7ae6e2d9fd056fc571d29f489bffb7.png" />
+<img alt="_images/6009c024a0a2a707c0b00da629d2d4a89053403f300d82220193d05fa3ec2686.png" src="_images/6009c024a0a2a707c0b00da629d2d4a89053403f300d82220193d05fa3ec2686.png" />
 </div>
 </div>
 </section>
@@ -650,7 +657,7 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0b6257ddf512c17c042145b39e915189866be3ad1538d571426b7f1c397b167d.png" src="_images/0b6257ddf512c17c042145b39e915189866be3ad1538d571426b7f1c397b167d.png" />
+<img alt="_images/ef6a1e99e73a8965d95b3c9d1a27c0517d7f7109ba3395f01edb696b295cd219.png" src="_images/ef6a1e99e73a8965d95b3c9d1a27c0517d7f7109ba3395f01edb696b295cd219.png" />
 </div>
 </div>
 <p>Let’s go ahead and plot x and y on a log-log scale.  To do this redo the plot above but add</p>
@@ -674,7 +681,7 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e97fcccdcd5fa1b1deea4f083237ed926ebd69ea48c80b159bcf5281bab6e3a8.png" src="_images/e97fcccdcd5fa1b1deea4f083237ed926ebd69ea48c80b159bcf5281bab6e3a8.png" />
+<img alt="_images/3a44e876f1a84785bf87379b0d6fee88253e41439cf1beb13d00a3beee07c3a2.png" src="_images/3a44e876f1a84785bf87379b0d6fee88253e41439cf1beb13d00a3beee07c3a2.png" />
 </div>
 </div>
 <p>You should notice your plot looks roughly linear.  We can go get the slope by doing a linear fit to the log-log plot. This can be done by doing</p>
@@ -691,7 +698,7 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 2.00075579 -0.00340441]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.98366349 0.04666088]
 </pre></div>
 </div>
 </div>
@@ -701,7 +708,7 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">**</span><span class="n">myLine</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">myLine</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="n">myLine</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -709,7 +716,7 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3947e4cf75ed416b75c3c4ce85e56ce4f5425249be90ef72157b5cb14c7b1220.png" src="_images/3947e4cf75ed416b75c3c4ce85e56ce4f5425249be90ef72157b5cb14c7b1220.png" />
+<img alt="_images/e99d3e5c0838aa6354054751e373235789c48ae8900ebf3aef94273e4c0639c3.png" src="_images/e99d3e5c0838aa6354054751e373235789c48ae8900ebf3aef94273e4c0639c3.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -789,13 +796,13 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <h3>b. Euler Integration  in two-dimensions  (first order integrator)<a class="headerlink" href="#b-euler-integration-in-two-dimensions-first-order-integrator" title="Link to this heading">#</a></h3>
 <p>We know have a <code class="docutils literal notranslate"><span class="pre">Step</span></code> function that allows us to work in one-dimension.  Balls are sometimes thrown in directions other then straight up, though.  Let’s modify our code to also work in two dimensions.   In addition to the equation for <span class="math notranslate nohighlight">\(a_y,v_y,y\)</span> we can also have a similar set of equation for <span class="math notranslate nohighlight">\(a_x,v_x,x\)</span>:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(v_x(t+dt) = v_x(t) + a_x(t) dt\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(x(t+dt)   = x(t) + v_x(t) dt\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(v_x(t+\Delta t) = v_x(t) + a_x(t) \Delta t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x(t+\Delta t)   = x(t) + v_x(t) \Delta t\)</span></p></li>
 </ul>
 <p>It makes sense to write the equations for x and y in a uniform “vector” or “array” format -i.e.</p>
 <ul class="simple">
-<li><p>[<span class="math notranslate nohighlight">\(v_x(t+dt),v_y(t+dt)\)</span>] = [<span class="math notranslate nohighlight">\(v_x(t),v_y(t)\)</span>] + [<span class="math notranslate nohighlight">\(a_x(t),a_y(t)\)</span>] <span class="math notranslate nohighlight">\(dt\)</span></p></li>
-<li><p>[<span class="math notranslate nohighlight">\(x(t+dt),y(t+dt)\)</span>] = [<span class="math notranslate nohighlight">\(x(t),y(t)\)</span>] + [<span class="math notranslate nohighlight">\(v_x(t),v_y(t)\)</span>] <span class="math notranslate nohighlight">\(dt\)</span></p></li>
+<li><p>[<span class="math notranslate nohighlight">\(v_x(t+\Delta t),v_y(t+\Delta t)\)</span>] = [<span class="math notranslate nohighlight">\(v_x(t),v_y(t)\)</span>] + [<span class="math notranslate nohighlight">\(a_x(t),a_y(t)\)</span>] <span class="math notranslate nohighlight">\(\Delta t\)</span></p></li>
+<li><p>[<span class="math notranslate nohighlight">\(x(t+\Delta t),y(t+\Delta t)\)</span>] = [<span class="math notranslate nohighlight">\(x(t),y(t)\)</span>] + [<span class="math notranslate nohighlight">\(v_x(t),v_y(t)\)</span>] <span class="math notranslate nohighlight">\(\Delta t\)</span></p></li>
 </ul>
 <p>We are now going to modify our <code class="docutils literal notranslate"><span class="pre">Step</span></code> function to work in in two-dimension.  It still is going to look like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Step</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">vel</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
@@ -1092,7 +1099,7 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <section id="d-hitting-a-target">
 <h3>d. Hitting a target<a class="headerlink" href="#d-hitting-a-target" title="Link to this heading">#</a></h3>
 <p>Let’s suppose we want to throw a ball starting at position <span class="math notranslate nohighlight">\((0,0)\)</span> with some initial velocity <code class="docutils literal notranslate"><span class="pre">v0</span></code> (<em>which you will find</em>) and have it hit a target on the ground at position <span class="math notranslate nohighlight">\((10.0,0.0)\)</span> m. Let <span class="math notranslate nohighlight">\(b=3.0\)</span> and <span class="math notranslate nohighlight">\(m=1.0\)</span>.  You may again use <span class="math notranslate nohighlight">\(dt=0.01\)</span>.  <strong>We are going to use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> to find the initial velocity.</strong> The library <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> is generically useful.</p>
-<p>To achieve this, first write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">myTarget(v,params):</span></code> which takes an initial velociy and a <code class="docutils literal notranslate"><span class="pre">params</span></code> dictionary.  The function should return how far (in absolute magnitude) a ball thrown with the parameters in <code class="docutils literal notranslate"><span class="pre">params</span></code> lands from the target (if included, ignore the initial velocity in params).</p>
+<p>To achieve this, first write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">myTarget(v,params):</span></code> which takes an initial velocity and a <code class="docutils literal notranslate"><span class="pre">params</span></code> dictionary.  The function should return how far (in absolute magnitude) a ball thrown with the parameters in <code class="docutils literal notranslate"><span class="pre">params</span></code> lands from the target (if included, ignore the initial velocity in params).</p>
 <p>Then you can call</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ans</span><span class="o">=</span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">myTarget</span><span class="p">,</span>
                             <span class="n">params</span><span class="p">[</span><span class="s1">&#39;initVel&#39;</span><span class="p">],</span>
