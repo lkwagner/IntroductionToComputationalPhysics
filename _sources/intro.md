@@ -18,15 +18,15 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
  - **Lectures:** R 4:00-5:50, 276 Loomis
  - **Professor:** Lucas Wagner
     - email: lkwagner@illinois.edu
-    - Office Hours: 
+    - Office Hours: Friday 3-4 PM ICMT commons (outside ESB 2131)
 
   - **TA(s):** 
     - Abby Keenan
       - email: akeenan@illinois.edu
-      - Office Hours: 
+      - Office Hours: Monday 3-4 ICMT commons (outside ESB 2131)
     - Surkhab Kaur
       - email: surkhab2@illinois.edu
-      - Office Hours:
+      - Office Hours: Wednesday 3-4 ICMT commons (outside ESB 2131)
         
 #### Online Tools
 
