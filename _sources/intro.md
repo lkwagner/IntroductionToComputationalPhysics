@@ -65,7 +65,7 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 #### Computational Assignments
 The heart of this course will be a series of computational assignments.
 * You will work on the assignments both during class and as homework.
-* Each assignment is due at the beginning of the next class unless otherwise noted. If you need an extension on an assignment, please post to campuswire (only to the course staff).  We will then respond on campuswire if the extension has been given.   The following information:
+* Each assignment is due at the beginning of the next class unless otherwise noted. If you need an extension on an assignment, please email Abby and Surkhab.  We will then respond if the extension has been given.   The following information:
    * broadly why you need the extension (sick, interview, major exam in another course, etc)
    * when you will be able to submit the assignment by (this is the new official due date if the extension is granted.)
 *  Solutions to the homeworks will not be given.
