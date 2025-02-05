@@ -440,7 +440,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 1, 30, 21, 58, 53, 775410)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 2, 5, 20, 13, 36, 339661)
 </pre></div>
 </div>
 </div>
@@ -462,7 +462,7 @@
 <span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthRadius&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">6.371e6</span> <span class="c1">#meters</span>
 <span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthRotatingVelocity&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">444.444</span> <span class="c1"># meters per second</span>
 <span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthOrbitRadius&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">149.6e9</span> <span class="c1"># meters</span>
-<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthOrbitVelocity&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">30e3</span> <span class="c1"># meters per secon</span>
+<span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthOrbitVelocity&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">29.8e3</span> <span class="c1"># meters per second</span>
 <span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;EarthMass&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">5.972e24</span> <span class="c1"># kg</span>
 <span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MoonOrbitRadius&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">363228.9e3</span>
 <span class="n">SolarSystemParameters</span><span class="p">[</span><span class="s2">&quot;MoonMass&quot;</span><span class="p">]</span><span class="o">=</span><span class="mf">7.34e22</span> <span class="c1"># kg</span>
@@ -500,7 +500,7 @@
 <div class="math notranslate nohighlight">
 \[a_y = -\frac{Gm_\textrm{sun} }{x^2+y^2}\sin \phi = - \frac{Gm_\textrm{sun} y }{(x^2+y^2)^{3/2}}\]</div>
 <p>🦉Modify your code to correctly incorporate gravity.</p>
-<p>Copy over your previous work for an integrator (we recommend the midpoint method).  Assuming the sun is at (0,0) modify your Modify your force function to implement the gravitational force.  Use the parameters in your force function. Also modify your <code class="docutils literal notranslate"><span class="pre">Orbit</span></code> function to run for a time <code class="docutils literal notranslate"><span class="pre">params[&quot;T&quot;]</span></code> instead of when it hits the ground. In my code, I also put in a <code class="docutils literal notranslate"><span class="pre">param['CrashRadius']</span></code> that terminated my code in addition to <code class="docutils literal notranslate"><span class="pre">param[&quot;T&quot;]</span></code>.  Btw, if you use the “tab” button it will tell you what’s in your SolarSystemParameters dictionary.  There will be nothing to run here just the functions (you will make plots below)</p>
+<p>Copy over your previous work for an integrator (we recommend the midpoint method).  Assuming the sun is at (0,0) modify your force function to implement the gravitational force.  Use the parameters in your force function. Also modify your <code class="docutils literal notranslate"><span class="pre">Orbit</span></code> function to run for a time <code class="docutils literal notranslate"><span class="pre">params[&quot;T&quot;]</span></code> instead of when it hits the ground. In my code, I also put in a <code class="docutils literal notranslate"><span class="pre">param['CrashRadius']</span></code> that terminated my code in addition to <code class="docutils literal notranslate"><span class="pre">param[&quot;T&quot;]</span></code>.  Btw, if you use the “tab” button it will tell you what’s in your SolarSystemParameters dictionary.  There will be nothing to run here just the functions (you will make plots below)</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -781,7 +781,6 @@ fig.gca().add_artist(earth_disk)
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
 <p>Our goal in this exercise is to determine how general relativity affects the precision of Mercury.  We know from Kepler’s laws that objects orbiting around a central body orbit in an ellipse.  That means the second time around their orbit they come back to the same place that they started.  If you have more then two bodies (like above) or if there are corrections to gravity from general relativity (which there are), then you aren’t going to come back exactly to the same place.  Instead the orbit precesses around.  There’s a good picture <a class="reference external" href="https://aether.lbl.gov/www/classes/p10/gr/PrecessionperihelionMercury.htm">here</a>.</p>
-<p>In this assignment, it will be important to work with all your arrays being <em><strong>long doubles</strong></em>.   You should be able to accomplish this mainly by setting the initial conditions of your array to long double.</p>
 <p>To measure the precision you want measure the angle between two consecutive perihelions (the closest distance on ellipse of the orbit). The most sensible thing is to start at the perihelion and then measure its closest distance when it comes around again.  This is not too hard to do but a bit tricky to get correct.  Here is a good prescription:</p>
 <ul class="simple">
 <li><p>Start at the perihelion.</p></li>
@@ -790,13 +789,13 @@ fig.gca().add_artist(earth_disk)
 <li><p>Now, because you are taking discrete time steps, the closest location you find might not actually be the closest location (because maybe it got closer somewhere between the steps you took).  This will matter for this measurement.  To fix this, let’s interpolate between around this part of the orbit.</p>
 <ul>
 <li><p>Take the three points before and after the position you found in the orbit</p></li>
-<li><p>Fit a quadratic curve around this part of the orbit: <code class="docutils literal notranslate"><span class="pre">line=np.polyfit(x,y,2)</span></code></p></li>
+<li><p>Fit a quadratic curve around this part of the orbit: <code class="docutils literal notranslate"><span class="pre">line=np.polyfit(x,y,2)</span></code>. You can evaluate the line using <code class="docutils literal notranslate"><span class="pre">np.polyval(line,</span> <span class="pre">x_interp)</span></code></p></li>
 <li><p>Find the closest location of this curve by producing a new array with 100000 points which goes from the three points before and after the position you found <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code></p></li>
 <li><p>Get the angle between the lines (sun,original perihelion) and (sun, new perihelion)</p></li>
 </ul>
 </li>
 </ul>
-<p>It will probably help you if you write a function perihelion that takes the positions array and generates the angle of precision.</p>
+<p>It will probably help you if you write a function <code class="docutils literal notranslate"><span class="pre">perihelion</span></code> that takes the positions array and generates the angle of precision.</p>
 <section id="a-mercury-without-general-relativity">
 <h3>a.  Mercury without general relativity<a class="headerlink" href="#a-mercury-without-general-relativity" title="Link to this heading">#</a></h3>
 <p>For our first step, we will compute the precession when we don’t have the relativistic term on.  If our integration was perfect, we should get zero. As we recall from earlier assignments, we know that that there is some time-step errors associated with our integration.  So instead of getting zero, we would expect to get something very close to zero.</p>
@@ -807,11 +806,14 @@ fig.gca().add_artist(earth_disk)
 <li><p><span class="math notranslate nohighlight">\(T=60 \times 60 \times 24 \times 88 \times 1.1\)</span> sec  (1.1 Mercury Years)</p></li>
 <li><p><span class="math notranslate nohighlight">\(dt=60\)</span>  sec.</p></li>
 </ul>
-<p>You need to make sure that all of your parameters are long doubles.  To do this I do</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-  <span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">longdouble</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-</pre></div>
-</div>
+<details>
+You may need to make sure to make all your parameters long doubles.  To do this I do 
+```
+for key in params.keys():
+  params[key]=np.longdouble(params[key])
+```
+However, I have found that this is not necessary.
+</details>
 <p>Plot the orbit of the eccentric Mercury and  report the closest and furthest distance your simulation gets from the sun.
 You should find a minimum distance of 46001200000.517811935.</p>
 <p>Then find the closest distance and nearby 5 points the second time around the orbit <em>not</em> where you started.  You should get</p>

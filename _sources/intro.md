@@ -134,7 +134,7 @@ Sometimes there are typos in the assignment (although we are working hard to rem
 There is no attendance required for class (although we believe that coming to class will be helpful!)  That said, **please do not attend class if you are sick**.  In such a case, we will work with you to make sure you get caught up.  No notes for sickness, etc are required. 
 
 #### About using code you find on the web
-The quickest way to deal with the arcana of programing is to ask Google for examples of what you are seeking to accomplish. But you will need to use your judgment in doing this: the Google search “how do I use color maps in python?” is fine, while “show me a script that calculates pi” is not. And you should always credit the original source of code that you paste into your own programs in a comment that includes the URL for the original code. If an author says that his/her code is not to be copied or incorporated into your programs, then DON’T.
+The quickest way to deal with the arcana of programing is to ask Google for examples of what you are seeking to accomplish. But you will need to use your judgment in doing this: the Google search “how do I use color maps in python?” is fine, while “show me a script that calculates pi” is not. And you should always credit the original source of code that you paste into your own programs in a comment that includes the URL for the original code. If an author says that his/her code is not to be copied or incorporated into your programs, then DON'T.
 
 The goal of this course is for you to deeply understand this material. For this to work, you’ll need to write your own code.
 
