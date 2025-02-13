@@ -8,6 +8,7 @@ chapters:
 - file: Dynamics
 - file: OrbitalDynamics.ipynb
 - file: Exoplanets #done
+- file: Exoplanets_short #done
 - file: chaos
 - file: ParticlePhysics #done
 - file: MachineLearningGalaxies ######
