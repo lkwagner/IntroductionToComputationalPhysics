@@ -424,15 +424,12 @@ document.write(`
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2025-02-21 14:36:51--  https://clark.physics.illinois.edu/particle_helper.py
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2025-02-27 16:54:28--  https://clark.physics.illinois.edu/particle_helper.py
 Resolving clark.physics.illinois.edu (clark.physics.illinois.edu)... 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.220.149.166
-Connecting to clark.physics.illinois.edu (clark.physics.illinois.edu)|18.220.149.166|:443... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
+Connecting to clark.physics.illinois.edu (clark.physics.illinois.edu)|18.220.149.166|:443... connected.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
@@ -446,7 +443,7 @@ Saving to: ‘particle_helper.py’
 particle_helper.py    0%[                    ]       0  --.-KB/s               
 particle_helper.py  100%[===================&gt;]   9.28K  --.-KB/s    in 0s      
 
-2025-02-21 14:36:51 (181 MB/s) - ‘particle_helper.py’ saved [9503/9503]
+2025-02-27 16:54:28 (170 MB/s) - ‘particle_helper.py’ saved [9503/9503]
 </pre></div>
 </div>
 </div>
@@ -479,7 +476,7 @@ particle_helper.py  100%[===================&gt;]   9.28K  --.-KB/s    in 0s
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 2, 21, 14, 36, 52, 88081)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 2, 27, 16, 54, 29, 284813)
 </pre></div>
 </div>
 </div>
@@ -653,8 +650,8 @@ Here are a couple of diagrams:</p>
 </section>
 <section id="a-plotting-the-occupied-region-of-phase-space">
 <h3>a. Plotting the occupied region of phase space<a class="headerlink" href="#a-plotting-the-occupied-region-of-phase-space" title="Link to this heading">#</a></h3>
-<p>I included above a schematic representation of events populating the <span class="math notranslate nohighlight">\(\theta^\prime -\phi^\prime-z\)</span> phase space available to decaying kaons. (The angles describe the positive pion’s trajectory.) My figure used the angles in the kaon rest frame, but I could have just as easily filled the plot with the lab-frame values instead.</p>
-<p>That is what I would like you to do: generate decays with a few different target positions (build your program from the first unit 8 homework problem’s code) and make 3-d plots of the <strong>lab frame</strong> <span class="math notranslate nohighlight">\(\theta^\prime -\phi^\prime-z\)</span> phase space, using small markers for the points corresponding to the “coordinates” in the phase space of each event. For each target position put into your plot the points for all events (as red dots, say) and then the points for all decays that trigger the apparatus (as black dots, perhaps). You will want to plot the triggering decays after plotting the “all decays” phase space points.</p>
+<p>I included above a schematic representation of events populating the <span class="math notranslate nohighlight">\(\theta^\prime -\phi^\prime-z'\)</span> phase space available to decaying kaons. (The angles describe the positive pion’s trajectory.) My figure used the angles in the kaon rest frame, but I could have just as easily filled the plot with the lab-frame values instead.</p>
+<p>That is what I would like you to do: generate decays with a few different target positions (build your program from the first unit 8 homework problem’s code) and make 3-d plots of the <strong>lab frame</strong> <span class="math notranslate nohighlight">\(\theta -\phi-z\)</span> phase space, using small markers for the points corresponding to the “coordinates” in the phase space of each event. For each target position put into your plot the points for all events (as red dots, say) and then the points for all decays that trigger the apparatus (as black dots, perhaps). You will want to plot the triggering decays after plotting the “all decays” phase space points.</p>
 <p>The decay generator provides the lab-frame four momentum for each pion. You will need to calculate the <span class="math notranslate nohighlight">\(\theta-\phi\)</span> angles from this. Keep in mind that <span class="math notranslate nohighlight">\(\phi\)</span> ranges from <span class="math notranslate nohighlight">\(-\pi\)</span> to <span class="math notranslate nohighlight">\(+\pi\)</span>, so you’ll probably need to use an arctan routine that takes two arguments.
  
 To save time, let me remind you how to make 3-d plots. Let’s say you’ve generated 50,000 decays and stored the lab-frame phase space coordinate values in arrays this way:</p>
@@ -680,8 +677,7 @@ To save time, let me remind you how to make 3-d plots. Let’s say you’ve gene
 
 
 <span class="c1"># now create a (blank) figure and get/set its axes.</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="c1"># set the x, y, and z axis limits of the plot axes</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">)</span>
