@@ -38,6 +38,17 @@ def resetMe(keepList=[]):
         %reset_selective -f {jjjj}
     ll=%who_ls
     return
+
+## you can set cpu to false if you want to use gpu or tpu
+cpu=True
+if cpu:
+    jax.config.update('jax_platform_name', 'cpu')
+#    jax.config.update("jax_enable_x64", True)
+else:
+    pass 
+
+
+
 ------------------
 
 

@@ -376,6 +376,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spring-2025-version">Spring 2025 version</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-machine-learning-on-galaxies">Exercise 1: Machine Learning on Galaxies</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-the-data">A Note on the data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-galaxies">a. Galaxies</a></li>
@@ -383,9 +384,9 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-use-jnp"><span style="color:red">Warning: Use <code class="docutils literal notranslate"><span class="pre">jnp</span></code>!</span></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-a-measure-of-goodness">c. A measure of goodness</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-classification">d. Classification</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-mini-batches-and-vmap-extra-credit-5-points">e.  Mini-batches and vmap (Extra Credit: 5 points)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-measuring-the-quality-of-the-model">c. Measuring the quality of the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-training-using-stochastic-gradient-descent">d. Training using stochastic gradient descent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-testing">e. Testing</a></li>
 </ul>
 </li>
 </ul>
@@ -401,6 +402,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="classifying-galaxies">
 <h1>Classifying Galaxies<a class="headerlink" href="#classifying-galaxies" title="Link to this heading">#</a></h1>
+<section id="spring-2025-version">
+<h2>Spring 2025 version<a class="headerlink" href="#spring-2025-version" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
 <li><p><strong>Date:</strong></p></li>
@@ -437,6 +440,14 @@ document.write(`
         <span class="o">%</span><span class="k">reset_selective</span> -f {jjjj}
     <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
     <span class="k">return</span>
+
+<span class="c1">## you can set cpu to false if you want to use gpu or tpu</span>
+<span class="n">cpu</span><span class="o">=</span><span class="kc">True</span>
+<span class="k">if</span> <span class="n">cpu</span><span class="p">:</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;jax_platform_name&#39;</span><span class="p">,</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="c1">#    jax.config.update(&quot;jax_enable_x64&quot;, True)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">pass</span> 
 </pre></div>
 </div>
 </div>
@@ -455,6 +466,7 @@ document.write(`
 </div>
 </details>
 </div>
+</section>
 <section id="exercise-1-machine-learning-on-galaxies">
 <h2>Exercise 1: Machine Learning on Galaxies<a class="headerlink" href="#exercise-1-machine-learning-on-galaxies" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -528,7 +540,8 @@ Wall time: 2.47 s
 <section id="a-galaxies">
 <h3>a. Galaxies<a class="headerlink" href="#a-galaxies" title="Link to this heading">#</a></h3>
 <p>Let’s now examine this data a bit.  We are first going to look at the training data.  The training data is what you are going to use to teach your neural network.  The test data is to check how good we are doing after (possibly during) training.  We won’t use it to train, though (this is to avoid overfitting; we want our neural network to learn how to classify galaxies but not memorize everything in the training set).</p>
-<p>We will start by plotting some of the galaxy images that we have loaded.  Do <code class="docutils literal notranslate"><span class="pre">plt.matshow(train_images_raw[0][:,:,0])</span></code> (This last <code class="docutils literal notranslate"><span class="pre">[:,:,0]</span></code> is because there are three layers to each of these galaxies and we just want to see the first layer. We’ve actually only included this first layer for you to save space, but if you want to use the full data this is necessary)</p>
+<p>We will start by plotting some of the galaxy images that we have loaded.  Do <code class="docutils literal notranslate"><span class="pre">plt.matshow(train_images_raw[0,:,:,0])</span></code> (This last <code class="docutils literal notranslate"><span class="pre">:,:,0]</span></code> is because there are three layers to each of these galaxies and we just want to see the first layer. We’ve actually only included this first layer for you to save space, but if you want to use the full data this is necessary)</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">g</span></code> band is the grayscale image. To get it to display as such, instead of using false color, you can try using <code class="docutils literal notranslate"><span class="pre">cmap='gray'</span></code> as an argument to <code class="docutils literal notranslate"><span class="pre">matshow</span></code></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot me here!</span>
@@ -544,26 +557,25 @@ Wall time: 2.47 s
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Note that it has a <code class="docutils literal notranslate"><span class="pre">1</span></code> in the second place.  This tells us that this is a smooth completely round galaxy. (the ordering is  <a class="reference external" href="https://astronn.readthedocs.io/en/latest/galaxy10.html">here</a>).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Galaxy10 dataset (25753 images)
-├── *0* Class 0 (3461 images): Disk, Face-on, No Spiral
-├── *1* Class 1 (6997 images): Smooth, Completely round
-├── *2* Class 2 (6292 images): Smooth, in-between round
-├── Class 3 (394 images): Smooth, Cigar shaped
-├── *3* Class 4 (3060 images): Disk, Edge-on, Rounded Bulge
-├── Class 5 (17 images): Disk, Edge-on, Boxy Bulge
-├── Class 6 (1089 images): Disk, Edge-on, No Bulge
-├── *4* Class 7 (1932 images): Disk, Face-on, Tight Spiral
-├── Class 8 (1466 images): Disk, Face-on, Medium Spiral
-└── Class 9 (1045 images): Disk, Face-on, Loose Spiral
-</pre></div>
-</div>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>The galaxy dataset labels are given as follows. To make the exercise a little more simple, we have reduced the dataset to galaxies that are only classified as 5 of the types listed below.</p>
+<p>Galaxy10 dataset (25753 images)</p>
+<ul class="simple">
+<li><p>Class 0 (3461 images): Disk, Face-on, No Spiral: <code class="docutils literal notranslate"><span class="pre">[1,0,0,0,0]</span></code></p></li>
+<li><p>Class 1 (6997 images): Smooth, Completely round: <code class="docutils literal notranslate"><span class="pre">[0,1,0,0,0]</span></code></p></li>
+<li><p>Class 2 (6292 images): Smooth, in-between round: <code class="docutils literal notranslate"><span class="pre">[0,0,1,0,0]</span></code></p></li>
+<li><p>Class 3 (394 images): Smooth, Cigar shaped: skipped</p></li>
+<li><p>Class 4 (3060 images): Disk, Edge-on, Rounded Bulge: <code class="docutils literal notranslate"><span class="pre">[0,0,0,1,0]</span></code></p></li>
+<li><p>Class 5 (17 images): Disk, Edge-on, Boxy Bulge: skipped</p></li>
+<li><p>Class 6 (1089 images): Disk, Edge-on, No Bulge: skipped</p></li>
+<li><p>Class 7 (1932 images): Disk, Face-on, Tight Spiral: <code class="docutils literal notranslate"><span class="pre">[0,0,0,0,1]</span></code></p></li>
+<li><p>Class 8 (1466 images): Disk, Face-on, Medium Spiral</p></li>
+<li><p>Class 9 (1045 images): Disk, Face-on, Loose Spiral</p></li>
+</ul>
 <p><img alt="Galaxy10 dataset" src="https://astronn.readthedocs.io/en/v1.0.1/_images/galaxy10_example.png" /></p>
-<p>We are going to use 5 sets, which are indicated with the <code class="docutils literal notranslate"><span class="pre">*#*</span></code></p>
 <p>Let’s instead display the image and label for image 98. We see that instead this is a disk galaxy (<em>this might depend on the randomness used in splitting up the training set so we need to check again when we re-pickle</em>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">train_images_raw</span><span class="p">[</span><span class="mi">98</span><span class="p">][:,:,</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">train_images_raw</span><span class="p">[</span><span class="mi">98</span><span class="p">,:,:,</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">train_labels</span><span class="p">[</span><span class="mi">98</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -575,10 +587,10 @@ Wall time: 2.47 s
 <img alt="_images/d84158904dde5b443f140a07556e9bcbd4b5b4c682a8eb58649f68c5885a73a6.png" src="_images/d84158904dde5b443f140a07556e9bcbd4b5b4c682a8eb58649f68c5885a73a6.png" />
 </div>
 </div>
-<p>Let’s check the shape of our data.  Go ahead and print out <code class="docutils literal notranslate"><span class="pre">np.shape(train_images_raw))</span></code></p>
+<p>Let’s check the shape of our data.  Go ahead and print out <code class="docutils literal notranslate"><span class="pre">train_images_raw.shape</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">train_images_raw</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">train_images_raw</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -588,11 +600,11 @@ Wall time: 2.47 s
 </div>
 </div>
 </div>
-<p>We have 17457 images.  Each image is a <span class="math notranslate nohighlight">\(69 \times 69 \times 1\)</span> image.  We are going to give these pictures as inputs to our neural network.  It will be easier to give them a big <span class="math notranslate nohighlight">\(69 \times 69 \times 1\)</span> vector then a tensor like this.  Therefore, we should go ahead and reshape our data.  To do this, we can do <code class="docutils literal notranslate"><span class="pre">train_images=train_images_raw.reshape(len(train_images_raw),69*69*1)</span></code>  (Do the same thing for our <code class="docutils literal notranslate"><span class="pre">test_images_raw</span> <span class="pre">data</span></code>).  <strong>You also need to normalize the image data so it’s between 0 and 1.  To do that divide all your vectors by 256</strong></p>
+<p>We have 17457 images.  Each image is a <span class="math notranslate nohighlight">\(69 \times 69 \times 1\)</span> image.  We are going to give these pictures as inputs to our neural network.  It will be easier to give them a big <span class="math notranslate nohighlight">\(69 \times 69 \times 1 = 4761\)</span> vector then a tensor like this.  Therefore, we should go ahead and reshape our data.  To do this, we can do <code class="docutils literal notranslate"><span class="pre">train_images=train_images_raw.reshape(len(train_images_raw),69*69*1)</span></code>  (Do the same thing for our <code class="docutils literal notranslate"><span class="pre">test_images_raw</span> <span class="pre">data</span></code>).  <strong>You also need to normalize the image data so it’s between 0 and 1.  To do that divide all your vectors by 256</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images_raw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_images_raw</span><span class="p">),</span><span class="mi">69</span><span class="o">*</span><span class="mi">69</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">256.</span>
-<span class="n">test_images</span>  <span class="o">=</span> <span class="n">test_images_raw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_images_raw</span><span class="p">),</span><span class="mi">69</span><span class="o">*</span><span class="mi">69</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">256.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images_raw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">train_images_raw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">69</span><span class="o">*</span><span class="mi">69</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">256.</span>
+<span class="n">test_images</span>  <span class="o">=</span> <span class="n">test_images_raw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">test_images_raw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">69</span><span class="o">*</span><span class="mi">69</span><span class="o">*</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">256.</span>
 </pre></div>
 </div>
 </div>
@@ -613,29 +625,45 @@ where</p>
 <ul class="simple">
 <li><p>W1 is a size d x 4761 matrix</p></li>
 <li><p>W2 is a size 5 x d matrix</p></li>
-<li><p>b1 is a size d x 1 matrix (the 1 is important – use <code class="docutils literal notranslate"><span class="pre">np.random.rand(d,</span> <span class="pre">1)</span></code>)</p></li>
-<li><p>b2 is a size 5 x 1 matrix</p></li>
+<li><p>b1 is a size d  matrix</p></li>
+<li><p>b2 is a size 5  matrix</p></li>
 </ul>
 <p>The last term: <span class="math notranslate nohighlight">\(1/(1+e^{-x})\)</span> ensures that all the numbers in <span class="math notranslate nohighlight">\(v_{out}\)</span> are between 0 and 1.</p>
-<p>To make this function work in parallel on multiple <span class="math notranslate nohighlight">\(v_{in}\)</span>’s simultaneously, you can just supply them as a big matrix <span class="math notranslate nohighlight">\(V_{in}\)</span> (of size <code class="docutils literal notranslate"><span class="pre">(17457,</span> <span class="pre">4761)</span></code>) and add in some transpositions to make the matrix multiplication shapes work:</p>
-<div class="math notranslate nohighlight">
-\[ v_{out} = \left(1+\exp\left[-\left(\left[W_2 \cdot \mathrm{tanh}(W_1 \cdot V_{in}^\top + b_1)\right] +b_2\right)\right]\right)^{-1} \]</div>
 <p>Implement a function</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">net</span><span class="p">(</span><span class="n">params</span><span class="p">,</span><span class="n">imageVector</span><span class="p">):</span>
-   <span class="c1"># W1=params[0]</span>
-   <span class="c1"># b1=params[1]</span>
-   <span class="c1"># W2= params[2]</span>
-   <span class="c1"># b2 = params[3]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">net</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">imageVector</span><span class="p">):</span>
+   <span class="n">a1</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">W1</span><span class="nd">@imageVector</span>
+   <span class="c1"># other computations</span>
    <span class="c1"># return output</span>
 </pre></div>
 </div>
-<p>where params is a list that contains these parameters and imageVector is one of our reshaped images.</p>
-<p>Let’s test this out.  Generate a set of random parameters that have the correct dimension (for example to do this I used <code class="docutils literal notranslate"><span class="pre">0.1*np.random.randn(5,d)</span></code> for W2).   Then call <code class="docutils literal notranslate"><span class="pre">net(params,train_images[3])</span></code> and you should get what your current neural network guesses is the classification for the “3’rd” galaxy.  Use <span class="math notranslate nohighlight">\(d=100\)</span>.</p>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Notice that the output isn’t a nice vector like <code class="docutils literal notranslate"><span class="pre">[0,0,0,0,1]</span></code>. Instead, it has five different numbers between zero and one such as <code class="docutils literal notranslate"><span class="pre">[0.2400989</span> <span class="pre">,</span> <span class="pre">0.39862376,</span> <span class="pre">0.4565858</span> <span class="pre">,</span> <span class="pre">0.286503</span>&#160; <span class="pre">,</span> <span class="pre">0.734855</span>&#160; <span class="pre">]</span></code>  We will say that the neural network classifies the galaxy by whichever index is largest i.e. <code class="docutils literal notranslate"><span class="pre">np.argmax(outputVector)</span></code>. In this case it is the 0.8866 which corresponds to spot 4 or “Disk Edge on- rounded bulge” category.</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">p</span></code> is a NamedTuple that contains these parameters and imageVector is one of our reshaped images.</p>
+<p>You can define and initialize the NamedTuple as follows (keep in mind that you may need to change this):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Params</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">W1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>  <span class="c1"># d x 4761</span>
+    <span class="n">b1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">W2</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">b2</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">12423</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Params</span><span class="p">(</span><span class="n">W1</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">69</span><span class="o">*</span><span class="mi">69</span><span class="o">*</span><span class="mi">1</span><span class="p">)),</span>
+           <span class="n">b1</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">d</span><span class="p">,)),</span>
+           <span class="n">W2</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">d</span><span class="p">)),</span>
+           <span class="n">b2</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+</pre></div>
+</div>
+<p>You can access the variables by using <code class="docutils literal notranslate"><span class="pre">p.b1</span></code> etc.</p>
+<p>Let’s test this out.  Generate a set of random parameters that have the correct dimension.   Then call <code class="docutils literal notranslate"><span class="pre">net(params,train_images[3])</span></code> and you should get what your current neural network guesses is the classification for the “3’rd” galaxy.  Use <span class="math notranslate nohighlight">\(d=100\)</span>.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Q: Compare your prediction to the actual classification for image 3. Is it making a good prediction? Why or why not?</p>
+<p>A:</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Notice that the output isn’t a nice vector like <code class="docutils literal notranslate"><span class="pre">[0,0,0,0,1]</span></code>. Instead, it has five different numbers between zero and one such as <code class="docutils literal notranslate"><span class="pre">[0.2400989</span> <span class="pre">,</span> <span class="pre">0.39862376,</span> <span class="pre">0.4565858</span> <span class="pre">,</span> <span class="pre">0.286503</span>&#160; <span class="pre">,</span> <span class="pre">0.734855</span>&#160; <span class="pre">]</span></code>  We will say that the neural network classifies the galaxy by whichever index is largest i.e. <code class="docutils literal notranslate"><span class="pre">np.argmax(outputVector)</span></code>. In this case it is the 0.8866 which corresponds to spot 4 or “Disk Edge on- rounded bulge” category.</p>
 </section>
 </section>
-<section id="c-a-measure-of-goodness">
-<h3>c. A measure of goodness<a class="headerlink" href="#c-a-measure-of-goodness" title="Link to this heading">#</a></h3>
+<section id="c-measuring-the-quality-of-the-model">
+<h3>c. Measuring the quality of the model<a class="headerlink" href="#c-measuring-the-quality-of-the-model" title="Link to this heading">#</a></h3>
 <p>To quantify how good our neural network is, we will use two things:</p>
 <p>(1) <strong>Cross-entropy</strong>
 Let’s quantify how far off you are from the expected label (maybe it’s <code class="docutils literal notranslate"><span class="pre">[0,0,0,1,0]</span></code>) . A good way to quantify this is to use the cross entropy.  The cross-entropy is defined as</p>
@@ -652,7 +680,21 @@ Let’s quantify how far off you are from the expected label (maybe it’s <code
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>(2) <strong>Correct classification</strong>
-In addition to the cross-entropy, we care whether the winning labelling is correct. We will say that we’ve labelled it correctly if in our length 10 vector, the maximum value is where the 1 should be.  Write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">fractionCorrect(params,images,labels)</span></code> that says what fraction you got correct. (<code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> is probably useful here).  Run this on your test images and labels.</p>
+In addition to the cross-entropy, we care whether the winning labelling is correct. We will say that we’ve labelled it correctly if in our length 10 vector, the maximum value is where the 1 should be.  Write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">accuracy(params,image,label)</span></code> that says whether a single image  you got correct. (<code class="docutils literal notranslate"><span class="pre">jnp.argmax</span></code> is probably useful here).  Run this on your test images and labels.</p>
+<p>Show that your accuracy function correctly computes whether the classification is correct for one or two image examples.</p>
+<p>Once you can compute whether a single image correctly classifies, <code class="docutils literal notranslate"><span class="pre">jax</span></code> makes it easy to extend it to many images. Define</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fractionCorrect</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">accuracy</span><span class="p">,</span> <span class="n">in_axes</span> <span class="o">=</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This makes <code class="docutils literal notranslate"><span class="pre">fractionCorrect</span></code> into a function, in which the second and third argument now have an extra dimension. Whereas you called accuracy as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">train_images</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">train_labels</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>you will instead call <code class="docutils literal notranslate"><span class="pre">fractionCorrect</span></code> as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fractionCorrect</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and it will return an array for <strong>all</strong> the images. You can then take the mean as <code class="docutils literal notranslate"><span class="pre">jnp.mean</span></code> for the fraction.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###</span>
@@ -665,8 +707,8 @@ In addition to the cross-entropy, we care whether the winning labelling is corre
 <p>Let’s define the gradient of the loss as
 <code class="docutils literal notranslate"><span class="pre">loss_grad</span> <span class="pre">=</span> <span class="pre">jit(jax.grad(jit(loss)))</span></code>.  (The <code class="docutils literal notranslate"><span class="pre">jit</span></code> are there to make things faster.  This is morally just <code class="docutils literal notranslate"><span class="pre">jax.grad(loss)</span></code> and that would work albeit be slower).</p>
 </section>
-<section id="d-classification">
-<h3>d. Classification<a class="headerlink" href="#d-classification" title="Link to this heading">#</a></h3>
+<section id="d-training-using-stochastic-gradient-descent">
+<h3>d. Training using stochastic gradient descent<a class="headerlink" href="#d-training-using-stochastic-gradient-descent" title="Link to this heading">#</a></h3>
 <p>Now all we need to do is to (over and over again)</p>
 <ul class="simple">
 <li><p>choose a random image in the <strong>training</strong> set.</p></li>
@@ -682,12 +724,14 @@ In addition to the cross-entropy, we care whether the winning labelling is corre
 </div>
 </div>
 </div>
-<p>Explore a couple images and see how the your neural network classifies it.  Also, it might be fun to go ahead and look at the ones that it classifies incorrectly whether its second choice was correct.  You can go ahead and explictily check this by looping over everything and collecting some statistics.</p>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>We computed the gradient and took a step after every image.  It is better to average the gradient over some number (say ten) images and then take a step.  This is called a mini-batch.  Write some code to do mini-batches by just looping over ten images.  Then improve your code by figuring out to remove the extra loop and use <code class="docutils literal notranslate"><span class="pre">jax.vmap</span></code></p>
 </section>
-<section id="e-mini-batches-and-vmap-extra-credit-5-points">
-<h3>e.  Mini-batches and vmap (Extra Credit: 5 points)<a class="headerlink" href="#e-mini-batches-and-vmap-extra-credit-5-points" title="Link to this heading">#</a></h3>
-<p><strong>Acknowledgement:</strong> This assignment follows very closely a tutorial from GalaxyZoo.com</p>
+<section id="e-testing">
+<h3>e. Testing<a class="headerlink" href="#e-testing" title="Link to this heading">#</a></h3>
+<p>By this point you should have a somewhat accurate classifier. 66% is not great for production work; you can do better by improving your training and the size of your network, but to keep the assignment reasonable we will stop there.</p>
+<p>Now we would like to know how accurate we would expect our model to be on data it’s never seen before. You can’t use the data you trained on because your model has already seen it; we want to make sure that it’s not just memorizing the data that it’s already seen (this is sometimes referred to as overfitting). This is where the test data comes in. Use your <code class="docutils literal notranslate"><span class="pre">fractionCorrect</span></code> function to assess how good your model is on the test data set.</p>
+<p>Q: Did you overfit your model? Why or why not?</p>
+<p>A:</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Acknowledgement:</strong> This assignment follows very closely a tutorial from GalaxyZoo.com</p>
 <ul class="simple">
 <li><p>Bryan Clark and Ryan Levy (original)</p></li>
 </ul>
@@ -761,6 +805,7 @@ In addition to the cross-entropy, we care whether the winning labelling is corre
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spring-2025-version">Spring 2025 version</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-machine-learning-on-galaxies">Exercise 1: Machine Learning on Galaxies</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-note-on-the-data">A Note on the data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-galaxies">a. Galaxies</a></li>
@@ -768,9 +813,9 @@ In addition to the cross-entropy, we care whether the winning labelling is corre
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-use-jnp"><span style="color:red">Warning: Use <code class="docutils literal notranslate"><span class="pre">jnp</span></code>!</span></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-a-measure-of-goodness">c. A measure of goodness</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-classification">d. Classification</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-mini-batches-and-vmap-extra-credit-5-points">e.  Mini-batches and vmap (Extra Credit: 5 points)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-measuring-the-quality-of-the-model">c. Measuring the quality of the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-training-using-stochastic-gradient-descent">d. Training using stochastic gradient descent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-testing">e. Testing</a></li>
 </ul>
 </li>
 </ul>
