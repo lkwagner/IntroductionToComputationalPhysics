@@ -431,7 +431,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 3, 13, 14, 37, 26, 347232)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 3, 24, 14, 37, 42, 622127)
 </pre></div>
 </div>
 </div>
@@ -491,15 +491,18 @@ For example, draw a uniform random number <span class="math notranslate nohighli
 </tbody>
 </table>
 </div>
-<p>In particular, run 10000 steps of Markov chain sampling and keep a running (or cumulative) average of how many times you have seen each state. One way to do this is by having three length 10000 arrays <code class="docutils literal notranslate"><span class="pre">sunnyCounts</span></code>, <code class="docutils literal notranslate"><span class="pre">cloudyCounts</span></code>, <code class="docutils literal notranslate"><span class="pre">rainyCounts</span></code> that you fill with zeros and ones at each step, depending on which state you are at. The cumulative average of a sunny day, for example, will then be</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sunnyCumAvg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">sunnyCounts</span><span class="p">)</span> <span class="o">/</span> <span class="n">steps_so_far</span>
+<p>In particular, run 10000 steps of Markov chain sampling and collect what the weather is on a given day.  The easiest way to do this is to keep an array <code class="docutils literal notranslate"><span class="pre">weather</span></code> for which you push back 0 if it’s sunny, 1 if it’s cloudy, and 2 if it’s rainy.</p>
+<p>Then we can graph the results in various ways.  For example, we can get a histogram of the results by doing</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">weather</span><span class="p">[</span><span class="mi">100</span><span class="p">:],</span><span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">],</span><span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">rwidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="s1">&#39;Sunny&#39;</span><span class="p">,</span><span class="s1">&#39;Cloudy&#39;</span><span class="p">,</span><span class="s1">&#39;Rainy&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>After enough steps, these running averages will approximate the unconditional probability distributions P(sunny), P(cloudy), P(rainy) Your result should look something like the following figure</p>
+<p>which will show us how often any given weather is.</p>
+<p><em>Slight Aside:</em>. Each Markov chain has an equilibration time. One should always wait until after the equilibration time before using statistics from a Markov chain. While we have not measured the equilibration time here, the equilibration time is short.  That said, the <code class="docutils literal notranslate"><span class="pre">100</span></code> in <code class="docutils literal notranslate"><span class="pre">weather[100:]</span></code> is to ensure the statistics start after the equilibration.  There are other time scales, such as the autocorrelation time and the mixing time, that are important to consider when using Markov chains, but I will not discuss them here.</p>
+<p>Alternatively, we might want to see the fluctations of the weather over time.  If you just plot weather (i.e. <code class="docutils literal notranslate"><span class="pre">plt.plot(weather)</span></code>) it won’t be very instructive because it will just jump around.  Instead it makes sense to get a running average.  Note that <code class="docutils literal notranslate"><span class="pre">np.average(measure[i-window//2:i+window//2]==0)</span></code> will give you the fraction of the time that it is sunny around day <code class="docutils literal notranslate"><span class="pre">i</span></code>. Using <code class="docutils literal notranslate"><span class="pre">window=100</span></code> go ahead and compute the fraction of time it is sunny (respectively cloudy and rainy) around day <code class="docutils literal notranslate"><span class="pre">i</span></code> plotting it is a function of <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
 <!--![image.png](attachment:image.png)-->
-<div><img src="https://clark.physics.illinois.edu/246img/MC_probability.png" width=500  alt="Answer (start)"></img><br></div><p>Notice that the Markov chain quickly settles down to equilibrium and the averages converge to constant values. Each Markov chain has an equilibration time. One should always wait until after the equilibration time before collecting statistics from a Markov chain. We have not measured the equilibration time, but for such a simple Markov chain with very few possible states, the equilibration time is very short. There are other time scales, such as the autocorrelation time and the mixing time, that are important to consider when using Markov chains, but I will not discuss them here.</p>
-<p>When run for 10000 steps, my Markov chain obtains the following estimates for the unconditional probabilities P(sunny)=0.625, P(cloudy) = 0.3125, P(rainy) =0.0625.  Make sure you obtain similar values.</p>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<div><img src="https://clark.physics.illinois.edu/246img/MC_probability.png" width=500  alt="Answer (start)"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
 </pre></div>
@@ -515,8 +518,11 @@ For example, draw a uniform random number <span class="math notranslate nohighli
 <p>Here we will discuss how to use Markov Chain Monte Carlo (MCMC) to compute expectation values.  In statistics, we study the properties of random variables <span class="math notranslate nohighlight">\(x\)</span> and their probability distributions <span class="math notranslate nohighlight">\(P(x)\)</span>.  We often care about computing expectation values of functions of the random variable such as</p>
 <div class="math notranslate nohighlight">
 \[\langle f(x) \rangle = \sum_x f(x) P(x)\]</div>
-<p>In general, the probability distribution <span class="math notranslate nohighlight">\(P(x)\)</span> can be very complicated and difficult to sample efficiently. In this case, we can use Markov chains to represent the probability distribution <span class="math notranslate nohighlight">\(P(x)\)</span>.   It is possible to pick the transition probabilities of the Markov chain so that the chain’s equilibrium probability distribution is the desired probability distribution <span class="math notranslate nohighlight">\(P(x)\)</span>. Once we have a correctly defined Markov chain, we can sample it to obtain a set of sampled states <span class="math notranslate nohighlight">\(x_1,x_2,...,x_T\)</span>.  These sampled states can be used to estimate expectation values in the following way
-$<span class="math notranslate nohighlight">\( \langle f(x) \rangle \approx \frac{1}{T_{max}} \sum_{t=1}^{T_{max}} f(x_t)\)</span>$</p>
+<p>In general, the probability distribution <span class="math notranslate nohighlight">\(P(x)\)</span> can be very complicated and difficult to sample efficiently. In this case, we can use Markov chains to represent the probability distribution <span class="math notranslate nohighlight">\(P(x)\)</span>.   It is possible to pick the transition probabilities of the Markov chain so that the chain’s equilibrium probability distribution is the desired probability distribution <span class="math notranslate nohighlight">\(P(x)\)</span>. Once we have a correctly defined Markov chain, we can sample it to obtain a set of sampled states <span class="math notranslate nohighlight">\(x_1,x_2,...,x_T\)</span>.  These sampled states can be used to estimate expectation values in the following way</p>
+<div class="math notranslate nohighlight">
+\[
+\langle f(x) \rangle \approx \frac{1}{T_{max}} \sum_{t=1}^{T_{max}} f(x_t)
+\]</div>
 <p>This should look familiar. This is secretly what we were doing when we were computing the RMS displacement of random walks previously.  However, you should be clear on the distinction between Monte Carlo and Markov chains. Monte Carlo methods are ways to evaluate integrals using random numbers. Markov chains are used to sample complicated probability distributions. When Monte Carlo is used to integrate a probability distribution specified by a Markov chain, then it is called Markov Chain Monte Carlo.</p>
 <section id="metropolis-algorithm">
 <h3>Metropolis Algorithm<a class="headerlink" href="#metropolis-algorithm" title="Link to this heading">#</a></h3>
@@ -568,7 +574,9 @@ $<span class="math notranslate nohighlight">\(E = -\mu B \cos \theta\)</span><sp
 where \)</span>\theta$ is the angle between the magnetic moment and the magnetic field.</p>
 <p>Each orientation of the dipole is called a “state.” The possible states for the dipole are specified by the angle <span class="math notranslate nohighlight">\(0\leq \theta &lt; 2\pi\)</span>; the probability of such states in thermal equilibrium is given by the Boltzmann distribution</p>
 <div class="math notranslate nohighlight">
-\[P(\theta) = \frac{1}{Z} e^{-E(\theta)/k_bT} = \frac{1}{Z} e^{\mu B \cos(\theta)/k_B T} \equiv \frac{1}{Z} e^{h \cos\theta}\]</div>
+\[
+P(\theta) = \frac{1}{Z} e^{-E(\theta)/k_bT} = \frac{1}{Z} e^{\mu B \cos(\theta)/k_B T} \equiv \frac{1}{Z} e^{h \cos\theta}
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(h=\mu B/k_BT\)</span> is a dimensionless quantity.</p>
 <p>Now, we want to use Metropolis Markov Chain Monte Carlo to samples states from <span class="math notranslate nohighlight">\(P(\theta)\)</span> To sample states from the Markov chain, we use the steps outlined in the section on the Metropolis algorithm, but filling in the details for this specific problem:</p>
 <ol class="arabic simple">
@@ -591,15 +599,14 @@ $<span class="math notranslate nohighlight">\(M(h) = I_1(h)/I_0(h)\)</span><span
 where \)</span>I_\nu(z)<span class="math notranslate nohighlight">\(  is a modified Bessel function of the second kind of order \)</span>\nu$.</p>
 <p><strong>Plotting</strong><br />
 🦉Plot your MCMC calculation results and the exact answer given by the above formula on the same plot. You can use the <code class="docutils literal notranslate"><span class="pre">scipy.special</span></code> module to compute the Bessel functions. For example,</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sps</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sps</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sps</span><span class="o">.</span><span class="n">iv</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>prints the value <span class="math notranslate nohighlight">\(I_3(0.5)\)</span>.</p>
 <p>You should obtain a plot that looks like this:</p>
 <!--![image.png](attachment:image.png)-->
-<div><img src="https://clark.physics.illinois.edu/246img/MC_mag.png" width=400  alt="Answer (start)"></img><br></div><p>(You don’t need to compute the error bars for your MCMC data points. I included them to illustrate how accurate the results are.)</p>
-<p>Note how the magnetization changes with  <span class="math notranslate nohighlight">\(h\)</span>. For small <span class="math notranslate nohighlight">\(|h|\)</span> (high temperature or low magnetic field), the spins fluctuate wildly and so don’t align with the magnetic field, which causes there to be no magnetization. For large <span class="math notranslate nohighlight">\(|h|\)</span> (low temperature or high magnetic field), the spins are mostly aligned with the magnetic field and <span class="math notranslate nohighlight">\(|M|\)</span> is close to one.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/MC_mag.png" width=400  alt="Answer (start)"></img><br></div><p>Note how the magnetization changes with  <span class="math notranslate nohighlight">\(h\)</span>. For small <span class="math notranslate nohighlight">\(|h|\)</span> (high temperature or low magnetic field), the spins fluctuate wildly and so don’t align with the magnetic field, which causes there to be no magnetization. For large <span class="math notranslate nohighlight">\(|h|\)</span> (low temperature or high magnetic field), the spins are mostly aligned with the magnetic field and <span class="math notranslate nohighlight">\(|M|\)</span> is close to one.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -624,16 +631,19 @@ where \)</span>I_\nu(z)<span class="math notranslate nohighlight">\(  is a modif
 <p>The states of the rubber band, unlike the states of the paramagnet in the previous exercise, are discrete and can be labeled with integers. For example, the following three configurations of 7- polymer chains</p>
 <!--![image.png](attachment:image.png)-->
 <div><img src="https://clark.physics.illinois.edu/246img/MC_rubberBand2.png" width=200  alt="Answer (start)"></img><br></div><p>can be labeled with arrays of binary values:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">configuration1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> 
-<span class="n">configuration2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">configuration1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">configuration2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">configuration3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Here we chose to have the number one represent a flat polymer and the number zero a bent one.</p>
-<p>Now, let’s suppose that there is an energy difference <span class="math notranslate nohighlight">\(\epsilon\)</span> between a polymer it its flat and bent states, so that the total energy of a configuration <span class="math notranslate nohighlight">\(S\)</span> o a rubber band of length <span class="math notranslate nohighlight">\(M(S)a\)</span> is
-$<span class="math notranslate nohighlight">\(E(S) = \epsilon M(S).\)</span>$</p>
+<p>Now, let’s suppose that there is an energy difference <span class="math notranslate nohighlight">\(\epsilon\)</span> between a polymer it its flat and bent states, so that the total energy of a configuration <span class="math notranslate nohighlight">\(S\)</span> o a rubber band of length <span class="math notranslate nohighlight">\(M(S)a\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+E(S) = \epsilon M(S).
+\]</div>
 <p>It is  straightforward to calculate the length and energy of a configuration of the rubber band. For the first configuration above, we could do this by summing the number of ones in the binary vector:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">configuration1</span><span class="p">)</span> <span class="c1"># Will be 3 </span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">configuration1</span><span class="p">)</span> <span class="c1"># Will be 3</span>
 <span class="n">length1</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">M1</span>
 <span class="n">energy1</span> <span class="o">=</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="n">M1</span>
 </pre></div>
@@ -644,9 +654,9 @@ $<span class="math notranslate nohighlight">\(E(S) = \epsilon M(S).\)</span>$</p
 <p>This is a simple probability distribution that we can sample without a Markov chain. Do this by randomly picking polymer configurations in the following way: for each polymer in the chain, flip a coin to decide whether it is flat or bent. Your code should look something like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">avgLength</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numSamples</span><span class="p">):</span>
-    <span class="c1"># TODO: Write code here to randomly pick a configuration </span>
+    <span class="c1"># TODO: Write code here to randomly pick a configuration</span>
     <span class="c1">#...</span>
-    <span class="c1"># TODO: Write code here to compute the configuration’s length </span>
+    <span class="c1"># TODO: Write code here to compute the configuration’s length</span>
     <span class="c1"># lengthConfiguration = . . .</span>
     <span class="n">avgLength</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">lengthConfiguration</span><span class="p">)</span> <span class="o">/</span> <span class="n">numSamples</span>
 </pre></div>
@@ -677,9 +687,9 @@ computes the expectation value of the chain length</p>
 <div class="math notranslate nohighlight">
 \[\langle M \rangle = \sum_S M(S) P(S) \approx \frac{1}{T_{max}} \sum_{t=1}^{T_{max}} M(S_t)\]</div>
 <p>given the value of the ratio <span class="math notranslate nohighlight">\(\epsilon/k_BT\)</span>.  Your function, for instance, can look like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the average chain length using Metropolis MCMC. </span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the average chain length using Metropolis MCMC.</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">computeAvgLength</span><span class="p">(</span><span class="n">epsilonRatio</span><span class="p">):</span>
-    <span class="c1"># TODO: Write your code to compute avgLength here </span>
+    <span class="c1"># TODO: Write your code to compute avgLength here</span>
     <span class="c1">#...</span>
     <span class="k">return</span> <span class="n">avgLength</span>
 </pre></div>
@@ -692,7 +702,7 @@ computes the expectation value of the chain length</p>
 <!--![image.png](attachment:image.png)-->
 <div><img src="https://clark.physics.illinois.edu/246img/MC_rubberBand3.png" width=400  alt="Answer (start)"></img><br></div><p>From this plot, we can see that when <span class="math notranslate nohighlight">\(\epsilon\)</span> is negative flat polymers are energetically preferred and the average length of the rubber band increases. When <span class="math notranslate nohighlight">\(\epsilon\)</span> is positive, bent polymers are more energetically favorable and the average length decreases.</p>
 <p>Notice the dependence on temperature. When temperature is very high, the rubber band has a nearly equal number of flat and bent polymers and so is about <span class="math notranslate nohighlight">\(Na/2\)</span> in length. When temperature is low, then the sign of ! determines whether the rubber band is maximally stretched or contracted.</p>
-<p>For the typical rubber bands you would get in the store, the polymers within it energetically prefer to lie flat so that <span class="math notranslate nohighlight">\(\epsilon&lt;0.\)</span> . This sign of <span class="math notranslate nohighlight">\(\epsilon\)</span> means that rubber bands contract when heated and expanded when cold!</p>
+<p>For the typical rubber bands you would get in the store, the polymers within it energetically prefer to lie flat so that <span class="math notranslate nohighlight">\(\epsilon&lt;0.\)</span>  This sign of <span class="math notranslate nohighlight">\(\epsilon\)</span> means that rubber bands contract when heated and expanded when cold!</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -705,9 +715,10 @@ computes the expectation value of the chain length</p>
 <p><strong>Q: What happens when <span class="math notranslate nohighlight">\(\epsilon/k_BT=0\)</span> ? Explain below</strong></p>
 <p>A:</p>
 <hr class="docutils" />
-<p>**Acknowledgements:</p>
+<p><strong>Acknowledgements:</strong></p>
 <ul class="simple">
 <li><p>Eli Chertkov and George Gollin (original)</p></li>
+<li><p>Minor Modifications: Bryan Clark</p></li>
 </ul>
 <p>© Copyright 2021</p>
 </section>
