@@ -459,7 +459,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 3, 24, 14, 38, 22, 474213)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 3, 27, 20, 47, 46, 550390)
 </pre></div>
 </div>
 </div>
@@ -649,12 +649,11 @@ To get good statistics, we will average the above quantities over 10,000 walks. 
 <h3>a. Representing the initial distribution<a class="headerlink" href="#a-representing-the-initial-distribution" title="Link to this heading">#</a></h3>
 <p>In this exercise, we’d like to deterministically model how the distribution over random walks changes in time.  What this means is that we want to have some equation of motion that starts with the histogram at step <span class="math notranslate nohighlight">\(t=1\)</span> and then generates the histogram at other time step <span class="math notranslate nohighlight">\(t\)</span>.  In the dynamics section, we stored the position and velocity of a planet at a moment in time. Now, we have to store a vector which stores the entire histogram or distribution at a moment in time.</p>
 <p>Start with a vector in the initial condition  <span class="math notranslate nohighlight">\(\rho(t=1)=\exp[-x^2/2\sigma^2]\)</span> where <span class="math notranslate nohighlight">\(\sigma=6\)</span> which we can represent on a grid with <span class="math notranslate nohighlight">\(dx=1\)</span> as</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size</span><span class="o">=</span><span class="mi">4000</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span> <span class="o">=</span> <span class="mi">400</span>
 <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="nb">range</span><span class="p">,</span> <span class="nb">range</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
 <span class="n">sigma</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">xs</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">*</span> <span class="p">(</span><span class="n">points</span> <span class="o">-</span> <span class="n">size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">xs</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">))</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">xs</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Go ahead and plot this as</p>
@@ -678,7 +677,7 @@ To get good statistics, we will average the above quantities over 10,000 walks. 
 <p>Here <span class="math notranslate nohighlight">\(D=a^2/2\)</span> is the diffusion constant where <span class="math notranslate nohighlight">\(a\)</span> is our step size (in this case 6).</p>
 <p>To time-step with this differential equation, we need to figure out how to take <span class="math notranslate nohighlight">\(\rho\)</span> and  apply <span class="math notranslate nohighlight">\(\frac{\partial^2 \rho}{\partial x^2}\)</span>.  We will assume that <span class="math notranslate nohighlight">\(\rho=0\)</span> at the boundary at all time so we don’t have to worry about the boundary conditions.  To apply this partial derivative what we should do is use the finite-difference stencil that</p>
 <div class="math notranslate nohighlight">
-\[ \frac{\partial^2 \rho}{\partial x^2} = \frac{\rho(x+dx) - + \rho(x-dx) -2 \rho(x)}{dx^2}\]</div>
+\[ \frac{\partial^2 \rho}{\partial x^2} = \frac{\rho(x+dx) + \rho(x-dx) -2 \rho(x)}{dx^2}\]</div>
 <p>Again we have that <span class="math notranslate nohighlight">\(dx=1\)</span> and we will use <span class="math notranslate nohighlight">\(dt=dx^2/100\)</span>.  Using this, write a function</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Step</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">dx</span><span class="p">):</span>
    <span class="c1"># compute d^2rho/dx^2</span>
