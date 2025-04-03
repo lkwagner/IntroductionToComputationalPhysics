@@ -394,7 +394,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-window-averaging-cleaning-data">f. Window Averaging (cleaning data)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-agent-based-predator-prey-simulation">Exercise 3:  Agent Based Predator-Prey Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-agent-based-predator-prey-simulation-extra-credit-for-20-points">Exercise 3:  Agent Based Predator-Prey Simulation (Extra credit for 20 points)</a></li>
 </ul>
             </nav>
         </div>
@@ -531,17 +531,17 @@ We can write these as the differential equations</p>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>This latter plot (predator vs prey) is called a limit cycle.  This means that if I start with a given number of predators and prey, the total number cycles in this periodic pattern forever.  You can see this either by seeing that you are in a limit cycle or by seeing that there is periodicity in the prey vs. time plots above.</p>
-<p><strong>Q: Does the predator or prey increase first?</strong></p>
-<p><strong>Q: Does the predator or prey peak to its maximum.  Does this change if you flip the starting populations so the predator starts with more then the prey?</strong></p>
-<p><strong>Q: Looking at the phase space plot, does the largest number of predators correspond to the largest number of prey</strong></p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>The dynamics for the parameters above (predator vs prey) result in what is called a limit cycle.  This means that if I start with a given number of predators and prey, the total number cycles in this periodic pattern forever.  You can see this either by seeing periodicity in the prey vs. time plots, or by noting that the phase space plot has a repeating orbit. Make sure to answer all these questions in full sentences with your reasoning.</p>
+<p><strong>Q: For the parameters above, is the first derivative of bunnies or foxes positive (which initially increases)?</strong></p>
 <p>A:</p>
+<p><strong>Q: Suppose you were to reverse the initial conditions, so that there are more predators than prey at the beginning. How would the answer to the above change (you can try it!)?</strong></p>
 <p>A:</p>
+<p><strong>Q: What is the relationship between the maximum in bunnies vs foxes? In phase, out of phase by 180 degrees, something else?</strong></p>
 <p>A:</p>
 </section>
 <section id="c-predator-phase-space-plots">
 <h3>c.  Predator Phase Space Plots<a class="headerlink" href="#c-predator-phase-space-plots" title="Link to this heading">#</a></h3>
-<p>🦉Generate the phase space plots for a <span class="math notranslate nohighlight">\(x\)</span> prey and <span class="math notranslate nohighlight">\(x/2\)</span> predators for <span class="math notranslate nohighlight">\(x \in \{50,100,200,400,600,800,1000,1200,1600\}\)</span>. (Use the same initial conditions above).
+<p>🦉Generate the phase space plots for a <span class="math notranslate nohighlight">\(x\)</span> prey and <span class="math notranslate nohighlight">\(x/2\)</span> predators for <span class="math notranslate nohighlight">\(x \in \{50,100,200,400,600,800,1000,1200,1600\}\)</span>. (Use the same parameters as above).
 Also generate a plot of the minimum prey seen during an ecosystem simulation for a given number of starting prey.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -550,15 +550,15 @@ Also generate a plot of the minimum prey seen during an ecosystem simulation for
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q: Which do you think are most likely to avoid extinction given these parameters?</strong></p>
-<p><strong>Q:  What is the minimum amount of prey you ever see in your simulation?</strong></p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:  What is the minimum amount of bunnies you ever see in your simulation?</strong></p>
 <p>A:</p>
+<p><strong>Q: As you increase <span class="math notranslate nohighlight">\(x\)</span>, you will find that the populations start to crash near zero. Which population does that first?</strong></p>
 <p>A:</p>
 </section>
 <section id="d-stationary-points">
 <h3>d. Stationary points<a class="headerlink" href="#d-stationary-points" title="Link to this heading">#</a></h3>
 <p>An interesting question we can ask: <strong>is there is some number of prey and predators we can start with so that the total number of prey and predators never change?</strong>  This would be called a fixed point or stationary point.</p>
-<p>One approach is to figure this out analtyically.  Instead, in this part we will determine it numerically. 🦉 To accomplish this, let’s write a function <code class="docutils literal notranslate"><span class="pre">getDeviation(initial_population)</span></code> which takes the initial population as a list <code class="docutils literal notranslate"><span class="pre">[preyPopulation,predatorPopulation]</span></code> and returns the standard deviation of the number of prey (<code class="docutils literal notranslate"><span class="pre">np.std(listOfPreyVsTime)</span></code>).  If the total number of prey never change then its standard deviation will be zero. Therefore we’ve created a minimization problem.</p>
+<p>We will determine the stationary point numerically. 🦉 To accomplish this, let’s write a function <code class="docutils literal notranslate"><span class="pre">getDeviation(initial_population)</span></code> which takes the initial population as a list <code class="docutils literal notranslate"><span class="pre">[preyPopulation,predatorPopulation]</span></code> and returns the standard deviation of the number of prey (<code class="docutils literal notranslate"><span class="pre">np.std(listOfPreyVsTime)</span></code>).  If the total number of prey never change then its standard deviation is zero, and otherwise the standard deviation is greater than zero. Therefore, if we minimize the standard deviation then we will find the stationary point.</p>
 <p>Now, all we have to do is call <code class="docutils literal notranslate"><span class="pre">getDeviation</span></code> a bunch of times with different parameters and figure out when it returns zero.  There are lots of rich and interesting approaches to optimization problems like this, but we don’t have time to explore them.  Here we are going to use a package from python calling <code class="docutils literal notranslate"><span class="pre">out=scipy.optimize.minimize(getDeviation,x0)</span></code>.  When it’s finished running, if you print <code class="docutils literal notranslate"><span class="pre">out.x</span></code> you can see which parameters it found.</p>
 <p><strong>Change D from 0.003 to 0.001 here</strong></p>
 <p>🦉Run the optimization and report the number of predator and prey you find.</p>
@@ -570,7 +570,9 @@ Also generate a plot of the minimum prey seen during an ecosystem simulation for
 </ul>
 <div class="alert alert-info" style="color:black;">
 <i>Note:</i> On my machine, I had to round the answer to get the proper initial starting point. If you get, for example, 99.99999998, round it to 100
-</div><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+</div>
+<p>You also might find it useful to turn off matplotlib’s formatting as follows: <code class="docutils literal notranslate"><span class="pre">matplotlib.rc('axes.formatter',</span> <span class="pre">useoffset=False)</span></code> so you can see more clearly what numbers are changing.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
 </pre></div>
@@ -584,7 +586,7 @@ Also generate a plot of the minimum prey seen during an ecosystem simulation for
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q: Qualitatively what do phase plots look like in this case?</strong></p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q: Qualitatively what do phase plots look like when a stationary point is found?</strong></p>
 <p>A:</p>
 </section>
 </section>
@@ -595,20 +597,20 @@ Also generate a plot of the minimum prey seen during an ecosystem simulation for
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
 <p><strong>Problems with simulating the ecosystem using the Lotka-Volterra equations:</strong></p>
-<p>There are two qualitative problems with simulating ecosystems in this way:</p>
-<p>(1) In our simulations so far, we have found either stationary points or limit cycles.  Both of these are unrealistic.  Ecosystems are more dynamic then this.  It’s not the case that once you have a certain population of predator/prey it returns to this number over and over again forever.</p>
-<p><em>Where is this coming from:</em>  We are simulating the ecosystem deterministically - there is no randomness involved.  Deterministic equations essentially can only do a few things: they can converge to fixed points, limit cycles or be chaotic.</p>
-<p>(2) centi-bunnies:  You may have noticed in your simulations that you ocassionally saw that your ecosystem had 1/100 of a bunny and that this 1/100 of a bunny recovered into a respectable population of 8000 bunnies.  This seems somewhat problematic. Our previous approach to simulation regularly involve fractional animals and can never have an extinction event.  To go beyond this we need to remove the deterministic nature of the equations by doing something stochastic and we need to recognize the discrete integer-ness of animals.</p>
+<p>There are two qualitative problems with simulating ecosystems using the Lotka-Volterra equations:</p>
+<p>(1) In our simulations so far, we have found either stationary points or limit cycles.  Both of these are unrealistic.  Ecosystems are more dynamic than this.  It’s not the case that once you have a certain population of predator/prey it returns to this number over and over again forever.  This occurs because we are simulating the ecosystem deterministically - there is no randomness involved.  Deterministic equations essentially can only do a few things: they can converge to fixed points, limit cycles or be chaotic.</p>
+<p>(2) millibunnies:  You may have noticed in your simulations that you ocassionally saw that your ecosystem had 1/1000 of a bunny and that this 1/1000 of a bunny recovered into a respectable population of 8000 bunnies.  This is unrealistic, since if you can have fractional animals you can never never have an extinction event.  To go beyond this we need to recognize the discrete integer-ness of animals, which will require us to also include stochasticity.</p>
 <section id="a-the-first-bunny">
 <h3>a.  The first bunny<a class="headerlink" href="#a-the-first-bunny" title="Link to this heading">#</a></h3>
-<p>Let’s think about what <span class="math notranslate nohighlight">\(dB = \alpha B(t) dt\)</span> means.  Previously we thought that it meant that in a unit of time <span class="math notranslate nohighlight">\(\Delta t\)</span> we got <span class="math notranslate nohighlight">\(\alpha B(t) \Delta t\)</span> new prey.  But if <span class="math notranslate nohighlight">\(\alpha B(t)\)</span> is 0.2 and <span class="math notranslate nohighlight">\(\Delta t=0.1\)</span> we don’t get 0.02 bunnies. Instead we can think of it stochasticallly interpreting the probability density of getting one whole new bunny as <span class="math notranslate nohighlight">\(20\%\)</span> and so the probability of getting a new bunny in a small interval <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(0.2 \Delta t\)</span>.</p>
-<p>We now ask the following question:  What is the probability of getting your first bunny after time <span class="math notranslate nohighlight">\(T+\Delta t\)</span>. Well, we’ve taken <span class="math notranslate nohighlight">\(T/\Delta t + 1\)</span> steps. You have to not have gotten a bunny the first <span class="math notranslate nohighlight">\(T/\Delta t\)</span> steps. That probability is <span class="math notranslate nohighlight">\((1-0.2 \Delta t)^{T/\Delta t}\)</span>.  The probability of getting a bunny at step <span class="math notranslate nohighlight">\(T/\Delta t+1\)</span> is <span class="math notranslate nohighlight">\(0.2 \Delta t\)</span>.   So the total probability density is <span class="math notranslate nohighlight">\((1-0.2 \Delta t)^{(T/\Delta t)} \times 0.2\)</span></p>
+<p>Let’s think about what <span class="math notranslate nohighlight">\(dB = \alpha B(t) dt\)</span> means.  Previously we thought that it meant that in a unit of time <span class="math notranslate nohighlight">\(\Delta t\)</span> we got <span class="math notranslate nohighlight">\(\alpha B(t) \Delta t\)</span> new bunnies.  But if <span class="math notranslate nohighlight">\(\alpha B(t)\)</span> is 0.2 and <span class="math notranslate nohighlight">\(\Delta t=0.1\)</span> we don’t get 0.02 bunnies. Instead we can think of it as the probability density of getting one whole new bunny as <span class="math notranslate nohighlight">\(20\%\)</span> and so the probability of getting a new bunny in a small interval <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(0.2 \Delta t\)</span>.</p>
+<p>We now ask the following question:  What is the probability of getting your first bunny after time <span class="math notranslate nohighlight">\(T+\Delta t\)</span>? Well, we’ve taken <span class="math notranslate nohighlight">\(T/\Delta t + 1\)</span> steps. You have to not have gotten a bunny the first <span class="math notranslate nohighlight">\(T/\Delta t\)</span> steps. That probability is <span class="math notranslate nohighlight">\((1-0.2 \Delta t)^{T/\Delta t}\)</span>.  The probability of getting a bunny at step <span class="math notranslate nohighlight">\(T/\Delta t+1\)</span> is <span class="math notranslate nohighlight">\(0.2 \Delta t\)</span>.   So the total probability density is <span class="math notranslate nohighlight">\((1-0.2 \Delta t)^{(T/\Delta t)} \times 0.2\)</span></p>
 <p>Suppose we take the limit where <span class="math notranslate nohighlight">\(\Delta t \rightarrow 0\)</span>  The the probability we get a bunny in an interval <span class="math notranslate nohighlight">\(\Delta t\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[ 0.2 \Delta t e^{-0.2 T}\]</div>
 <p>This follows because</p>
 <div class="math notranslate nohighlight">
-\[ \lim_{t \rightarrow 0} (1-at)^{T/t}a = ae^{-aT} \]</div>
+\[ \lim_{t \rightarrow 0} (1-\alpha t)^{T/t}\alpha = \alpha e^{-\alpha T} \]</div>
+<p>This is called a Poisson process, and it shows up in many situations, from nuclear decay to phone call frequency. It is essentially saying that a bunny reproduces on average every <span class="math notranslate nohighlight">\(1/\alpha\)</span> time, and once it has reproduced, it starts again with no memory of when it last reproduced. You can imagine that such a process might not apply to human behavior but we will use it for bunnies.</p>
 <p>Let’s test this.</p>
 <p>We can write a function <code class="docutils literal notranslate"><span class="pre">TimeOfFirstBunny(alpha,deltaT)</span></code> which takes the</p>
 <ul class="simple">
@@ -620,8 +622,8 @@ Also generate a plot of the minimum prey seen during an ecosystem simulation for
 <li><p>first time we get one whole  bunny.</p></li>
 </ul>
 <p>This function should just loop over steps <span class="math notranslate nohighlight">\(dt\)</span> and return the time <span class="math notranslate nohighlight">\(t\)</span> if a random number is less then <span class="math notranslate nohighlight">\(\alpha \Delta t\)</span>.</p>
-<p>🦉Run this function 10000 times with <span class="math notranslate nohighlight">\(\alpha=1\)</span> and <span class="math notranslate nohighlight">\(dt=0.001\)</span> and plot it with <code class="docutils literal notranslate"><span class="pre">plt.hist(ts,100,density=1)</span></code> (100 sets the number of bins and <code class="docutils literal notranslate"><span class="pre">density=1</span></code> makes sure it is a normalized histogram).</p>
-<p>On the same plot, go ahead and plot</p>
+<p>🦉Run this function 10,000 times with <span class="math notranslate nohighlight">\(\alpha=1\)</span> and <span class="math notranslate nohighlight">\(dt=0.001\)</span> and plot it with <code class="docutils literal notranslate"><span class="pre">plt.hist(ts,100,density=1)</span></code> (100 sets the number of bins and <code class="docutils literal notranslate"><span class="pre">density=1</span></code> makes sure it is a normalized histogram).</p>
+<p>On the same plot, plot</p>
 <div class="math notranslate nohighlight">
 \[P_B(T) = \alpha \exp[-\alpha T]\]</div>
 <p>from <span class="math notranslate nohighlight">\(T\in[0,35]\)</span> to compare them. (Recall that if you have a numpy array you can do math operations on them using functions like <code class="docutils literal notranslate"><span class="pre">np.exp</span></code>)</p>
@@ -636,10 +638,10 @@ Also generate a plot of the minimum prey seen during an ecosystem simulation for
 </section>
 <section id="b-a-faster-algorithm-to-find-the-first-bunny">
 <h3>b. A faster algorithm to find the first bunny.<a class="headerlink" href="#b-a-faster-algorithm-to-find-the-first-bunny" title="Link to this heading">#</a></h3>
-<p>Waiting to determine the time of first of bunny using <strong>a.</strong> is pretty slow. There is another algorithm that’s much faster (in the limit of <span class="math notranslate nohighlight">\(\Delta t\rightarrow 0\)</span>).  The time to first bunny is</p>
+<p>Waiting to determine the time of first of bunny using the method of <strong>a.</strong> above is pretty slow. There is another algorithm that’s much faster (in the limit of <span class="math notranslate nohighlight">\(\Delta t\rightarrow 0\)</span>).  The time to first bunny is</p>
 <div class="math notranslate nohighlight">
 \[t= -\log(r)/\alpha\]</div>
-<p>where <span class="math notranslate nohighlight">\(r\)</span> is a uniform random number between 0 and 1.</p>
+<p>where <span class="math notranslate nohighlight">\(r\)</span> is a uniform random number between 0 and 1. The idea here is that we are drawing a sample from the Poisson distribution. This method is sometimes called “continuous time” because <span class="math notranslate nohighlight">\(t\)</span> can be any real number, and is not decided by a discrete time step.</p>
 <p>Instead of analytically verifying this, let’s check this numerically.</p>
 <p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">TimeOfFirstBunny2(alpha,deltaT)</span></code> which returns <span class="math notranslate nohighlight">\(-\log(r)/\alpha\)</span> and make a plot comparing it to <span class="math notranslate nohighlight">\(\alpha \exp[-\alpha T]\)</span>.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
@@ -742,16 +744,16 @@ and make sure to keep track of <span class="math notranslate nohighlight">\(\alp
 <section id="e-stationary-again">
 <h3>e. Stationary again<a class="headerlink" href="#e-stationary-again" title="Link to this heading">#</a></h3>
 <p>🦉Do the same thing as <strong>d.</strong> for the parameters you found above which give you a stationary point. Don’t forget to change <span class="math notranslate nohighlight">\(D=0.001\)</span> For this, go out to <span class="math notranslate nohighlight">\(T=1000\)</span></p>
-<p><strong>Q:</strong> Do the number of bunnies change as a function of time?</p>
-<p><strong>Q:</strong> Qualitatively what do you feel is the effect of running the simulation at the stationary point?</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSEWR ME</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>A:</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:</strong> Do the number of bunnies change as a function of time?</p>
+<p>A:</p>
+<p><strong>Q:</strong> Qualitatively what is the effect of running the stochastic simulation at the stationary point?</p>
 <p>A:</p>
 </section>
 <section id="e-extinction">
@@ -787,14 +789,12 @@ Because of the randomness involved, this may take a while to run (~5 minutes). F
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:</strong> I would have expected that this curve would be more monotonic. The more prey you had, the less likely anyone would go extinct.  Is this correct? Qualitatively describe what the curve suggests.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:</strong> I would have expected that this curve would be more monotonic. The more prey you had, the less likely anyone would go extinct.  Is this correct? Do a calculation with B0=600 and describe why the bunnies go extinct quickly.</p>
 <p>A:</p>
 </section>
 </section>
-<section id="exercise-3-agent-based-predator-prey-simulation">
-<h2>Exercise 3:  Agent Based Predator-Prey Simulation<a class="headerlink" href="#exercise-3-agent-based-predator-prey-simulation" title="Link to this heading">#</a></h2>
-<p><em>This problem is worth 20/100 of the points with problem 1 and problem 2 being worth 40/100 each of this assignment</em>
-<strong>Correctly completing this problem is also worth an additional 20 points Extra Credit!</strong></p>
+<section id="exercise-3-agent-based-predator-prey-simulation-extra-credit-for-20-points">
+<h2>Exercise 3:  Agent Based Predator-Prey Simulation (Extra credit for 20 points)<a class="headerlink" href="#exercise-3-agent-based-predator-prey-simulation-extra-credit-for-20-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -1084,7 +1084,7 @@ Because of the randomness involved, this may take a while to run (~5 minutes). F
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-window-averaging-cleaning-data">f. Window Averaging (cleaning data)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-agent-based-predator-prey-simulation">Exercise 3:  Agent Based Predator-Prey Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-agent-based-predator-prey-simulation-extra-credit-for-20-points">Exercise 3:  Agent Based Predator-Prey Simulation (Extra credit for 20 points)</a></li>
 </ul>
   </nav></div>
 

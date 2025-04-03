@@ -431,7 +431,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 3, 27, 20, 47, 9, 50523)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 4, 3, 15, 30, 54, 636762)
 </pre></div>
 </div>
 </div>
@@ -539,7 +539,7 @@ For example, draw a uniform random number <span class="math notranslate nohighli
 </section>
 <section id="thermal-physics-and-the-boltzmann-distribution">
 <h3>Thermal physics and the Boltzmann distribution<a class="headerlink" href="#thermal-physics-and-the-boltzmann-distribution" title="Link to this heading">#</a></h3>
-<p>In some ways, the type of physics that we encounter most often in our everyday lives is thermal physics. We are perpetually surrounded by a heat bath of <span class="math notranslate nohighlight">\(\approx 10^{27}\)</span> particles whizzing around us. The black-body radiation we receive from the sun is in thermal equilibrium with the Earth’s surface. The phases of matter we see and interact with every day, such as liquid water, gaseous oxygen, or solid iron, are all described by the physics of thermodynamics and statistical mechanics.</p>
+<p>In some ways, the type of physics that we encounter most often in our everyday lives is thermal physics. We are perpetually surrounded by a heat bath of <span class="math notranslate nohighlight">\(\approx 10^{27}\)</span> particles whizzing around us. The black-body radiation we receive from the Sun is in thermal equilibrium with the Sun’s surface. The phases of matter we see and interact with every day, such as liquid water, gaseous oxygen, or solid iron, are all described by the physics of thermodynamics and statistical mechanics.</p>
 <p>Physical systems that are in thermal equilibrium with a heat bath obey the laws of statistical mechanics. Heat baths are large physical systems that are assumed to be at a constant temperature <span class="math notranslate nohighlight">\(T\)</span>. A small system put in contact with a heat bath is able to exchange energy with the heat bath so that it also stays at the same temperature.</p>
 <!-- ![image.png](attachment:image.png) -->
 <div><img src="https://clark.physics.illinois.edu/246img/MC_heatbath.png" width=400  alt="Answer (start)"></img><br></div><p>Statistical mechanics tells us that the probability distribution of the small system’s states in thermal equilibrium with the heat bath is given by the Boltzmann distribution</p>
@@ -565,7 +565,7 @@ For example, draw a uniform random number <span class="math notranslate nohighli
 <p>Paramagnets can be described as non-interacting magnetic dipoles in a magnetic field. Here is a cartoon of a paramagnet in one-dimension, with arrows representing dipoles aligned in different directions.</p>
 <!--![image.png](attachment:image.png)-->
 <div><img src="https://clark.physics.illinois.edu/246img/MC_spins.png" width=400  alt="Answer (start)"></img><br></div><p>Since there are no interactions in this material, each dipole is independent and we can focus on the physics of a single dipole.</p>
-<p>Suppose there is a magnetic field <span class="math notranslate nohighlight">\(\textbf{B}\)</span> As we know from electromagnetism, the energy of a dipole-magnetic field interaction is</p>
+<p>Suppose there is a magnetic field <span class="math notranslate nohighlight">\(\textbf{B}\)</span>. As we know from electromagnetism, the energy of a dipole-magnetic field interaction is</p>
 <div class="math notranslate nohighlight">
 \[E=-\textbf{B} \cdot \textbf{m}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\textbf{m} = \mu \textbf{S}\)</span> is the dipole moment. These are vector quantities. For simplicity, we will assume
@@ -575,10 +575,10 @@ where \)</span>\theta$ is the angle between the magnetic moment and the magnetic
 <p>Each orientation of the dipole is called a “state.” The possible states for the dipole are specified by the angle <span class="math notranslate nohighlight">\(0\leq \theta &lt; 2\pi\)</span>; the probability of such states in thermal equilibrium is given by the Boltzmann distribution</p>
 <div class="math notranslate nohighlight">
 \[
-P(\theta) = \frac{1}{Z} e^{-E(\theta)/k_bT} = \frac{1}{Z} e^{\mu B \cos(\theta)/k_B T} \equiv \frac{1}{Z} e^{h \cos\theta}
+P(\theta) = \frac{1}{Z} e^{-E(\theta)/k_bT} = \frac{1}{Z} e^{\mu B \cos(\theta)/k_B T} \equiv \frac{1}{Z} e^{h \cos\theta},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(h=\mu B/k_BT\)</span> is a dimensionless quantity.</p>
-<p>Now, we want to use Metropolis Markov Chain Monte Carlo to samples states from <span class="math notranslate nohighlight">\(P(\theta)\)</span> To sample states from the Markov chain, we use the steps outlined in the section on the Metropolis algorithm, but filling in the details for this specific problem:</p>
+<p>Now, we want to use Metropolis Markov Chain Monte Carlo to samples states from <span class="math notranslate nohighlight">\(P(\theta)\)</span>. To sample states from the Markov chain, we use the steps outlined in the section on the Metropolis algorithm, but filling in the details for this specific problem:</p>
 <ol class="arabic simple">
 <li><p>Start at state <span class="math notranslate nohighlight">\(\theta_t\)</span></p></li>
 <li><p>Propose a new state <span class="math notranslate nohighlight">\(\theta'\)</span> by doing a Gaussian random step away from <span class="math notranslate nohighlight">\(\theta_t\)</span>.</p></li>
