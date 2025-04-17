@@ -1,17 +1,17 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/nbclient/client.py", line 1319, in execute
+  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/nbclient/client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-  File "/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -50,14 +50,14 @@ Cell [0;32mIn[2], line 4[0m
 [1;32m      5[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01msolar[39;00m[38;5;21;01m.[39;00m[38;5;21;01minsolation[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m daily_insolation
 [1;32m      6[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m legendre
 
-File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/climlab/__init__.py:20[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/climlab/__init__.py:20[0m
 [1;32m     18[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m constants, thermo, legendre
 [1;32m     19[0m [38;5;66;03m# some more useful shorcuts[39;00m
 [0;32m---> 20[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mmodel[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcolumn[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m GreyRadiationModel, RadiativeConvectiveModel, BandRCModel
 [1;32m     21[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mmodel[39;00m[38;5;21;01m.[39;00m[38;5;21;01mebm[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m EBM, EBM_annual, EBM_seasonal
 [1;32m     22[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mdomain[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfield[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Field, global_mean
 
-File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/climlab/model/__init__.py:28[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/climlab/model/__init__.py:28[0m
 [1;32m      1[0m [38;5;124;03m'''[39;00m
 [1;32m      2[0m [38;5;124;03mThis package contains ready-made models that can be run "off-the-shelf".[39;00m
 [1;32m      3[0m 
@@ -67,7 +67,7 @@ File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages
 [0;32m---> 28[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mcolumn[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m GreyRadiationModel, RadiativeConvectiveModel, BandRCModel
 [1;32m     29[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mebm[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m EBM, EBM_annual, EBM_seasonal
 
-File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/climlab/model/column.py:39[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/climlab/model/column.py:39[0m
 [1;32m     37[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
 [1;32m     38[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m constants [38;5;28;01mas[39;00m const
 [0;32m---> 39[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mprocess[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m TimeDependentProcess
@@ -75,34 +75,34 @@ File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages
 [1;32m     41[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mradiation[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m (FixedInsolation, GreyGas, GreyGasSW,
 [1;32m     42[0m         ThreeBandSW, FourBandLW, ManabeWaterVapor)
 
-File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/climlab/process/__init__.py:2[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/climlab/process/__init__.py:2[0m
 [1;32m      1[0m [38;5;124;03m'''The base classes for all climlab processes.'''[39;00m
 [0;32m----> 2[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mprocess[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Process, process_like, get_axes
 [1;32m      3[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mtime_dependent_process[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m TimeDependentProcess, couple
 [1;32m      4[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01m.[39;00m[38;5;21;01mimplicit[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m ImplicitProcess
 
-File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/climlab/process/process.py:69[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/climlab/process/process.py:69[0m
 [1;32m     67[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mtime[39;00m[38;5;241m,[39m[38;5;250m [39m[38;5;21;01mcopy[39;00m
 [1;32m     68[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
 [0;32m---> 69[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdomain[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfield[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Field
 [1;32m     70[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdomain[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdomain[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _Domain, zonal_mean_surface
 [1;32m     71[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m walk
 
-File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/climlab/domain/__init__.py:7[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/climlab/domain/__init__.py:7[0m
 [1;32m      4[0m __all__ [38;5;241m=[39m [[38;5;124m'[39m[38;5;124maxis[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mdomain[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mfield[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124minitial[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mxarray[39m[38;5;124m'[39m]
 [1;32m      6[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdomain[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdomain[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m single_column, zonal_mean_surface, surface_2D, zonal_mean_column, box_model_domain
 [0;32m----> 7[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdomain[39;00m[38;5;21;01m.[39;00m[38;5;21;01minitial[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m column_state, surface_state
 [1;32m      8[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdomain[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfield[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Field, global_mean
 [1;32m      9[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdomain[39;00m[38;5;21;01m.[39;00m[38;5;21;01maxis[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Axis
 
-File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/climlab/domain/initial.py:4[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/climlab/domain/initial.py:4[0m
 [1;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
 [1;32m      3[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdomain[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m domain
 [0;32m----> 4[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdomain[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfield[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Field
 [1;32m      5[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mattrdict[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m AttrDict
 [1;32m      6[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mclimlab[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m legendre
 
-File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/climlab/domain/field.py:9[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/climlab/domain/field.py:9[0m
 [1;32m      1[0m [38;5;66;03m#  Trying a new data model for state variables and domains:[39;00m
 [1;32m      2[0m [38;5;66;03m#  Create a new sub-class of numpy.ndarray[39;00m
 [1;32m      3[0m [38;5;66;03m#  that has as an attribute the domain itself[39;00m
@@ -119,7 +119,7 @@ File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages
 [1;32m     83[0m 
 [1;32m     84[0m [38;5;124;03m    """[39;00m
 
-File [0;32m/opt/hostedtoolcache/Python/3.10.16/x64/lib/python3.10/site-packages/climlab/domain/xarray.py:3[0m
+File [0;32m/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/climlab/domain/xarray.py:3[0m
 [1;32m      1[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mbuiltins[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;28mstr[39m
 [1;32m      2[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mbuiltins[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;28mobject[39m
 [0;32m----> 3[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01mxarray[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Dataset, DataArray
