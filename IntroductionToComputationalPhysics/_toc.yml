@@ -7,7 +7,7 @@ chapters:
 - file: N_Ways_of_Measuring_PI #done
 - file: Dynamics
 - file: OrbitalDynamics.ipynb
-- file: Exoplanets #done
+#- file: Exoplanets #done
 - file: Exoplanets_short #done
 - file: chaos
 - file: ParticlePhysics #done
