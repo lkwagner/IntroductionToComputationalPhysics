@@ -11,6 +11,7 @@ Welcome!  Computation is powerful. In this course, you are going to learn how to
 
 Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">overview presentation</a> of what you will learn in this class.
 
+new text
 
 ---
 
