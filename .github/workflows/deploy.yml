@@ -11,6 +11,8 @@ on:
 jobs:
   build-and-deploy-book:
     runs-on: ubuntu-latest
+    permissions: 
+      contents: write
     strategy:
       matrix:
         os: [ubuntu-latest]
