@@ -9,7 +9,7 @@
 
 Welcome!  Computation is powerful. In this course, you are going to learn how to use computation to do amazing simulations: compute how general relativity changes the orbit of Mercury; simulate turbulence; compute the effect of predator and preys on an ecosystem; run a quantum algorithm; and more! We've searched and distilled from the world some of the coolest physics we know for you to learn to simulate. Our primary goal in this class will be to help you make these simulations.  
 
-Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">overview presentation</a> of what you will learn in this class.
+Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">overview presentation</a> of what you will learn in this class. **CHANGE!**
 
 
 
@@ -33,7 +33,6 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 #### Online Tools
 
 
-* **Campuswire**:  We will use campuswire as a class forum;  a way to message the course staff and each other; and to submit your attendance question.
 * **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!
 * **Gradescope**: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You must submit the "Sharing" link for your Colab document containing your project solution, and you must submit a printout of your Colab document in .pdf format. Both submissions are required for each project to obtain credit. [Detailed submission instructions can be found here.](instructions-for-submitting-your-assignments)
 
@@ -73,7 +72,7 @@ The heart of this course will be a series of computational assignments.
    * 10% Cleanliness of code (removed any faulty code - no side quests!)
    * 10% Well-named variables (e.g. the mass of a star is called "Mass" not "paramter1")
    * 10% Readable plots - when applicable (axes labeled, reasonable color scheme, visible and distinguishable lines, reasonable range etc)
-* The assignments consist of 95% of your grade.
+* The assignments consist of 80% of your grade.
 * You must BOTH share your code (see below) AND turn in the PDF on time into Gradescope. If we only have one or not the other, we will not grade your assignment (and it will be counted late if the other part is turned in after the due date). 
 * Each assignment is due at the beginning of the next class unless otherwise noted. Extension may possibly be granted under extreme situations, please email Surkhab and Max.  We will then respond if the extension has been granted.   The following information:
    * broadly why you need the extension (illness, family emergency, etc)
@@ -107,8 +106,8 @@ Assignments are submitted via Gradescope, which requires two simple steps.  Firs
 
 We will review both the printout and Colab code while grading your assignment, so please refrain from editing the Colab document after the submission deadline.
 
-#### Final Project
-During the final period, you will put together a project that demonstrates something in computational physics.  It can be an extension of some of the work that you did in class or something new.  This project can be done in small groups (2-3 people).  Projects have to be approved by course staff.  For your project you will submit a jupyter notebook (in the spirit of what you've done in class but expository) as well as give a 5 minute presentation during the finals period for the course. 
+#### Final Project (20% of the grade)
+During the final period, you will put together a project that demonstrates something in computational physics.  It can be an extension of some of the work that you did in class or something new.  This project can be done in small groups (2-4 people).  Projects have to be approved by course staff.  For your project you will submit a jupyter notebook (in the spirit of what you've done in class but expository) as well as give a 5 minute presentation during the finals period for the course. 
 
 #### Extra Credit
 There will be occassional opportunities to get extra credit. To zeroth order these exist because I think they are cool and useful for understanding computational physics but I can't justify within the 2 credit hours of the course.
@@ -118,30 +117,30 @@ Extra credit assignments will often be described poorly (maybe even something li
 For the extra credit, per exercise, the grading is all or nothing. We aren't going to hunt for typos and give partial credit for sortof working code. The amount of extra credit per exercise/etc is listed on the assignment.
 
 #### Coding and Research
-I have had a few students request research opportunities. If I know of any, I'll try to announce them in class. However, if there are students who are already well-aquainted with c++ then shoot me an email.  
+I have had a few students request research opportunities. If I know of any, I'll try to announce them in class. However, if there are students who are already well-aquainted with c++ then shoot me an email with your CV+summary of your experience.  
 
 ----
 ### Grading
-* Computational Assignments: 95%
-* Final Project: 5%
+* Computational Assignments: 80%
+* Final Project: 20%
 
 Your final numerical score is computed as
-100 x (0.95 x (Homework Points + Extra Credit Ponts)/(Total Homework Points) + 0.05 x Final)
+100 x (0.80 x (Homework Points + Extra Credit Ponts)/(Total Homework Points) + 0.20 x Final)
 
 The final breakdown of how your grade depends on your numerical score goes as:
 * 100+: A+
-* 90-100: A
-* 80-90: A-
-* 70-80: B+
-* 60-70: B
-* 50-60: B-
-* 40-50: C+
-* 30-40: C-
-* 20-30: D
-* 10-20: D-
-* 0-10: F
+* 93-100: A
+* 90-93: A-
+* 88-90: B+
+* 83-88: B
+* 80-83: B-
+* 78-80: C+
+* 73-78: C
+* 70-73: C-
+* 60-70: D
+* <60: F
 
-Scores are inclusive of the bottom number - i.e. a 90 gets an A not an A-.
+Scores are inclusive of the bottom number - i.e. a 90 gets an A not a B+.
 All problem sets count for the same amount.  Unless otherwise noted, every exercise in a problem set counts an equal fraction of the assignment and every part (a,b,c,...) of an exercise counts as an equal fraction of the exercise. 5 points of the problem set will be for mandatory questions (e.g. time spent on assignment, references, collaborators).
 
 Sometimes there are typos in the assignment (although we are working hard to remove them). Please ask when confused! Don't spin your wheels a long time on something that might be a typo. These aren't trick questions - we are trying to ask reasonable things.
@@ -153,6 +152,8 @@ Sometimes there are typos in the assignment (although we are working hard to rem
 #### Attendance  
 
 Students are strongly enoucarged to attend class, participate in lectures, and make use of office hours. While no explicit attendance requirements are in place, participation is factored in at the end of the semester if a student has a boarderline grade as well as for when students ask for homework extensions.  Thus, it is in the student's best interest to regularly attend class. 
+
+The first half of class includes a lecture/overview of the problem. The second half of class provides you with time to work on the problem (in small groups and with the instructuor and TAs available for help). The first half of class is invaluable to introduce the problem, the second half can help you get started. 
 
 If a major event occurs e.g. death in the family, major illness etc, it is best 
 
