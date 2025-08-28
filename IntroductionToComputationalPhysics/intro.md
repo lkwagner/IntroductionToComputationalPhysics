@@ -24,10 +24,10 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
   - **TA(s):**
   - Surkhab Kaur
       - email: surkhab2@illinois.edu
-      - Office Hours: TBD
+      - Office Hours: Wedsnesday 11:00am-noon Loomis 451
   - Maxwell Rizzo
       - email: marizzo2@illinois.edu
-      - Office Hours: TBD
+      - Office Hours: Thursday 11:00am-noon Loomis 243
     
         
 #### Online Tools
@@ -43,20 +43,21 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 
 |Date   |Assignment   |
 |---|---|
-|Jan 23	| N Ways to Measure PI  |
-|Jan 30	|Dynamics   |
-|Feb 6	|Orbital Dynamics  |
-|Feb 13	|Exoplanets   |
-|Feb 20	|Chaos   |
-|Feb 27 	|Particle Physics|
-|Mar 6	|Classifying Galaxies    |
-|Mar 13	|Random Walks |
-|Mar 27   	|Markov Chains   |
-|Apr 3 	|Predator-Prey  |
-|Apr 10  	|Climate Dynamics
-|Apr 17	| Fluid Dynamics |
-|Apr 24	|Quantum Computing|
-|May 1| Building a Physical Qbit  |
+|Aug 28	| N Ways to Measure PI  |
+|Sep 4	|Dynamics   |
+|Sep 11	|Orbital Dynamics (Jaki traveling)  |
+|Sep 18	|Exoplanets   |
+|Sep 25	|Chaos   |
+|Oct 2 |Particle Physics|
+|Oct 9	|Classifying Galaxies    |
+|Oct 16	|Random Walks |
+|Oct 23	|Markov Chains   |
+|Oct 30 	|Predator-Prey  |
+|Nov 6 	|Climate Dynamics
+|Nov 13| Fluid Dynamics (Jaki probably traveling)|
+|Nov 20	|Quantum Computing|
+|Nov 27	| No class! Fall Break |
+|Dec 4| Building a Physical Qbit  |
 
 
 ---
