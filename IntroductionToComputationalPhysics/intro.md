@@ -9,7 +9,7 @@
 
 Welcome!  Computation is powerful. In this course, you are going to learn how to use computation to do amazing simulations: compute how general relativity changes the orbit of Mercury; simulate turbulence; compute the effect of predator and preys on an ecosystem; run a quantum algorithm; and more! We've searched and distilled from the world some of the coolest physics we know for you to learn to simulate. Our primary goal in this class will be to help you make these simulations.  
 
-Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">overview presentation</a> of what you will learn in this class. **CHANGE!**
+
 
 
 
@@ -43,7 +43,7 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 
 |Date   |Assignment   |
 |---|---|
-|Aug 28	| N Ways to Measure PI  |
+|Aug 28	| N Ways to Measure PI  <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Lecture 1</a> |
 |Sep 4	|Dynamics   |
 |Sep 11	|Orbital Dynamics (Jaki traveling)  |
 |Sep 18	|Exoplanets   |
