@@ -34,7 +34,7 @@ Welcome!  Computation is powerful. In this course, you are going to learn how to
 
 
 * **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!
-* **Gradescope**: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You must submit the "Sharing" link for your Colab document containing your project solution, and you must submit a printout of your Colab document in .pdf format. Both submissions are required for each project to obtain credit. [Detailed submission instructions can be found here.](instructions-for-submitting-your-assignments)
+* **Gradescope**: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You will have 2 seperate submissionts per assignment, that includes a printout of your Colab document in .pdf format and your original .ipynb. Both submissions are required for each project to obtain credit. <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Specific instructures with screenshots can be found on the slides from Lecture 1</a>
 
 ---
 
