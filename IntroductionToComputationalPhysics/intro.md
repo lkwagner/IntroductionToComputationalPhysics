@@ -45,19 +45,19 @@ Welcome!  Computation is powerful. In this course, you are going to learn how to
 |---|---|
 |Aug 28	| N Ways to Measure PI  <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Lecture 1</a> |
 |Sep 4	|Dynamics <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture2.pdf">Lecture 2</a>  |
-|Sep 11	|Orbital Dynamics (Jaki traveling)  |
-|Sep 18	|Exoplanets   |
-|Sep 25	|Chaos   |
-|Oct 2 |Particle Physics|
-|Oct 9	|Classifying Galaxies    |
-|Oct 16	|Random Walks |
-|Oct 23	|Markov Chains   |
-|Oct 30 	|Predator-Prey  |
-|Nov 6 	|Climate Dynamics
-|Nov 13| Fluid Dynamics (Jaki probably traveling)|
-|Nov 20	|Quantum Computing|
+|Sep 11	|Orbital Dynamics (Jaki traveling)  <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture3.pdf">Lecture 3</a> |
+|Sep 18	|Exoplanets <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture4.pdf">Lecture 4</a>  |
+|Sep 25	|Chaos <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture5.pdf">Lecture 5</a>  |
+|Oct 2 |Particle Physics <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture6.pdf">Lecture 6</a>|
+|Oct 9	|Classifying Galaxies <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture7.pdf">Lecture 7</a>   |
+|Oct 16	|Random Walks <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture8.pdf">Lecture 8</a> |
+|Oct 23	|Markov Chains <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture9.pdf">Lecture 9</a>  |
+|Oct 30 	|Predator-Prey <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture10.pdf">Lecture 10</a> |
+|Nov 6 	|Climate Dynamics <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture11.pdf">Lecture 11</a>|
+|Nov 13| Fluid Dynamics (Jaki probably traveling) <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture12.pdf">Lecture 12</a>|
+|Nov 20	|Quantum Computing <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture13.pdf">Lecture 13</a>|
 |Nov 27	| No class! Fall Break |
-|Dec 4| Building a Physical Qbit  |
+|Dec 4| Building a Physical Qbit <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture14.pdf">Lecture 14</a> |
 
 
 ---
