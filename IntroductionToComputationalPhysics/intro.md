@@ -44,7 +44,7 @@ Welcome!  Computation is powerful. In this course, you are going to learn how to
 |Date   |Assignment   |
 |---|---|
 |Aug 28	| N Ways to Measure PI  <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Lecture 1</a> |
-|Sep 4	|Dynamics   |
+|Sep 4	|Dynamics <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture2.pdf">Lecture 2</a>  |
 |Sep 11	|Orbital Dynamics (Jaki traveling)  |
 |Sep 18	|Exoplanets   |
 |Sep 25	|Chaos   |
