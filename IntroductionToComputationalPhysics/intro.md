@@ -1,62 +1,63 @@
-# An Introduction to Modern Computational Physics
+# An Introduction to Modern Computational Physics 
 
-* Physics 246, Fall 2024
+* Physics 246, Fall 2025
 * Thursday 4:00-5:50pm CST
-* Room: Loomis 222
+* Room: Loomis 158
 * 2 credit hours
 * Course Texts: This one!
 
 
 Welcome!  Computation is powerful. In this course, you are going to learn how to use computation to do amazing simulations: compute how general relativity changes the orbit of Mercury; simulate turbulence; compute the effect of predator and preys on an ecosystem; run a quantum algorithm; and more! We've searched and distilled from the world some of the coolest physics we know for you to learn to simulate. Our primary goal in this class will be to help you make these simulations.  
 
-Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">overview presentation</a> of what you will learn in this class.
+
+
 
 
 ---
 
 ### Course Logistics
- - **Lectures:** R 4:00-5:50, 222 Loomis
- - **Professor:** Bryan Clark
-    - email: bkclark@illinois.edu
-    - Office Hours: 1PM Thursday, outside ESB 2111
+ - **Lectures:** Thursday 4:00-5:50, 276 Loomis
+ - **Professor:** Jacquelyn Noronha-Hostler
+    - email: jnorhos@illinois.edu
+    - Office Hours: Tuesday 1:15-2 PM  Loomis 427
 
-  - **TA(s):** 
-    - Matthew Thibodeau
-      - email: mt24@illinois.edu
-      - Office Hours: 3pm Monday, ESB 3110
-    - Chun Yu Chow
-      - email: cychow2@illinois.edu
-      - Office Hours, 2pm Tuesday, ESB 3137
+  - **TA(s):**
+  - Surkhab Kaur
+      - email: surkhab2@illinois.edu
+      - Office Hours: Wedsnesday 11:00am-noon Loomis 451
+  - Maxwell Rizzo
+      - email: marizzo2@illinois.edu
+      - Office Hours: Thursday 11:00am-noon Loomis 243
+    
         
 #### Online Tools
 
 
-* **Campuswire**:  We will use campuswire as a class forum;  a way to message the course staff and each other; and to submit your attendance question.
 * **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!
-* **Canvas**: You will submit your projcts via Canvas, which will also contain your grades and your returned assignments. There will be two Canvas assignments per course project: one where you must submit the "Sharing" link for your Colab document containing your project solution, and another where you must submit a printout of your Colab document in .pdf format. Both submissions are required for each project to obtain credit. [Detailed submission instructions can be found here.](instructions-for-submitting-your-assignments)
-* **my.physics gradebook**: Assignment grades will also be entered here.
+* **Gradescope**: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You will have 2 seperate submissionts per assignment, that includes a printout of your Colab document in .pdf format and your original .ipynb. Both submissions are required for each project to obtain credit. <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Specific instructures with screenshots can be found on the slides from Lecture 1</a>
 
 ---
 
 ### Calendar
-(Some of these projects might swap around)
+(These are the dates that we work on the assignment in class; the assignments are due one week later)
 
 |Date   |Assignment   |
 |---|---|
-|August 29	| N Ways to Measure PI  |
-|September 5	|Dynamics   |
-|September 12	|Orbital Dynamics  |
-|September 19	|Exoplanets   |
-|September 26	|Chaos   |
-|October 3 	|Many-Body Simulations|
-|October 10	|Particle Physics    |
-|October 17	|Random Walks |
-|October 24   	|Markov Chains   |
-|October 31 	|Predator-Prey  |
-|November 7  	|Fluid Dynamics
-|November 14	| Classifying Galaxies|
-|November 21	|Fluxonium Qubits|
-|December 5| Quantum Computing  |
+|Aug 28	| N Ways to Measure PI  <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Lecture 1</a> |
+|Sep 4	|Dynamics <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture2.pdf">Lecture 2</a>  |
+|Sep 11	|Orbital Dynamics (Jaki traveling)  <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture3.pdf">Lecture 3</a> |
+|Sep 18	|Exoplanets <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture4.pdf">Lecture 4</a>  |
+|Sep 25	|Chaos <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture5.pdf">Lecture 5</a>  |
+|Oct 2 |Particle Physics <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture6.pdf">Lecture 6</a>|
+|Oct 9	|Classifying Galaxies <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture7.pdf">Lecture 7</a>   |
+|Oct 16	|Random Walks <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture8.pdf">Lecture 8</a> |
+|Oct 23	|Markov Chains <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture9.pdf">Lecture 9</a>  |
+|Oct 30 	|Predator-Prey <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture10.pdf">Lecture 10</a> |
+|Nov 6 	|Climate Dynamics <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture11.pdf">Lecture 11</a>|
+|Nov 13| Fluid Dynamics (Jaki probably traveling) <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture12.pdf">Lecture 12</a>|
+|Nov 20	|Quantum Computing <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture13.pdf">Lecture 13</a>|
+|Nov 27	| No class! Fall Break |
+|Dec 4| Building a Physical Qbit <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture14.pdf">Lecture 14</a> |
 
 
 ---
@@ -66,14 +67,30 @@ Here is an <a href="https://clark.physics.illinois.edu/classSummary/index.html">
 #### Computational Assignments
 The heart of this course will be a series of computational assignments.
 * You will work on the assignments both during class and as homework.
-* Each assignment is due at the beginning of the next class unless otherwise noted. If you need an extension on an assignment, please post to campuswire (only to the course staff).  We will then respond on campuswire if the extension has been given.   The following information:
-   * broadly why you need the extension (sick, interview, major exam in another course, etc)
+* Homework will be graded on the follwing criteria:
+   * 60% Working code that solves the problem 
+   * 10% Documented code (comments explaining your work)
+   * 10% Cleanliness of code (removed any faulty code - no side quests!)
+   * 10% Well-named variables (e.g. the mass of a star is called "Mass" not "paramter1")
+   * 10% Readable plots - when applicable (axes labeled, reasonable color scheme, visible and distinguishable lines, reasonable range etc)
+* The assignments consist of 80% of your grade.
+* You must BOTH share your code (see below) AND turn in the PDF on time into Gradescope. If we only have one or not the other, we will not grade your assignment (and it will be counted late if the other part is turned in after the due date). 
+* Each assignment is due at the beginning of the next class unless otherwise noted. Extension may possibly be granted under extreme situations, please email Surkhab and Max.  We will then respond if the extension has been granted.   The following information:
+   * broadly why you need the extension (illness, family emergency, etc)
    * when you will be able to submit the assignment by (this is the new official due date if the extension is granted.)
 *  Solutions to the homeworks will not be given.
-* The assignments consist of 95% of your grade.
 * Partial credit exists but will be limited.  
 * You may collaborate on assignments but must submit your own work.
-* You may not use generative AI, LLM's, etc.  **You must turn this off in google colab**. 
+* You may not use generative AI, LLM's, etc.  **You must turn this off in google colab**.
+
+#### Good Coding Practices
+Codes generally have a lifetime beyond whatever they were originallized designed for. Maybe in your early days of physics you write a code to solve an integral pretaining to something in Newtonian mechanics. Then you get a bit older and you take Quantum Mechanics and you want to reuse that code so you change it a bit for the new problem. A year or two later you go onto grad school and once again reuse that code in a General Relativity class. Over time your code must adapt to all these changes and depending on how well you wrote your original code those changes may be a lot easier (or harder) to make. Imagine that you "hard coded" your unit scale in the original code to be in kilometers - that would be very challenging once you switched to Quantum Mechanics because you'd need to cary around a bunch of extra orders of magnitude!  Changing your code would be even harder if you haven't documented what you did in the original code, especially if all your parameters are named "paramater1, parameter2, etc". Thus, we will be working on not just writing code in this class but on good coding practices. In this class we want to built good coding practices and habits from day one.  Thus, this will also be a component of your grade. 
+
+#### Readable plots
+Plots should be labeled, visual appealing, readable 
+<a href="https://colab.research.google.com/drive/11SCZM2pl7I0ebLtUUwFVUHs6rnD5F22S?usp=sharing">Here's a quick tutorial of what is a bad vs good plot</a> (feel free to steal this code!). 
+
+For futher resources, see <a href="https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/">Data Visualization using Matplotlib (and the links within)</a>. 
 
 (instructions-for-submitting-your-assignments)=
 ##### Instructions for submitting your assignments
@@ -86,12 +103,12 @@ drive.mount('/content/drive')
 ```
 where you replace your filenames above with the appropriate ones for your assignment. Then open the HTML file in your web browser and print from there.
 
-Assignments are submitted via Canvas, which requires two simple steps.  First, paste the aforementioned sharing link into the "... (Colab link)" section. Second, upload your printout .pdf file into the "... (PDF file)" section and then submit that assignment. 
+Assignments are submitted via Gradescope, which requires two simple steps.  First, paste the aforementioned sharing link into the "... (Colab link)" section. Second, upload your printout .pdf file into the "... (PDF file)" section and then submit that assignment. 
 
 We will review both the printout and Colab code while grading your assignment, so please refrain from editing the Colab document after the submission deadline.
 
-#### Final Project
-During the final period, you will put together a project that demonstrates something in computational physics.  It can be an extension of some of the work that you did in class or something new.  This project can be done in small groups (2-3 people).  Projects have to be approved by course staff.  For your project you will submit a jupyter notebook (in the spirit of what you've done in class but expository) as well as give a 5 minute presentation during the finals period for the course. 
+#### Final Project (20% of the grade)
+During the final period, you will put together a project that demonstrates something in computational physics.  It can be an extension of some of the work that you did in class or something new.  This project can be done in small groups (2-4 people).  Projects have to be approved by course staff.  For your project you will submit a jupyter notebook (in the spirit of what you've done in class but expository) as well as give a 5 minute presentation during the finals period for the course. 
 
 #### Extra Credit
 There will be occassional opportunities to get extra credit. To zeroth order these exist because I think they are cool and useful for understanding computational physics but I can't justify within the 2 credit hours of the course.
@@ -100,28 +117,31 @@ Extra credit assignments will often be described poorly (maybe even something li
 
 For the extra credit, per exercise, the grading is all or nothing. We aren't going to hunt for typos and give partial credit for sortof working code. The amount of extra credit per exercise/etc is listed on the assignment.
 
+#### Coding and Research
+I have had a few students request research opportunities. If I know of any, I'll try to announce them in class. However, if there are students who are already well-aquainted with c++ then shoot me an email with your CV+summary of your experience.  
+
 ----
 ### Grading
-* Computational Assignments: 95%
-* Final Project: 5%
+* Computational Assignments: 80%
+* Final Project: 20%
 
 Your final numerical score is computed as
-100 x (0.95 x (Homework Points + Extra Credit Ponts)/(Total Homework Points) + 0.05 x Final)
+100 x (0.80 x (Homework Points + Extra Credit Ponts)/(Total Homework Points) + 0.20 x Final)
 
 The final breakdown of how your grade depends on your numerical score goes as:
 * 100+: A+
-* 90-100: A
-* 80-90: A-
-* 70-80: B+
-* 60-70: B
-* 50-60: B-
-* 40-50: C+
-* 30-40: C-
-* 20-30: D
-* 10-20: D-
-* 0-10: F
+* 93-100: A
+* 90-93: A-
+* 88-90: B+
+* 83-88: B
+* 80-83: B-
+* 78-80: C+
+* 73-78: C
+* 70-73: C-
+* 60-70: D
+* <60: F
 
-Scores are inclusive of the bottom number - i.e. a 90 gets an A not an A-.
+Scores are inclusive of the bottom number - i.e. a 90 gets an A not a B+.
 All problem sets count for the same amount.  Unless otherwise noted, every exercise in a problem set counts an equal fraction of the assignment and every part (a,b,c,...) of an exercise counts as an equal fraction of the exercise. 5 points of the problem set will be for mandatory questions (e.g. time spent on assignment, references, collaborators).
 
 Sometimes there are typos in the assignment (although we are working hard to remove them). Please ask when confused! Don't spin your wheels a long time on something that might be a typo. These aren't trick questions - we are trying to ask reasonable things.
@@ -132,7 +152,11 @@ Sometimes there are typos in the assignment (although we are working hard to rem
 
 #### Attendance  
 
-There is no attendance required for class (although we believe that coming to class will be helpful!)  That said, **please do not attend class if you are sick**.  In such a case, we will work with you to make sure you get caught up.  No notes for sickness, etc are required. 
+Students are strongly enoucarged to attend class, participate in lectures, and make use of office hours. While no explicit attendance requirements are in place, participation is factored in at the end of the semester if a student has a boarderline grade as well as for when students ask for homework extensions.  Thus, it is in the student's best interest to regularly attend class. 
+
+The first half of class includes a lecture/overview of the problem. The second half of class provides you with time to work on the problem (in small groups and with the instructuor and TAs available for help). The first half of class is invaluable to introduce the problem, the second half can help you get started. 
+
+If a major event occurs e.g. death in the family, major illness etc, it is best 
 
 #### About using code you find on the web
 The quickest way to deal with the arcana of programing is to ask Google for examples of what you are seeking to accomplish. But you will need to use your judgment in doing this: the Google search “how do I use color maps in python?” is fine, while “show me a script that calculates pi” is not. And you should always credit the original source of code that you paste into your own programs in a comment that includes the URL for the original code. If an author says that his/her code is not to be copied or incorporated into your programs, then DON'T.
@@ -178,7 +202,7 @@ Recently we have now added two new undergraduate courses in computational physic
 
 
 ### Acknowledgements
-The current version of this course is developed by Bryan Clark.  An earlier version of [this course](https://courses.physics.illinois.edu/phys298owl/fa2018/) was developed and run by [George Gollin](https://physics.illinois.edu/people/directory/profile/g-gollin) and this current version has non-trival overlapping units and problems.  The classifying galaxy assignment closely follows a tutorial at the Galaxy Zoo. The fluid dynamics assignment was originally inspired to get you to develop lattice Boltzmann code similar to that from flowkit.com.  The jupyter-ization of the course was done by Ryan Levy and Bryan Clark.
+The current version of this course is developed by Bryan Clark with updates by Lucas Wagner.  An earlier version of [this course](https://courses.physics.illinois.edu/phys298owl/fa2018/) was developed and run by [George Gollin](https://physics.illinois.edu/people/directory/profile/g-gollin) and this current version has non-trival overlapping units and problems.  The classifying galaxy assignment closely follows a tutorial at the Galaxy Zoo. The fluid dynamics assignment was originally inspired to get you to develop lattice Boltzmann code similar to that from flowkit.com.  The jupyter-ization of the course was done by Ryan Levy and Bryan Clark.
 
 
 ### Related Courses
