@@ -17,17 +17,17 @@ Welcome!  Computation is powerful. In this course, you are going to learn how to
 
 ### Course Logistics
  - **Lectures:** Thursday 4:00-5:50, 276 Loomis
- - **Professor:** Jacquelyn Noronha-Hostler
-    - email: jnorhos@illinois.edu
-    - Office Hours: Tuesday 1:15-2 PM  Loomis 427
+ - **Professor:** Bryan Clark
+    - email:
+    - Office Hours: 
 
   - **TA(s):**
-  - Surkhab Kaur
-      - email: surkhab2@illinois.edu
-      - Office Hours: Wedsnesday 11:00am-noon Loomis 451
-  - Maxwell Rizzo
-      - email: marizzo2@illinois.edu
-      - Office Hours: Thursday 11:00am-noon Loomis 243
+  - 
+      - email: 
+      - Office Hours: 
+  - 
+      - email: 
+      - Office Hours: 
     
         
 #### Online Tools
@@ -43,21 +43,21 @@ Welcome!  Computation is powerful. In this course, you are going to learn how to
 
 |Date   |Assignment   |
 |---|---|
-|Aug 28	| N Ways to Measure PI  <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Lecture 1</a> |
-|Sep 4	|Dynamics <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture2.pdf">Lecture 2</a>  |
-|Sep 11	|Orbital Dynamics (Jaki traveling)  <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture3.pdf">Lecture 3</a> |
-|Sep 18	|Exoplanets <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture4.pdf">Lecture 4</a>  |
-|Sep 25	|Chaos <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture5.pdf">Lecture 5</a>  |
-|Oct 2 |Particle Physics <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture6.pdf">Lecture 6</a>|
-|Oct 9	|Classifying Galaxies <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture7.pdf">Lecture 7</a>   |
-|Oct 16	|Random Walks <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture8.pdf">Lecture 8</a> |
-|Oct 23	|Markov Chains <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture9.pdf">Lecture 9</a>  |
-|Oct 30 	|Predator-Prey <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture10.pdf">Lecture 10</a> |
-|Nov 6 	|Climate Dynamics <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture11.pdf">Lecture 11</a>|
-|Nov 13| Fluid Dynamics (Jaki probably traveling) <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture12.pdf">Lecture 12</a>|
-|Nov 20	|Quantum Computing <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture13.pdf">Lecture 13</a>|
+|Aug 28	| N Ways to Measure PI  <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Lecture 1</a> |
+|Sep 4	|Dynamics <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture2.pdf">Lecture 2</a>  |
+|Sep 11	|Orbital Dynamics   <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture3.pdf">Lecture 3</a> |
+|Sep 18	|Exoplanets <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture4.pdf">Lecture 4</a>  |
+|Sep 25	|Chaos <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture5.pdf">Lecture 5</a>  |
+|Oct 2 |Particle Physics <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture6.pdf">Lecture 6</a>|
+|Oct 9	|Classifying Galaxies <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture7.pdf">Lecture 7</a>   |
+|Oct 16	|Random Walks <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture8.pdf">Lecture 8</a> |
+|Oct 23	|Markov Chains <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture9.pdf">Lecture 9</a>  |
+|Oct 30 	|Predator-Prey <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture10.pdf">Lecture 10</a> |
+|Nov 6 	|Climate Dynamics <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture11.pdf">Lecture 11</a>|
+|Nov 13| Fluid Dynamics (Jaki probably traveling) <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture12.pdf">Lecture 12</a>|
+|Nov 20	|Quantum Computing <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture13.pdf">Lecture 13</a>|
 |Nov 27	| No class! Fall Break |
-|Dec 4| Building a Physical Qbit <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture14.pdf">Lecture 14</a> |
+|Dec 4| Building a Physical Qbit <a href="https://github.com/bkclark/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture14.pdf">Lecture 14</a> |
 
 
 ---
@@ -118,7 +118,7 @@ Extra credit assignments will often be described poorly (maybe even something li
 For the extra credit, per exercise, the grading is all or nothing. We aren't going to hunt for typos and give partial credit for sortof working code. The amount of extra credit per exercise/etc is listed on the assignment.
 
 #### Coding and Research
-I have had a few students request research opportunities. If I know of any, I'll try to announce them in class. However, if there are students who are already well-aquainted with c++ then shoot me an email with your CV+summary of your experience.  
+
 
 ----
 ### Grading
@@ -202,7 +202,7 @@ Recently we have now added two new undergraduate courses in computational physic
 
 
 ### Acknowledgements
-The current version of this course is developed by Bryan Clark with updates by Lucas Wagner.  An earlier version of [this course](https://courses.physics.illinois.edu/phys298owl/fa2018/) was developed and run by [George Gollin](https://physics.illinois.edu/people/directory/profile/g-gollin) and this current version has non-trival overlapping units and problems.  The classifying galaxy assignment closely follows a tutorial at the Galaxy Zoo. The fluid dynamics assignment was originally inspired to get you to develop lattice Boltzmann code similar to that from flowkit.com.  The jupyter-ization of the course was done by Ryan Levy and Bryan Clark.
+The current version of this course is developed by Bryan Clark with updates (including the development of all the slides) by Lucas Wagner and Jaki Noronha-Hostler.  An earlier version of [this course](https://courses.physics.illinois.edu/phys298owl/fa2018/) was developed and run by [George Gollin](https://physics.illinois.edu/people/directory/profile/g-gollin) and this current version has non-trival overlapping units and problems.  The classifying galaxy assignment closely follows a tutorial at the Galaxy Zoo. The fluid dynamics assignment was originally inspired to get you to develop lattice Boltzmann code similar to that from flowkit.com.  The jupyter-ization of the course was done by Ryan Levy and Bryan Clark.
 
 
 ### Related Courses
