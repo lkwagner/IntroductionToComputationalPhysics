@@ -1,13 +1,13 @@
 # An Introduction to Modern Computational Physics 
 
-* Physics 246, Fall 2025
+* Physics 246, Spring 2026
 * Thursday 4:00-5:50pm CST
-* Room: Loomis 158
+* Room: Loomis 276
 * 2 credit hours
 * Course Texts: This one!
 
 
-Welcome!  Computation is powerful. In this course, you are going to learn how to use computation to do amazing simulations: compute how general relativity changes the orbit of Mercury; simulate turbulence; compute the effect of predator and preys on an ecosystem; run a quantum algorithm; and more! We've searched and distilled from the world some of the coolest physics we know for you to learn to simulate. Our primary goal in this class will be to help you make these simulations.  
+Welcome! In this course, you are going to learn how to use computation to do amazing simulations: compute how general relativity changes the orbit of Mercury; simulate turbulence; compute the effect of predator and preys on an ecosystem; run a quantum algorithm; and more! We've searched and distilled from the world some of the coolest physics we know for you to learn to simulate. Our primary goal in this class will be to help you make these simulations.  
 
 
 
@@ -17,8 +17,8 @@ Welcome!  Computation is powerful. In this course, you are going to learn how to
 
 ### Course Logistics
  - **Lectures:** Thursday 4:00-5:50, 276 Loomis
- - **Professor:** Bryan Clark
-    - email:
+ - **Professor:** Lucas Wagner
+    - email: lkwagner@illinois.edu
     - Office Hours: 
 
   - **TA(s):**
@@ -34,7 +34,7 @@ Welcome!  Computation is powerful. In this course, you are going to learn how to
 
 
 * **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!
-* **Gradescope**: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You will have 2 seperate submissionts per assignment, that includes a printout of your Colab document in .pdf format and your original .ipynb. Both submissions are required for each project to obtain credit. <a href="https://github.com/jnoronhahostler/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Specific instructures with screenshots can be found on the slides from Lecture 1</a>
+* **Gradescope**: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You will have 2 seperate submissionts per assignment, that includes a printout of your Colab document in .pdf format and your original .ipynb. Both submissions are required for each project to obtain credit. <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Specific instructures with screenshots can be found on the slides from Lecture 1</a>
 
 ---
 
@@ -84,7 +84,7 @@ The heart of this course will be a series of computational assignments.
 * You may not use generative AI, LLM's, etc.  **You must turn this off in google colab**.
 
 #### Good Coding Practices
-Codes generally have a lifetime beyond whatever they were originallized designed for. Maybe in your early days of physics you write a code to solve an integral pretaining to something in Newtonian mechanics. Then you get a bit older and you take Quantum Mechanics and you want to reuse that code so you change it a bit for the new problem. A year or two later you go onto grad school and once again reuse that code in a General Relativity class. Over time your code must adapt to all these changes and depending on how well you wrote your original code those changes may be a lot easier (or harder) to make. Imagine that you "hard coded" your unit scale in the original code to be in kilometers - that would be very challenging once you switched to Quantum Mechanics because you'd need to cary around a bunch of extra orders of magnitude!  Changing your code would be even harder if you haven't documented what you did in the original code, especially if all your parameters are named "paramater1, parameter2, etc". Thus, we will be working on not just writing code in this class but on good coding practices. In this class we want to built good coding practices and habits from day one.  Thus, this will also be a component of your grade. 
+Codes generally have a lifetime beyond whatever they were originally designed for. Maybe in your early days of physics you write a code to solve an integral pretaining to something in Newtonian mechanics. Then you get a bit older and you take Quantum Mechanics and you want to reuse that code so you change it a bit for the new problem. A year or two later you go onto grad school and once again reuse that code in a General Relativity class. Over time your code must adapt to all these changes and depending on how well you wrote your original code those changes may be a lot easier (or harder) to make. Imagine that you "hard coded" your unit scale in the original code to be in kilometers - that would be very challenging once you switched to Quantum Mechanics because you'd need to cary around a bunch of extra orders of magnitude!  Changing your code would be even harder if you haven't documented what you did in the original code, especially if all your parameters are named "paramater1, parameter2, etc". Thus, we will be working on not just writing code in this class but on good coding practices. In this class we want to built good coding practices and habits from day one.  Thus, this will also be a component of your grade. 
 
 #### Readable plots
 Plots should be labeled, visual appealing, readable 
