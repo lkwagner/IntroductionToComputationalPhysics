@@ -249,7 +249,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/jnoronhahostler/IntroductionToComputationalPhysicsFa25/blob/main/IntroductionToComputationalPhysics/QC2.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/lkwagner/IntroductionToComputationalPhysicsFa25/blob/main/IntroductionToComputationalPhysics/QC2.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -565,9 +565,7 @@ Requirement already satisfied: rustworkx&gt;=0.15.0 in /opt/hostedtoolcache/Pyth
 Requirement already satisfied: dill&gt;=0.3 in /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.4.0)
 Requirement already satisfied: stevedore&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (5.6.0)
 Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (4.15.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building wheels for collected packages: qiskit_aer
+Building wheels for collected packages: qiskit_aer
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for qiskit_aer (pyproject.toml) ... ?25l-
@@ -675,542 +673,60 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> error
-  <span class=" -Color -Color-Bold -Color-Bold-Red">error</span>: <span class=" -Color -Color-Bold">subprocess-exited-with-error</span>
-  
-  <span class=" -Color -Color-Red">×</span> <span class=" -Color -Color-Green">Building wheel for qiskit_aer </span><span class=" -Color -Color-Bold -Color-Bold-Green">(</span><span class=" -Color -Color-Green">pyproject.toml</span><span class=" -Color -Color-Bold -Color-Bold-Green">)</span> did not run successfully.
-  <span class=" -Color -Color-Red">│</span> exit code: <span class=" -Color -Color-Bold -Color-Bold-Cyan">1</span>
-  <span class=" -Color -Color-Red">╰─&gt;</span> <span class=" -Color -Color-Red">[518 lines of output]</span>
-  <span class=" -Color -Color-Red">   </span> /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
-  <span class=" -Color -Color-Red">   </span> !!
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span>         ********************************************************************************
-  <span class=" -Color -Color-Red">   </span>         Please consider removing the following classifiers in favor of a SPDX license expression:
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span>         License :: OSI Approved :: Apache Software License
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span>         See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
-  <span class=" -Color -Color-Red">   </span>         ********************************************************************************
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> !!
-  <span class=" -Color -Color-Red">   </span>   self._finalize_license_expression()
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> --------------------------------------------------------------------------------
-  <span class=" -Color -Color-Red">   </span> -- Trying &#39;Ninja&#39; generator
-  <span class=" -Color -Color-Red">   </span> --------------------------------
-  <span class=" -Color -Color-Red">   </span> ---------------------------
-  <span class=" -Color -Color-Red">   </span> ----------------------
-  <span class=" -Color -Color-Red">   </span> -----------------
-  <span class=" -Color -Color-Red">   </span> ------------
-  <span class=" -Color -Color-Red">   </span> -------
-  <span class=" -Color -Color-Red">   </span> --
-  <span class=" -Color -Color-Red">   </span> Not searching for unused variables given on the command line.
-  <span class=" -Color -Color-Red">   </span> CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
-  <span class=" -Color -Color-Red">   </span>   Compatibility with CMake &lt; 3.10 will be removed from a future version of
-  <span class=" -Color -Color-Red">   </span>   CMake.
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span>   Update the VERSION argument &lt;min&gt; value.  Or, use the &lt;min&gt;...&lt;max&gt; syntax
-  <span class=" -Color -Color-Red">   </span>   to tell CMake that the project requires at least &lt;min&gt; but has been updated
-  <span class=" -Color -Color-Red">   </span>   to work with policies introduced by &lt;max&gt; or earlier.
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> -- The C compiler identification is GNU 13.3.0
-  <span class=" -Color -Color-Red">   </span> -- Detecting C compiler ABI info
-  <span class=" -Color -Color-Red">   </span> -- Detecting C compiler ABI info - done
-  <span class=" -Color -Color-Red">   </span> -- Check for working C compiler: /usr/bin/cc - skipped
-  <span class=" -Color -Color-Red">   </span> -- Detecting C compile features
-  <span class=" -Color -Color-Red">   </span> -- Detecting C compile features - done
-  <span class=" -Color -Color-Red">   </span> -- The CXX compiler identification is GNU 13.3.0
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compiler ABI info
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compiler ABI info - done
-  <span class=" -Color -Color-Red">   </span> -- Check for working CXX compiler: /usr/bin/c++ - skipped
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compile features
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compile features - done
-  <span class=" -Color -Color-Red">   </span> -- Configuring done (0.5s)
-  <span class=" -Color -Color-Red">   </span> -- Generating done (0.0s)
-  <span class=" -Color -Color-Red">   </span> -- Build files have been written to: /tmp/pip-install-_0v77mvf/qiskit-aer_35306c4805c94bb7a60e78ea65601d13/_cmake_test_compile/build
-  <span class=" -Color -Color-Red">   </span> --
-  <span class=" -Color -Color-Red">   </span> -------
-  <span class=" -Color -Color-Red">   </span> ------------
-  <span class=" -Color -Color-Red">   </span> -----------------
-  <span class=" -Color -Color-Red">   </span> ----------------------
-  <span class=" -Color -Color-Red">   </span> ---------------------------
-  <span class=" -Color -Color-Red">   </span> --------------------------------
-  <span class=" -Color -Color-Red">   </span> -- Trying &#39;Ninja&#39; generator - success
-  <span class=" -Color -Color-Red">   </span> --------------------------------------------------------------------------------
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> Configuring Project
-  <span class=" -Color -Color-Red">   </span>   Working directory:
-  <span class=" -Color -Color-Red">   </span>     /tmp/pip-install-_0v77mvf/qiskit-aer_35306c4805c94bb7a60e78ea65601d13/_skbuild/linux-x86_64-3.14/cmake-build
-  <span class=" -Color -Color-Red">   </span>   Command:
-  <span class=" -Color -Color-Red">   </span>     /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/cmake/data/bin/cmake /tmp/pip-install-_0v77mvf/qiskit-aer_35306c4805c94bb7a60e78ea65601d13 -G Ninja -DCMAKE_MAKE_PROGRAM:FILEPATH=ninja --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX:PATH=/tmp/pip-install-_0v77mvf/qiskit-aer_35306c4805c94bb7a60e78ea65601d13/_skbuild/linux-x86_64-3.14/cmake-install -DPYTHON_VERSION_STRING:STRING=3.14.2 -DSKBUILD:INTERNAL=TRUE -DCMAKE_MODULE_PATH:PATH=/tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/skbuild/resources/cmake -DPYTHON_EXECUTABLE:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/bin/python -DPYTHON_INCLUDE_DIR:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/include/python3.14 -DPYTHON_LIBRARY:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/lib/libpython3.14.so -DPython_EXECUTABLE:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/bin/python -DPython_ROOT_DIR:PATH=/opt/hostedtoolcache/Python/3.14.2/x64 -DPython_FIND_REGISTRY:STRING=NEVER -DPython_INCLUDE_DIR:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/include/python3.14 -DPython3_EXECUTABLE:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/bin/python -DPython3_ROOT_DIR:PATH=/opt/hostedtoolcache/Python/3.14.2/x64 -DPython3_FIND_REGISTRY:STRING=NEVER -DPython3_INCLUDE_DIR:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/include/python3.14 -DCMAKE_MAKE_PROGRAM:FILEPATH=ninja -DCMAKE_BUILD_TYPE:STRING=Release
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> Not searching for unused variables given on the command line.
-  <span class=" -Color -Color-Red">   </span> CMake Deprecation Warning at CMakeLists.txt:11 (cmake_minimum_required):
-  <span class=" -Color -Color-Red">   </span>   Compatibility with CMake &lt; 3.10 will be removed from a future version of
-  <span class=" -Color -Color-Red">   </span>   CMake.
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span>   Update the VERSION argument &lt;min&gt; value.  Or, use the &lt;min&gt;...&lt;max&gt; syntax
-  <span class=" -Color -Color-Red">   </span>   to tell CMake that the project requires at least &lt;min&gt; but has been updated
-  <span class=" -Color -Color-Red">   </span>   to work with policies introduced by &lt;max&gt; or earlier.
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> -- The CXX compiler identification is GNU 13.3.0
-  <span class=" -Color -Color-Red">   </span> -- The C compiler identification is GNU 13.3.0
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compiler ABI info
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compiler ABI info - done
-  <span class=" -Color -Color-Red">   </span> -- Check for working CXX compiler: /usr/bin/c++ - skipped
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compile features
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compile features - done
-  <span class=" -Color -Color-Red">   </span> -- Detecting C compiler ABI info
-  <span class=" -Color -Color-Red">   </span> -- Detecting C compiler ABI info - done
-  <span class=" -Color -Color-Red">   </span> -- Check for working C compiler: /usr/bin/cc - skipped
-  <span class=" -Color -Color-Red">   </span> -- Detecting C compile features
-  <span class=" -Color -Color-Red">   </span> -- Detecting C compile features - done
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported
-  <span class=" -Color -Color-Red">   </span> -- Performing Test flag_supported - Success
-  <span class=" -Color -Color-Red">   </span> -- Conan: Automatic detection of conan settings from cmake
-  <span class=" -Color -Color-Red">   </span> -- Conan: Settings= -s;build_type=Release;-s;compiler=gcc;-s;compiler.version=13;-s;compiler.libcxx=libstdc++11
-  <span class=" -Color -Color-Red">   </span> -- Conan: checking conan executable
-  <span class=" -Color -Color-Red">   </span> -- Conan: Found program /tmp/pip-build-env-nipp9oxj/overlay/bin/conan
-  <span class=" -Color -Color-Red">   </span> -- Conan: Version found /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/patch_ng.py:427: SyntaxWarning: &quot;\d&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\d&quot;? A raw string is also an option.
-  <span class=" -Color -Color-Red">   </span>   re_hunk_start = re.compile(b&quot;^@@ -(\d+)(,(\d+))? \+(\d+)(,(\d+))? @@&quot;)
-  <span class=" -Color -Color-Red">   </span> /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/patch_ng.py:578: SyntaxWarning: &quot;\s&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\s&quot;? A raw string is also an option.
-  <span class=" -Color -Color-Red">   </span>   re_filename_date_time = b&quot;^--- ([^\t]+)(?:\s([0-9-]+)\s([0-9:]+)|.*)&quot;
-  <span class=" -Color -Color-Red">   </span> /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/patch_ng.py:621: SyntaxWarning: &quot;\+&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\+&quot;? A raw string is also an option.
-  <span class=" -Color -Color-Red">   </span>   re_filename_date_time = b&quot;^\+\+\+ ([^\t]+)(?:\s([0-9-]+)\s([0-9:]+)|.*)&quot;
-  <span class=" -Color -Color-Red">   </span> /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/patch_ng.py:653: SyntaxWarning: &quot;\d&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\d&quot;? A raw string is also an option.
-  <span class=" -Color -Color-Red">   </span>   match = re.match(b&quot;^@@ -(\d+)(,(\d+))? \+(\d+)(,(\d+))? @@(.*)&quot;, line)
-  <span class=" -Color -Color-Red">   </span> /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/conans/model/ref.py:96: SyntaxWarning: &quot;\+&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\+&quot;? A raw string is also an option.
-  <span class=" -Color -Color-Red">   </span>   _validation_pattern = re.compile(&quot;^[a-zA-Z0-9_][a-zA-Z0-9_\+\.-]{%s,%s}$&quot;
-  <span class=" -Color -Color-Red">   </span> /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/conans/assets/templates/search_table_html.py:141: SyntaxWarning: &quot;\s&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\s&quot;? A raw string is also an option.
-  <span class=" -Color -Color-Red">   </span>   section: /^\s*\[\s*([^\]]*)\s*\]\s*$/,
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Green">Conan version 1.66.0</span>
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> -- Conan executing: /tmp/pip-build-env-nipp9oxj/overlay/bin/conan install . -s build_type=Release -s compiler=gcc -s compiler.version=13 -s compiler.libcxx=libstdc++11 -e=CONAN_CMAKE_PROGRAM=/tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/cmake/data/bin/cmake -g=cmake --build=missing
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">WARN: **************************************************</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">WARN: *** Conan 1 is legacy and on a deprecation path **</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">WARN: *********** Please upgrade to Conan 2 ************</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">WARN: **************************************************</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">Auto detecting your dev setup to initialize the default profile (/home/runner/.conan/profiles/default)</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">CC and CXX: /usr/bin/cc, /usr/bin/c++ </span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Red">ERROR: Not able to automatically detect &#39;/usr/bin/cc&#39; version</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">No compiler was detected (one may not be needed)</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">Default settings</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">     os=Linux</span>
-<span class=" -Color -Color-Bold -Color-Bold-Yellow">  </span><span class=" -Color -Color-Bold -Color-Bold-Red">   </span>     os_build=Linux
-  <span class=" -Color -Color-Red">   </span>     arch=x86_64
-  <span class=" -Color -Color-Red">   </span>     arch_build=x86_64
-  <span class=" -Color -Color-Red">   </span>     build_type=Release
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">*** You can change them in /home/runner/.conan/profiles/default ***</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">*** Or override with -s compiler=&#39;other&#39; -s ...s***</span>
-<span class=" -Color -Color-Bold -Color-Bold-Magenta">  </span><span class=" -Color -Color-Bold -Color-Bold-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">WARN: Remotes registry file missing, creating default one in /home/runner/.conan/remotes.json</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">Configuration:</span>
-  <span class=" -Color -Color-Red">   </span> [settings]
-  <span class=" -Color -Color-Red">   </span> arch=x86_64
-  <span class=" -Color -Color-Red">   </span> arch_build=x86_64
-  <span class=" -Color -Color-Red">   </span> build_type=Release
-  <span class=" -Color -Color-Red">   </span> compiler=gcc
-  <span class=" -Color -Color-Red">   </span> compiler.libcxx=libstdc++11
-  <span class=" -Color -Color-Red">   </span> compiler.version=13
-  <span class=" -Color -Color-Red">   </span> os=Linux
-  <span class=" -Color -Color-Red">   </span> os_build=Linux
-  <span class=" -Color -Color-Red">   </span> [options]
-  <span class=" -Color -Color-Red">   </span> [build_requires]
-  <span class=" -Color -Color-Red">   </span> [env]
-  <span class=" -Color -Color-Red">   </span> CONAN_CMAKE_PROGRAM=/tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/cmake/data/bin/cmake
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">nlohmann_json/3.1.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Not found in local cache, looking in remotes...</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">nlohmann_json/3.1.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Trying with &#39;conancenter&#39;...</span>
-  <span class=" -Color -Color-Red">   </span> Downloading conanmanifest.txt
-  <span class=" -Color -Color-Red">   </span> Downloading conanfile.py
-  <span class=" -Color -Color-Red">   </span> Downloading conan_export.tgz
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">nlohmann_json/3.1.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Downloaded recipe revision 0</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Not found in local cache, looking in remotes...</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Trying with &#39;conancenter&#39;...</span>
-  <span class=" -Color -Color-Red">   </span> Downloading conanmanifest.txt
-  <span class=" -Color -Color-Red">   </span> Downloading conanfile.py
-  <span class=" -Color -Color-Red">   </span> Downloading conan_export.tgz
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Downloaded recipe revision 0</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Not found in local cache, looking in remotes...</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Trying with &#39;conancenter&#39;...</span>
-  <span class=" -Color -Color-Red">   </span> Downloading conanmanifest.txt
-  <span class=" -Color -Color-Red">   </span> Downloading conanfile.py
-  <span class=" -Color -Color-Red">   </span> Downloading conan_export.tgz
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Downloaded recipe revision 0</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">conanfile.txt: </span><span class=" -Color -Color-Bold -Color-Bold-White">Installing package</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">Requirements</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">    fmt/8.0.1 from &#39;conancenter&#39; - Downloaded</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">    nlohmann_json/3.1.1 from &#39;conancenter&#39; - Downloaded</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">    spdlog/1.9.2 from &#39;conancenter&#39; - Downloaded</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">Packages</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">    fmt/8.0.1:4b5e5b92c6145ab396a7221e72a513c036e78eeb - Build</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">    nlohmann_json/3.1.1:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9 - Download</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">    spdlog/1.9.2:41619c624100f7c5c77dbd1813d6d2d4e0eb59cd - Build</span>
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">Installing (downloading, building) binaries...</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">nlohmann_json/3.1.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Retrieving package 5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9 from remote &#39;conancenter&#39; </span>
-  <span class=" -Color -Color-Red">   </span> Downloading conanmanifest.txt
-  <span class=" -Color -Color-Red">   </span> Downloading conaninfo.txt
-  <span class=" -Color -Color-Red">   </span> Downloading conan_package.tgz
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Green">nlohmann_json/3.1.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Package installed 5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">nlohmann_json/3.1.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Downloaded package revision 0</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Configuring sources in /home/runner/.conan/data/fmt/8.0.1/_/_/source/src</span>
-  <span class=" -Color -Color-Red">   </span> fmt/8.0.1: 
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Unzipping 4.3MB, this can take a while</span>
-  <span class=" -Color -Color-Red">   </span> fmt/8.0.1: 
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Copying sources to build folder</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Building your package in /home/runner/.conan/data/fmt/8.0.1/_/_/build/4b5e5b92c6145ab396a7221e72a513c036e78eeb</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generator txt created conanbuildinfo.txt</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Calling generate()</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">WARN: Using the new toolchains and generators without specifying a build profile (e.g: -pr:b=default) is discouraged and might cause failures and unexpected behavior</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Preset &#39;release&#39; added to CMakePresets.json. Invoke it manually using &#39;cmake --preset release&#39;</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">If your CMake version is not compatible with CMakePresets (&lt;3.19) call cmake like: &#39;cmake &lt;path&gt; -G &quot;Unix Makefiles&quot; -DCMAKE_TOOLCHAIN_FILE=/home/runner/.conan/data/fmt/8.0.1/_/_/build/4b5e5b92c6145ab396a7221e72a513c036e78eeb/build/Release/generators/conan_toolchain.cmake -DFMT_DOC=OFF -DFMT_TEST=OFF -DFMT_INSTALL=ON -DFMT_LIB_DIR=lib -DFMT_OS=ON -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release&#39;</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Aggregating env generators</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Calling build()</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">apply_conandata_patches(): No patches defined in conandata</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">CMake command: cmake -G &quot;Unix Makefiles&quot; -DCMAKE_TOOLCHAIN_FILE=&quot;/home/runner/.conan/data/fmt/8.0.1/_/_/build/4b5e5b92c6145ab396a7221e72a513c036e78eeb/build/Release/generators/conan_toolchain.cmake&quot; -DCMAKE_INSTALL_PREFIX=&quot;/home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb&quot; -DFMT_DOC=&quot;OFF&quot; -DFMT_TEST=&quot;OFF&quot; -DFMT_INSTALL=&quot;ON&quot; -DFMT_LIB_DIR=&quot;lib&quot; -DFMT_OS=&quot;ON&quot; -DCMAKE_POLICY_DEFAULT_CMP0091=&quot;NEW&quot; -DCMAKE_BUILD_TYPE=&quot;Release&quot; &quot;/home/runner/.conan/data/fmt/8.0.1/_/_/build/4b5e5b92c6145ab396a7221e72a513c036e78eeb/src&quot;</span>
-  <span class=" -Color -Color-Red">   </span> -- CMake version: 4.2.1
-  <span class=" -Color -Color-Red">   </span> -- Using Conan toolchain: /home/runner/.conan/data/fmt/8.0.1/_/_/build/4b5e5b92c6145ab396a7221e72a513c036e78eeb/build/Release/generators/conan_toolchain.cmake
-  <span class=" -Color -Color-Red">   </span> -- Conan toolchain: Setting CMAKE_POSITION_INDEPENDENT_CODE=ON (options.fPIC)
-  <span class=" -Color -Color-Red">   </span> -- Conan toolchain: Setting BUILD_SHARED_LIBS = OFF
-  <span class=" -Color -Color-Red">   </span> -- The CXX compiler identification is GNU 13.3.0
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compiler ABI info
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compiler ABI info - done
-  <span class=" -Color -Color-Red">   </span> -- Check for working CXX compiler: /usr/bin/c++ - skipped
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compile features
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compile features - done
-  <span class=" -Color -Color-Red">   </span> -- Module support is disabled.
-  <span class=" -Color -Color-Red">   </span> -- Version: 8.0.1
-  <span class=" -Color -Color-Red">   </span> -- Build type: Release
-  <span class=" -Color -Color-Red">   </span> -- CXX_STANDARD: 11
-  <span class=" -Color -Color-Red">   </span> -- Performing Test has_std_11_flag
-  <span class=" -Color -Color-Red">   </span> -- Performing Test has_std_11_flag - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test has_std_0x_flag
-  <span class=" -Color -Color-Red">   </span> -- Performing Test has_std_0x_flag - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test SUPPORTS_USER_DEFINED_LITERALS
-  <span class=" -Color -Color-Red">   </span> -- Performing Test SUPPORTS_USER_DEFINED_LITERALS - Success
-  <span class=" -Color -Color-Red">   </span> -- Performing Test FMT_HAS_VARIANT
-  <span class=" -Color -Color-Red">   </span> -- Performing Test FMT_HAS_VARIANT - Success
-  <span class=" -Color -Color-Red">   </span> -- Required features: cxx_variadic_templates
-  <span class=" -Color -Color-Red">   </span> -- Looking for strtod_l
-  <span class=" -Color -Color-Red">   </span> -- Looking for strtod_l - found
-  <span class=" -Color -Color-Red">   </span> -- Configuring done (0.5s)
-  <span class=" -Color -Color-Red">   </span> -- Generating done (0.0s)
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Yellow">CMake Warning:</span>
-<span class=" -Color -Color-Yellow">  </span><span class=" -Color -Color-Red">   </span>   Manually-specified variables were not used by the project:
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span>     CMAKE_POLICY_DEFAULT_CMP0091
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> -- Build files have been written to: /home/runner/.conan/data/fmt/8.0.1/_/_/build/4b5e5b92c6145ab396a7221e72a513c036e78eeb/build/Release
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">CMake command: cmake --build &quot;/home/runner/.conan/data/fmt/8.0.1/_/_/build/4b5e5b92c6145ab396a7221e72a513c036e78eeb/build/Release&quot; &#39;--&#39; &#39;-j4&#39;</span>
-  <span class=" -Color -Color-Red">   </span> [ 33%] <span class=" -Color -Color-Green">Building CXX object CMakeFiles/fmt.dir/src/format.cc.o</span>
-  <span class=" -Color -Color-Red">   </span> [ 66%] <span class=" -Color -Color-Green">Building CXX object CMakeFiles/fmt.dir/src/os.cc.o</span>
-  <span class=" -Color -Color-Red">   </span> [100%] <span class=" -Color -Color-Bold -Color-Bold-Green">Linking CXX static library libfmt.a</span>
-  <span class=" -Color -Color-Red">   </span> [100%] Built target fmt
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Green">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Package &#39;4b5e5b92c6145ab396a7221e72a513c036e78eeb&#39; built</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Build folder /home/runner/.conan/data/fmt/8.0.1/_/_/build/4b5e5b92c6145ab396a7221e72a513c036e78eeb/build/Release</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generated conaninfo.txt</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generated conanbuildinfo.txt</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generating the package</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Package folder /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Calling package()</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Copied 1 &#39;.rst&#39; file: LICENSE.rst</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">CMake command: cmake --install &quot;/home/runner/.conan/data/fmt/8.0.1/_/_/build/4b5e5b92c6145ab396a7221e72a513c036e78eeb/build/Release&quot; --prefix &quot;/home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb&quot;</span>
-  <span class=" -Color -Color-Red">   </span> -- Install configuration: &quot;Release&quot;
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/lib/libfmt.a
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/lib/cmake/fmt/fmt-config.cmake
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/lib/cmake/fmt/fmt-config-version.cmake
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/lib/cmake/fmt/fmt-targets.cmake
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/lib/cmake/fmt/fmt-targets-release.cmake
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/args.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/chrono.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/color.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/compile.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/core.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/format.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/format-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/locale.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/os.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/ostream.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/printf.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/ranges.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/include/fmt/xchar.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/lib/pkgconfig/fmt.pc
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1 package(): </span><span class=" -Color -Color-Bold -Color-Bold-White">Packaged 1 &#39;.rst&#39; file: LICENSE.rst</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1 package(): </span><span class=" -Color -Color-Bold -Color-Bold-White">Packaged 1 &#39;.a&#39; file: libfmt.a</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1 package(): </span><span class=" -Color -Color-Bold -Color-Bold-White">Packaged 13 &#39;.h&#39; files</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Green">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Package &#39;4b5e5b92c6145ab396a7221e72a513c036e78eeb&#39; created</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">fmt/8.0.1: </span><span class=" -Color -Color-Bold -Color-Bold-White">Created package revision 1a2830a310cfddea4c2f4842f2c346ee</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Configuring sources in /home/runner/.conan/data/spdlog/1.9.2/_/_/source/src</span>
-  <span class=" -Color -Color-Red">   </span> spdlog/1.9.2: 
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Copying sources to build folder</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Building your package in /home/runner/.conan/data/spdlog/1.9.2/_/_/build/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generator txt created conanbuildinfo.txt</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Calling generate()</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">WARN: Using the new toolchains and generators without specifying a build profile (e.g: -pr:b=default) is discouraged and might cause failures and unexpected behavior</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Preset &#39;release&#39; added to CMakePresets.json. Invoke it manually using &#39;cmake --preset release&#39;</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">If your CMake version is not compatible with CMakePresets (&lt;3.19) call cmake like: &#39;cmake &lt;path&gt; -G &quot;Unix Makefiles&quot; -DCMAKE_TOOLCHAIN_FILE=/home/runner/.conan/data/spdlog/1.9.2/_/_/build/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/build/Release/generators/conan_toolchain.cmake -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release&#39;</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">WARN: Using the new toolchains and generators without specifying a build profile (e.g: -pr:b=default) is discouraged and might cause failures and unexpected behavior</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Aggregating env generators</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Calling build()</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">apply_conandata_patches(): No patches defined in conandata</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">CMake command: cmake -G &quot;Unix Makefiles&quot; -DCMAKE_TOOLCHAIN_FILE=&quot;/home/runner/.conan/data/spdlog/1.9.2/_/_/build/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/build/Release/generators/conan_toolchain.cmake&quot; -DCMAKE_INSTALL_PREFIX=&quot;/home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd&quot; -DCMAKE_POLICY_DEFAULT_CMP0091=&quot;NEW&quot; -DCMAKE_BUILD_TYPE=&quot;Release&quot; &quot;/home/runner/.conan/data/spdlog/1.9.2/_/_/build/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/src&quot;</span>
-  <span class=" -Color -Color-Red">   </span> -- Using Conan toolchain: /home/runner/.conan/data/spdlog/1.9.2/_/_/build/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/build/Release/generators/conan_toolchain.cmake
-  <span class=" -Color -Color-Red">   </span> -- Conan toolchain: Setting CMAKE_POSITION_INDEPENDENT_CODE=ON (options.fPIC)
-  <span class=" -Color -Color-Red">   </span> -- Conan toolchain: Setting BUILD_SHARED_LIBS = OFF
-  <span class=" -Color -Color-Red">   </span> -- The CXX compiler identification is GNU 13.3.0
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compiler ABI info
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compiler ABI info - done
-  <span class=" -Color -Color-Red">   </span> -- Check for working CXX compiler: /usr/bin/c++ - skipped
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compile features
-  <span class=" -Color -Color-Red">   </span> -- Detecting CXX compile features - done
-  <span class=" -Color -Color-Red">   </span> -- Build spdlog: 1.9.2
-  <span class=" -Color -Color-Red">   </span> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
-  <span class=" -Color -Color-Red">   </span> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
-  <span class=" -Color -Color-Red">   </span> -- Found Threads: TRUE
-  <span class=" -Color -Color-Red">   </span> -- Build type: Release
-  <span class=" -Color -Color-Red">   </span> -- Conan: Component target declared &#39;fmt::fmt&#39;
-  <span class=" -Color -Color-Red">   </span> -- Generating install
-  <span class=" -Color -Color-Red">   </span> -- Configuring done (0.3s)
-  <span class=" -Color -Color-Red">   </span> -- Generating done (0.0s)
-  <span class=" -Color -Color-Red">   </span> -- Build files have been written to: /home/runner/.conan/data/spdlog/1.9.2/_/_/build/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/build/Release
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">CMake command: cmake --build &quot;/home/runner/.conan/data/spdlog/1.9.2/_/_/build/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/build/Release&quot; &#39;--&#39; &#39;-j4&#39;</span>
-  <span class=" -Color -Color-Red">   </span> [ 14%] <span class=" -Color -Color-Green">Building CXX object CMakeFiles/spdlog.dir/src/spdlog.cpp.o</span>
-  <span class=" -Color -Color-Red">   </span> [ 28%] <span class=" -Color -Color-Green">Building CXX object CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o</span>
-  <span class=" -Color -Color-Red">   </span> [ 42%] <span class=" -Color -Color-Green">Building CXX object CMakeFiles/spdlog.dir/src/color_sinks.cpp.o</span>
-  <span class=" -Color -Color-Red">   </span> [ 57%] <span class=" -Color -Color-Green">Building CXX object CMakeFiles/spdlog.dir/src/file_sinks.cpp.o</span>
-  <span class=" -Color -Color-Red">   </span> [ 71%] <span class=" -Color -Color-Green">Building CXX object CMakeFiles/spdlog.dir/src/async.cpp.o</span>
-  <span class=" -Color -Color-Red">   </span> [ 85%] <span class=" -Color -Color-Green">Building CXX object CMakeFiles/spdlog.dir/src/cfg.cpp.o</span>
-  <span class=" -Color -Color-Red">   </span> [100%] <span class=" -Color -Color-Bold -Color-Bold-Green">Linking CXX static library libspdlog.a</span>
-  <span class=" -Color -Color-Red">   </span> [100%] Built target spdlog
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Green">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Package &#39;41619c624100f7c5c77dbd1813d6d2d4e0eb59cd&#39; built</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Build folder /home/runner/.conan/data/spdlog/1.9.2/_/_/build/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/build/Release</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generated conaninfo.txt</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generated conanbuildinfo.txt</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generating the package</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Package folder /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Calling package()</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Copied 1 file: LICENSE</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">CMake command: cmake --install &quot;/home/runner/.conan/data/spdlog/1.9.2/_/_/build/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/build/Release&quot; --prefix &quot;/home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd&quot;</span>
-  <span class=" -Color -Color-Red">   </span> -- Install configuration: &quot;Release&quot;
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/stopwatch.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/spdlog-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/tweakme.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/async.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/formatter.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/spdlog.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/async_logger-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/fmt
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/fmt/bin_to_hex.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/fmt/fmt.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/fmt/compile.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/fmt/xchar.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/fmt/chrono.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/fmt/ostr.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/logger-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/common.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/fwd.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/dup_filter_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/msvc_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/syslog_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/daily_file_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/rotating_file_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/stdout_sinks.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/basic_file_sink-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/qt_sinks.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/android_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/ringbuffer_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/null_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/base_sink-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/win_eventlog_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/hourly_file_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/mongo_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/wincolor_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/tcp_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/basic_file_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/ansicolor_sink-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/stdout_sinks-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/sink-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/stdout_color_sinks-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/stdout_color_sinks.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/rotating_file_sink-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/ansicolor_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/dist_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/systemd_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/base_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/ostream_sink.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/sinks/wincolor_sink-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/cfg
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/cfg/helpers-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/cfg/argv.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/cfg/env.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/cfg/helpers.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/pattern_formatter-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/version.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/async_logger.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/logger.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/windows_include.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/thread_pool-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/circular_q.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/registry.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/os-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/console_globals.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/thread_pool.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/synchronous_factory.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/backtracer-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/log_msg.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/file_helper-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/fmt_helper.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/log_msg_buffer-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/file_helper.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/mpmc_blocking_q.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/tcp_client.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/periodic_worker.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/registry-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/log_msg_buffer.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/tcp_client-windows.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/periodic_worker-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/os.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/backtracer.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/null_mutex.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/details/log_msg-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/common-inl.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/include/spdlog/pattern_formatter.h
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/lib/libspdlog.a
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/lib/pkgconfig/spdlog.pc
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/lib/cmake/spdlog/spdlogConfigTargets.cmake
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/lib/cmake/spdlog/spdlogConfigTargets-release.cmake
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/lib/cmake/spdlog/spdlogConfig.cmake
-  <span class=" -Color -Color-Red">   </span> -- Installing: /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/lib/cmake/spdlog/spdlogConfigVersion.cmake
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2 package(): </span><span class=" -Color -Color-Bold -Color-Bold-White">Packaged 1 file: LICENSE</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2 package(): </span><span class=" -Color -Color-Bold -Color-Bold-White">Packaged 1 &#39;.a&#39; file: libspdlog.a</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2 package(): </span><span class=" -Color -Color-Bold -Color-Bold-White">Packaged 82 &#39;.h&#39; files</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Green">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Package &#39;41619c624100f7c5c77dbd1813d6d2d4e0eb59cd&#39; created</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">spdlog/1.9.2: </span><span class=" -Color -Color-Bold -Color-Bold-White">Created package revision e67b47ee07d4a7c59e4756ab9c711c53</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">conanfile.txt: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generator txt created conanbuildinfo.txt</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">conanfile.txt: </span><span class=" -Color -Color-Bold -Color-Bold-White">WARN:</span>
-<span class=" -Color -Color-Bold -Color-Bold-White">  </span><span class=" -Color -Color-Bold -Color-Bold-Red">   </span>      ************************************************
-  <span class=" -Color -Color-Red">   </span>      The &#39;cmake&#39; generator is deprecated.
-  <span class=" -Color -Color-Red">   </span>      Please update your code and remove it.
-  <span class=" -Color -Color-Red">   </span>      *************************************************
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">conanfile.txt: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generator cmake created conanbuildinfo.cmake</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Magenta">conanfile.txt: </span><span class=" -Color -Color-Bold -Color-Bold-White">Aggregating env generators</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">conanfile.txt: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generated conaninfo.txt</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Cyan">conanfile.txt: </span><span class=" -Color -Color-Bold -Color-Bold-White">Generated graphinfo</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">WARN: Revisions are disabled. Using Conan without revisions enabled is deprecated</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">WARN: **************************************************</span>
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">WARN: *** Conan 1 is legacy and on a deprecation path **</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">WARN: *********** Please upgrade to Conan 2 ************</span>
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Bold -Color-Bold-Yellow">WARN: **************************************************</span>
-  <span class=" -Color -Color-Red">   </span> -- Conan: Loading conanbuildinfo.cmake
-  <span class=" -Color -Color-Red">   </span> -- Conan: Adjusting output directories
-  <span class=" -Color -Color-Red">   </span> -- Conan: Using cmake targets configuration
-  <span class=" -Color -Color-Red">   </span> -- Library spdlog found /home/runner/.conan/data/spdlog/1.9.2/_/_/package/41619c624100f7c5c77dbd1813d6d2d4e0eb59cd/lib/libspdlog.a
-  <span class=" -Color -Color-Red">   </span> -- Library fmt found /home/runner/.conan/data/fmt/8.0.1/_/_/package/4b5e5b92c6145ab396a7221e72a513c036e78eeb/lib/libfmt.a
-  <span class=" -Color -Color-Red">   </span> -- Conan: Adjusting language standard
-  <span class=" -Color -Color-Red">   </span> -- Current conanbuildinfo.cmake directory: /tmp/pip-install-_0v77mvf/qiskit-aer_35306c4805c94bb7a60e78ea65601d13/_skbuild/linux-x86_64-3.14/cmake-build
-  <span class=" -Color -Color-Red">   </span> -- Conan: Compiler GCC&gt;=5, checking major version 13
-  <span class=" -Color -Color-Red">   </span> -- Conan: Checking correct version: 13
-  <span class=" -Color -Color-Red">   </span> -- Looking for OpenMP support...
-  <span class=" -Color -Color-Red">   </span> -- OpenMP found!
-  <span class=" -Color -Color-Red">   </span> -- OpenMP_CXX_FLAGS = -fopenmp
-  <span class=" -Color -Color-Red">   </span> -- OpenMP_EXE_LINKER_FLAGS =
-  <span class=" -Color -Color-Red">   </span> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
-  <span class=" -Color -Color-Red">   </span> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
-  <span class=" -Color -Color-Red">   </span> -- Found Threads: TRUE
-  <span class=" -Color -Color-Red">   </span> -- Looking for OpenBLAS library...
-  <span class=" -Color -Color-Red">   </span> -- OpenBLAS not found. Looking for any other BLAS &amp; Lapack libraries...
-  <span class=" -Color -Color-Red">   </span> -- Looking for sgemm_
-  <span class=" -Color -Color-Red">   </span> -- Looking for sgemm_ - not found
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Yellow">CMake Warning at /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/cmake/data/share/cmake-4.2/Modules/FindBLAS.cmake:1381 (find_package):</span>
-<span class=" -Color -Color-Yellow">  </span><span class=" -Color -Color-Red">   </span>   By not providing &quot;Findnvpl.cmake&quot; in CMAKE_MODULE_PATH this project has
-  <span class=" -Color -Color-Red">   </span>   asked CMake to find a package configuration file provided by &quot;nvpl&quot;, but
-  <span class=" -Color -Color-Red">   </span>   CMake did not find one.
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span>   Could not find a package configuration file provided by &quot;nvpl&quot; with any of
-  <span class=" -Color -Color-Red">   </span>   the following names:
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span>     nvplConfig.cmake
-  <span class=" -Color -Color-Red">   </span>     nvpl-config.cmake
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span>   Add the installation prefix of &quot;nvpl&quot; to CMAKE_PREFIX_PATH or set
-  <span class=" -Color -Color-Red">   </span>   &quot;nvpl_DIR&quot; to a directory containing one of the above files.  If &quot;nvpl&quot;
-  <span class=" -Color -Color-Red">   </span>   provides a separate development package or SDK, be sure it has been
-  <span class=" -Color -Color-Red">   </span>   installed.
-  <span class=" -Color -Color-Red">   </span> Call Stack (most recent call first):
-  <span class=" -Color -Color-Red">   </span>   CMakeLists.txt:256 (find_package)
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Red">CMake Error at /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/cmake/data/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake:290 (message):</span>
-<span class=" -Color -Color-Red">     </span>   Could NOT find BLAS (missing: BLAS_LIBRARIES)
-  <span class=" -Color -Color-Red">   </span> Call Stack (most recent call first):
-  <span class=" -Color -Color-Red">   </span>   /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/cmake/data/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake:654 (_FPHSA_FAILURE_MESSAGE)
-  <span class=" -Color -Color-Red">   </span>   /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/cmake/data/share/cmake-4.2/Modules/FindBLAS.cmake:1509 (find_package_handle_standard_args)
-  <span class=" -Color -Color-Red">   </span>   CMakeLists.txt:256 (find_package)
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> -- Configuring incomplete, errors occurred!
-  <span class=" -Color -Color-Red">   </span> Traceback (most recent call last):
-  <span class=" -Color -Color-Red">   </span>   File &quot;/tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/skbuild/setuptools_wrap.py&quot;, line 660, in setup
-  <span class=" -Color -Color-Red">   </span>     env = cmkr.configure(
-  <span class=" -Color -Color-Red">   </span>         cmake_args,
-  <span class=" -Color -Color-Red">   </span>     ...&lt;3 lines&gt;...
-  <span class=" -Color -Color-Red">   </span>         languages=cmake_languages,
-  <span class=" -Color -Color-Red">   </span>     )
-  <span class=" -Color -Color-Red">   </span>   File &quot;/tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/skbuild/cmaker.py&quot;, line 354, in configure
-  <span class=" -Color -Color-Red">   </span>     raise SKBuildError(msg)
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> An error occurred while configuring with CMake.
-  <span class=" -Color -Color-Red">   </span>   Command:
-  <span class=" -Color -Color-Red">   </span>     /tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/cmake/data/bin/cmake /tmp/pip-install-_0v77mvf/qiskit-aer_35306c4805c94bb7a60e78ea65601d13 -G Ninja -DCMAKE_MAKE_PROGRAM:FILEPATH=ninja --no-warn-unused-cli -DCMAKE_INSTALL_PREFIX:PATH=/tmp/pip-install-_0v77mvf/qiskit-aer_35306c4805c94bb7a60e78ea65601d13/_skbuild/linux-x86_64-3.14/cmake-install -DPYTHON_VERSION_STRING:STRING=3.14.2 -DSKBUILD:INTERNAL=TRUE -DCMAKE_MODULE_PATH:PATH=/tmp/pip-build-env-nipp9oxj/overlay/lib/python3.14/site-packages/skbuild/resources/cmake -DPYTHON_EXECUTABLE:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/bin/python -DPYTHON_INCLUDE_DIR:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/include/python3.14 -DPYTHON_LIBRARY:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/lib/libpython3.14.so -DPython_EXECUTABLE:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/bin/python -DPython_ROOT_DIR:PATH=/opt/hostedtoolcache/Python/3.14.2/x64 -DPython_FIND_REGISTRY:STRING=NEVER -DPython_INCLUDE_DIR:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/include/python3.14 -DPython3_EXECUTABLE:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/bin/python -DPython3_ROOT_DIR:PATH=/opt/hostedtoolcache/Python/3.14.2/x64 -DPython3_FIND_REGISTRY:STRING=NEVER -DPython3_INCLUDE_DIR:PATH=/opt/hostedtoolcache/Python/3.14.2/x64/include/python3.14 -DCMAKE_MAKE_PROGRAM:FILEPATH=ninja -DCMAKE_BUILD_TYPE:STRING=Release
-  <span class=" -Color -Color-Red">   </span>   Source directory:
-  <span class=" -Color -Color-Red">   </span>     /tmp/pip-install-_0v77mvf/qiskit-aer_35306c4805c94bb7a60e78ea65601d13
-  <span class=" -Color -Color-Red">   </span>   Working directory:
-  <span class=" -Color -Color-Red">   </span>     /tmp/pip-install-_0v77mvf/qiskit-aer_35306c4805c94bb7a60e78ea65601d13/_skbuild/linux-x86_64-3.14/cmake-build
-  <span class=" -Color -Color-Red">   </span> Please see CMake&#39;s output for more information.
-  <span class=" -Color -Color-Red">   </span> 
-  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Red">[end of output]</span>
-  
-  <span class=" -Color -Color-Bold -Color-Bold-Magenta">note</span>: This error originates from a subprocess, and is likely not a problem with pip.
-<span class=" -Color -Color-Red">  ERROR: Failed building wheel for qiskit_aer</span>
-?25hFailed to build qiskit_aer
-<span class=" -Color -Color-Bold -Color-Bold-Red">error</span>: <span class=" -Color -Color-Bold">failed-wheel-build-for-install</span>
-
-<span class=" -Color -Color-Red">×</span> Failed to build installable wheels for some pyproject.toml based projects
-<span class=" -Color -Color-Red">╰─&gt;</span> qiskit_aer
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+Traceback (most recent call last):
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/bin/pip&quot;</span>, line <span class=" -Color -Color-Magenta">7</span>, in <span class=" -Color -Color-Magenta">&lt;module&gt;</span>
+    sys.exit(<span class=" -Color -Color-Red">main</span><span class=" -Color -Color-Bold -Color-Bold-Red">()</span>)
+             <span class=" -Color -Color-Red">~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/pip/_internal/cli/main.py&quot;</span>, line <span class=" -Color -Color-Magenta">80</span>, in <span class=" -Color -Color-Magenta">main</span>
+    return <span class=" -Color -Color-Red">command.main</span><span class=" -Color -Color-Bold -Color-Bold-Red">(cmd_args)</span>
+           <span class=" -Color -Color-Red">~~~~~~~~~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^^^^^^^^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/pip/_internal/cli/base_command.py&quot;</span>, line <span class=" -Color -Color-Magenta">158</span>, in <span class=" -Color -Color-Magenta">main</span>
+    with <span class=" -Color -Color-Red">self.main_context</span><span class=" -Color -Color-Bold -Color-Bold-Red">()</span>:
+         <span class=" -Color -Color-Red">~~~~~~~~~~~~~~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/contextlib.py&quot;</span>, line <span class=" -Color -Color-Magenta">148</span>, in <span class=" -Color -Color-Magenta">__exit__</span>
+    <span class=" -Color -Color-Red">next</span><span class=" -Color -Color-Bold -Color-Bold-Red">(self.gen)</span>
+    <span class=" -Color -Color-Red">~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^^^^^^^^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/pip/_internal/cli/command_context.py&quot;</span>, line <span class=" -Color -Color-Magenta">20</span>, in <span class=" -Color -Color-Magenta">main_context</span>
+    with <span class=" -Color -Color-Bold -Color-Bold-Red">self._main_context</span>:
+         <span class=" -Color -Color-Bold -Color-Bold-Red">^^^^^^^^^^^^^^^^^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/contextlib.py&quot;</span>, line <span class=" -Color -Color-Magenta">619</span>, in <span class=" -Color -Color-Magenta">__exit__</span>
+    raise exc
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/contextlib.py&quot;</span>, line <span class=" -Color -Color-Magenta">604</span>, in <span class=" -Color -Color-Magenta">__exit__</span>
+    if <span class=" -Color -Color-Red">cb</span><span class=" -Color -Color-Bold -Color-Bold-Red">(*exc_details)</span>:
+       <span class=" -Color -Color-Red">~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^^^^^^^^^^^^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/contextlib.py&quot;</span>, line <span class=" -Color -Color-Magenta">148</span>, in <span class=" -Color -Color-Magenta">__exit__</span>
+    <span class=" -Color -Color-Red">next</span><span class=" -Color -Color-Bold -Color-Bold-Red">(self.gen)</span>
+    <span class=" -Color -Color-Red">~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^^^^^^^^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/pip/_internal/utils/temp_dir.py&quot;</span>, line <span class=" -Color -Color-Magenta">40</span>, in <span class=" -Color -Color-Magenta">global_tempdir_manager</span>
+    with <span class=" -Color -Color-Red">ExitStack</span><span class=" -Color -Color-Bold -Color-Bold-Red">()</span> as stack:
+         <span class=" -Color -Color-Red">~~~~~~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/contextlib.py&quot;</span>, line <span class=" -Color -Color-Magenta">619</span>, in <span class=" -Color -Color-Magenta">__exit__</span>
+    raise exc
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/contextlib.py&quot;</span>, line <span class=" -Color -Color-Magenta">604</span>, in <span class=" -Color -Color-Magenta">__exit__</span>
+    if <span class=" -Color -Color-Red">cb</span><span class=" -Color -Color-Bold -Color-Bold-Red">(*exc_details)</span>:
+       <span class=" -Color -Color-Red">~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^^^^^^^^^^^^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/pip/_internal/utils/temp_dir.py&quot;</span>, line <span class=" -Color -Color-Magenta">167</span>, in <span class=" -Color -Color-Magenta">__exit__</span>
+    <span class=" -Color -Color-Red">self.cleanup</span><span class=" -Color -Color-Bold -Color-Bold-Red">()</span>
+    <span class=" -Color -Color-Red">~~~~~~~~~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/pip/_internal/utils/temp_dir.py&quot;</span>, line <span class=" -Color -Color-Magenta">210</span>, in <span class=" -Color -Color-Magenta">cleanup</span>
+    <span class=" -Color -Color-Red">rmtree</span><span class=" -Color -Color-Bold -Color-Bold-Red">(self._path, ignore_errors=False)</span>
+    <span class=" -Color -Color-Red">~~~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/pip/_internal/utils/retry.py&quot;</span>, line <span class=" -Color -Color-Magenta">37</span>, in <span class=" -Color -Color-Magenta">retry_wrapped</span>
+    return func(*args, **kwargs)
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/pip/_internal/utils/misc.py&quot;</span>, line <span class=" -Color -Color-Magenta">128</span>, in <span class=" -Color -Color-Magenta">rmtree</span>
+    <span class=" -Color -Color-Red">shutil.rmtree</span><span class=" -Color -Color-Bold -Color-Bold-Red">(dir, onexc=handler)</span>  # type: ignore
+    <span class=" -Color -Color-Red">~~~~~~~~~~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/shutil.py&quot;</span>, line <span class=" -Color -Color-Magenta">852</span>, in <span class=" -Color -Color-Magenta">rmtree</span>
+    <span class=" -Color -Color-Red">_rmtree_impl</span><span class=" -Color -Color-Bold -Color-Bold-Red">(path, dir_fd, onexc)</span>
+    <span class=" -Color -Color-Red">~~~~~~~~~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^^^^^^^^^^^^^^^^^^^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/shutil.py&quot;</span>, line <span class=" -Color -Color-Magenta">721</span>, in <span class=" -Color -Color-Magenta">_rmtree_safe_fd</span>
+    <span class=" -Color -Color-Red">_rmtree_safe_fd_step</span><span class=" -Color -Color-Bold -Color-Bold-Red">(stack, onexc)</span>
+    <span class=" -Color -Color-Red">~~~~~~~~~~~~~~~~~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^^^^^^^^^^^^^</span>
+  File <span class=" -Color -Color-Magenta">&quot;/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/shutil.py&quot;</span>, line <span class=" -Color -Color-Magenta">791</span>, in <span class=" -Color -Color-Magenta">_rmtree_safe_fd_step</span>
+    <span class=" -Color -Color-Red">os.unlink</span><span class=" -Color -Color-Bold -Color-Bold-Red">(entry.name, dir_fd=topfd)</span>
+    <span class=" -Color -Color-Red">~~~~~~~~~</span><span class=" -Color -Color-Bold -Color-Bold-Red">^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">KeyboardInterrupt</span>
 </pre></div>
 </div>
 </div>
