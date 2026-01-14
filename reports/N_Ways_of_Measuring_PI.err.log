@@ -28,18 +28,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#RUN ME TO ANIMATE YOUR CODE
-ani=animateMe_single_pendulum([positions], params)
-HTML(ani.to_jshtml())
+from google.colab import drive
+drive.mount('/content/drive')
+filename = "FILE_NAME_GOES_HERE"
+filepath = "/content/drive/MyDrive/Colab Notebooks/" + filename
+!cp "$filepath" ./
+!jupyter nbconvert --to HTML "$filename"
 ------------------
 
 
 [31m---------------------------------------------------------------------------[39m
-[31mNameError[39m                                 Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 2[39m
-[32m      1[39m [38;5;66;03m#RUN ME TO ANIMATE YOUR CODE[39;00m
-[32m----> [39m[32m2[39m ani=animateMe_single_pendulum([[43mpositions[49m], params)
-[32m      3[39m HTML(ani.to_jshtml())
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mgoogle[39;00m[34;01m.[39;00m[34;01mcolab[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m drive
+[32m      2[39m drive.mount([33m'[39m[33m/content/drive[39m[33m'[39m)
+[32m      3[39m filename = [33m"[39m[33mFILE_NAME_GOES_HERE[39m[33m"[39m
 
-[31mNameError[39m: name 'positions' is not defined
+[31mModuleNotFoundError[39m: No module named 'google'
 

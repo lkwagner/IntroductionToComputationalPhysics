@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -185,8 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="N_Ways_of_Measuring_PI.html">N ways to measure <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Dynamics.html">Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="OrbitalDynamics.html">Orbital Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Exoplanets.html">Exoplanets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Exoplanets_short.html">Exoplanets – shorter version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exoplanets_short.html">Exoplanets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chaos.html">Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ParticlePhysics.html">Particle Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MachineLearningGalaxies.html">Classifying Galaxies</a></li>
@@ -251,7 +250,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Climate.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jnoronhahostler/IntroductionToComputationalPhysicsFa25/blob/main/IntroductionToComputationalPhysics/Climate.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,10 +408,10 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="climate-dynamics">
 <h1>Climate Dynamics<a class="headerlink" href="#climate-dynamics" title="Link to this heading">#</a></h1>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>climlab
@@ -428,7 +427,7 @@ document.write(`
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.1/3.1 MB</span> <span class=" -Color -Color-Red">49.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.1/3.1 MB</span> <span class=" -Color -Color-Red">62.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -445,12 +444,6 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
@@ -473,8 +466,8 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for climlab: filename=climlab-0.9.1-py3-none-any.whl size=185751 sha256=c3c3df48ddb8d756606feade22fbe33f7e66c79c2cb6e31e5f2c5cf684447443
-  Stored in directory: /home/runner/.cache/pip/wheels/d6/85/87/84386eb1e974c6efb8504310d80e408464d7553fa2bc9d4b20
+?25h  Created wheel for climlab: filename=climlab-0.9.1-py3-none-any.whl size=185753 sha256=e5d79b8d1b5279ea7d7894472b9b0efc93b4564c956e952ee28735e38d31183c
+  Stored in directory: /home/runner/.cache/pip/wheels/1f/16/db/d4c699cb6cdcf6c46a81ee90d26da18d4d76b20d840e5de56b
 Successfully built climlab
 </pre></div>
 </div>
@@ -482,12 +475,9 @@ Successfully built climlab
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed climlab-0.9.1
-
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1</span> -&gt; <span class=" -Color -Color-Green">25.1.1</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2025-05-06 15:20:44--  https://clark.physics.illinois.edu/temp.data
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-01-14 15:56:07--  https://clark.physics.illinois.edu/temp.data
 Resolving clark.physics.illinois.edu (clark.physics.illinois.edu)... 
 </pre></div>
 </div>
@@ -505,17 +495,17 @@ temp.data             0%[                    ]       0  --.-KB/s
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>temp.data           100%[===================&gt;]  17.18K  --.-KB/s    in 0.02s   
 
-2025-05-06 15:20:44 (857 KB/s) - ‘temp.data’ saved [17595/17595]
+2026-01-14 15:56:07 (874 KB/s) - ‘temp.data’ saved [17595/17595]
 </pre></div>
 </div>
 </div>
 </details>
 </div>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -544,6 +534,12 @@ temp.data             0%[                    ]       0  --.-KB/s
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/process/process.py:344: SyntaxWarning: &quot;\c&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\c&quot;? A raw string is also an option.
+  :math:`-5 ^{\circ} \\textrm{C}` on all latitues::
+/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/domain/initial.py:102: SyntaxWarning: &quot;\p&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\p&quot;? A raw string is also an option.
+  T(\phi) = T_0 + T_2 P_2(\sin\phi)
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
@@ -553,24 +549,23 @@ temp.data             0%[                    ]       0  --.-KB/s
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.solar.insolation</span><span class="w"> </span><span class="kn">import</span> <span class="n">daily_insolation</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">legendre</span>
 
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.17</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">20</span>
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.14.2</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.14</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">20</span>
 <span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span><span class="p">,</span> <span class="n">thermo</span><span class="p">,</span> <span class="n">legendre</span>
 <span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1"># some more useful shorcuts</span>
 <span class="ne">---&gt; </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.model.column</span><span class="w"> </span><span class="kn">import</span> <span class="n">GreyRadiationModel</span><span class="p">,</span> <span class="n">RadiativeConvectiveModel</span><span class="p">,</span> <span class="n">BandRCModel</span>
 <span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.model.ebm</span><span class="w"> </span><span class="kn">import</span> <span class="n">EBM</span><span class="p">,</span> <span class="n">EBM_annual</span><span class="p">,</span> <span class="n">EBM_seasonal</span>
 <span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.domain.field</span><span class="w"> </span><span class="kn">import</span> <span class="n">Field</span><span class="p">,</span> <span class="n">global_mean</span>
 
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.17</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">model</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">28</span>
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.14.2</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.14</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">model</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">28</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> This package contains ready-made models that can be run &quot;off-the-shelf&quot;.</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span><span class="sd"> radiative-convective column model from individual components.</span>
+<span class="sd">   (...)     26 radiative-convective column model from individual components.</span>
 <span class="g g-Whitespace">     </span><span class="mi">27</span><span class="sd"> &#39;&#39;&#39;</span>
 <span class="ne">---&gt; </span><span class="mi">28</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.column</span><span class="w"> </span><span class="kn">import</span> <span class="n">GreyRadiationModel</span><span class="p">,</span> <span class="n">RadiativeConvectiveModel</span><span class="p">,</span> <span class="n">BandRCModel</span>
 <span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.ebm</span><span class="w"> </span><span class="kn">import</span> <span class="n">EBM</span><span class="p">,</span> <span class="n">EBM_annual</span><span class="p">,</span> <span class="n">EBM_seasonal</span>
 
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.17</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">model</span><span class="o">/</span><span class="n">column</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">39</span>
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.14.2</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.14</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">model</span><span class="o">/</span><span class="n">column</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">39</span>
 <span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">const</span>
 <span class="ne">---&gt; </span><span class="mi">39</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.process</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeDependentProcess</span>
@@ -578,39 +573,38 @@ temp.data             0%[                    ]       0  --.-KB/s
 <span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.radiation</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">FixedInsolation</span><span class="p">,</span> <span class="n">GreyGas</span><span class="p">,</span> <span class="n">GreyGasSW</span><span class="p">,</span>
 <span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="n">ThreeBandSW</span><span class="p">,</span> <span class="n">FourBandLW</span><span class="p">,</span> <span class="n">ManabeWaterVapor</span><span class="p">)</span>
 
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.17</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">process</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.14.2</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.14</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">process</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&#39;&#39;&#39;The base classes for all climlab processes.&#39;&#39;&#39;</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.process</span><span class="w"> </span><span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">process_like</span><span class="p">,</span> <span class="n">get_axes</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.time_dependent_process</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeDependentProcess</span><span class="p">,</span> <span class="n">couple</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.implicit</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImplicitProcess</span>
 
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.17</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">process</span><span class="o">/</span><span class="n">process</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">69</span>
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.14.2</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.14</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">process</span><span class="o">/</span><span class="n">process</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">69</span>
 <span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="kn">import</span><span class="w"> </span><span class="nn">time</span><span class="o">,</span><span class="w"> </span><span class="nn">copy</span>
 <span class="g g-Whitespace">     </span><span class="mi">68</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="ne">---&gt; </span><span class="mi">69</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.domain.field</span><span class="w"> </span><span class="kn">import</span> <span class="n">Field</span>
 <span class="g g-Whitespace">     </span><span class="mi">70</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.domain.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">_Domain</span><span class="p">,</span> <span class="n">zonal_mean_surface</span>
 <span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">walk</span>
 
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.17</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">domain</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">7</span>
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.14.2</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.14</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">domain</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">7</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;axis&#39;</span><span class="p">,</span> <span class="s1">&#39;domain&#39;</span><span class="p">,</span> <span class="s1">&#39;field&#39;</span><span class="p">,</span> <span class="s1">&#39;initial&#39;</span><span class="p">,</span> <span class="s1">&#39;xarray&#39;</span><span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.domain.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">single_column</span><span class="p">,</span> <span class="n">zonal_mean_surface</span><span class="p">,</span> <span class="n">surface_2D</span><span class="p">,</span> <span class="n">zonal_mean_column</span><span class="p">,</span> <span class="n">box_model_domain</span>
 <span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.domain.initial</span><span class="w"> </span><span class="kn">import</span> <span class="n">column_state</span><span class="p">,</span> <span class="n">surface_state</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.domain.field</span><span class="w"> </span><span class="kn">import</span> <span class="n">Field</span><span class="p">,</span> <span class="n">global_mean</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.domain.axis</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axis</span>
 
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.17</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">domain</span><span class="o">/</span><span class="n">initial</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">4</span>
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.14.2</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.14</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">domain</span><span class="o">/</span><span class="n">initial</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">4</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">domain</span>
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.domain.field</span><span class="w"> </span><span class="kn">import</span> <span class="n">Field</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.utils.attrdict</span><span class="w"> </span><span class="kn">import</span> <span class="n">AttrDict</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">legendre</span>
 
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.17</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">domain</span><span class="o">/</span><span class="n">field</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.14.2</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.14</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">domain</span><span class="o">/</span><span class="n">field</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#  Trying a new data model for state variables and domains:</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#  Create a new sub-class of numpy.ndarray</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#  that has as an attribute the domain itself</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1">#</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>      <span class="mi">6</span> <span class="c1">#</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># http://docs.scipy.org/doc/numpy/user/basics.subclassing.html</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span><span class="w"> </span><span class="nn">climlab.domain.xarray</span><span class="w"> </span><span class="kn">import</span> <span class="n">Field_to_xarray</span>
@@ -618,11 +612,10 @@ temp.data             0%[                    ]       0  --.-KB/s
 <span class="g g-Whitespace">     </span><span class="mi">13</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Custom class for climlab gridded quantities, called Field.</span>
 <span class="g g-Whitespace">     </span><span class="mi">14</span><span class="sd"> </span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span><span class="sd">     This class behaves exactly like :py:class:`numpy.ndarray`</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="sd"> </span>
+<span class="sd">   (...)     83 </span>
 <span class="g g-Whitespace">     </span><span class="mi">84</span><span class="sd">     &quot;&quot;&quot;</span>
 
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.10.17</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">domain</span><span class="o">/</span><span class="n">xarray</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">3</span>
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.14.2</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.14</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">climlab</span><span class="o">/</span><span class="n">domain</span><span class="o">/</span><span class="n">xarray</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">builtins</span><span class="w"> </span><span class="kn">import</span> <span class="nb">str</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">builtins</span><span class="w"> </span><span class="kn">import</span> <span class="nb">object</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DataArray</span>
@@ -719,11 +712,12 @@ temp.data             0%[                    ]       0  --.-KB/s
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="c-a-more-accurate-emission-model">
 <h3>c. A more accurate emission model<a class="headerlink" href="#c-a-more-accurate-emission-model" title="Link to this heading">#</a></h3>
-<p>To further improve our model, we need to increase the accuracy of our emission model. The Stefan-Boltzmann law from above applies to a perfect blackbody, which the Earth is not. From experiments, we can measure that near the Earth’s temperature,
-$<span class="math notranslate nohighlight">\(
+<p>To further improve our model, we need to increase the accuracy of our emission model. The Stefan-Boltzmann law from above applies to a perfect blackbody, which the Earth is not. From experiments, we can measure that near the Earth’s temperature,</p>
+<div class="math notranslate nohighlight">
+\[
 P_{out} = A + B T_{c},
-\)</span>$
-where</p>
+\]</div>
+<p>where</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(A=221.2\)</span> W/m<sup>2</sup></p></li>
 <li><p><span class="math notranslate nohighlight">\(B=1.3\)</span> W/m<sup>2</sup> K</p></li>
@@ -733,9 +727,9 @@ where</p>
 <p>Check that these new parameters give a much closer equilbrium temperature (for the pre-industrial average) of 13.94° C.</p>
 <details>
 If you were to linearize the Stefan-Boltzmann law around 0 Celcius, you would get
-$$\epsilon \sigma (T_0 + T_c)^4 \approx \epsilon \sigma(T_0^4 + 4 T_0^3 T_c) = A + BT_c$$
+$\epsilon \sigma (T_0 + T_c)^4 \approx \epsilon \sigma(T_0^4 + 4 T_0^3 T_c) = A + BT_c$
 where $T_0=273.15$ and $T_c$ is the temperature in Celsius.
-<p>Plugging in our numbers from previous parts of the exercis, we get <span class="math notranslate nohighlight">\(A=195.94\)</span> W/m<sup>2</sup> and <span class="math notranslate nohighlight">\(B=2.87\)</span>  W/m<sup>2</sup> K. This is close to the measured values, which is reassuring.</p>
+<p>Plugging in our numbers from previous parts of the exercise, we get <span class="math notranslate nohighlight">\(A=195.94\)</span> W/m<sup>2</sup> and <span class="math notranslate nohighlight">\(B=2.87\)</span>  W/m<sup>2</sup> K. This is close to the measured values, which is reassuring.</p>
 <p>If you used these naiive values, you’d find that we get a temperature <span class="math notranslate nohighlight">\(T=15.11878309\)</span>.</p>
 </details><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -764,10 +758,10 @@ You can see that if the CO<sub>2</sub> concentration increases, the power out de
 <p>We will use the oldest pre-industrial data (around 1751) as the reference CO<sub>2</sub> concentration.</p>
 <p>Below is the Carbon dioxide that is in the air as a function of year (the fractions are fractions of a year).  Plot it:</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CO2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1751.590620307266</span><span class="p">,</span> <span class="mf">277.1900826446281</span><span class="p">],</span>
@@ -856,7 +850,8 @@ You can see that if the CO<sub>2</sub> concentration increases, the power out de
 <p>It shouldn’t surprise us that we to answer this question, we should start by writing down a differential equation that tells us <span class="math notranslate nohighlight">\(\partial T / \partial t\)</span> where <span class="math notranslate nohighlight">\(T\)</span> is the temperature and <span class="math notranslate nohighlight">\(t\)</span> is the time.</p>
 <div class="math notranslate nohighlight">
 \[ C \frac{\partial T}{\partial t} = \frac{S}{4}(1-\alpha) - (A+B T) \]</div>
-<p>(remember in <span class="math notranslate nohighlight">\(BT\)</span> we need that <span class="math notranslate nohighlight">\(T\)</span> is in Celsius). The r.h.s. of this is just the radiation into the Earth and the radiation out of Earth that we were working on in exercise 1.  Previously, we were just setting this r.h.s. to zero to find equilibrium. <span class="math notranslate nohighlight">\(C\)</span> is the heat capacity per meter squared of the planet – heat capacity is how much energy it takes to change the temperature by 1 Kelvin.  To a good approximation, the Earth is just water, so we use that heat capacity.  The question is how deep do we go, and the answer is about 10 meters.  From the specific heat of water, we can do some unit analysis and get that the heat capacity is <span class="math notranslate nohighlight">\(C=4.1813 \times 10^7 \frac{\textrm{J}}{\textrm{K}\cdot \textrm{m}^2}\)</span>.</p>
+<p>(remember in <span class="math notranslate nohighlight">\(BT\)</span> we need that <span class="math notranslate nohighlight">\(T\)</span> is in Celsius). The r.h.s. of this is just the radiation into the Earth and the radiation out of Earth that we were working on in exercise 1.  Previously, we were just setting this r.h.s. to zero to find equilibrium  - i.e. we wanted the temperature at which the change in temperature over time was zero. But when it’s not zero, it’s telling us how much the temperature changes in a unit of time. If there is more radiation coming in then going out, we expect that the temperature of the planet should heat up.</p>
+<p><span class="math notranslate nohighlight">\(C\)</span> is the heat capacity per meter squared of the planet – heat capacity is how much energy it takes to change the temperature by 1 Kelvin. If the Earth were a big chunk of iron it would heat up pretty quickly (think a pot). On the other hand, if it was a big chunk of granite, it would heat up quite slowly. It turns out that Earth (at least the relevant part that’s heating up) is essentially a big bag of water - i.e. a big ocean, so we use that heat capacity.  The question is how deep do we go, and the answer is about 10 meters.  From the specific heat of water, we can do some unit analysis and get that the heat capacity is <span class="math notranslate nohighlight">\(C=4.1813 \times 10^7 \frac{\textrm{J}}{\textrm{K}\cdot \textrm{m}^2}\)</span>.</p>
 <p>Set up a first order integrator for this system.  Use a time step <span class="math notranslate nohighlight">\(dt\)</span> of 1 month (written in seconds!). You can use <code class="docutils literal notranslate"><span class="pre">const.seconds_per_month</span></code> to get the correct number of seconds.</p>
 <p>Start the temperature of the Earth at 295 degrees Kelvin and allow that temperature to evolve in time.  Plot the temperature as a function of time (in years).
 We want to observe three things:</p>
@@ -898,9 +893,9 @@ We want to observe three things:</p>
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>Now we want to incorporate our new temperature dependent albedo in our code.</p>
-<p>Loop over at least 10 initial temepratures from <span class="math notranslate nohighlight">\(T=-50\)</span> to <span class="math notranslate nohighlight">\(T=100\)</span> degrees Celsius and then examine what the temperature is as a function of time.</p>
+<p>Loop over at least 10 initial temperatures from <span class="math notranslate nohighlight">\(T=-50\)</span> to <span class="math notranslate nohighlight">\(T=100\)</span> degrees Celsius and then examine what the temperature is as a function of time.</p>
 <ul class="simple">
-<li><p>Plot temperature as a function of time for mamy different initial temperatures (all plotted as a different line).</p></li>
+<li><p>Plot temperature as a function of time for many different initial temperatures (all plotted as a different line).</p></li>
 <li><p>Secondly, for each initial temperature, figure out what the final fixed point temperature is. Plot the fixed point temperature on the y-axis as a function of the initial temperature.</p></li>
 </ul>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
@@ -1042,7 +1037,7 @@ We will use the following parameters to model Earth</p>
 <section id="c-diffusion">
 <h3>c. Diffusion<a class="headerlink" href="#c-diffusion" title="Link to this heading">#</a></h3>
 <p>We are missing an important piece of the physics once we’ve moved to 1D.  The temperature at different latitudes can interact with each other.  Heat can move both by diffusion and advection.  Here we are going to concern ourself primarily with diffusion.  We’ve seen diffusion before in this class but typically as <span class="math notranslate nohighlight">\(\partial^2/ \partial x^2\)</span>.  In our case though we are on a sphere and need to do something different essentially writing our gradient in spherical coordinates - see the last term of our energy balance model.</p>
-<p>We’d like to go ahead and implement the diffusion just like we’ve done in previous cases using a finite difference stencil. Unfortunately, this won’t work here (we run into numerical instabilities at the poles). What we need to do is use an implicit solver of our differential equations.  This is out of scope for this assignment, so instead we will give you a function you can call</p>
+<p>We’d like to go ahead and implement the diffusion just like we’ve done in previous cases using a finite difference stencil. Unfortunately, this won’t work here naively (we run into numerical instabilities at the poles).  To fix this is out of scope for this assignment, so instead we will give you a function you can call</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Diffuse</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">params</span><span class="p">):</span>
   <span class="n">sfc</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">zonal_mean_surface</span><span class="p">(</span><span class="n">num_lat</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">water_depth</span><span class="o">=</span><span class="mf">10.</span><span class="p">)</span>
   <span class="n">Ts</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">domain</span><span class="o">=</span><span class="n">sfc</span><span class="p">)</span>
@@ -1072,7 +1067,14 @@ We will use the following parameters to model Earth</p>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p><strong>Acknowledgements:</strong></p>
+<ul class="simple">
+<li><p>Bryan Clark (original)</p></li>
+</ul>
+<p>This assignment was partially uses climlab and was partially inspired by <a href="https://brian-rose.github.io/ClimateLaboratoryBook/home.html">Brian Rose’s climate laboratory course</a> and MIT course on <a href="https://computationalthinking.mit.edu/Fall24/">Introduction to Computational Thinking</a>
+© Copyright 2020</p>
+<p>–</p>
+</section>
 </section>
 </section>
 

@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -185,8 +185,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">N ways to measure <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Dynamics.html">Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="OrbitalDynamics.html">Orbital Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Exoplanets.html">Exoplanets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Exoplanets_short.html">Exoplanets – shorter version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exoplanets_short.html">Exoplanets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chaos.html">Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ParticlePhysics.html">Particle Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MachineLearningGalaxies.html">Classifying Galaxies</a></li>
@@ -251,7 +250,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/N_Ways_of_Measuring_PI.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jnoronhahostler/IntroductionToComputationalPhysicsFa25/blob/main/IntroductionToComputationalPhysics/N_Ways_of_Measuring_PI.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,6 +408,31 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="n-ways-to-measure-pi">
 <h1>N ways to measure <span class="math notranslate nohighlight">\(\pi\)</span><a class="headerlink" href="#n-ways-to-measure-pi" title="Link to this heading">#</a></h1>
+<p>Run this code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;FILE_NAME_GOES_HERE&quot;</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/Colab Notebooks/&quot;</span> <span class="o">+</span> <span class="n">filename</span>
+<span class="o">!</span>cp<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$filepath</span><span class="s2">&quot;</span><span class="w"> </span>./
+<span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>HTML<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;FILE_NAME_GOES_HERE&quot;</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;google&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
 <li><p><strong>Date:</strong></p></li>
@@ -416,10 +440,10 @@ document.write(`
 </ul>
 <p>Remember to execute this cell to load numpy and pylab.</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -559,7 +583,7 @@ myList is length 5
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1225d70590f3eca7f0bac6a3c405aea9dd6dd3ec84013e6b7f29dc513c9e1250.png" src="_images/1225d70590f3eca7f0bac6a3c405aea9dd6dd3ec84013e6b7f29dc513c9e1250.png" />
+<img alt="_images/7dcf558cf1c7d05d19b8263a170f02937b7d11c2b9b69206f02585d2978349d9.png" src="_images/7dcf558cf1c7d05d19b8263a170f02937b7d11c2b9b69206f02585d2978349d9.png" />
 </div>
 </div>
 <p>🦉  Make a list <code class="docutils literal notranslate"><span class="pre">piList</span></code> which contains the terms</p>
@@ -571,6 +595,7 @@ myList is length 5
 <code class="docutils literal notranslate"><span class="pre">plt.plot(np.abs(np.pi-piList_cumulative))</span></code></p>
 <p>You’ll probably find that the terms in the series get very small very quickly! To see them a little better we can adjust the y-axis to be scalled <em>logarithmically</em> rather than <em>linearly</em>, by calling <code class="docutils literal notranslate"><span class="pre">plt.yscale('log')</span></code>.</p>
 <p>Make sure you label your axis!</p>
+<p>Start by initializing a few things, then executing a loop that calculates the nth term, with n running from 0 to 999,999, summing the terms as you go.</p>
 <p><em>Write your code (and generate your plot) below.</em></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 <div class="cell docutils container">
@@ -687,7 +712,7 @@ You can have a function that generates all the <code class="docutils literal not
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>🦉 Now modify your function above to return the perimeter (divided by 2) of the polygon that you drew.</p>
 <p>Report how close is your answer to <span class="math notranslate nohighlight">\(\pi\)</span> for <span class="math notranslate nohighlight">\(N=100\)</span>?</p>
-<p>Plot the estimate of <span class="math notranslate nohighlight">\(\pi\)</span> from a <span class="math notranslate nohighlight">\(N\)</span>-sided polygon as a function of <span class="math notranslate nohighlight">\(3&lt;N\leq100\)</span>. Use <code class="docutils literal notranslate"><span class="pre">plt.axhline(np.pi,linestyle='--')</span></code> to draw a line where <span class="math notranslate nohighlight">\(\pi\)</span> is on your plot.</p>
+<p>Plot the percentage error estimate of <span class="math notranslate nohighlight">\(\pi\)</span> i.e. (est-truth)/truth*100, from a <span class="math notranslate nohighlight">\(N\)</span>-sided polygon as a function of <span class="math notranslate nohighlight">\(3&lt;N\leq100\)</span>. Use <code class="docutils literal notranslate"><span class="pre">plt.axhline(np.pi,linestyle='--')</span></code> to draw a line where <span class="math notranslate nohighlight">\(\pi\)</span> is on your plot.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ANSWER HERE</span>
@@ -726,15 +751,15 @@ You can have a function that generates all the <code class="docutils literal not
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5515741285098452
-0.9427379480054743
--0.8031294925867347
--0.49406673592598116
-0.8622534017603245
--0.7395261121512196
--0.5868842242541676
-0.13519586778236303
-0.980545949069686
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.32931741813947224
+0.4784576204741495
+-0.9746819748640876
+0.727196442125869
+0.734004020824748
+0.5982655730860895
+0.13885528834208083
+-0.10596569756829677
+0.49525217884422146
 </pre></div>
 </div>
 </div>

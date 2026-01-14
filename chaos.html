@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Particle Physics" href="ParticlePhysics.html" />
-    <link rel="prev" title="Exoplanets – shorter version" href="Exoplanets_short.html" />
+    <link rel="prev" title="Exoplanets" href="Exoplanets_short.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,8 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="N_Ways_of_Measuring_PI.html">N ways to measure <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Dynamics.html">Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="OrbitalDynamics.html">Orbital Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Exoplanets.html">Exoplanets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Exoplanets_short.html">Exoplanets – shorter version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exoplanets_short.html">Exoplanets</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ParticlePhysics.html">Particle Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MachineLearningGalaxies.html">Classifying Galaxies</a></li>
@@ -251,7 +250,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/chaos.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jnoronhahostler/IntroductionToComputationalPhysicsFa25/blob/main/IntroductionToComputationalPhysics/chaos.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -408,10 +407,10 @@ document.write(`
 </ul>
 <p><em>Note:</em> You must answer things inside the answer tags as well as questions which have an <strong>A:</strong>.</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -443,7 +442,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2025, 5, 6, 15, 21, 37, 145678)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 1, 14, 15, 57, 30, 415097)
 </pre></div>
 </div>
 </div>
@@ -457,11 +456,12 @@ document.write(`
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
 <p>You will use the following animation code for exercise 1</p>
+<p>Help with animateMe: There are two animate functions that accept positions (the angles, technically) and params. The positions argument needs to be passed as a nested list [positions] and the positions array needs to be 2-dimensional. You can check the shape of your array using positions.shape to ensure it is in the right format of (N,1), which is what the animation functions expect. If your positions array is 1D, you can reshape it using positions[:,np.newaxis].</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">animateMe_single_pendulum</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span> 
@@ -527,10 +527,10 @@ document.write(`
 \[\theta(t) = A\cos(\Omega t + \phi)\hspace{2cm} \omega(t)=-A\Omega\sin(\Omega t+\phi)\]</div>
 <p>its phase trajectory will be an ellipse with axes of lengths <span class="math notranslate nohighlight">\(2A\)</span> and <span class="math notranslate nohighlight">\(2A\Omega\)</span>.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -540,10 +540,10 @@ document.write(`
 </details>
 </div>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#RUN ME TO ANIMATE YOUR CODE</span>
@@ -586,10 +586,10 @@ However, that solution only works for <em>small angles</em>.</p>
 </div>
 </div>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ani</span><span class="o">=</span><span class="n">animateMe_single_pendulum</span><span class="p">([</span><span class="n">positions</span><span class="p">,</span><span class="n">positions2</span><span class="p">,</span><span class="n">positions3</span><span class="p">],</span> <span class="n">params</span><span class="p">)</span>
@@ -776,10 +776,10 @@ However, that solution only works for <em>small angles</em>.</p>
 </div>
 <p>If you want, go ahead and animate these pendula</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions2</span><span class="p">)</span>
@@ -803,10 +803,10 @@ However, that solution only works for <em>small angles</em>.</p>
 </details>
 </div>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions4</span><span class="p">)</span>
@@ -839,10 +839,10 @@ However, that solution only works for <em>small angles</em>.</p>
 </ul>
 <p>Single (rigid) Pendula are somewhat boring.  We can compute most things about them analytically. A double pendulum on the other hand has a much richer behavior.  In this exercise you are going to simulate a double pendulum.</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">animateMe_double_pendulum</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span> 
@@ -921,7 +921,7 @@ However, that solution only works for <em>small angles</em>.</p>
 <span class="n">omega2_dot</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">alpha2</span><span class="o">*</span><span class="n">f1</span><span class="o">+</span><span class="n">f2</span><span class="p">)</span><span class="o">/</span><span class="n">den</span>
 </pre></div>
 </div>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">omega1</span></code>/<code class="docutils literal notranslate"><span class="pre">omega2</span></code> here mean the velocity or <span class="math notranslate nohighlight">\({d\theta_i}/{dt}\)</span>, <span class="math notranslate nohighlight">\(i=1,2\)</span> respectively.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">omega1</span></code>/<code class="docutils literal notranslate"><span class="pre">omega2</span></code> here mean the velocity or <span class="math notranslate nohighlight">\({d\theta_i}/{dt}\)</span>, <span class="math notranslate nohighlight">\(i=1,2\)</span> respectively.  Also, in the notation above <span class="math notranslate nohighlight">\(t1=\theta_1\)</span> and <span class="math notranslate nohighlight">\(t2=\theta_2\)</span>, not to be confused with the tensions!</p>
 <p>Put this force in your code.</p>
 <p>🦉Run with the following parameters:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;m1&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
@@ -947,10 +947,10 @@ However, that solution only works for <em>small angles</em>.</p>
 </div>
 </div>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
@@ -1007,10 +1007,10 @@ Animate them all simultaneously to see what happens.</p>
 </div>
 </div>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ani</span><span class="o">=</span><span class="n">animateMe_double_pendulum</span><span class="p">(</span><span class="n">allPositions</span><span class="p">)</span>
@@ -1077,7 +1077,7 @@ Animate them all simultaneously to see what happens.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Exoplanets – shorter version</p>
+        <p class="prev-next-title">Exoplanets</p>
       </div>
     </a>
     <a class="right-next"

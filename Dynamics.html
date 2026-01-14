@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -185,8 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="N_Ways_of_Measuring_PI.html">N ways to measure <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="OrbitalDynamics.html">Orbital Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Exoplanets.html">Exoplanets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Exoplanets_short.html">Exoplanets – shorter version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exoplanets_short.html">Exoplanets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chaos.html">Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ParticlePhysics.html">Particle Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MachineLearningGalaxies.html">Classifying Galaxies</a></li>
@@ -251,7 +250,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Dynamics.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jnoronhahostler/IntroductionToComputationalPhysicsFa25/blob/main/IntroductionToComputationalPhysics/Dynamics.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -446,10 +445,10 @@ document.write(`
 <li><p>measure the terminal velocity of a falling object.</p></li>
 </ul>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -727,7 +726,7 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 </div>
 </div>
 </div>
-<p>You should see the slope should correspond to the <span class="math notranslate nohighlight">\(\beta\)</span> of <span class="math notranslate nohighlight">\(x^\beta\)</span>.</p>
+<p>You should see the slope should correspond to the <span class="math notranslate nohighlight">\(b\)</span> of <span class="math notranslate nohighlight">\(x^b\)</span>.</p>
 <p>🦉Let’s go ahead and plot to see how well this works</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -923,10 +922,10 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <p>If you send <code class="docutils literal notranslate"><span class="pre">animateMe</span></code> the list of positions it will animate them.  You shouldn’t have to change any code here as long as you’ve got a list of positions in the array <code class="docutils literal notranslate"><span class="pre">positions</span></code>. 🦉Go ahead and watch your thrown ball!</p>
 <p><em>You just have to run this code and then play the animation to generate it.</em></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">animation</span>
@@ -1045,7 +1044,7 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 </ul>
 <p>In this exercise we have two goals.</p>
 <ul class="simple">
-<li><p>One goal is to clean up our code so that it is more general.  We have a lot of hard-coded things running around and so we want to get rid of that.</p></li>
+<li><p>One goal is to clean up our code so that it is more general (we will be using your 2d code).  We have a lot of hard-coded things running around and so we want to get rid of that.</p></li>
 <li><p>Our second goal is to modify our code so that it can work with air resistance.  We will be able to see how air resistance affects balls flying through the air.  We can also see how a dropped ball reaches terminal velocity.</p></li>
 </ul>
 <section id="a-code-modifications">

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Exoplanets – shorter version &#8212; Physics 246</title>
+    <title>Exoplanets &#8212; Physics 246</title>
   
   
   
@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Chaos" href="chaos.html" />
-    <link rel="prev" title="Exoplanets" href="Exoplanets.html" />
+    <link rel="prev" title="Orbital Dynamics" href="OrbitalDynamics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,8 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="N_Ways_of_Measuring_PI.html">N ways to measure <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Dynamics.html">Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="OrbitalDynamics.html">Orbital Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Exoplanets.html">Exoplanets</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exoplanets – shorter version</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exoplanets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chaos.html">Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ParticlePhysics.html">Particle Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MachineLearningGalaxies.html">Classifying Galaxies</a></li>
@@ -251,7 +250,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Exoplanets_short.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jnoronhahostler/IntroductionToComputationalPhysicsFa25/blob/main/IntroductionToComputationalPhysics/Exoplanets_short.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,7 +365,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exoplanets – shorter version</h1>
+    <h1>Exoplanets</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,8 +406,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exoplanets-shorter-version">
-<h1>Exoplanets – shorter version<a class="headerlink" href="#exoplanets-shorter-version" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="exoplanets">
+<h1>Exoplanets<a class="headerlink" href="#exoplanets" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p><strong>Author:</strong></p></li>
 <li><p><strong>Date:</strong></p></li>
@@ -637,27 +636,29 @@ P = \frac{2\pi a_{planet} }{v_{planet}} = \frac{2\pi a_{star}}{v_{star}}
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2025-05-06 15:20:51--  https://courses.physics.illinois.edu/phys246/fa2020/code/UID_0019921_RVC_002.tbl.txt
-Resolving courses.physics.illinois.edu (courses.physics.illinois.edu)... 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-01-14 15:56:13--  https://courses.physics.illinois.edu/phys246/fa2020/code/UID_0019921_RVC_002.tbl.txt
+Resolving courses.physics.illinois.edu (courses.physics.illinois.edu)... 130.126.151.14
+Connecting to courses.physics.illinois.edu (courses.physics.illinois.edu)|130.126.151.14|:443... 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>130.126.151.14
-Connecting to courses.physics.illinois.edu (courses.physics.illinois.edu)|130.126.151.14|:443... connected.
-HTTP request sent, awaiting response... 200 OK
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 200 OK
 Length: 4993 (4.9K) [text/plain]
-Saving to: ‘UID_0019921_RVC_002.tbl.txt.1’
+Saving to: ‘UID_0019921_RVC_002.tbl.txt’
 
 
           UID_00199   0%[                    ]       0  --.-KB/s               
 UID_0019921_RVC_002 100%[===================&gt;]   4.88K  --.-KB/s    in 0s      
 
-2025-05-06 15:20:51 (797 MB/s) - ‘UID_0019921_RVC_002.tbl.txt.1’ saved [4993/4993]
+2026-01-14 15:56:13 (790 MB/s) - ‘UID_0019921_RVC_002.tbl.txt’ saved [4993/4993]
 </pre></div>
 </div>
 </div>
@@ -866,12 +867,12 @@ After you find the best <span class="math notranslate nohighlight">\(v_r\)</span
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Exoplanets.html"
+       href="OrbitalDynamics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Exoplanets</p>
+        <p class="prev-next-title">Orbital Dynamics</p>
       </div>
     </a>
     <a class="right-next"

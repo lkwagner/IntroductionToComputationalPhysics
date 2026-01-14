@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -185,8 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="N_Ways_of_Measuring_PI.html">N ways to measure <span class="math notranslate nohighlight">\(\pi\)</span></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Dynamics.html">Dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="OrbitalDynamics.html">Orbital Dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Exoplanets.html">Exoplanets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Exoplanets_short.html">Exoplanets – shorter version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exoplanets_short.html">Exoplanets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chaos.html">Chaos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ParticlePhysics.html">Particle Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MachineLearningGalaxies.html">Classifying Galaxies</a></li>
@@ -251,7 +250,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Predator-Prey.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/jnoronhahostler/IntroductionToComputationalPhysicsFa25/blob/main/IntroductionToComputationalPhysics/Predator-Prey.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -394,7 +393,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-window-averaging-cleaning-data">f. Window Averaging (cleaning data)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-agent-based-predator-prey-simulation-extra-credit-for-20-points">Exercise 3:  Agent Based Predator-Prey Simulation (Extra credit for 20 points)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-agent-based-predator-prey-simulation">Exercise 3:  Agent Based Predator-Prey Simulation</a></li>
 </ul>
             </nav>
         </div>
@@ -415,10 +414,10 @@ document.write(`
 </ul>
 <p>Remember to execute this cell to load numpy and pylab.</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -472,11 +471,11 @@ Like reproduction, the total number of predators that die at time <span class="m
 <p>The rate at which predators and prey run into each other is going to depend multiplicatively as <span class="math notranslate nohighlight">\(F(t)B(t)\)</span>.  One way to think about this is if I scatter predators and prey randomly over a grid, the probability that they will be at the same place goes as <span class="math notranslate nohighlight">\(\propto F(t)B(t)\)</span>.</p>
 <ul class="simple">
 <li><p>If a prey gets eaten, then it’s gone so the change in prey is <span class="math notranslate nohighlight">\(\Delta B(t) = -\beta F(t)B(t)\)</span>.</p></li>
-<li><p>If a predator eats a prey then it is no longer hungry and can reproduce and so <span class="math notranslate nohighlight">\(\Delta F(t) = D F(t) B(t)\)</span>.<br />
+<li><p>If a predator eats a prey then it is no longer hungry and can reproduce and so <span class="math notranslate nohighlight">\(\Delta F(t) = \delta F(t) B(t)\)</span>.<br />
 We can write these as the differential equations</p>
 <ul>
 <li><p><span class="math notranslate nohighlight">\(\frac{dB(t)}{dt} = -\beta F(t)B(t)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\frac{dF(t)}{dt}  = D F(t)B(t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{dF(t)}{dt}  = \delta F(t)B(t)\)</span></p></li>
 </ul>
 </li>
 </ul>
@@ -487,7 +486,7 @@ We can write these as the differential equations</p>
 \[ \boxed{\frac{dB(t)}{dt} = \alpha B(t) - \beta F(t) B(t)}\]</div>
 <div class="math notranslate nohighlight">
 \[
-\boxed{\frac{dF(t)}{dt} = D F(t) B(t) - \gamma F(t)}
+\boxed{\frac{dF(t)}{dt} = \delta F(t) B(t) - \gamma F(t)}
 \]</div>
 <p>These are called the <strong>Lotka-Volterra equations</strong></p>
 </section>
@@ -511,7 +510,7 @@ We can write these as the differential equations</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
 <section id="b-building-plots">
 <h3>b. Building Plots<a class="headerlink" href="#b-building-plots" title="Link to this heading">#</a></h3>
-<p>Let’s set <span class="math notranslate nohighlight">\(\alpha=1.0\)</span>, <span class="math notranslate nohighlight">\(\beta=0.005\)</span>, <span class="math notranslate nohighlight">\(\gamma=0.6\)</span> and <span class="math notranslate nohighlight">\(D=0.003\)</span>.  Use a timestep <span class="math notranslate nohighlight">\(dt=0.001\)</span></p>
+<p>Let’s set <span class="math notranslate nohighlight">\(\alpha=1.0\)</span>, <span class="math notranslate nohighlight">\(\beta=0.005\)</span>, <span class="math notranslate nohighlight">\(\gamma=0.6\)</span> and <span class="math notranslate nohighlight">\(\delta=0.003\)</span>.  Use a timestep <span class="math notranslate nohighlight">\(dt=0.001\)</span></p>
 <p>We are going to start with <span class="math notranslate nohighlight">\(400\)</span> prey (bunnies) and <span class="math notranslate nohighlight">\(200\)</span> predators (foxes).</p>
 <p>Set up your code to run for time <span class="math notranslate nohighlight">\(T=50\)</span></p>
 <p>🦉Plot two graphs</p>
@@ -554,13 +553,15 @@ Also generate a plot of the minimum prey seen during an ecosystem simulation for
 <p>A:</p>
 <p><strong>Q: As you increase <span class="math notranslate nohighlight">\(x\)</span>, you will find that the populations start to crash near zero. Which population does that first?</strong></p>
 <p>A:</p>
+<p><strong>Q: Which value of <span class="math notranslate nohighlight">\(x\)</span>, do you think is most likely to avoid extinction given these parameters ?</strong></p>
+<p>A:</p>
 </section>
 <section id="d-stationary-points">
 <h3>d. Stationary points<a class="headerlink" href="#d-stationary-points" title="Link to this heading">#</a></h3>
 <p>An interesting question we can ask: <strong>is there is some number of prey and predators we can start with so that the total number of prey and predators never change?</strong>  This would be called a fixed point or stationary point.</p>
 <p>We will determine the stationary point numerically. 🦉 To accomplish this, let’s write a function <code class="docutils literal notranslate"><span class="pre">getDeviation(initial_population)</span></code> which takes the initial population as a list <code class="docutils literal notranslate"><span class="pre">[preyPopulation,predatorPopulation]</span></code> and returns the standard deviation of the number of prey (<code class="docutils literal notranslate"><span class="pre">np.std(listOfPreyVsTime)</span></code>).  If the total number of prey never change then its standard deviation is zero, and otherwise the standard deviation is greater than zero. Therefore, if we minimize the standard deviation then we will find the stationary point.</p>
 <p>Now, all we have to do is call <code class="docutils literal notranslate"><span class="pre">getDeviation</span></code> a bunch of times with different parameters and figure out when it returns zero.  There are lots of rich and interesting approaches to optimization problems like this, but we don’t have time to explore them.  Here we are going to use a package from python calling <code class="docutils literal notranslate"><span class="pre">out=scipy.optimize.minimize(getDeviation,x0)</span></code>.  When it’s finished running, if you print <code class="docutils literal notranslate"><span class="pre">out.x</span></code> you can see which parameters it found.</p>
-<p><strong>Change D from 0.003 to 0.001 here</strong></p>
+<p><strong>Change <span class="math notranslate nohighlight">\(\delta\)</span> from 0.003 to 0.001 here</strong></p>
 <p>🦉Run the optimization and report the number of predator and prey you find.</p>
 <p>Then make a plot of</p>
 <ul class="simple">
@@ -599,7 +600,7 @@ Also generate a plot of the minimum prey seen during an ecosystem simulation for
 <p><strong>Problems with simulating the ecosystem using the Lotka-Volterra equations:</strong></p>
 <p>There are two qualitative problems with simulating ecosystems using the Lotka-Volterra equations:</p>
 <p>(1) In our simulations so far, we have found either stationary points or limit cycles.  Both of these are unrealistic.  Ecosystems are more dynamic than this.  It’s not the case that once you have a certain population of predator/prey it returns to this number over and over again forever.  This occurs because we are simulating the ecosystem deterministically - there is no randomness involved.  Deterministic equations essentially can only do a few things: they can converge to fixed points, limit cycles or be chaotic.</p>
-<p>(2) millibunnies:  You may have noticed in your simulations that you ocassionally saw that your ecosystem had 1/1000 of a bunny and that this 1/1000 of a bunny recovered into a respectable population of 8000 bunnies.  This is unrealistic, since if you can have fractional animals you can never never have an extinction event.  To go beyond this we need to recognize the discrete integer-ness of animals, which will require us to also include stochasticity.</p>
+<p>(2) millibunnies:  You may have noticed in your simulations that you ocassionally saw that your ecosystem had 1/1000 of a bunny and that this 1/1000 of a bunny recovered into a respectable population of 8000 bunnies.  This is unrealistic, since there aren’t actually frational animals (and also it prevents extinction events).  To go beyond this we need to recognize the discrete integer-ness of animals, which will require us to also include stochasticity.</p>
 <section id="a-the-first-bunny">
 <h3>a.  The first bunny<a class="headerlink" href="#a-the-first-bunny" title="Link to this heading">#</a></h3>
 <p>Let’s think about what <span class="math notranslate nohighlight">\(dB = \alpha B(t) dt\)</span> means.  Previously we thought that it meant that in a unit of time <span class="math notranslate nohighlight">\(\Delta t\)</span> we got <span class="math notranslate nohighlight">\(\alpha B(t) \Delta t\)</span> new bunnies.  But if <span class="math notranslate nohighlight">\(\alpha B(t)\)</span> is 0.2 and <span class="math notranslate nohighlight">\(\Delta t=0.1\)</span> we don’t get 0.02 bunnies. Instead we can think of it as the probability density of getting one whole new bunny as <span class="math notranslate nohighlight">\(20\%\)</span> and so the probability of getting a new bunny in a small interval <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(0.2 \Delta t\)</span>.</p>
@@ -671,9 +672,9 @@ Also generate a plot of the minimum prey seen during an ecosystem simulation for
 <li><p>Predators eat prey at rate <span class="math notranslate nohighlight">\(\beta F(t)B(t)\)</span> which cause predators to reproduce at <span class="math notranslate nohighlight">\(D F(t)B(t)\)</span></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\frac{dB(t)}{dt} = -\beta F(t)B(t)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\frac{dF(t)}{dt}  = D F(t)B(t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{dF(t)}{dt}  = \delta F(t)B(t)\)</span></p></li>
 <li><p>At time <span class="math notranslate nohighlight">\(t_{3a}=-\log(r)/(\beta F(t)B(t))\)</span> the prey <span class="math notranslate nohighlight">\(B \rightarrow B-1\)</span></p></li>
-<li><p>At time <span class="math notranslate nohighlight">\(t_{3b}=-\log(r)/(DF(t)B(t))\)</span> the predator <span class="math notranslate nohighlight">\(F \rightarrow F+1\)</span>.</p>
+<li><p>At time <span class="math notranslate nohighlight">\(t_{3b}=-\log(r)/(\delta F(t)B(t))\)</span> the predator <span class="math notranslate nohighlight">\(F \rightarrow F+1\)</span>.</p>
 <ul>
 <li><p>This latter point is a bit weird but works. Both the fox eating the bunny, and the reproduction of new foxes is proportional to how much the fox eats, so these two processes in practice can be separated in this way.</p></li>
 </ul>
@@ -731,7 +732,7 @@ and make sure to keep track of <span class="math notranslate nohighlight">\(\alp
 </li>
 <li><p>Phase plot (predator vs prey)</p></li>
 </ul>
-<p>for <span class="math notranslate nohighlight">\(T=50\)</span>, <span class="math notranslate nohighlight">\(B(t=0)=100\)</span>, <span class="math notranslate nohighlight">\(F(t=0)=50\)</span>, and <span class="math notranslate nohighlight">\(\alpha\)</span>=1.0, <span class="math notranslate nohighlight">\(\beta\)</span>=0.005, <span class="math notranslate nohighlight">\(\gamma=0.6\)</span>, and <span class="math notranslate nohighlight">\(D=0.003\)</span></p>
+<p>for <span class="math notranslate nohighlight">\(T=50\)</span>, <span class="math notranslate nohighlight">\(B(t=0)=100\)</span>, <span class="math notranslate nohighlight">\(F(t=0)=50\)</span>, and <span class="math notranslate nohighlight">\(\alpha\)</span>=1.0, <span class="math notranslate nohighlight">\(\beta\)</span>=0.005, <span class="math notranslate nohighlight">\(\gamma=0.6\)</span>, and <span class="math notranslate nohighlight">\(\delta=0.003\)</span></p>
 <p>On the same plots, show the results for the deterministic algorithms. Run it a few times to see the effect of stochasticity.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -743,7 +744,7 @@ and make sure to keep track of <span class="math notranslate nohighlight">\(\alp
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
 <section id="e-stationary-again">
 <h3>e. Stationary again<a class="headerlink" href="#e-stationary-again" title="Link to this heading">#</a></h3>
-<p>🦉Do the same thing as <strong>d.</strong> for the parameters you found above which give you a stationary point. Don’t forget to change <span class="math notranslate nohighlight">\(D=0.001\)</span> For this, go out to <span class="math notranslate nohighlight">\(T=1000\)</span></p>
+<p>🦉Do the same thing as <strong>d.</strong> for the parameters you found above which give you a stationary point. Don’t forget to change <span class="math notranslate nohighlight">\(\delta=0.001\)</span> For this, go out to <span class="math notranslate nohighlight">\(T=1000\)</span></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER ME</span>
@@ -764,7 +765,7 @@ and make sure to keep track of <span class="math notranslate nohighlight">\(\alp
 <li><p><span class="math notranslate nohighlight">\(\alpha=1.0\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\beta=0.008\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\gamma=0.3\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(D=0.002\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta=0.002\)</span></p></li>
 </ul>
 <p>and assume we start with the same number of predators and prey.</p>
 <p>🦉For <span class="math notranslate nohighlight">\(B_0\in\)</span> <code class="docutils literal notranslate"><span class="pre">preyNum</span></code> w/ <code class="docutils literal notranslate"><span class="pre">preyNum=np.arange(20,600,1)</span></code>, run your ecosystem until there is one extinction event. Record the time <span class="math notranslate nohighlight">\(t\)</span> this event happened and graph <span class="math notranslate nohighlight">\(t\)</span> vs. initial prey number.</p>
@@ -793,8 +794,9 @@ Because of the randomness involved, this may take a while to run (~5 minutes). F
 <p>A:</p>
 </section>
 </section>
-<section id="exercise-3-agent-based-predator-prey-simulation-extra-credit-for-20-points">
-<h2>Exercise 3:  Agent Based Predator-Prey Simulation (Extra credit for 20 points)<a class="headerlink" href="#exercise-3-agent-based-predator-prey-simulation-extra-credit-for-20-points" title="Link to this heading">#</a></h2>
+<section id="exercise-3-agent-based-predator-prey-simulation">
+<h2>Exercise 3:  Agent Based Predator-Prey Simulation<a class="headerlink" href="#exercise-3-agent-based-predator-prey-simulation" title="Link to this heading">#</a></h2>
+<p>This is Extra Credit!</p>
 <ul class="simple">
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
@@ -920,10 +922,10 @@ Because of the randomness involved, this may take a while to run (~5 minutes). F
 </div>
 </div>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assumes locsF and locsB is a list of locations at each time step</span>
@@ -1084,7 +1086,7 @@ Because of the randomness involved, this may take a while to run (~5 minutes). F
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-window-averaging-cleaning-data">f. Window Averaging (cleaning data)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-agent-based-predator-prey-simulation-extra-credit-for-20-points">Exercise 3:  Agent Based Predator-Prey Simulation (Extra credit for 20 points)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-agent-based-predator-prey-simulation">Exercise 3:  Agent Based Predator-Prey Simulation</a></li>
 </ul>
   </nav></div>
 
