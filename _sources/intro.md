@@ -39,7 +39,7 @@ Welcome! In this course, you are going to learn how to use computation to do ama
 ---
 
 ### Calendar
-(These are the dates that we work on the assignment in class; the assignments are due one week later)
+(These are the dates that we work on the assignment in class; the assignments are due one week later at 3:59 -- right before class starts )
 
 |Date   |Assignment  | Quiz |
 |---|---|---|
@@ -65,36 +65,65 @@ Welcome! In this course, you are going to learn how to use computation to do ama
 ### Coursework
 
 #### Computational Assignments
-The heart of this course will be a series of computational assignments.
-* You will work on the assignments both during class and as homework.
-* Homework will be graded on the follwing criteria:
-   * 60% Working code that solves the problem 
-   * 10% Documented code (comments explaining your work)
-   * 10% Cleanliness of code (removed any faulty code - no side quests!)
-   * 10% Well-named variables (e.g. the mass of a star is called "Mass" not "paramter1")
-   * 10% Readable plots - when applicable (axes labeled, reasonable color scheme, visible and distinguishable lines, reasonable range etc)
-* The assignments consist of 80% of your grade.
-* You must BOTH share your code (see below) AND turn in the PDF on time into Gradescope. If we only have one or not the other, we will not grade your assignment (and it will be counted late if the other part is turned in after the due date). 
-* Each assignment is due at the beginning of the next class unless otherwise noted. Extension may possibly be granted under extreme situations, please email Surkhab and Max.  We will then respond if the extension has been granted.   The following information:
+**Criteria** The heart of this course will be a series of computational assignments.
+You will work on the assignments both during class and as homework.
+Homework will be graded on the following criteria:
+   * 70% Functionality
+      * The correct answer is obtained: graphs, code
+      * All questions are answered and correctly answered.
+   * 10% Documented code
+      * Well-named variables
+      * Function arguments are documented
+   * 10% Code cleanliness
+      * Junk code is removed -- we don't need to know about your side quests!      
+      * Functions are functions -- that is, they don't depend on global variables to be set to change their behavior. See below for an example. 
+   * 10% Plot quality
+      * labelled axes, colors visible, lines distinguishable, range set correctly
+      * <a href="https://colab.research.google.com/drive/11SCZM2pl7I0ebLtUUwFVUHs6rnD5F22S?usp=sharing">Here's a quick tutorial of what is a bad vs good plot</a>
+      * For futher resources, see <a href="https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/">Data Visualization using Matplotlib (and the links within)</a>. 
+
+**Submission** You must BOTH share your code (see below) AND turn in the PDF on time into Gradescope. If we only have one or not the other, we will not grade your assignment (and it will be counted late if the other part is turned in after the due date). 
+
+**Due dates** Each assignment is due at the beginning of the next class unless otherwise noted. Extensions may possibly be granted under extreme situations, please email all course instructors together. We will then respond if the extension has been granted. Include the following information:
    * broadly why you need the extension (illness, family emergency, etc)
-   * when you will be able to submit the assignment by (this is the new official due date if the extension is granted.)
-*  Solutions to the homeworks will not be given.
-* Partial credit exists but will be limited.  
-* You may collaborate on assignments but must submit your own work.
-* You may not use generative AI, LLM's, etc.  **You must turn this off in google colab**.
+   * when you will be able to submit the assignment by (this should be the new official due date if the extension is granted.)
 
-#### Good Coding Practices
-Codes generally have a lifetime beyond whatever they were originally designed for. Maybe in your early days of physics you write a code to solve an integral pretaining to something in Newtonian mechanics. Then you get a bit older and you take Quantum Mechanics and you want to reuse that code so you change it a bit for the new problem. A year or two later you go onto grad school and once again reuse that code in a General Relativity class. Over time your code must adapt to all these changes and depending on how well you wrote your original code those changes may be a lot easier (or harder) to make. Imagine that you "hard coded" your unit scale in the original code to be in kilometers - that would be very challenging once you switched to Quantum Mechanics because you'd need to cary around a bunch of extra orders of magnitude!  Changing your code would be even harder if you haven't documented what you did in the original code, especially if all your parameters are named "paramater1, parameter2, etc". Thus, we will be working on not just writing code in this class but on good coding practices. In this class we want to built good coding practices and habits from day one.  Thus, this will also be a component of your grade. 
+**Other notes**
+* Solutions to the homeworks will not be given.
+* Partial credit may be applied but will be limited.  
 
-#### Readable plots
-Plots should be labeled, visual appealing, readable 
-<a href="https://colab.research.google.com/drive/11SCZM2pl7I0ebLtUUwFVUHs6rnD5F22S?usp=sharing">Here's a quick tutorial of what is a bad vs good plot</a> (feel free to steal this code!). 
 
-For futher resources, see <a href="https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/">Data Visualization using Matplotlib (and the links within)</a>. 
+**AI and collaboration.**
+You may collaborate on assignments but must submit your own work.
+Related to above, you may not use generative AI, LLM's, etc to generate code.  **You must turn this off in google colab**.
+
+##### Some coding advice
+
+A common issue people often run into is the overuse of global variables. For example, let's suppose you did this: (don't do this)
+``` python
+x=5
+y=6
+def f():
+  return x+y
+z1 = f()
+x=6
+z2 = f()
+```
+In this case, it is very unclear to anyone reading the code what variables `f` reads in, and it's very easy for bugs to appear. Combined with the out of order execution of a notebook, this kind of pattern can lead to quite hard-to-find bugs. 
+Instead do this:
+``` python
+def f(x,y):
+  return x+y
+z1 = f(x=5,y=6)
+z2 = f(x=6,y=6)
+```
+
+
 
 (instructions-for-submitting-your-assignments)=
 ##### Instructions for submitting your assignments
 Once you are finished working on an assignment, first make sure that it is shared with the course staff by clicking "Share" in the upper right hand corner in the Colab window and adding us via email address. Then, at the bottom of that same "Share" menu, click "Copy Link" to get the sharing link to your Colab document. Next, save a .pdf printout copy of your Colab document. This can be done by the following code
+
 ```
 from google.colab import drive
 drive.mount('/content/drive')
@@ -107,22 +136,27 @@ Assignments are submitted via Gradescope, which requires two simple steps.  Firs
 
 We will review both the printout and Colab code while grading your assignment, so please refrain from editing the Colab document after the submission deadline.
 
+#### Quizzes
+
+These will be on paper at the beginning of each class (barring the first one), and you will submit them on gradescope. 
+They will just be a few short questions and should only take 10 minutes to do.
+They are not meant to be stress-inducing; they will simply be simple questions that should be pretty obvious if you've done the homework properly.
+
 #### Final Project (20% of the grade)
 During the final period, you will put together a project that demonstrates something in computational physics.  It can be an extension of some of the work that you did in class or something new.  This project can be done in small groups (2-4 people).  Projects have to be approved by course staff.  For your project you will submit a jupyter notebook (in the spirit of what you've done in class but expository) as well as give a 5 minute presentation during the finals period for the course. 
 
 #### Extra Credit
-There will be occassional opportunities to get extra credit. To zeroth order these exist because I think they are cool and useful for understanding computational physics but I can't justify within the 2 credit hours of the course.
+There will be occassional opportunities to get extra credit. These opportunities exist because they are cool and useful for understanding computational physics but too long to fit in the 2 credit hours of the course.
 
 Extra credit assignments will often be described poorly (maybe even something like, `get a full solar system simulation working'). If you have questions about it, please ask before you spend too much time on it. Also, we have no obligation to make extra credit typo-free. Please try to answer the question we mean to be asking.
 
-For the extra credit, per exercise, the grading is all or nothing. We aren't going to hunt for typos and give partial credit for sortof working code. The amount of extra credit per exercise/etc is listed on the assignment.
-
-#### Coding and Research
+For the extra credit, per exercise, the grading is all or nothing. We aren't going to hunt for typos and give partial credit for sort-of working code. The amount of extra credit is listed on the assignment.
 
 
 ----
 ### Grading
-* Computational Assignments: 80%
+* Computational Assignments: 60%
+* Quizzes: 20%
 * Final Project: 20%
 
 Your final numerical score is computed as
@@ -164,7 +198,7 @@ The quickest way to deal with the arcana of programing is to ask Google for exam
 The goal of this course is for you to deeply understand this material. For this to work, you’ll need to write your own code.
 
 #### About Large Langauge Models
-In a similar vein, you aren't allowed to use LLM for help.  This includes chatGPT, google bard/gemini, claude, etc. **You must turn off the generative AI in colab if you have it on (which it might be by default)**. 
+In a similar vein, you aren't allowed to use LLM to write your code.  This includes chatGPT, google bard/gemini, claude, etc. **You must turn off the generative AI in colab if you have it on (which it might be by default)**. 
 
 #### Academic Integrity
 You must never submit the work of someone else as your own. We understand that many of you will find it helpful to work with other students to master Physics 246. But when you collaborate with your study group on homework assignments, you must be a full, active participant in developing the solutions that you submit for credit.

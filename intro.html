@@ -351,15 +351,14 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calendar">Calendar</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coursework">Coursework</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-assignments">Computational Assignments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-coding-practices">Good Coding Practices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-plots">Readable plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-assignments">Computational Assignments</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#some-coding-advice">Some coding advice</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-for-submitting-your-assignments">Instructions for submitting your assignments</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quizzes">Quizzes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project-20-of-the-grade">Final Project (20% of the grade)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">Extra Credit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-and-research">Coding and Research</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a></li>
@@ -431,7 +430,7 @@ document.write(`
 </section>
 <section id="calendar">
 <h2>Calendar<a class="headerlink" href="#calendar" title="Link to this heading">#</a></h2>
-<p>(These are the dates that we work on the assignment in class; the assignments are due one week later)</p>
+<p>(These are the dates that we work on the assignment in class; the assignments are due one week later at 3:59 – right before class starts )</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Date</p></th>
@@ -509,41 +508,71 @@ document.write(`
 <h2>Coursework<a class="headerlink" href="#coursework" title="Link to this heading">#</a></h2>
 <section id="computational-assignments">
 <h3>Computational Assignments<a class="headerlink" href="#computational-assignments" title="Link to this heading">#</a></h3>
-<p>The heart of this course will be a series of computational assignments.</p>
+<p><strong>Criteria</strong> The heart of this course will be a series of computational assignments.
+You will work on the assignments both during class and as homework.
+Homework will be graded on the following criteria:</p>
 <ul class="simple">
-<li><p>You will work on the assignments both during class and as homework.</p></li>
-<li><p>Homework will be graded on the follwing criteria:</p>
+<li><p>70% Functionality</p>
 <ul>
-<li><p>60% Working code that solves the problem</p></li>
-<li><p>10% Documented code (comments explaining your work)</p></li>
-<li><p>10% Cleanliness of code (removed any faulty code - no side quests!)</p></li>
-<li><p>10% Well-named variables (e.g. the mass of a star is called “Mass” not “paramter1”)</p></li>
-<li><p>10% Readable plots - when applicable (axes labeled, reasonable color scheme, visible and distinguishable lines, reasonable range etc)</p></li>
+<li><p>The correct answer is obtained: graphs, code</p></li>
+<li><p>All questions are answered and correctly answered.</p></li>
 </ul>
 </li>
-<li><p>The assignments consist of 80% of your grade.</p></li>
-<li><p>You must BOTH share your code (see below) AND turn in the PDF on time into Gradescope. If we only have one or not the other, we will not grade your assignment (and it will be counted late if the other part is turned in after the due date).</p></li>
-<li><p>Each assignment is due at the beginning of the next class unless otherwise noted. Extension may possibly be granted under extreme situations, please email Surkhab and Max.  We will then respond if the extension has been granted.   The following information:</p>
+<li><p>10% Documented code</p>
 <ul>
+<li><p>Well-named variables</p></li>
+<li><p>Function arguments are documented</p></li>
+</ul>
+</li>
+<li><p>10% Code cleanliness</p>
+<ul>
+<li><p>Junk code is removed – we don’t need to know about your side quests!</p></li>
+<li><p>Functions are functions – that is, they don’t depend on global variables to be set to change their behavior. See below for an example.</p></li>
+</ul>
+</li>
+<li><p>10% Plot quality</p>
+<ul>
+<li><p>labelled axes, colors visible, lines distinguishable, range set correctly</p></li>
+<li><p><a href="https://colab.research.google.com/drive/11SCZM2pl7I0ebLtUUwFVUHs6rnD5F22S?usp=sharing">Here’s a quick tutorial of what is a bad vs good plot</a></p></li>
+<li><p>For futher resources, see <a href="https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/">Data Visualization using Matplotlib (and the links within)</a>.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Submission</strong> You must BOTH share your code (see below) AND turn in the PDF on time into Gradescope. If we only have one or not the other, we will not grade your assignment (and it will be counted late if the other part is turned in after the due date).</p>
+<p><strong>Due dates</strong> Each assignment is due at the beginning of the next class unless otherwise noted. Extensions may possibly be granted under extreme situations, please email all course instructors together. We will then respond if the extension has been granted. Include the following information:</p>
+<ul class="simple">
 <li><p>broadly why you need the extension (illness, family emergency, etc)</p></li>
-<li><p>when you will be able to submit the assignment by (this is the new official due date if the extension is granted.)</p></li>
+<li><p>when you will be able to submit the assignment by (this should be the new official due date if the extension is granted.)</p></li>
 </ul>
-</li>
+<p><strong>Other notes</strong></p>
+<ul class="simple">
 <li><p>Solutions to the homeworks will not be given.</p></li>
-<li><p>Partial credit exists but will be limited.</p></li>
-<li><p>You may collaborate on assignments but must submit your own work.</p></li>
-<li><p>You may not use generative AI, LLM’s, etc.  <strong>You must turn this off in google colab</strong>.</p></li>
+<li><p>Partial credit may be applied but will be limited.</p></li>
 </ul>
+<p><strong>AI and collaboration.</strong>
+You may collaborate on assignments but must submit your own work.
+Related to above, you may not use generative AI, LLM’s, etc to generate code.  <strong>You must turn this off in google colab</strong>.</p>
+<section id="some-coding-advice">
+<h4>Some coding advice<a class="headerlink" href="#some-coding-advice" title="Link to this heading">#</a></h4>
+<p>A common issue people often run into is the overuse of global variables. For example, let’s suppose you did this: (don’t do this)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">6</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
+  <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="n">z1</span> <span class="o">=</span> <span class="n">f</span><span class="p">()</span>
+<span class="n">x</span><span class="o">=</span><span class="mi">6</span>
+<span class="n">z2</span> <span class="o">=</span> <span class="n">f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In this case, it is very unclear to anyone reading the code what variables <code class="docutils literal notranslate"><span class="pre">f</span></code> reads in, and it’s very easy for bugs to appear. Combined with the out of order execution of a notebook, this kind of pattern can lead to quite hard-to-find bugs.
+Instead do this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="n">z1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">z2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
-<section id="good-coding-practices">
-<h3>Good Coding Practices<a class="headerlink" href="#good-coding-practices" title="Link to this heading">#</a></h3>
-<p>Codes generally have a lifetime beyond whatever they were originally designed for. Maybe in your early days of physics you write a code to solve an integral pretaining to something in Newtonian mechanics. Then you get a bit older and you take Quantum Mechanics and you want to reuse that code so you change it a bit for the new problem. A year or two later you go onto grad school and once again reuse that code in a General Relativity class. Over time your code must adapt to all these changes and depending on how well you wrote your original code those changes may be a lot easier (or harder) to make. Imagine that you “hard coded” your unit scale in the original code to be in kilometers - that would be very challenging once you switched to Quantum Mechanics because you’d need to cary around a bunch of extra orders of magnitude!  Changing your code would be even harder if you haven’t documented what you did in the original code, especially if all your parameters are named “paramater1, parameter2, etc”. Thus, we will be working on not just writing code in this class but on good coding practices. In this class we want to built good coding practices and habits from day one.  Thus, this will also be a component of your grade.</p>
-</section>
-<section id="readable-plots">
-<h3>Readable plots<a class="headerlink" href="#readable-plots" title="Link to this heading">#</a></h3>
-<p>Plots should be labeled, visual appealing, readable
-<a href="https://colab.research.google.com/drive/11SCZM2pl7I0ebLtUUwFVUHs6rnD5F22S?usp=sharing">Here’s a quick tutorial of what is a bad vs good plot</a> (feel free to steal this code!).</p>
-<p>For futher resources, see <a href="https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/">Data Visualization using Matplotlib (and the links within)</a>.</p>
 <section id="instructions-for-submitting-your-assignments">
 <span id="id1"></span><h4>Instructions for submitting your assignments<a class="headerlink" href="#instructions-for-submitting-your-assignments" title="Link to this heading">#</a></h4>
 <p>Once you are finished working on an assignment, first make sure that it is shared with the course staff by clicking “Share” in the upper right hand corner in the Colab window and adding us via email address. Then, at the bottom of that same “Share” menu, click “Copy Link” to get the sharing link to your Colab document. Next, save a .pdf printout copy of your Colab document. This can be done by the following code</p>
@@ -558,25 +587,29 @@ drive.mount(&#39;/content/drive&#39;)
 <p>We will review both the printout and Colab code while grading your assignment, so please refrain from editing the Colab document after the submission deadline.</p>
 </section>
 </section>
+<section id="quizzes">
+<h3>Quizzes<a class="headerlink" href="#quizzes" title="Link to this heading">#</a></h3>
+<p>These will be on paper at the beginning of each class (barring the first one), and you will submit them on gradescope.
+They will just be a few short questions and should only take 10 minutes to do.
+They are not meant to be stress-inducing; they will simply be simple questions that should be pretty obvious if you’ve done the homework properly.</p>
+</section>
 <section id="final-project-20-of-the-grade">
 <h3>Final Project (20% of the grade)<a class="headerlink" href="#final-project-20-of-the-grade" title="Link to this heading">#</a></h3>
 <p>During the final period, you will put together a project that demonstrates something in computational physics.  It can be an extension of some of the work that you did in class or something new.  This project can be done in small groups (2-4 people).  Projects have to be approved by course staff.  For your project you will submit a jupyter notebook (in the spirit of what you’ve done in class but expository) as well as give a 5 minute presentation during the finals period for the course.</p>
 </section>
 <section id="extra-credit">
 <h3>Extra Credit<a class="headerlink" href="#extra-credit" title="Link to this heading">#</a></h3>
-<p>There will be occassional opportunities to get extra credit. To zeroth order these exist because I think they are cool and useful for understanding computational physics but I can’t justify within the 2 credit hours of the course.</p>
+<p>There will be occassional opportunities to get extra credit. These opportunities exist because they are cool and useful for understanding computational physics but too long to fit in the 2 credit hours of the course.</p>
 <p>Extra credit assignments will often be described poorly (maybe even something like, `get a full solar system simulation working’). If you have questions about it, please ask before you spend too much time on it. Also, we have no obligation to make extra credit typo-free. Please try to answer the question we mean to be asking.</p>
-<p>For the extra credit, per exercise, the grading is all or nothing. We aren’t going to hunt for typos and give partial credit for sortof working code. The amount of extra credit per exercise/etc is listed on the assignment.</p>
-</section>
-<section id="coding-and-research">
-<h3>Coding and Research<a class="headerlink" href="#coding-and-research" title="Link to this heading">#</a></h3>
+<p>For the extra credit, per exercise, the grading is all or nothing. We aren’t going to hunt for typos and give partial credit for sort-of working code. The amount of extra credit is listed on the assignment.</p>
 <hr class="docutils" />
 </section>
 </section>
 <section id="grading">
 <h2>Grading<a class="headerlink" href="#grading" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Computational Assignments: 80%</p></li>
+<li><p>Computational Assignments: 60%</p></li>
+<li><p>Quizzes: 20%</p></li>
 <li><p>Final Project: 20%</p></li>
 </ul>
 <p>Your final numerical score is computed as
@@ -615,7 +648,7 @@ All problem sets count for the same amount.  Unless otherwise noted, every exerc
 </section>
 <section id="about-large-langauge-models">
 <h3>About Large Langauge Models<a class="headerlink" href="#about-large-langauge-models" title="Link to this heading">#</a></h3>
-<p>In a similar vein, you aren’t allowed to use LLM for help.  This includes chatGPT, google bard/gemini, claude, etc. <strong>You must turn off the generative AI in colab if you have it on (which it might be by default)</strong>.</p>
+<p>In a similar vein, you aren’t allowed to use LLM to write your code.  This includes chatGPT, google bard/gemini, claude, etc. <strong>You must turn off the generative AI in colab if you have it on (which it might be by default)</strong>.</p>
 </section>
 <section id="academic-integrity">
 <h3>Academic Integrity<a class="headerlink" href="#academic-integrity" title="Link to this heading">#</a></h3>
@@ -724,15 +757,14 @@ The technical foundation for physics majors includes material in physics, mathem
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calendar">Calendar</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coursework">Coursework</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-assignments">Computational Assignments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#good-coding-practices">Good Coding Practices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#readable-plots">Readable plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-assignments">Computational Assignments</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#some-coding-advice">Some coding advice</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-for-submitting-your-assignments">Instructions for submitting your assignments</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quizzes">Quizzes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project-20-of-the-grade">Final Project (20% of the grade)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-credit">Extra Credit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-and-research">Coding and Research</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a></li>
