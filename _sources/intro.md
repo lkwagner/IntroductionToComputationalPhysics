@@ -34,30 +34,30 @@ Welcome! In this course, you are going to learn how to use computation to do ama
 
 
 * **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!
-* **Gradescope**: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You will have 2 seperate submissionts per assignment, that includes a printout of your Colab document in .pdf format and your original .ipynb. Both submissions are required for each project to obtain credit. <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Specific instructures with screenshots can be found on the slides from Lecture 1</a>
+* **Gradescope**: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You will have 2 separate submissionts per assignment, that includes a printout of your Colab document in .pdf format and your original .ipynb. Both submissions are required for each project to obtain credit. <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Specific instructures with screenshots can be found on the slides from Lecture 1</a>
 
 ---
 
 ### Calendar
 (These are the dates that we work on the assignment in class; the assignments are due one week later)
 
-|Date   |Assignment   |
-|---|---|
-|Aug 28	| N Ways to Measure PI  <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Lecture 1</a> |
-|Sep 4	|Dynamics <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture2.pdf">Lecture 2</a>  |
-|Sep 11	|Orbital Dynamics   <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture3.pdf">Lecture 3</a> |
-|Sep 18	|Exoplanets <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture4.pdf">Lecture 4</a>  |
-|Sep 25	|Chaos <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture5.pdf">Lecture 5</a>  |
-|Oct 2 |Particle Physics <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture6.pdf">Lecture 6</a>|
-|Oct 9	|Classifying Galaxies <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture7.pdf">Lecture 7</a>   |
-|Oct 16	|Random Walks <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture8.pdf">Lecture 8</a> |
-|Oct 23	|Markov Chains <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture9.pdf">Lecture 9</a>  |
-|Oct 30 	|Predator-Prey <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture10.pdf">Lecture 10</a> |
-|Nov 6 	|Climate Dynamics <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture11.pdf">Lecture 11</a>|
-|Nov 13| Fluid Dynamics (Jaki probably traveling) <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture12.pdf">Lecture 12</a>|
-|Nov 20	|Quantum Computing <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture13.pdf">Lecture 13</a>|
-|Nov 27	| No class! Fall Break |
-|Dec 4| Building a Physical Qbit <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture14.pdf">Lecture 14</a> |
+|Date   |Assignment  | Quiz |
+|---|---|---|
+|Jan 22	| N Ways to Measure PI  <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Lecture 1</a> |
+|Jan 29	|Dynamics <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture2.pdf">Lecture 2</a>  |
+|Feb 5	|Orbital Dynamics   <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture3.pdf">Lecture 3</a> |
+|Feb 12	|Exoplanets <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture4.pdf">Lecture 4</a>  |
+|Feb 19	|Chaos <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture5.pdf">Lecture 5</a>  |
+|Feb 26 |Particle Physics <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture6.pdf">Lecture 6</a>|
+|Mar 5|Classifying Galaxies <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture7.pdf">Lecture 7</a>   |
+|Mar 12	|Random Walks <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture8.pdf">Lecture 8</a> |
+|Mar 19	| No class! Spring Break |
+|Mar 26	|Markov Chains <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture9.pdf">Lecture 9</a>  |
+|Apr 2 	|Predator-Prey <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture10.pdf">Lecture 10</a> |
+|Apr 9 	|Climate Dynamics <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture11.pdf">Lecture 11</a>|
+|Apr 16| Fluid Dynamics <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture12.pdf">Lecture 12</a>|
+|Apr 23	|Quantum Computing <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture13.pdf">Lecture 13</a>|
+|Apr 30| Building a Physical Qbit <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture14.pdf">Lecture 14</a> |
 
 
 ---
