@@ -408,21 +408,23 @@ document.write(`
 </ul>
 </li>
 <li><p><strong>TA(s):</strong></p></li>
-<li><ul>
-<li><p>email:</p></li>
+<li><p>Will Huie</p>
+<ul>
+<li><p>email: whuie2&#64;illinois.edu</p></li>
 <li><p>Office Hours:</p></li>
 </ul>
 </li>
-<li><ul>
-<li><p>email:</p></li>
+<li><p>Jia Wang</p>
+<ul>
+<li><p>email: jiawang5&#64;illinois.edu</p></li>
 <li><p>Office Hours:</p></li>
 </ul>
 </li>
 </ul>
 <section id="online-tools">
 <h3>Online Tools<a class="headerlink" href="#online-tools" title="Link to this heading">#</a></h3>
+<p><strong>Google Colab</strong>: On <a class="reference internal" href="#colab.google.com"><span class="xref myst">Google Colab</span></a>  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!</p>
 <ul class="simple">
-<li><p><strong>Google Colab</strong>: On <a class="reference internal" href="#colab.google.com"><span class="xref myst">Google Colab</span></a>  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!</p></li>
 <li><p><strong>Gradescope</strong>: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You will have 2 separate submissionts per assignment, that includes a printout of your Colab document in .pdf format and your original .ipynb. Both submissions are required for each project to obtain credit. <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Specific instructures with screenshots can be found on the slides from Lecture 1</a></p></li>
 </ul>
 <hr class="docutils" />
@@ -575,15 +577,24 @@ Instead do this:</p>
 </section>
 <section id="instructions-for-submitting-your-assignments">
 <span id="id1"></span><h4>Instructions for submitting your assignments<a class="headerlink" href="#instructions-for-submitting-your-assignments" title="Link to this heading">#</a></h4>
-<p>Once you are finished working on an assignment, first make sure that it is shared with the course staff by clicking “Share” in the upper right hand corner in the Colab window and adding us via email address. Then, at the bottom of that same “Share” menu, click “Copy Link” to get the sharing link to your Colab document. Next, save a .pdf printout copy of your Colab document. This can be done by the following code</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>from google.colab import drive
+<p>Once you are finished working on an assignment, save a .pdf printout copy of your Colab document. This can be done by the following code</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>from requests import get
+from socket import gethostname, gethostbyname
+ip = gethostbyname(gethostname()) 
+filename = get(f&quot;http://{ip}:9000/api/sessions&quot;).json()[0][&#39;name&#39;]
+print(filename)
+from google.colab import files
+from google.colab import drive
 drive.mount(&#39;/content/drive&#39;)
-!cp /content/drive/MyDrive/Colab\ Notebooks/Dynamics.ipynb ./
-!jupyter nbconvert --to HTML &quot;Dynamics.ipynb&quot;
+#filename = &quot;FILE_NAME_GOES_HERE&quot;
+filepath = &quot;/content/drive/MyDrive/Colab Notebooks/&quot; + filename
+!cp &quot;$filepath&quot; ./
+!jupyter nbconvert --to HTML &quot;$filename&quot;
+files.download(filename.replace(&quot;ipynb&quot;,&quot;html&quot;))
 </pre></div>
 </div>
 <p>where you replace your filenames above with the appropriate ones for your assignment. Then open the HTML file in your web browser and print from there.</p>
-<p>Assignments are submitted via Gradescope, which requires two simple steps.  First, paste the aforementioned sharing link into the “… (Colab link)” section. Second, upload your printout .pdf file into the “… (PDF file)” section and then submit that assignment.</p>
+<p>Assignments are submitted via Gradescope, which requires two simple steps.  First, upload . Second, upload your printout .pdf file into the “… (PDF file)” section and then submit that assignment.</p>
 <p>We will review both the printout and Colab code while grading your assignment, so please refrain from editing the Colab document after the submission deadline.</p>
 </section>
 </section>
