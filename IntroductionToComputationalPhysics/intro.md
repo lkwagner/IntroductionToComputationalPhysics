@@ -22,18 +22,18 @@ Welcome! In this course, you are going to learn how to use computation to do ama
     - Office Hours: 
 
   - **TA(s):**
-  - 
-      - email: 
+  - Will Huie
+      - email: whuie2@illinois.edu
       - Office Hours: 
-  - 
-      - email: 
+  -  Jia Wang
+      - email: jiawang5@illinois.edu
       - Office Hours: 
     
         
 #### Online Tools
 
 
-* **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  While working on the assignment, you will share each of your colab assignments with the professor and the TA (but no one else).  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!
+ **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!
 * **Gradescope**: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You will have 2 separate submissionts per assignment, that includes a printout of your Colab document in .pdf format and your original .ipynb. Both submissions are required for each project to obtain credit. <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Specific instructures with screenshots can be found on the slides from Lecture 1</a>
 
 ---
@@ -122,17 +122,26 @@ z2 = f(x=6,y=6)
 
 (instructions-for-submitting-your-assignments)=
 ##### Instructions for submitting your assignments
-Once you are finished working on an assignment, first make sure that it is shared with the course staff by clicking "Share" in the upper right hand corner in the Colab window and adding us via email address. Then, at the bottom of that same "Share" menu, click "Copy Link" to get the sharing link to your Colab document. Next, save a .pdf printout copy of your Colab document. This can be done by the following code
+Once you are finished working on an assignment, save a .pdf printout copy of your Colab document. This can be done by the following code
 
 ```
+from requests import get
+from socket import gethostname, gethostbyname
+ip = gethostbyname(gethostname()) 
+filename = get(f"http://{ip}:9000/api/sessions").json()[0]['name']
+print(filename)
+from google.colab import files
 from google.colab import drive
 drive.mount('/content/drive')
-!cp /content/drive/MyDrive/Colab\ Notebooks/Dynamics.ipynb ./
-!jupyter nbconvert --to HTML "Dynamics.ipynb"
+#filename = "FILE_NAME_GOES_HERE"
+filepath = "/content/drive/MyDrive/Colab Notebooks/" + filename
+!cp "$filepath" ./
+!jupyter nbconvert --to HTML "$filename"
+files.download(filename.replace("ipynb","html"))
 ```
 where you replace your filenames above with the appropriate ones for your assignment. Then open the HTML file in your web browser and print from there.
 
-Assignments are submitted via Gradescope, which requires two simple steps.  First, paste the aforementioned sharing link into the "... (Colab link)" section. Second, upload your printout .pdf file into the "... (PDF file)" section and then submit that assignment. 
+Assignments are submitted via Gradescope, which requires two simple steps.  First, upload . Second, upload your printout .pdf file into the "... (PDF file)" section and then submit that assignment. 
 
 We will review both the printout and Colab code while grading your assignment, so please refrain from editing the Colab document after the submission deadline.
 
