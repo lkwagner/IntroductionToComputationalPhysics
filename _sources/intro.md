@@ -24,16 +24,16 @@ Welcome! In this course, you are going to learn how to use computation to do ama
   - **TA(s):**
   - Will Huie
       - email: whuie2@illinois.edu
-      - Office Hours: 
+      - Office Hours: 11-12 on Wednesdays, Loomis 275
   -  Jia Wang
       - email: jiawang5@illinois.edu
-      - Office Hours: 
+      - Office Hours: 1-2 Fridays, location TBD
     
         
 #### Online Tools
 
 
- **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!
+ * **Google Colab**: On [Google Colab](colab.google.com)  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!
 * **Gradescope**: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You will have 2 separate submissionts per assignment, that includes a printout of your Colab document in .pdf format and your original .ipynb. Both submissions are required for each project to obtain credit. <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Specific instructures with screenshots can be found on the slides from Lecture 1</a>
 
 ---
@@ -123,7 +123,6 @@ z2 = f(x=6,y=6)
 (instructions-for-submitting-your-assignments)=
 ##### Instructions for submitting your assignments
 Once you are finished working on an assignment, save a .pdf printout copy of your Colab document. This can be done by the following code
-
 ```
 from requests import get
 from socket import gethostname, gethostbyname
@@ -141,9 +140,21 @@ files.download(filename.replace("ipynb","html"))
 ```
 where you replace your filenames above with the appropriate ones for your assignment. Then open the HTML file in your web browser and print from there.
 
-Assignments are submitted via Gradescope, which requires two simple steps.  First, upload . Second, upload your printout .pdf file into the "... (PDF file)" section and then submit that assignment. 
+You need to make sure that you save your notebook in the path given; if you choose a different path then you need to change the code. 
+Sometimes if there are spaces in your filename, you may get an error; try putting in 
+```
+filename = get(f"http://{ip}:9000/api/sessions").json()[0]['name']
+filename = filename.replace("%20", " ")
+print(filename)
+```
+if you do have this issue.
 
-We will review both the printout and Colab code while grading your assignment, so please refrain from editing the Colab document after the submission deadline.
+
+Assignments are submitted via Gradescope, which requires two simple steps.  
+ 1. Download your ipynb file and submit it to the ipynb assignment; it's just a file upload. 
+ 2. Upload your printout .pdf file into the "... (PDF file)" section and then submit that assignment. Make sure to correctly indicate the question numbers.
+
+We will review both the printout and Colab code while grading your assignment.
 
 #### Quizzes
 

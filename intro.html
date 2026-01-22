@@ -411,20 +411,20 @@ document.write(`
 <li><p>Will Huie</p>
 <ul>
 <li><p>email: whuie2&#64;illinois.edu</p></li>
-<li><p>Office Hours:</p></li>
+<li><p>Office Hours: 11-12 on Wednesdays, Loomis 275</p></li>
 </ul>
 </li>
 <li><p>Jia Wang</p>
 <ul>
 <li><p>email: jiawang5&#64;illinois.edu</p></li>
-<li><p>Office Hours:</p></li>
+<li><p>Office Hours: 1-2 Fridays, location TBD</p></li>
 </ul>
 </li>
 </ul>
 <section id="online-tools">
 <h3>Online Tools<a class="headerlink" href="#online-tools" title="Link to this heading">#</a></h3>
-<p><strong>Google Colab</strong>: On <a class="reference internal" href="#colab.google.com"><span class="xref myst">Google Colab</span></a>  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!</p>
 <ul class="simple">
+<li><p><strong>Google Colab</strong>: On <a class="reference internal" href="#colab.google.com"><span class="xref myst">Google Colab</span></a>  you will be able to program your code in a jupyter notebook and submit it for us to grade. Please sign in to your Illinois account.  You can load things in google colab just by clicking on the relevant button in the notebook (looks like a shuttle).  You must then save to your google drive and it will be there later when you go to google colab!</p></li>
 <li><p><strong>Gradescope</strong>: You will submit your projcts via Gradescope, which will also contain your grades and your returned assignments.  You will have 2 separate submissionts per assignment, that includes a printout of your Colab document in .pdf format and your original .ipynb. Both submissions are required for each project to obtain credit. <a href="https://github.com/lkwagner/IntroductionToComputationalPhysics/blob/main/IntroductionToComputationalPhysics/Lecture1.pdf">Specific instructures with screenshots can be found on the slides from Lecture 1</a></p></li>
 </ul>
 <hr class="docutils" />
@@ -594,8 +594,20 @@ files.download(filename.replace(&quot;ipynb&quot;,&quot;html&quot;))
 </pre></div>
 </div>
 <p>where you replace your filenames above with the appropriate ones for your assignment. Then open the HTML file in your web browser and print from there.</p>
-<p>Assignments are submitted via Gradescope, which requires two simple steps.  First, upload . Second, upload your printout .pdf file into the “… (PDF file)” section and then submit that assignment.</p>
-<p>We will review both the printout and Colab code while grading your assignment, so please refrain from editing the Colab document after the submission deadline.</p>
+<p>You need to make sure that you save your notebook in the path given; if you choose a different path then you need to change the code.
+Sometimes if there are spaces in your filename, you may get an error; try putting in</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">:9000/api/sessions&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;%20&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>if you do have this issue.</p>
+<p>Assignments are submitted via Gradescope, which requires two simple steps.</p>
+<ol class="arabic simple">
+<li><p>Download your ipynb file and submit it to the ipynb assignment; it’s just a file upload.</p></li>
+<li><p>Upload your printout .pdf file into the “… (PDF file)” section and then submit that assignment. Make sure to correctly indicate the question numbers.</p></li>
+</ol>
+<p>We will review both the printout and Colab code while grading your assignment.</p>
 </section>
 </section>
 <section id="quizzes">
