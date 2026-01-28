@@ -379,14 +379,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmups">Warmups</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-to-numpy-arrays">Lists to numpy arrays</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math-with-numpy-arrays">Math with numpy arrays</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-lines">Fitting Lines</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-polynomials">Fitting Polynomials</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-euler-integration">Exercise 1: Euler Integration</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-euler-integration-in-one-dimension-first-order-integrator">a. Euler Integration in one-dimension (first order integrator)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-euler-integration-in-two-dimensions-first-order-integrator">b. Euler Integration  in two-dimensions  (first order integrator)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-euler-integration-in-two-dimensions-first-order-integrator">b. Euler Integration  in two dimensions  (first order integrator)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-a-full-simulation">c.  A full simulation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-making-plots">d. Making Plots</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-animation">e.  Animation</a></li>
@@ -511,29 +510,31 @@ document.write(`
 </div>
 <p>numpy arrays are useful because we do basic math operations on them (<code class="docutils literal notranslate"><span class="pre">+</span></code>,<code class="docutils literal notranslate"><span class="pre">-</span></code>,<code class="docutils literal notranslate"><span class="pre">*</span></code>,<code class="docutils literal notranslate"><span class="pre">/</span></code>) among other things we’ll see.</p>
 <hr class="docutils" />
-<p>In this exercise, we are actually going to have a list of numpy arrays.</p>
+<p>In this exercise, we are going to have a list of numpy arrays.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">positions</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]),</span>
            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">2.0</span><span class="p">]),</span>
            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">3.0</span><span class="p">])]</span>
 </pre></div>
 </div>
-<p>We are going to convert that into a two-dimensional array using <code class="docutils literal notranslate"><span class="pre">np.array(positions)</span></code>.</p>
+<p>We are going to convert that into a two dimensional array using <code class="docutils literal notranslate"><span class="pre">np.array(positions)</span></code>.</p>
 <p>🦉Go ahead and make this conversion and then figure out how to seperately access the x positions and y positions (i.e. <code class="docutils literal notranslate"><span class="pre">positions[:,1])</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">positions</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">2.0</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">3.0</span><span class="p">])]</span>
-<span class="c1"># convert it to a numpy array</span>
-<span class="c1"># print out the y-positions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">positions</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">],[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">2.0</span><span class="p">],[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">3.0</span><span class="p">]]</span> <span class="c1"># this is an array of arrays</span>
+<span class="n">positions</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span> <span class="c1"># convert to numpy array</span>
 
-<span class="n">positions</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span> <span class="c1">#!#</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#!#</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thex x positions should be [0.,0.1,0.2]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape of positions:&quot;</span><span class="p">,</span> <span class="n">positions</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot; first dimension is number of points, second dimension is x/y&quot;</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># y positions for all the points</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The x positions should be [0.,0.1,0.2]&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The y positions should be [1.,2.,3.]&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 2. 3.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape of positions: (3, 2)  first dimension is number of points, second dimension is x/y
+[1. 2. 3.]
 Thex x positions should be [0.,0.1,0.2]
 The y positions should be [1.,2.,3.]
 </pre></div>
@@ -543,18 +544,26 @@ The y positions should be [1.,2.,3.]
 </section>
 <section id="math-with-numpy-arrays">
 <h3>Math with numpy arrays<a class="headerlink" href="#math-with-numpy-arrays" title="Link to this heading">#</a></h3>
-<p>Imagine that I have a numpy array representing a velocity: <code class="docutils literal notranslate"><span class="pre">myVel=np.array([0.2,2.5])</span></code>.</p>
-<p>I can now do math with this array.  I could for example  take a time <code class="docutils literal notranslate"><span class="pre">dt=0.1</span></code> and multiply it by <code class="docutils literal notranslate"><span class="pre">dt</span></code>.  This will multiply both the “0.2” and “2.5”.</p>
-<p>You could square all the velocities by doing <code class="docutils literal notranslate"><span class="pre">myVel**2</span></code></p>
+<p>Imagine that I have a numpy array representing a velocity: <code class="docutils literal notranslate"><span class="pre">velocity=np.array([0.2,2.5])</span></code>.</p>
+<p>I can now do math with this array in an intuitive way.  I could for example  take a time <code class="docutils literal notranslate"><span class="pre">dt=0.1</span></code> and multiply it by <code class="docutils literal notranslate"><span class="pre">dt</span></code>.  This will multiply both the “0.2” and “2.5”.</p>
+<ul class="simple">
+<li><p>Multiply by a scalar value <code class="docutils literal notranslate"><span class="pre">dt</span></code>: <code class="docutils literal notranslate"><span class="pre">velocity*dt</span></code></p></li>
+<li><p>Square: <code class="docutils literal notranslate"><span class="pre">velocity**2</span></code></p></li>
+<li><p>logarithm: <code class="docutils literal notranslate"><span class="pre">np.log(velocity)</span></code></p></li>
+<li><p>sin: <code class="docutils literal notranslate"><span class="pre">np.sin(velocity)</span></code></p></li>
+<li><p>Add two vectors: <code class="docutils literal notranslate"><span class="pre">x+velocity*dt</span></code>
+etc:</p></li>
+</ul>
+<p>All these operations are done <em>element-wise</em>; meaning that they are applied to each element in turn.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resetMe</span><span class="p">()</span>
 <span class="n">dt</span><span class="o">=</span><span class="mf">0.1</span>
-<span class="n">myVel</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">2.5</span><span class="p">])</span>
+<span class="n">velocity</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">2.5</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dt =&quot;</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;myVel is</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">myVel</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dt*myVel is</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="p">,</span><span class="n">dt</span><span class="o">*</span><span class="n">myVel</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;myVel**2 is </span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">myVel</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;velocity is</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">velocity</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dt*velocity is</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="p">,</span><span class="n">dt</span><span class="o">*</span><span class="n">velocity</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;velocity**2 is </span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">velocity</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -568,102 +577,257 @@ myVel**2 is 	 [0.04 6.25]
 </div>
 </div>
 </section>
-<section id="dictionaries">
-<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h3>
-<p>Later in this assignment (exercise 2) we are going to want to store some relevant parameters for our simulations (masses, time steps, friction constants, etc.).  One approach to doing this is to store them in a dictionary.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span> <span class="c1"># can also use {}</span>
-<span class="n">params</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="mf">0.01</span>
-<span class="n">params</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span>
-<span class="n">params</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="mf">0.4</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">])</span>
-<span class="n">dt</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Then I can just pull out the parameters when I need them.</p>
-<p>This also lets me verify I didn’t forget to set some parameter.  If I do <code class="docutils literal notranslate"><span class="pre">param[&quot;temperature&quot;]</span></code> and haven’t defined it yet, it’s going to complain.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span> <span class="c1"># can also use {}</span>
-<span class="n">params</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="mf">0.01</span>
-<span class="n">params</span><span class="p">[</span><span class="s2">&quot;mass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span>
-<span class="n">params</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="mf">0.4</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">])</span>
-<span class="n">dt</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;dt&quot;</span><span class="p">]</span>
-<span class="c1">#print(params[&quot;temperature&quot;]) # this won&#39;t work!</span>
-
-<span class="c1"># equivalent to the above:</span>
-<span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="n">mass</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="s2">&quot;mass&quot;</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.01
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="fitting-lines">
 <h3>Fitting Lines<a class="headerlink" href="#fitting-lines" title="Link to this heading">#</a></h3>
 <p>Suppose you have two arrays, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> and you expect that there should be some linear relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slope</span><span class="o">=</span><span class="mf">1.35</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">slope</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mf">0.4</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span> <span class="c1"># This will create a 1D array of shape (40,)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;size of x:&quot;</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1"># you can also call this as just np.linspace(0,2,40)</span>
+<span class="c1"># slope*x is the underlying data, and then we add uniform noise from -0.2 to +0.2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">slope</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.4</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span> 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Some Data&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># an alternative way to plot using objects</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Data plotted using objects&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bf5723fc08845eebc4335a751492f32951d25efbc5ee4077323ff9c9a0f1387e.png" src="_images/bf5723fc08845eebc4335a751492f32951d25efbc5ee4077323ff9c9a0f1387e.png" />
-</div>
-</div>
-<p>Here is an example of such data.  You want to figure out what this relationship is.   To do this, you can use
-<code class="docutils literal notranslate"><span class="pre">myLine=np.polyfit(x,y,1)</span></code>.  If you then print out <code class="docutils literal notranslate"><span class="pre">myLine</span></code> you should see that it gives you a list where the first value is the slope and the second value the y-intercept.</p>
-<p>🦉You can see how well your line works by doing</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">myLine</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">myLine</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>size of x: (40,)
 </pre></div>
 </div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Data plotted using objects&#39;)
+</pre></div>
+</div>
+<img alt="_images/ae4116f784ed81b6ab59ba6df7c3bf7796d9b835bea37c4f202831f391f322f5.png" src="_images/ae4116f784ed81b6ab59ba6df7c3bf7796d9b835bea37c4f202831f391f322f5.png" />
+<img alt="_images/7e75f17c889f57dfb749dde0498acfceacf039cd994c837dac1028564fc53359.png" src="_images/7e75f17c889f57dfb749dde0498acfceacf039cd994c837dac1028564fc53359.png" />
+</div>
+</div>
+<p>Now let’s pretend that we didn’t know the original slope and we’d like to extract it.</p>
+<p><code class="docutils literal notranslate"><span class="pre">myLine=np.polyfit(x,y,1)</span></code>.  If you then print out <code class="docutils literal notranslate"><span class="pre">myLine</span></code> you should see that it gives you a list where the first value is the slope and the second value the y-intercept.</p>
+<p>By the way, if you want to understand the arguments of the</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try it here</span>
-<span class="n">myLine</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
-                  <span class="n">y</span><span class="p">,</span>
-                  <span class="mi">1</span> <span class="c1"># degree of the polynomial</span>
-                  <span class="p">)</span> <span class="c1"># returns the polynomial coefficients in descending order</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The slope is </span><span class="si">{</span><span class="n">myLine</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> and the intercept is </span><span class="si">{</span><span class="n">myLine</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">,</span>
+    <span class="mi">1</span> <span class="c1"># degree of the polynomial -- this is a linear fit</span>
+<span class="p">)</span> <span class="c1"># returns the polynomial coefficients in descending order</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The slope is </span><span class="si">{</span><span class="n">fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> and the intercept is </span><span class="si">{</span><span class="n">fit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">)</span> <span class="c1"># help lets you understand how to use a function</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">myLine</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">myLine</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">fit</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># you can also do np.polyval(fit,x) # evaluates the polynomial at the points x</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Some Data&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.31880108 0.06159952]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 1.402181819755196 and the intercept is -0.06059016172536342
+Help on _ArrayFunctionDispatcher in module numpy:
+
+polyfit(x, y, deg, rcond=None, full=False, w=None, cov=False)
+    Least squares polynomial fit.
+
+    .. note::
+       This forms part of the old polynomial API. Since version 1.4, the
+       new polynomial API defined in `numpy.polynomial` is preferred.
+       A summary of the differences can be found in the
+       :doc:`transition guide &lt;/reference/routines.polynomials&gt;`.
+
+    Fit a polynomial ``p(x) = p[0] * x**deg + ... + p[deg]`` of degree `deg`
+    to points `(x, y)`. Returns a vector of coefficients `p` that minimises
+    the squared error in the order `deg`, `deg-1`, ... `0`.
+
+    The `Polynomial.fit &lt;numpy.polynomial.polynomial.Polynomial.fit&gt;` class
+    method is recommended for new code as it is more stable numerically. See
+    the documentation of the method for more information.
+
+    Parameters
+    ----------
+    x : array_like, shape (M,)
+        x-coordinates of the M sample points ``(x[i], y[i])``.
+    y : array_like, shape (M,) or (M, K)
+        y-coordinates of the sample points. Several data sets of sample
+        points sharing the same x-coordinates can be fitted at once by
+        passing in a 2D-array that contains one dataset per column.
+    deg : int
+        Degree of the fitting polynomial
+    rcond : float, optional
+        Relative condition number of the fit. Singular values smaller than
+        this relative to the largest singular value will be ignored. The
+        default value is len(x)*eps, where eps is the relative precision of
+        the float type, about 2e-16 in most cases.
+    full : bool, optional
+        Switch determining nature of return value. When it is False (the
+        default) just the coefficients are returned, when True diagnostic
+        information from the singular value decomposition is also returned.
+    w : array_like, shape (M,), optional
+        Weights. If not None, the weight ``w[i]`` applies to the unsquared
+        residual ``y[i] - y_hat[i]`` at ``x[i]``. Ideally the weights are
+        chosen so that the errors of the products ``w[i]*y[i]`` all have the
+        same variance.  When using inverse-variance weighting, use
+        ``w[i] = 1/sigma(y[i])``.  The default value is None.
+    cov : bool or str, optional
+        If given and not `False`, return not just the estimate but also its
+        covariance matrix. By default, the covariance are scaled by
+        chi2/dof, where dof = M - (deg + 1), i.e., the weights are presumed
+        to be unreliable except in a relative sense and everything is scaled
+        such that the reduced chi2 is unity. This scaling is omitted if
+        ``cov=&#39;unscaled&#39;``, as is relevant for the case that the weights are
+        w = 1/sigma, with sigma known to be a reliable estimate of the
+        uncertainty.
+
+    Returns
+    -------
+    p : ndarray, shape (deg + 1,) or (deg + 1, K)
+        Polynomial coefficients, highest power first.  If `y` was 2-D, the
+        coefficients for `k`-th data set are in ``p[:,k]``.
+
+    residuals, rank, singular_values, rcond
+        These values are only returned if ``full == True``
+
+        - residuals -- sum of squared residuals of the least squares fit
+        - rank -- the effective rank of the scaled Vandermonde
+           coefficient matrix
+        - singular_values -- singular values of the scaled Vandermonde
+           coefficient matrix
+        - rcond -- value of `rcond`.
+
+        For more details, see `numpy.linalg.lstsq`.
+
+    V : ndarray, shape (deg + 1, deg + 1) or (deg + 1, deg + 1, K)
+        Present only if ``full == False`` and ``cov == True``.  The covariance
+        matrix of the polynomial coefficient estimates.  The diagonal of
+        this matrix are the variance estimates for each coefficient.  If y
+        is a 2-D array, then the covariance matrix for the `k`-th data set
+        are in ``V[:,:,k]``
+
+
+    Warns
+    -----
+    RankWarning
+        The rank of the coefficient matrix in the least-squares fit is
+        deficient. The warning is only raised if ``full == False``.
+
+        The warnings can be turned off by
+
+        &gt;&gt;&gt; import warnings
+        &gt;&gt;&gt; warnings.simplefilter(&#39;ignore&#39;, np.exceptions.RankWarning)
+
+    See Also
+    --------
+    polyval : Compute polynomial values.
+    linalg.lstsq : Computes a least-squares fit.
+    scipy.interpolate.UnivariateSpline : Computes spline fits.
+
+    Notes
+    -----
+    The solution minimizes the squared error
+
+    .. math::
+        E = \sum_{j=0}^k |p(x_j) - y_j|^2
+
+    in the equations::
+
+        x[0]**n * p[0] + ... + x[0] * p[n-1] + p[n] = y[0]
+        x[1]**n * p[0] + ... + x[1] * p[n-1] + p[n] = y[1]
+        ...
+        x[k]**n * p[0] + ... + x[k] * p[n-1] + p[n] = y[k]
+
+    The coefficient matrix of the coefficients `p` is a Vandermonde matrix.
+
+    `polyfit` issues a `~exceptions.RankWarning` when the least-squares fit is
+    badly conditioned. This implies that the best fit is not well-defined due
+    to numerical error. The results may be improved by lowering the polynomial
+    degree or by replacing `x` by `x` - `x`.mean(). The `rcond` parameter
+    can also be set to a value smaller than its default, but the resulting
+    fit may be spurious: including contributions from the small singular
+    values can add numerical noise to the result.
+
+    Note that fitting polynomial coefficients is inherently badly conditioned
+    when the degree of the polynomial is large or the interval of sample points
+    is badly centered. The quality of the fit should always be checked in these
+    cases. When polynomial fits are not satisfactory, splines may be a good
+    alternative.
+
+    References
+    ----------
+    .. [1] Wikipedia, &quot;Curve fitting&quot;,
+           https://en.wikipedia.org/wiki/Curve_fitting
+    .. [2] Wikipedia, &quot;Polynomial interpolation&quot;,
+           https://en.wikipedia.org/wiki/Polynomial_interpolation
+
+    Examples
+    --------
+    &gt;&gt;&gt; import numpy as np
+    &gt;&gt;&gt; import warnings
+    &gt;&gt;&gt; x = np.array([0.0, 1.0, 2.0, 3.0,  4.0,  5.0])
+    &gt;&gt;&gt; y = np.array([0.0, 0.8, 0.9, 0.1, -0.8, -1.0])
+    &gt;&gt;&gt; z = np.polyfit(x, y, 3)
+    &gt;&gt;&gt; z
+    array([ 0.08703704, -0.81349206,  1.69312169, -0.03968254]) # may vary
+
+    It is convenient to use `poly1d` objects for dealing with polynomials:
+
+    &gt;&gt;&gt; p = np.poly1d(z)
+    &gt;&gt;&gt; p(0.5)
+    0.6143849206349179 # may vary
+    &gt;&gt;&gt; p(3.5)
+    -0.34732142857143039 # may vary
+    &gt;&gt;&gt; p(10)
+    22.579365079365115 # may vary
+
+    High-order polynomials may oscillate wildly:
+
+    &gt;&gt;&gt; with warnings.catch_warnings():
+    ...     warnings.simplefilter(&#39;ignore&#39;, np.exceptions.RankWarning)
+    ...     p30 = np.poly1d(np.polyfit(x, y, 30))
+    ...
+    &gt;&gt;&gt; p30(4)
+    -0.80000000000000204 # may vary
+    &gt;&gt;&gt; p30(5)
+    -0.99999999999999445 # may vary
+    &gt;&gt;&gt; p30(4.5)
+    -0.10547061179440398 # may vary
+
+    Illustration:
+
+    &gt;&gt;&gt; import matplotlib.pyplot as plt
+    &gt;&gt;&gt; xp = np.linspace(-2, 6, 100)
+    &gt;&gt;&gt; _ = plt.plot(x, y, &#39;.&#39;, xp, p(xp), &#39;-&#39;, xp, p30(xp), &#39;--&#39;)
+    &gt;&gt;&gt; plt.ylim(-2,2)
+    (-2, 2)
+    &gt;&gt;&gt; plt.show()
 </pre></div>
 </div>
-<img alt="_images/3e0dfdcca44626e34b70c551fbe4d097cf505792f3ad66d47965d1dd9a56c905.png" src="_images/3e0dfdcca44626e34b70c551fbe4d097cf505792f3ad66d47965d1dd9a56c905.png" />
+<img alt="_images/2a28ca2f67728b3bc529ed8a970cd041328d079bb78500c6bf6b27b381229403.png" src="_images/2a28ca2f67728b3bc529ed8a970cd041328d079bb78500c6bf6b27b381229403.png" />
 </div>
 </div>
 </section>
 <section id="fitting-polynomials">
 <h3>Fitting Polynomials<a class="headerlink" href="#fitting-polynomials" title="Link to this heading">#</a></h3>
-<p>Suppose that you think you have some graph which goes as <span class="math notranslate nohighlight">\(y = Ax^b\)</span>.  How are you going to figure out what <span class="math notranslate nohighlight">\(b\)</span> is?
-Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + b\log(x)\)</span>.   Plotting <span class="math notranslate nohighlight">\(\log(x)\)</span> vs <span class="math notranslate nohighlight">\(\log(y)\)</span> is called plotting the the data on a log-log scale. Let’s look at how that might work.</p>
+<p>Suppose that you think you have some data which goes as <span class="math notranslate nohighlight">\(y = Ax^b\)</span>, but you don’t know <span class="math notranslate nohighlight">\(b\)</span>. This is typically found using a log-log plot.</p>
+<p>Note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + b\log(x)\)</span>.<br />
+Plotting <span class="math notranslate nohighlight">\(\log(x)\)</span> vs <span class="math notranslate nohighlight">\(\log(y)\)</span> is called plotting the the data on a log-log scale. Let’s look at how that might work.</p>
 <p>Below is some data which has a polynomial relationship.  Notice how it looks quadratic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -672,34 +836,33 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">2.0</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Log data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Quadratic data on a linear plot&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2dc2e4ec4286a953446d03ce11423e203fbe4a09a0d1c063aa992a67861f45d7.png" src="_images/2dc2e4ec4286a953446d03ce11423e203fbe4a09a0d1c063aa992a67861f45d7.png" />
+<img alt="_images/983aadf181a11506293e56b75bda6f06f985bfdd5a7b2cc1632140ccbb80ed4f.png" src="_images/983aadf181a11506293e56b75bda6f06f985bfdd5a7b2cc1632140ccbb80ed4f.png" />
 </div>
 </div>
 <p>Let’s go ahead and plot x and y on a log-log scale.  To do this redo the plot above but add</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>before the <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### go ahead and plot things on a log-scale here.</span>
-<span class="c1">#!Start</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###  plot things on a log-scale here.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Quadratic data on a log-log plot&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="c1">#!Stop</span>
 </pre></div>
 </div>
 </div>
@@ -721,25 +884,27 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.99528436 0.01362348]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.98207642 0.05154248]
 </pre></div>
 </div>
 </div>
 </div>
-<p>You should see the slope should correspond to the <span class="math notranslate nohighlight">\(b\)</span> of <span class="math notranslate nohighlight">\(x^b\)</span>.</p>
-<p>🦉Let’s go ahead and plot to see how well this works</p>
+<p>You should see the slope recovers the <span class="math notranslate nohighlight">\(b\)</span> of <span class="math notranslate nohighlight">\(y=Ax^b\)</span>.</p>
+<p>Let’s go ahead and plot to see how well this works</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">myLine</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="n">myLine</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/135dd8811dbc494345bba1d66f91861691691c25791ef83e33595ca4e2f17653.png" src="_images/135dd8811dbc494345bba1d66f91861691691c25791ef83e33595ca4e2f17653.png" />
+<img alt="_images/115af8484a8c9439de335b97da980dbd21241f9e676d04c6b044cf88c537c17f.png" src="_images/115af8484a8c9439de335b97da980dbd21241f9e676d04c6b044cf88c537c17f.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -770,16 +935,26 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <section id="a-euler-integration-in-one-dimension-first-order-integrator">
 <h3>a. Euler Integration in one-dimension (first order integrator)<a class="headerlink" href="#a-euler-integration-in-one-dimension-first-order-integrator" title="Link to this heading">#</a></h3>
 <p>We can use this to write a function that takes the current time, position, velocity and dt and then gives back out the new time, position, and velocity - i.e</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Step</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
-  <span class="c1"># do stuff</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">step_gravity_1d</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Starting with the position, velocity, and current time, return the next time, position, and velocity at time t+dt.</span>
+<span class="sd">  The force applied is -9.8 kg m/s^2 (assuming a mass of 1 and gravity). </span>
+<span class="sd">  Args:</span>
+<span class="sd">     t: scalar, current time (s)</span>
+<span class="sd">     pos: scalar, position at time t (m)</span>
+<span class="sd">     vel: scalar, velocity at time t (m/s)</span>
+<span class="sd">     dt: scalar, timestep (s)</span>
+<span class="sd">  Returns</span>
+<span class="sd">    tuple containing new time, new position, new velocity</span>
+<span class="sd">  &quot;&quot;&quot;</span>
   <span class="k">return</span> <span class="p">(</span><span class="n">new_t</span><span class="p">,</span><span class="n">new_pos</span><span class="p">,</span><span class="n">new_vel</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>As our force, we will use gravity - i.e. <span class="math notranslate nohighlight">\(F_y=-9.8m\)</span> -  and choose a mass of <span class="math notranslate nohighlight">\(m = 1\)</span>.
-🦉Write your <code class="docutils literal notranslate"><span class="pre">Step</span></code> function.  We are then going to call it five times after throwing a ball into the air and make sure you get the correct result.</p>
+🦉Write your step function.  We are then going to call it five times after throwing a ball into the air and make sure you get the correct result.</p>
 <p><strong>The velocity you should use to update the position is not the new velocity.  It is the current velocity.</strong></p>
-<p><em>Put your code here including your <code class="docutils literal notranslate"><span class="pre">Step</span></code> function.</em></p>
-<p><em>You should use these initial parameters:</em></p>
+<p>🦉 <em>Put your code here including your step function.</em></p>
+<p><em>To test your code, use these initial parameters:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span>   <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># set the initial time. </span>
 <span class="n">vel</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># throwing it into the air at 2 m/s</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1">#  We threw it while standing from 1.5 meters tall.</span>
@@ -808,16 +983,18 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>If you have this working, you should just go ahead and replace the five steps <code class="docutils literal notranslate"><span class="pre">t,pos,vel=Step(t,pos,vel,dt)</span></code> with a loop that does the same thing.  Your loop should look something like</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div>
+<p>🦉 Modify your code so that it runs in a loop, and verify that you still get the right answers.  Your loop should look something like</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">=</span><span class="mf">0.05</span>
-<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">))):</span>
+<span class="n">nsteps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nsteps</span><span class="p">):</span>
   <span class="c1"># do stuff</span>
 </pre></div>
 </div>
-</section>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="b-euler-integration-in-two-dimensions-first-order-integrator">
-<h3>b. Euler Integration  in two-dimensions  (first order integrator)<a class="headerlink" href="#b-euler-integration-in-two-dimensions-first-order-integrator" title="Link to this heading">#</a></h3>
-<p>We know have a <code class="docutils literal notranslate"><span class="pre">Step</span></code> function that allows us to work in one-dimension.  Balls are sometimes thrown in directions other then straight up, though.  Let’s modify our code to also work in two dimensions.   In addition to the equation for <span class="math notranslate nohighlight">\(a_y,v_y,y\)</span> we can also have a similar set of equation for <span class="math notranslate nohighlight">\(a_x,v_x,x\)</span>:</p>
+<h3>b. Euler Integration  in two dimensions  (first order integrator)<a class="headerlink" href="#b-euler-integration-in-two-dimensions-first-order-integrator" title="Link to this heading">#</a></h3>
+<p>We now have a step function that allows us to work in one-dimension.  Balls are sometimes thrown in directions other then straight up, though.  Let’s modify our code to also work in two dimensions.   In addition to the equation for <span class="math notranslate nohighlight">\(a_y,v_y,y\)</span> we can also have a similar set of equations for <span class="math notranslate nohighlight">\(a_x,v_x,x\)</span>:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(v_x(t+\Delta t) = v_x(t) + a_x(t) \Delta t\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(x(t+\Delta t)   = x(t) + v_x(t) \Delta t\)</span></p></li>
@@ -827,26 +1004,36 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <li><p>[<span class="math notranslate nohighlight">\(v_x(t+\Delta t),v_y(t+\Delta t)\)</span>] = [<span class="math notranslate nohighlight">\(v_x(t),v_y(t)\)</span>] + [<span class="math notranslate nohighlight">\(a_x(t),a_y(t)\)</span>] <span class="math notranslate nohighlight">\(\Delta t\)</span></p></li>
 <li><p>[<span class="math notranslate nohighlight">\(x(t+\Delta t),y(t+\Delta t)\)</span>] = [<span class="math notranslate nohighlight">\(x(t),y(t)\)</span>] + [<span class="math notranslate nohighlight">\(v_x(t),v_y(t)\)</span>] <span class="math notranslate nohighlight">\(\Delta t\)</span></p></li>
 </ul>
-<p>We are now going to modify our <code class="docutils literal notranslate"><span class="pre">Step</span></code> function to work in in two-dimension.  It still is going to look like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Step</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">vel</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-    <span class="k">assert</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span><span class="o">==</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="c1"># checks to see if pos is an array </span>
-    <span class="c1"># do stuff...</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">new_t</span><span class="p">,</span><span class="n">new_pos</span><span class="p">,</span><span class="n">new_vel</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>but this time pos will be a numpy array of [xPosition,yPosition].</p>
+<p>We are now going to modify our step function to work in in two dimensions, so pos and vel will be changed to be numpy arrays of, for example, [xPosition,yPosition].</p>
 <p>You could implement this by doing something like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span> <span class="n">vel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
-<span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span> <span class="n">vel</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">newpos</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">newpos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span> <span class="n">vel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+<span class="n">newpos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span> <span class="n">vel</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
 </pre></div>
 </div>
-<p>but this is a little bit inelegant.  In particular, if we wanted to move to three dimensions, then we would have change our step function yet again.  We can do this more elegantly by recalling (from the warmup) that you can add and multiply by arrays.  For example <code class="docutils literal notranslate"><span class="pre">incVel=vel*dt</span></code> is equivalent to</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">incVel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">vel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
-<span class="n">incVel</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">vel</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+<p>but equivalently you could also do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">newpos</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">+</span> <span class="n">vel</span><span class="o">*</span><span class="n">dt</span>
 </pre></div>
 </div>
-<p>🦉Rewrite your <code class="docutils literal notranslate"><span class="pre">Step</span></code> function to work in two-dimensions and try to avoid ever doing <code class="docutils literal notranslate"><span class="pre">vel[0]</span></code> or <code class="docutils literal notranslate"><span class="pre">pos[0]</span></code> to explicitly take a velocity or position in the x-direction.</p>
-<p><em>Put your code here.  You should use the following initial conditions</em></p>
+<p>which would work in both 2d and 3d.</p>
+<p>🦉Rewrite your <code class="docutils literal notranslate"><span class="pre">step</span></code> function to work in two dimensions and try to avoid ever doing <code class="docutils literal notranslate"><span class="pre">vel[0]</span></code> or <code class="docutils literal notranslate"><span class="pre">pos[0]</span></code> to explicitly take a velocity or position in the x-direction. It should look like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">step_gravity_2d</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">vel</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Starting with the position, velocity, and current time, return the next time, position, and velocity at time t+dt.</span>
+<span class="sd">  The force applied is -9.8 kg m/s^2 (assuming a mass of 1 and gravity). </span>
+<span class="sd">  Args:</span>
+<span class="sd">     t: scalar, current time (s)</span>
+<span class="sd">     pos: np.array of shape (2,), position at time t (m)</span>
+<span class="sd">     vel: np.array of shape (2,), velocity at time t (m/s)</span>
+<span class="sd">     dt: scalar, timestep (s)</span>
+<span class="sd">  Returns</span>
+<span class="sd">    tuple containing new time, new position, new velocity</span>
+
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">),</span> <span class="s2">&quot;pos must be a np.ndarray&quot;</span>
+</pre></div>
+</div>
+<p>🦉 <em>Test use the following initial conditions</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span>   <span class="o">=</span> <span class="mi">0</span> <span class="c1"># set t0</span>
 <span class="n">dt</span>  <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># time step </span>
 <span class="n">T</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="c1"># total time to run </span>
@@ -854,14 +1041,12 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>  <span class="c1"># m</span>
 </pre></div>
 </div>
-<p><em>and test it by using the following at the end</em></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">### Here we are doing some testing.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t should be 0.05,</span><span class="se">\t</span><span class="s2"> t=&quot;</span> <span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<p><em>You should get the following:</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;t should be 0.05,</span><span class="se">\t</span><span class="s2"> t=&quot;</span> <span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[x,y] should be [0.005,0.4902];</span><span class="se">\t</span><span class="s2"> [x,y]=&quot;</span> <span class="p">,</span><span class="n">pos</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[vx,vy] should be [0.1,9.51],</span><span class="se">\t</span><span class="s2"> [vx,vy]=&quot;</span> <span class="p">,</span><span class="n">vel</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>to verify you are getting the correct answer.</em></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###ANSWER HERE</span>
@@ -872,7 +1057,21 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="c-a-full-simulation">
 <h3>c.  A full simulation<a class="headerlink" href="#c-a-full-simulation" title="Link to this heading">#</a></h3>
-<p>In this part we are going to write a full simulation and compute the path of a ball until it hits the ground. 🦉Write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">ThrowBall(initPos,initVel,dt)</span></code> which generates a path using your <code class="docutils literal notranslate"><span class="pre">Step</span></code> function and returns a numpy array of times (<code class="docutils literal notranslate"><span class="pre">np.array(ts)</span></code>), velocities (<code class="docutils literal notranslate"><span class="pre">np.array(vs)</span></code>) and positions (<code class="docutils literal notranslate"><span class="pre">np.array(positions)</span></code>)</p>
+<p>In this part we are going to write a full simulation and compute the path of a ball until it hits the ground.</p>
+<p>🦉Write a function as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">throw_ball</span><span class="p">(</span><span class="n">init_pos</span><span class="p">,</span> <span class="n">init_vel</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run a simulation of a thrown ball until the ball hits the ground (at y=0).</span>
+<span class="sd">    Gravity of -9.8 m/s^2 is applied</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">      init_pos: (2,) array given the initial positions.</span>
+<span class="sd">      init_velocity: (2,) array giving the initial velocity.</span>
+<span class="sd">      dt: scalar timestep</span>
+<span class="sd">    Returns:</span>
+<span class="sd">     (ts, vs, pos): (nsteps,), (nsteps, 2), (nsteps,2)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
 <ul class="simple">
 <li><p>Initialize your time, height and velocity</p></li>
 <li><p>Intialize some lists to store your time, height and velocity at each step (i.e. <code class="docutils literal notranslate"><span class="pre">vs=[]</span></code>)</p></li>
@@ -883,10 +1082,14 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <li><p>If the height is lower then zero, then <code class="docutils literal notranslate"><span class="pre">break</span></code> out of the loop (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">y&lt;0:</span> <span class="pre">break</span></code>)</p></li>
 </ul>
 </li>
-<li><p>Return  np.array of time and position and velocity</p></li>
+<li><p>Return  np.array of time, position, and velocity</p></li>
 </ul>
-<p>Also, write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">Exact(initPos,initVel,ts)</span></code> that returns the exact positions and velocities for all times in the array <code class="docutils literal notranslate"><span class="pre">ts</span></code> (use what you know from Physics 211).</p>
-<p>A good test is to run it for the same five time steps as above and make sure it produces the same answers as in (c) and puts them into the list.  Also, you can check that your exact and Euler Integration answers are close.</p>
+<p>🦉 Write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">throw_ball_exact(initPos,initVel,ts)</span></code> that returns the exact positions and velocities for all times in the array <code class="docutils literal notranslate"><span class="pre">ts</span></code>. Use the analytic solution from introductory mechanics.</p>
+<p>🦉 Test your functions as follows:</p>
+<ul class="simple">
+<li><p>Run the same five steps and initial conditions from part 1b, and confirm that <code class="docutils literal notranslate"><span class="pre">throw_ball</span></code> gets the same numbers.</p></li>
+<li><p>Plot the output of <code class="docutils literal notranslate"><span class="pre">throw_ball</span></code> and <code class="docutils literal notranslate"><span class="pre">throw_ball_exact</span></code>, and confirm that they are very close. As <code class="docutils literal notranslate"><span class="pre">dt</span></code> becomes very small, they should agree.</p></li>
+</ul>
 <p><em>Put your code here. Using the same initial conditions as above, print the position and velocities of five steps so we can check that you have the correct answer.</em></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -904,8 +1107,8 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <li><p><span class="math notranslate nohighlight">\(v_y\)</span> vs <span class="math notranslate nohighlight">\(t\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(y\)</span> vs. <span class="math notranslate nohighlight">\(x\)</span></p></li>
 </ul>
-<p>for both the exact and approximate curves.</p>
-<p>You must label your axis (<code class="docutils literal notranslate"><span class="pre">plt.xlabel(&quot;fixMyLabel&quot;)</span></code>)</p>
+<p>for both the exact and approximate curves. Use <span class="math notranslate nohighlight">\(dt=0.05\)</span> s.</p>
+<p>You must label your axis (<code class="docutils literal notranslate"><span class="pre">plt.xlabel(&quot;put</span> <span class="pre">actual</span> <span class="pre">label</span> <span class="pre">here...not</span> <span class="pre">what's</span> <span class="pre">written</span> <span class="pre">in</span> <span class="pre">this</span> <span class="pre">text&quot;)</span></code>)</p>
 <p>Put on each of your plots the exact answer computed using formulas you know from Physics 211 (i.e. <code class="docutils literal notranslate"><span class="pre">plt.plot(ts,exact,label=&quot;Exact</span> <span class="pre">Answer&quot;)</span></code>.  Use <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> to generate a legend so we know which line is which.</p>
 <p>Your exact and integrator curves should look very similar but not exactly on top of each other (for the position).</p>
 <p><em>Put the code which generates the plots (and the plots) here.</em></p>
@@ -920,7 +1123,11 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <section id="e-animation">
 <h3>e.  Animation<a class="headerlink" href="#e-animation" title="Link to this heading">#</a></h3>
 <p>If you send <code class="docutils literal notranslate"><span class="pre">animateMe</span></code> the list of positions it will animate them.  You shouldn’t have to change any code here as long as you’ve got a list of positions in the array <code class="docutils literal notranslate"><span class="pre">positions</span></code>. 🦉Go ahead and watch your thrown ball!</p>
-<p><em>You just have to run this code and then play the animation to generate it.</em></p>
+<p>Use it as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">anim</span><span class="o">=</span><span class="n">animateMe</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+</pre></div>
+</div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-cell docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -966,22 +1173,6 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
                                    <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions</span><span class="p">),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> 
                                    <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">repeat</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
     <span class="k">return</span> <span class="n">anim</span>
-
-<span class="n">anim</span><span class="o">=</span><span class="n">animateMe</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">28</span><span class="o">-</span><span class="n">a84d4e44732c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="k">return</span> <span class="n">anim</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span> 
-<span class="ne">---&gt; </span><span class="mi">40</span> <span class="n">anim</span><span class="o">=</span><span class="n">animateMe</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-
-<span class="ne">NameError</span>: name &#39;positions&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -990,19 +1181,27 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="f-errors">
 <h3>f. Errors<a class="headerlink" href="#f-errors" title="Link to this heading">#</a></h3>
-<p>In this section, we’d like to understand the error of your integrator.</p>
-<p>We’d like to figure out two things.  First, how does the error accumulate as a function of time (when we fix <span class="math notranslate nohighlight">\(dt\)</span>)?</p>
-<p>Secondly, if we run a bunch of simulations to a total time <span class="math notranslate nohighlight">\(T=1.28\)</span> using different time-steps <span class="math notranslate nohighlight">\(dt\)</span>,  how does the error change with <span class="math notranslate nohighlight">\(dt\)</span>?</p>
-<p>We will only concern ourselves with the difference between the Euler-integrator <span class="math notranslate nohighlight">\(y\)</span> position and the exact <span class="math notranslate nohighlight">\(y\)</span> position (i.e. we will ignore the <span class="math notranslate nohighlight">\(x\)</span> position and velocity <span class="math notranslate nohighlight">\(v\)</span>).</p>
-<p>For this problem, you can use the same initial conditions you’ve been using in the previous sections.</p>
-<p>🦉To make the first plot, write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">PlotErrorWithTime(ts,integratorY,exactY)</span></code> which plots the difference <span class="math notranslate nohighlight">\(y_\textrm{Euler}(t) - y_\textrm{exact}(t)\)</span> as a function of time <span class="math notranslate nohighlight">\(t\)</span>. Then run your integrator, compute the exact, and call your function.   What you will find is that the error grows linearly with <span class="math notranslate nohighlight">\(t\)</span>.  This makes sense because each step makes an error and so cumulatively the total amount of error grows linearly. That means the longer you run your system, the larger error that you get. This linear growth will be true for almost any integrator that we use (although something special will go on for symplectic integrators).</p>
-<p>🦉For your second plot, write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">PlotErrorWithdt()</span></code>.  This one will do all the running of your integrator inside of it.   To make the second plot, you need to figure out when your simulation hit <span class="math notranslate nohighlight">\(T=1.28\)</span>.  Write a function <code class="docutils literal notranslate"><span class="pre">FindIndex(targetT,ts)</span></code> which finds the index in the array <code class="docutils literal notranslate"><span class="pre">ts</span></code> which is closest to <code class="docutils literal notranslate"><span class="pre">targetT</span></code>.</p>
-<p>Then you can make the second plot by  plotting</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myIndex</span><span class="o">=</span><span class="n">FindIndex</span><span class="p">(</span><span class="mf">1.28</span><span class="p">,</span><span class="n">ts</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">dt</span><span class="p">],[</span><span class="n">positions</span><span class="p">[:,</span><span class="mi">1</span><span class="p">][</span><span class="n">myIndex</span><span class="p">]],</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<p>In this section, we’d like to understand the error of your integrator.  For this problem, you can use the same initial conditions you’ve been using in the previous sections.
+We will assess the error in two ways.</p>
+<p>First, how does the error accumulate as a function of time (when we fix <span class="math notranslate nohighlight">\(dt\)</span>)?<br />
+We will only concern ourselves with the difference between the Euler-integrator <span class="math notranslate nohighlight">\(y\)</span> position and the exact <span class="math notranslate nohighlight">\(y\)</span> position (i.e. we will ignore the <span class="math notranslate nohighlight">\(x\)</span> position and velocity <span class="math notranslate nohighlight">\(v\)</span>).
+What you will find is that the error grows linearly with <span class="math notranslate nohighlight">\(t\)</span>.  This makes sense because each step makes an error and so cumulatively the total amount of error grows linearly. That means the longer you run your system, the larger error that you get. This linear growth will be true for almost any integrator that we use (although something special will go on for symplectic integrators).</p>
+<p>🦉 Plot the difference <span class="math notranslate nohighlight">\(y_\textrm{Euler}(t) - y_\textrm{exact}(t)\)</span> as a function of time <span class="math notranslate nohighlight">\(t\)</span> for several values of dt (try at least 0.005 and 0.32). Check that the smaller value of <code class="docutils literal notranslate"><span class="pre">dt</span></code> is closer to the exact path.</p>
+<p>Secondly, as <span class="math notranslate nohighlight">\(dt \rightarrow 0\)</span>, we should obtain the same position at some time <span class="math notranslate nohighlight">\(T\)</span>. That is, if we run a bunch of simulations with different <span class="math notranslate nohighlight">\(dt\)</span> to a total time <span class="math notranslate nohighlight">\(T=1.28\)</span>  how does the final position change with <span class="math notranslate nohighlight">\(dt\)</span>?</p>
+<p>🦉Write a function as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_position</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">target_time</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  For a fixed initial condition, run at timestep dt until the target time.</span>
+<span class="sd">  Args: </span>
+<span class="sd">    dt: timestep (s)</span>
+<span class="sd">    target_time:  time at which to return the position (s)</span>
+<span class="sd">  Returns: </span>
+<span class="sd">    position at target_time</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  
 </pre></div>
 </div>
-<p>for each value of <span class="math notranslate nohighlight">\(dt \in \{0.32,0.16,0.08,0.04,0.02,0.01,0.005\}\)</span></p>
+<p>Plot the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> position for each value of <span class="math notranslate nohighlight">\(dt \in \{0.32,0.16,0.08,0.04,0.02,0.01,0.005\}\)</span></p>
 <p>While the error with time is always linear, the error with <span class="math notranslate nohighlight">\(dt\)</span> can change depending on the quality of your integrator.  For the Euler-integrator you will find that the error with <span class="math notranslate nohighlight">\(dt\)</span> is also linear telling you that you are working with a first order integrator.</p>
 <p><em>Put the two plots (and the code to generate them) here.</em></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
@@ -1015,15 +1214,14 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="g-energy">
 <h3>g. Energy<a class="headerlink" href="#g-energy" title="Link to this heading">#</a></h3>
-<p>Another important way of checking things is to verify certain physics isn’t broken.</p>
-<p>One of the things that should be true of the thrown ball is the energy should be constant. Recall that the energy should be</p>
+<p>Another important way of assessing errors is to verify the laws of physics are followed in our simulation.</p>
+<p>As we know from classical mechanics, the total energy is a constant of motion.
+Recall that the total energy is</p>
 <div class="math notranslate nohighlight">
 \[ E = K + U = \frac{1}{2}mv^2 + mgy\]</div>
 <p>where <span class="math notranslate nohighlight">\(g=9.8\)</span></p>
-<p>🦉Write below a function that takes a list of positions and velocities and returns a list of energy. You can assume that <span class="math notranslate nohighlight">\(m=1.\)</span> Then plot the energy vs time of the ball thrown in the air with your integrator.</p>
-<p>What you should see is that the energy says largely constant over time.  If we were doing everything exactly right (had a perfect integrator), it would stay constant over time.  Because our approach is not perfect, there is a tiny bit of drift in the energy.</p>
-<p><em>Hint:</em>  the energy is around 50</p>
-<p><em>Put here the energy as a function of time.  Make sure you look at your scale.  It might look like it’s changing a little bit as long as it stays close to 50. Use the same initial conditions as earlier.</em></p>
+<p>🦉Write a function that takes as arguments list of positions and velocities and returns a list of energy. You can assume that <span class="math notranslate nohighlight">\(m=1.\)</span> Then plot the energy vs time of the ball thrown in the air with your integrator. You should see that the energy is nearly constant over time. Because our approach is not perfect, there is a tiny bit of drift in the energy. Run it for a couple different timesteps and check that it gets better with smaller timestep.</p>
+<p><em>Hint:</em>  the energy is around 50. Pay close attention to the scale on your plot; it may zoom in a lot.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -1049,18 +1247,40 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 </ul>
 <section id="a-code-modifications">
 <h3>a. Code Modifications<a class="headerlink" href="#a-code-modifications" title="Link to this heading">#</a></h3>
-<p>In this section you are going to modify your code to compute dynamics with air resistance.  While doing so you are going to make the code a bit more general.  At the moment, we have defined the mass <code class="docutils literal notranslate"><span class="pre">m</span></code> in the middle of our function.  We also hard-coded the force.  When we are going to work with air resistance, we are going to have to define a constant <code class="docutils literal notranslate"><span class="pre">b</span></code>.  It’s going to get annoying to carry these all around.  In this part, we are going to pull out a function for the force <code class="docutils literal notranslate"><span class="pre">F(t,pos,vel,params)</span></code> that you should call (instead of writing <code class="docutils literal notranslate"><span class="pre">a=-9.8</span></code>.) We  will now pass around a dictionary <code class="docutils literal notranslate"><span class="pre">params</span></code> that gives us access to these parameters.   You will then be able to get to your paramaters by doing things like</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<p>In this section you are going to modify your code to compute dynamics with air resistance.  The force should be of the form <code class="docutils literal notranslate"><span class="pre">np.array([-b*v_x,-b*v_y-9.8*m])</span></code>, where the constant <code class="docutils literal notranslate"><span class="pre">b</span></code> determines the strength of the air resistance. Because of the air resistance, the mass now matters, so that also needs to be an argument.</p>
+<p>🦉Write a new step function to include air resistance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">step_air_resistance_2d</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">vel</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Starting with the position, velocity, and current time, return the next time, position, and velocity at time t+dt.</span>
+<span class="sd">  The force applied is (-9.8 m/s^2)*m - b * v  </span>
+<span class="sd">  Args:</span>
+<span class="sd">     t: scalar, current time (s)</span>
+<span class="sd">     pos: np.array of shape (2,), position at time t (m)</span>
+<span class="sd">     vel: np.array of shape (2,), velocity at time t (m/s)</span>
+<span class="sd">     dt: scalar, timestep (s)</span>
+<span class="sd">     m: mass (kg)</span>
+<span class="sd">     b: air resistance (kg /s)</span>
+<span class="sd">  Returns</span>
+<span class="sd">    tuple containing new time, new position, new velocity</span>
+
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">),</span> <span class="s2">&quot;pos must be a np.ndarray&quot;</span>
 </pre></div>
 </div>
-<p>🦉Go ahead and modify your old code to work in this way.  In addition, modify the force to be of the form
-<code class="docutils literal notranslate"><span class="pre">np.array([-b*v_x,-b*v_y-9.8*m])</span></code>.</p>
-<p>Changes from previous code:</p>
-<ul class="simple">
-<li><p>Switch everything to use params</p></li>
-<li><p>Add a new force function and add air resistance to it.</p></li>
-</ul>
-<p><strong>Nowhere in your code is it allowed to say <code class="docutils literal notranslate"><span class="pre">m=1</span></code> or <code class="docutils literal notranslate"><span class="pre">b=0.1</span></code> or <code class="docutils literal notranslate"><span class="pre">dt=0.01</span></code>. This must now be all set with <code class="docutils literal notranslate"><span class="pre">params</span></code>.</strong></p>
+<p>🦉Write a new <code class="docutils literal notranslate"><span class="pre">throw_ball</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">throw_ball_air_resistance</span><span class="p">(</span><span class="n">init_pos</span><span class="p">,</span> <span class="n">init_vel</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run a simulation of a thrown ball until the ball hits the ground (at y=0).</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">      init_pos: (2,) array given the initial positions.</span>
+<span class="sd">      init_velocity: (2,) array giving the initial velocity.</span>
+<span class="sd">      dt: scalar timestep</span>
+<span class="sd">    Returns:</span>
+<span class="sd">     (ts, vs, pos): (nsteps,), (nsteps, 2), (nsteps,2)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p><strong>Be careful to avoid global variables; your function must take in the parameters as arguments here.</strong></p>
 <p><em>Put your new code here. You don’t have to produce any output (you will produce graphs below)</em></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1073,24 +1293,21 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="b-running-and-making-plots-for-throwing-a-ball">
 <h3>b.  Running and making Plots for Throwing a Ball<a class="headerlink" href="#b-running-and-making-plots-for-throwing-a-ball" title="Link to this heading">#</a></h3>
-<p>🦉Here we want you to throw a ball in the air and make plots</p>
+<p>🦉For a ball in the air and make plots</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(y\)</span> vs. time</p></li>
-<li><p><span class="math notranslate nohighlight">\(y\)</span> vs <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span> vs <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span> vs <span class="math notranslate nohighlight">\(x\)</span>
+that includes (on the same plot) both the ball with air resistance and without air resistance. To label which is which you can do <code class="docutils literal notranslate"><span class="pre">plt.plot(x,y,label=&quot;Air</span> <span class="pre">Resistance&quot;)</span></code>   and then call <code class="docutils literal notranslate"><span class="pre">plt.legend(loc=0)</span></code></p></li>
 </ul>
-<p>that includes (on the same plot) both the ball with air resistance and without air resistance. To label which is which you can do <code class="docutils literal notranslate"><span class="pre">plt.plot(x,y,label=&quot;Air</span> <span class="pre">Resistance&quot;)</span></code>   and then call <code class="docutils literal notranslate"><span class="pre">plt.legend(loc=0)</span></code></p>
-<p>Does it make any sense?  Does the ball with air resistance fly further or less far?</p>
-<p><em>Put here your two graphs (and the code to generate them) showing how the air resistance changes the flight of the ball.  You can write the dictionary of your initial parameters by doing</em></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span><span class="p">{</span> <span class="c1">#another way of writing a dictionary</span>
-<span class="s1">&#39;b&#39;</span>  <span class="p">:</span><span class="mf">0.</span><span class="p">,</span>
-<span class="s2">&quot;m&quot;</span>  <span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-<span class="s2">&quot;initPos&quot;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">]),</span>
-<span class="s2">&quot;initVel&quot;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">10.0</span><span class="p">]),</span>
-<span class="s2">&quot;dt&quot;</span> <span class="p">:</span> <span class="mf">0.01</span>
-        <span class="p">}</span>
+<p>Use the following parameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span> <span class="c1"># you can loop over these</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">initial_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
+<span class="n">initial_velocity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">])</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
 </pre></div>
 </div>
-<p><em>Remember to change the value of <code class="docutils literal notranslate"><span class="pre">b</span></code> (you can do this by <code class="docutils literal notranslate"><span class="pre">params[&quot;b&quot;]=0.1</span></code>) when you want to run it with air resistance on.</em></p>
+<p>Does it make sense?  Under which conditions does the ball travel further?</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -1107,7 +1324,8 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <li><p><span class="math notranslate nohighlight">\(y\)</span> vs. <span class="math notranslate nohighlight">\(t\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(v_y\)</span> vs <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
 </ul>
-<p>We want you to see that the <span class="math notranslate nohighlight">\(y\)</span>-velocity reaches a terminal velocity (i.e. you stop picking up speed as the object is falling).  🦉Calculate by hand what the terminal velocity should be (consider when the force due to gravity and due to air reistance is the same) and draw a dotted line at this value on the plot (i.e. <code class="docutils literal notranslate"><span class="pre">plt.axhline(terminalVelocity,linestyle='--')</span></code>.</p>
+<p>We want you to see that the <span class="math notranslate nohighlight">\(y\)</span>-velocity reaches a terminal velocity (i.e. you stop picking up speed as the object is falling).</p>
+<p>🦉Calculate by hand what the terminal velocity should be (consider when the force due to gravity and due to air reistance is the same) and draw a dotted line at this value on the plot (i.e. <code class="docutils literal notranslate"><span class="pre">plt.axhline(terminalVelocity,linestyle='--')</span></code>.</p>
 <p><em>Plots and graph here.</em></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1119,18 +1337,18 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="d-hitting-a-target">
 <h3>d. Hitting a target<a class="headerlink" href="#d-hitting-a-target" title="Link to this heading">#</a></h3>
-<p>Let’s suppose we want to throw a ball starting at position <span class="math notranslate nohighlight">\((0,0)\)</span> with some initial velocity <code class="docutils literal notranslate"><span class="pre">v0</span></code> (<em>which you will find</em>) and have it hit a target on the ground at position <span class="math notranslate nohighlight">\((10.0,0.0)\)</span> m. Let <span class="math notranslate nohighlight">\(b=3.0\)</span> and <span class="math notranslate nohighlight">\(m=1.0\)</span>.  You may again use <span class="math notranslate nohighlight">\(dt=0.01\)</span>.  <strong>We are going to use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> to find the initial velocity.</strong> The library <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> is generically useful.</p>
-<p>To achieve this, first write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">myTarget(v,params):</span></code> which takes an initial velocity and a <code class="docutils literal notranslate"><span class="pre">params</span></code> dictionary.  The function should return how far (in absolute magnitude) a ball thrown with the parameters in <code class="docutils literal notranslate"><span class="pre">params</span></code> lands from the target (if included, ignore the initial velocity in params).</p>
+<p>Let’s suppose we want to throw a ball starting at position <span class="math notranslate nohighlight">\((0,0)\)</span> with some initial velocity <code class="docutils literal notranslate"><span class="pre">v0</span></code> (<em>which you will find</em>) and have it hit a target on the ground at position <span class="math notranslate nohighlight">\((10.0,0.0)\)</span> m. Let <span class="math notranslate nohighlight">\(b=3.0\)</span> and <span class="math notranslate nohighlight">\(m=1.0\)</span>.  You may again use <span class="math notranslate nohighlight">\(dt=0.01\)</span>.  <strong>We are going to use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> to find the initial velocity.</strong> The library <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> is very useful throughout this course.</p>
+<p>To achieve this, first write a function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">distance_from_target(init_vel,init_pos,</span> <span class="pre">dt,</span> <span class="pre">m,</span> <span class="pre">b):</span></code> which takes an initial velocity and a <code class="docutils literal notranslate"><span class="pre">params</span></code> dictionary.  The function should return how far (in absolute magnitude) a ball thrown with the parameters in <code class="docutils literal notranslate"><span class="pre">params</span></code> lands from the target (if included, ignore the initial velocity in params).</p>
 <p>Then you can call</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ans</span><span class="o">=</span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">myTarget</span><span class="p">,</span>
-                            <span class="n">params</span><span class="p">[</span><span class="s1">&#39;initVel&#39;</span><span class="p">],</span>
-                            <span class="n">args</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ans</span><span class="o">=</span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">distance_from_target</span><span class="p">,</span>
+                            <span class="n">initial_velocity_guess</span><span class="p">,</span> <span class="c1"># guess for the starting velocity</span>
+                            <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">init_pos</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span>
                             <span class="n">method</span><span class="o">=</span><span class="s1">&#39;Nelder-Mead&#39;</span><span class="p">,</span>
                             <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;disp&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
 </pre></div>
 </div>
 <p>and the values in <code class="docutils literal notranslate"><span class="pre">ans.x</span></code> should be the velocity you found.</p>
-<p>🦉Go ahead and graph the curve you find to make sure it hits close to the target.  Report your initial velocity.</p>
+<p>🦉Graph the curve you find to make sure it hits close to the target.  Report your initial velocity.</p>
 <p><em>Plot and graph here. You want to have</em> <code class="docutils literal notranslate"><span class="pre">print(ans.x)</span></code> <em>at the end so we can see what your results are.</em></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1143,25 +1361,21 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 <section id="e-hitting-a-moving-target-extra-credit-5-points">
 <h3>e. Hitting a moving target (extra credit: 5 points)<a class="headerlink" href="#e-hitting-a-moving-target-extra-credit-5-points" title="Link to this heading">#</a></h3>
 <p>Here we want to launch two balls. One has fixed parameters</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="o">=</span><span class="p">{</span>
-    <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
-    <span class="s1">&#39;m&#39;</span> <span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
-    <span class="s1">&#39;initPos&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">]),</span>
-    <span class="s1">&#39;initVel&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">]),</span>
-    <span class="s1">&#39;dt&#39;</span>    <span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
-    <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="mf">14.5</span>
-<span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">initial_pos</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
+<span class="n">initial_velocity</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">])</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+<span class="n">target</span> <span class="o">=</span> <span class="mf">14.5</span>
 </pre></div>
 </div>
 <p>The other has the following parameters but you can optimize the initial velocity</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">paramsB</span><span class="o">=</span><span class="p">{</span>
-    <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
-    <span class="s1">&#39;m&#39;</span> <span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
-    <span class="s1">&#39;initPos&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">]),</span>
-    <span class="s1">&#39;initVel&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]),</span>
-    <span class="s1">&#39;dt&#39;</span>    <span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
-    <span class="s1">&#39;target&#39;</span><span class="p">:</span> <span class="mf">14.5</span>
-<span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">initial_pos</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">10.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">])</span>
+<span class="n">initial_velocity</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+<span class="n">target</span> <span class="o">=</span> <span class="mf">14.5</span>
 </pre></div>
 </div>
 <p>🦉Figure out how to tune the initial velocity of the second ball so that the two balls collide <strong>in the air</strong>.  Report your initial velocity and convince us that it actually worked.</p>
@@ -1183,7 +1397,8 @@ Well note that <span class="math notranslate nohighlight">\(\log(y) = \log(A) + 
 </ul>
 <p>We saw that the first-order integrator we wrote to get to a time <span class="math notranslate nohighlight">\(T\)</span> had errors that scaled as <span class="math notranslate nohighlight">\(dt\)</span>.  In this exercise we are going to develop a integrator which scales as <span class="math notranslate nohighlight">\(dt^2\)</span>.</p>
 <p>In our first order technique we had used the position and the velocity at the start of an interval to estimate the force that would act during the interval. We then pretended that the force <span class="math notranslate nohighlight">\(F\)</span> and velocity <span class="math notranslate nohighlight">\(v\)</span>  would remain constant during the interval so that we could calculate the increments to position and velocity as <span class="math notranslate nohighlight">\(dx = v(t) dt\)</span> and <span class="math notranslate nohighlight">\(dv = [F(x,v,t)/m]dt.\)</span>  It was only at the end of each interval that we updated the position and the velocity by adding the increments to them.</p>
-<p>We can improve the precision of our integrations by estimating the position, velocity, and force in the <strong>middle</strong> of our step (at time <span class="math notranslate nohighlight">\(t+dt/2\)</span>), then using that to decide how much the position and velocity will change during the entire time interval <span class="math notranslate nohighlight">\(dt\)</span>.  Let’s refer to this as a <strong>midpoint integration technique</strong>.</p>
+<p>We can improve the precision of our integrations by estimating the position, velocity, and force in the <strong>middle</strong> of our step (at time <span class="math notranslate nohighlight">\(t+dt/2\)</span>), then using that to decide how much the position and velocity will change during the entire time interval <span class="math notranslate nohighlight">\(dt\)</span>.  Let’s refer to this as a <strong>midpoint integration technique</strong>.
+You will likely want to pull your force calculation out into anotehr</p>
 <p>If the position, velocity, and force at the <strong>start</strong> of the interval are <span class="math notranslate nohighlight">\(x,v\)</span>, and <span class="math notranslate nohighlight">\(F\)</span>, easonable estimates of the position and velocity at the <strong>midpoint</strong> of the time interval are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1199,7 +1414,7 @@ v_\textrm{midpoint} &amp;= v+ \frac{F(x,v,t)}{m} \frac{\Delta t}{2}
 \Delta v &amp;= \frac{F(x_\textrm{midpoint},v_\textrm{midpoint},t_\textrm{midpoint})}{m} \Delta t
 \end{align}
 \end{split}\]</div>
-<p>The approximate values of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(v\)</span> at the <strong>end</strong> of the interval (and the start o the next) are</p>
+<p>The approximate values of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(v\)</span> at the <strong>end</strong> of the interval (and the start of the next) are</p>
 <div class="math notranslate nohighlight">
 \[ x \leftarrow x+\Delta x\]</div>
 <div class="math notranslate nohighlight">
@@ -1209,7 +1424,7 @@ v_\textrm{midpoint} &amp;= v+ \frac{F(x,v,t)}{m} \frac{\Delta t}{2}
 <p><strong>Note that <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(v\)</span>, and <span class="math notranslate nohighlight">\(F\)</span> are all vectors, even though we haven’t written the vector symbol over them</strong></p>
 <section id="a-midpoint-method">
 <h3>a. Midpoint Method<a class="headerlink" href="#a-midpoint-method" title="Link to this heading">#</a></h3>
-<p>Implement this midpoint method replacing your previous <code class="docutils literal notranslate"><span class="pre">Step</span></code> function. Test that it works by verifying you are essentially getting the same results as earlier (it might be slightly different because you have a smaller time step error).</p>
+<p>Implement this midpoint method replacing your previous <code class="docutils literal notranslate"><span class="pre">step</span></code> function. Test that it works by verifying you are essentially getting the same results as earlier (it might be slightly different because you have a smaller time step error).</p>
 <p><em>Code for the midpoint method.</em></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1225,10 +1440,10 @@ v_\textrm{midpoint} &amp;= v+ \frac{F(x,v,t)}{m} \frac{\Delta t}{2}
 <!-- * graphing the error it makes after a time $T=1.28$ as a function of $dt \in \{0.00001,0.0001,0.001,0.01,0.02,0.04,0.08,0.16,0.32\}$.
 * determining the $\alpha$ in the equation $\textrm{Error} \propto dt^\alpha$. 
 -->
-<p>Use initial conditions of <span class="math notranslate nohighlight">\(x_0=0,v_0=10\)</span> m/s. Be sure to include air resistance, as without friction the second order method will be exact (so you won’t see a trend).</p>
+<p>Use initial conditions of <span class="math notranslate nohighlight">\(x_0=[0,0],v_0=[0,10]\)</span> m/s. Be sure to include air resistance, as without friction the second order method will be exact (so you won’t see a trend).</p>
 <p>Unfortunately we don’t have a simple formula to get the exact result.  What we will do instead is measure the answer for a time step that is very small (<span class="math notranslate nohighlight">\(\Delta t=0.00001\)</span>) and use that as our “exact” answer. Then we can compare it to larger time steps.</p>
 <p>In the end, we want to determine <span class="math notranslate nohighlight">\(\alpha\)</span> in the equation <span class="math notranslate nohighlight">\(\textrm{Error} \propto \Delta t^\alpha\)</span> (the symbol <span class="math notranslate nohighlight">\(\propto\)</span> means “proportional to”). To get the <span class="math notranslate nohighlight">\(\alpha\)</span> we will use the process described in the warmup - i.e. plotting on a log-log plot and computing the slope.</p>
-<p>Also note that you need to compare the positions at the same <strong>time</strong>, even though you are running at different timesteps. I’d suggest a time of 1.28, and one way to find the index is to do <code class="docutils literal notranslate"><span class="pre">np.argmin(ts-1.28)</span></code>, where <code class="docutils literal notranslate"><span class="pre">ts</span></code> are the output of your integrator.</p>
+<p>Also note that you need to compare the positions at the same <strong>time</strong>, even though you are running at different timesteps. I’d suggest a time of 1.28, and one way to find the index is to do <code class="docutils literal notranslate"><span class="pre">np.argmin(np.abs(ts-1.28))</span></code>, where <code class="docutils literal notranslate"><span class="pre">ts</span></code> are the output of your integrator.</p>
 <p><em>You should have your plots here.  They should start with the dropping ball initial velocities.   You should show that you are getting error which is second order.</em></p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1336,14 +1551,13 @@ v_\textrm{midpoint} &amp;= v+ \frac{F(x,v,t)}{m} \frac{\Delta t}{2}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmups">Warmups</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-to-numpy-arrays">Lists to numpy arrays</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#math-with-numpy-arrays">Math with numpy arrays</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-lines">Fitting Lines</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-polynomials">Fitting Polynomials</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-euler-integration">Exercise 1: Euler Integration</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-euler-integration-in-one-dimension-first-order-integrator">a. Euler Integration in one-dimension (first order integrator)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-euler-integration-in-two-dimensions-first-order-integrator">b. Euler Integration  in two-dimensions  (first order integrator)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-euler-integration-in-two-dimensions-first-order-integrator">b. Euler Integration  in two dimensions  (first order integrator)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-a-full-simulation">c.  A full simulation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-making-plots">d. Making Plots</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-animation">e.  Animation</a></li>
