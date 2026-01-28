@@ -24,7 +24,7 @@ Welcome! In this course, you are going to learn how to use computation to do ama
   - **TA(s):**
   - Will Huie
       - email: whuie2@illinois.edu
-      - Office Hours: 11-12 on Wednesdays, Loomis 275
+      - Office Hours: 11:30-12:30 on Tuesdays, Loomis 271
   -  Jia Wang
       - email: jiawang5@illinois.edu
       - Office Hours: 1-2 Fridays, Loomis 390T
