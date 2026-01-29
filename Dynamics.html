@@ -1479,6 +1479,25 @@ v_\textrm{midpoint} &amp;= v+ \frac{F(x,v,t)}{m} \frac{\Delta t}{2}
 <li><p>Ex 3: George Gollin (original); Bryan Clark and Ryan Levy (modifications)</p></li>
 </ul>
 <p>© Copyright 2021</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">requests</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">socket</span><span class="w"> </span><span class="kn">import</span> <span class="n">gethostname</span><span class="p">,</span> <span class="n">gethostbyname</span>
+<span class="n">ip</span> <span class="o">=</span> <span class="n">gethostbyname</span><span class="p">(</span><span class="n">gethostname</span><span class="p">())</span> 
+<span class="n">filename</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">:9000/api/sessions&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;%20&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CHECK THAT THE FILENAME IS correct&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/Colab Notebooks/&quot;</span> <span class="o">+</span> <span class="n">filename</span>
+<span class="o">!</span>cp<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$filepath</span><span class="s2">&quot;</span><span class="w"> </span>./
+<span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>HTML<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span>
+<span class="n">files</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ipynb&quot;</span><span class="p">,</span><span class="s2">&quot;html&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
