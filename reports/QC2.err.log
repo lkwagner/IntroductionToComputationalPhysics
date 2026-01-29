@@ -1,4 +1,17 @@
 Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 782, in _async_poll_for_reply
+    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+    result = await obj
+             ^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/jupyter_client/channels.py", line 316, in get_msg
+    raise Empty
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
   File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
     ~~~~~~~~~^
@@ -22,98 +35,23 @@ Traceback (most recent call last):
     await self.async_execute_cell(
         cell, index, execution_count=self.code_cells_executed + 1
     )
-  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 1062, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
-nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
-------------------
-import numpy as np
-import matplotlib.pyplot as plt
-import random
-import pylab as plt
-import scipy.linalg
-import matplotlib.animation as animation
-from IPython.display import HTML
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 1005, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 806, in _async_poll_for_reply
+    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 856, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+        "Cell execution timed out", timeout, cell
+    )
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+!pip install qiskit[visualization];
+!pip install qutip
+!pip install qiskit_aer;
 
-import qiskit
-import qutip
-from qiskit import QuantumCircuit, transpile
-from qiskit_aer import AerSimulator
-
-
-
-def resetMe(keepList=[]):
-    ll=%who_ls
-    keepList=keepList+['resetMe','np','plt','random']
-    for iiii in keepList:
-        if iiii in ll:
-            ll.remove(iiii)
-    for iiii in ll:
-        jjjj="^"+iiii+"$"
-        %reset_selective -f {jjjj}
-    ll=%who_ls
-    return
-import datetime;datetime.datetime.now()
-
-
-def AddCircuits(theCircuits):
-  numQubits=np.array([c.num_qubits for c in theCircuits])
-  numQubits=np.max(numQubits)
-  circuit=QuantumCircuit(numQubits,numQubits)
-  for i in range(0,len(theCircuits)):
-    circuit=circuit.compose(theCircuits[i],qubits=list(range(0,theCircuits[i].num_qubits)))
-  return circuit
-
-
-def RunMe(circuit,a=None):
-  numQubits=circuit.num_qubits
-  if a!=None:
-    numQubits=max(numQubits,a.num_qubits)
-    initCircuit=QuantumCircuit(a.num_qubits,a.num_qubits)
-    initCircuit.initialize(a)
-    circuit=AddCircuits([initCircuit,circuit])
-  circuit.save_statevector(label='myStateVector')
-  compiled_circuit = transpile(circuit, simulator)
-  resultA = simulator.run(compiled_circuit).result()
-  forward=list(range(0,numQubits))
-  reverse=forward[::-1]
-  circuit.measure(forward,reverse)
-  compiled_circuit = transpile(circuit, simulator)
-  resultB = simulator.run(compiled_circuit).result()
-  return resultA.data()['myStateVector'],resultB.data()['counts']
-
-
-def MakeState(v):
-  numWires=int(round(np.log2(len(np.array(v)))))
-  qc1=QuantumCircuit(numWires,numWires)
-  qc1.initialize(v)
-  a,_=RunMe(qc1)
-  return a
-
-def PlotBloch(v,bb):
-  vv=np.asarray(v)
-  a=vv[0]*np.conj(vv[0])
-  b=vv[1]*np.conj(vv[0])
-  x = np.real(2.0 * b.real)
-  y = np.real(2.0 * b.imag)
-  z = np.real(2.0 * a - 1.0)
-  bb.add_vectors([x,y,z])
-  return
-
-simulator = AerSimulator()
-
-------------------
-
-
-[31m---------------------------------------------------------------------------[39m
-[31mModuleNotFoundError[39m                       Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 12[39m
-[32m     10[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mqutip[39;00m
-[32m     11[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mqiskit[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m QuantumCircuit, transpile
-[32m---> [39m[32m12[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mqiskit_aer[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m AerSimulator
-[32m     16[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mresetMe[39m(keepList=[]):
-[32m     17[39m     ll=get_ipython().run_line_magic([33m'[39m[33mwho_ls[39m[33m'[39m, [33m'[39m[33m'[39m)
-
-[31mModuleNotFoundError[39m: No module named 'qiskit_aer'
+-------------------
 
