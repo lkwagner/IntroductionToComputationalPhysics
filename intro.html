@@ -365,8 +365,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#policies">Policies</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attendance">Attendance</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-using-code-you-find-on-the-web">About using code you find on the web</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-large-langauge-models">About Large Langauge Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-large-language-models">About Large Language Models</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic Integrity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#late-policy">Late policy</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-python">Useful Python</a><ul class="nav section-nav flex-column">
@@ -578,15 +579,18 @@ Instead do this:</p>
 <section id="instructions-for-submitting-your-assignments">
 <span id="id1"></span><h4>Instructions for submitting your assignments<a class="headerlink" href="#instructions-for-submitting-your-assignments" title="Link to this heading">#</a></h4>
 <p>Once you are finished working on an assignment, save a .pdf printout copy of your Colab document. This can be done by the following code</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>from requests import get
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Get the filename
+from requests import get
 from socket import gethostname, gethostbyname
 ip = gethostbyname(gethostname()) 
 filename = get(f&quot;http://{ip}:9000/api/sessions&quot;).json()[0][&#39;name&#39;]
-print(filename)
+filename = filename.replace(&quot;%20&quot;,&quot; &quot;)
+print(&quot;CHECK FILENAME&quot;, filename)
+
+# Now we mount the file on Drive and convert it to HTML
 from google.colab import files
 from google.colab import drive
 drive.mount(&#39;/content/drive&#39;)
-#filename = &quot;FILE_NAME_GOES_HERE&quot;
 filepath = &quot;/content/drive/MyDrive/Colab Notebooks/&quot; + filename
 !cp &quot;$filepath&quot; ./
 !jupyter nbconvert --to HTML &quot;$filename&quot;
@@ -594,14 +598,6 @@ files.download(filename.replace(&quot;ipynb&quot;,&quot;html&quot;))
 </pre></div>
 </div>
 <p>where you replace your filenames above with the appropriate ones for your assignment. Then open the HTML file in your web browser and print from there.</p>
-<p>You need to make sure that you save your notebook in the path given; if you choose a different path then you need to change the code.
-Sometimes if there are spaces in your filename, you may get an error; try putting in</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">:9000/api/sessions&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;%20&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>if you do have this issue.</p>
 <p>Assignments are submitted via Gradescope, which requires two simple steps.</p>
 <ol class="arabic simple">
 <li><p>Download your ipynb file and submit it to the ipynb assignment; it’s just a file upload.</p></li>
@@ -660,8 +656,9 @@ All problem sets count for the same amount.  Unless otherwise noted, every exerc
 <h2>Policies<a class="headerlink" href="#policies" title="Link to this heading">#</a></h2>
 <section id="attendance">
 <h3>Attendance<a class="headerlink" href="#attendance" title="Link to this heading">#</a></h3>
-<p>Students are strongly enoucarged to attend class, participate in lectures, and make use of office hours. While no explicit attendance requirements are in place, participation is factored in at the end of the semester if a student has a boarderline grade as well as for when students ask for homework extensions.  Thus, it is in the student’s best interest to regularly attend class.</p>
-<p>The first half of class includes a lecture/overview of the problem. The second half of class provides you with time to work on the problem (in small groups and with the instructuor and TAs available for help). The first half of class is invaluable to introduce the problem, the second half can help you get started.</p>
+<p>Students are strongly encouraged to attend class, participate in lectures, and make use of office hours.
+A quiz will be given every class at the beginning, and can only be taken in class.
+The first half of class includes a lecture/overview of the problem. The second half of class provides you with time to work on the problem (in small groups and with the instructor and TAs available for help). The first half of class is invaluable to introduce the problem, the second half can help you get started.</p>
 <p>If a major event occurs e.g. death in the family, major illness etc, it is best</p>
 </section>
 <section id="about-using-code-you-find-on-the-web">
@@ -669,8 +666,8 @@ All problem sets count for the same amount.  Unless otherwise noted, every exerc
 <p>The quickest way to deal with the arcana of programing is to ask Google for examples of what you are seeking to accomplish. But you will need to use your judgment in doing this: the Google search “how do I use color maps in python?” is fine, while “show me a script that calculates pi” is not. And you should always credit the original source of code that you paste into your own programs in a comment that includes the URL for the original code. If an author says that his/her code is not to be copied or incorporated into your programs, then DON’T.</p>
 <p>The goal of this course is for you to deeply understand this material. For this to work, you’ll need to write your own code.</p>
 </section>
-<section id="about-large-langauge-models">
-<h3>About Large Langauge Models<a class="headerlink" href="#about-large-langauge-models" title="Link to this heading">#</a></h3>
+<section id="about-large-language-models">
+<h3>About Large Language Models<a class="headerlink" href="#about-large-language-models" title="Link to this heading">#</a></h3>
 <p>In a similar vein, you aren’t allowed to use LLM to write your code.  This includes chatGPT, google bard/gemini, claude, etc. <strong>You must turn off the generative AI in colab if you have it on (which it might be by default)</strong>.</p>
 </section>
 <section id="academic-integrity">
@@ -678,6 +675,12 @@ All problem sets count for the same amount.  Unless otherwise noted, every exerc
 <p>You must never submit the work of someone else as your own. We understand that many of you will find it helpful to work with other students to master Physics 246. But when you collaborate with your study group on homework assignments, you must be a full, active participant in developing the solutions that you submit for credit.</p>
 <p>It is cheating to receive answers from another student and then use them as your own. It is cheating to submit as your own work solutions that you find by searching on the worldwide web (though see “About using code you find on the web”) It is cheating—and a violation of U.S. copyright law—to give (or sell) course material to someone else who intends to redistribute and/or sell it.</p>
 <p>All activities in this course are subject to the Academic Integrity rules as described in Article 1, Part 4, Academic Integrity, of the Student Code.</p>
+</section>
+<section id="late-policy">
+<h3>Late policy<a class="headerlink" href="#late-policy" title="Link to this heading">#</a></h3>
+<p>In general, we will apply a 10% penalty for every day that the homework is late.
+If you need a little more time and have a qualifying reason (i.e., medical, etc), let us know and propose a new due date BEFORE the due date of the homework.
+If this is approved, you will not be penalized for the late submission.</p>
 <hr class="docutils" />
 </section>
 </section>
@@ -794,8 +797,9 @@ The technical foundation for physics majors includes material in physics, mathem
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#policies">Policies</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attendance">Attendance</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-using-code-you-find-on-the-web">About using code you find on the web</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-large-langauge-models">About Large Langauge Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#about-large-language-models">About Large Language Models</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic Integrity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#late-policy">Late policy</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-python">Useful Python</a><ul class="nav section-nav flex-column">

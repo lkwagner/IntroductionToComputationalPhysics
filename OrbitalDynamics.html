@@ -378,14 +378,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmups">Warmups</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planetary-parameters">Planetary Parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-dictionaries">Using Dictionaries</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-orbital-dynamics">Exercise 1. Orbital Dynamics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-modify-your-code-to-include-the-force-of-gravity">a. Modify your code to include the force of gravity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-earth-orbiting-the-sun">b.  Earth Orbiting the Sun</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-animation">c. Animation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-geosyncronous-orbit-extra-credit-5-points">d. Geosyncronous Orbit (Extra Credit: 5 Points)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-orbital-dynamics">Exercise 1. Orbital Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-plot-a-model-of-the-solar-system">a. Plot a model of the solar system.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-modify-your-code-to-include-the-force-of-gravity">b. Modify your code to include the force of gravity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-earth-orbiting-the-sun">c.  Earth Orbiting the Sun</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-animation">d. Animation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-geosyncronous-orbit-extra-credit-5-points">e. Geosyncronous Orbit (Extra Credit: 5 Points)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-kepler-s-laws">Exercise 2. Kepler’s Laws</a><ul class="nav section-nav flex-column">
@@ -454,7 +454,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 1, 30, 17, 42, 15, 156342)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 3, 22, 10, 32, 860504)
 </pre></div>
 </div>
 </div>
@@ -465,6 +465,10 @@ document.write(`
 <h2>Warmups<a class="headerlink" href="#warmups" title="Link to this heading">#</a></h2>
 <section id="planetary-parameters">
 <h3>Planetary Parameters<a class="headerlink" href="#planetary-parameters" title="Link to this heading">#</a></h3>
+<p>When you have a lot of parameters, it is often more convenient to use a dataclass
+to hold them. This way you can access them with dot notation instead of dictionary notation.
+It also only takes up one variable in your namespace.
+Here’s how to do it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#resetMe()</span>
@@ -488,10 +492,40 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="using-dictionaries">
-<h3>Using Dictionaries<a class="headerlink" href="#using-dictionaries" title="Link to this heading">#</a></h3>
-<p>We’ve defined some planetary parameters for you.  Use these parameters to plot a model of our solar system which includes the Sun, Earth and Mercury assuming that the planets orbit in circular motion.  (this doesn’t involve any simulations just plotting things to scale.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SolarSystemParameters</span><span class="p">:</span>
+    <span class="n">MecuryOrbitRadius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">57.9e9</span> <span class="c1">#meters</span>
+    <span class="n">MercuryPerihelion</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">46.0012e9</span> <span class="c1"># meters</span>
+    <span class="n">MercuryAphelion</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">69.8169e9</span> <span class="c1"># meters</span>
+    <span class="n">EarthRadius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">6.371e6</span> <span class="c1">#meters</span>
+    <span class="n">EarthRotatingVelocity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">444.444</span> <span class="c1"># meters per second</span>
+    <span class="n">EarthOrbitRadius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">149.6e9</span> <span class="c1"># meters</span>
+    <span class="n">EarthOrbitVelocity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">29.8e3</span> <span class="c1"># meters per second</span>
+    <span class="n">EarthMass</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.972e24</span> <span class="c1"># kg</span>
+    <span class="n">MoonOrbitRadius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">363228.9e3</span> <span class="c1"># meters</span>
+    <span class="n">MoonMass</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">7.34e22</span> <span class="c1"># kg</span>
+    <span class="n">SunRadius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">695.51e6</span> <span class="c1">#meters</span>
+    <span class="n">SunMass</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.989e30</span> <span class="c1"># kg</span>
+    <span class="n">G</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">6.67408e-11</span>  <span class="c1"># m^3 kg^-1 s^-2</span>
+
+<span class="n">SSP</span> <span class="o">=</span> <span class="n">SolarSystemParameters</span><span class="p">()</span> <span class="c1"># create an instance of the dataclass</span>
+
+<span class="c1">## access the parameters like this:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">SSP</span><span class="o">.</span><span class="n">EarthMass</span><span class="p">)</span>
+<span class="c1">## You should get autocomplete depending on your editor; you might need to hit tab after typing `SSP.`</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.972e+24
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <hr class="docutils" />
@@ -501,8 +535,12 @@ document.write(`
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<section id="a-modify-your-code-to-include-the-force-of-gravity">
-<h3>a. Modify your code to include the force of gravity<a class="headerlink" href="#a-modify-your-code-to-include-the-force-of-gravity" title="Link to this heading">#</a></h3>
+</section>
+<section id="a-plot-a-model-of-the-solar-system">
+<h2>a. Plot a model of the solar system.<a class="headerlink" href="#a-plot-a-model-of-the-solar-system" title="Link to this heading">#</a></h2>
+<p>🦉 Use these parameters to plot a model of our solar system which includes the Sun, Earth and Mercury assuming that the planets orbit in circular motion.  (this doesn’t involve any simulations just plotting things to scale.)</p>
+<section id="b-modify-your-code-to-include-the-force-of-gravity">
+<h3>b. Modify your code to include the force of gravity<a class="headerlink" href="#b-modify-your-code-to-include-the-force-of-gravity" title="Link to this heading">#</a></h3>
 <p>In Newton’s model the earth’s gravity is a central force that exerts an attractive pull</p>
 <div class="math notranslate nohighlight">
 \[\vec{F}(\vec{r}) = m\vec{a}(\vec{r}) = -\frac{Gm_\textrm{earth}m}{r^2}\hat{r}\]</div>
@@ -513,8 +551,27 @@ document.write(`
 \[a_x = -\frac{Gm_\textrm{sun} }{x^2+y^2}\cos \phi = - \frac{Gm_\textrm{sun} x }{(x^2+y^2)^{3/2}}\]</div>
 <div class="math notranslate nohighlight">
 \[a_y = -\frac{Gm_\textrm{sun} }{x^2+y^2}\sin \phi = - \frac{Gm_\textrm{sun} y }{(x^2+y^2)^{3/2}}\]</div>
-<p>🦉Modify your code to correctly incorporate gravity.</p>
-<p>Copy over your previous work for an integrator (we recommend the midpoint method).  Assuming the sun is at (0,0) modify your force function to implement the gravitational force.  Use the parameters in your force function. Also modify your <code class="docutils literal notranslate"><span class="pre">Orbit</span></code> function to run for a time <code class="docutils literal notranslate"><span class="pre">params[&quot;T&quot;]</span></code> instead of when it hits the ground. In my code, I also put in a <code class="docutils literal notranslate"><span class="pre">param['CrashRadius']</span></code> that terminated my code in addition to <code class="docutils literal notranslate"><span class="pre">param[&quot;T&quot;]</span></code>.  Btw, if you use the “tab” button it will tell you what’s in your SolarSystemParameters dictionary.  There will be nothing to run here just the functions (you will make plots below)</p>
+<p>Note that you can write this in vector notation so that you don’t have to do <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> separately!</p>
+<p>Copy over your previous work from the Dynamics homework for an integrator (we recommend the midpoint method).  Assuming the sun is at (0,0) modify your force function to implement the gravitational force.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">orbit_classical</span><span class="p">(</span><span class="n">initial_pos</span><span class="p">,</span> <span class="n">initial_vel</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">SSP</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run an orbit for a total of T time using classical mechanics (no special relativity). </span>
+<span class="sd">    If the radius is ever less than SSP.SunRadius stop the simulation, since it has crashed into the Sun.</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        initial_pos: (2,)</span>
+<span class="sd">        initial_vel: (2,) initial velocity (m/s)</span>
+<span class="sd">        dt: timestep (s)</span>
+<span class="sd">        T: total time (s)</span>
+<span class="sd">        SSP: solar system parameters</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        times: (nsteps,)</span>
+<span class="sd">        positions: (nsteps, 2)</span>
+<span class="sd">        velocities: (nsteps, 2)</span>
+<span class="sd">    where nsteps=int(np.ceil(T/dT))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>🦉Modify your code to correctly incorporate gravity. There will be nothing to run here just the functions (you will make plots below)</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -523,33 +580,10 @@ document.write(`
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-<section id="b-earth-orbiting-the-sun">
-<h3>b.  Earth Orbiting the Sun<a class="headerlink" href="#b-earth-orbiting-the-sun" title="Link to this heading">#</a></h3>
-<p>Write some code to set up the parameters of the Earth orbiting the sun and then plot it.  Use a dt of 3600 seconds.  This will involve calling your functions from above. You will want to build a dictionary of <code class="docutils literal notranslate"><span class="pre">params</span></code>  which involve things like your initial positions (use Earth’s orbital radius), your initial velocity, the time step <code class="docutils literal notranslate"><span class="pre">dt</span></code>, etc.  You should be able to plot it as <code class="docutils literal notranslate"><span class="pre">plt.plot(positions[:,0],positions[:,1])</span></code>
-`</p>
-<!--
-To draw the Earth, I recommend something like:
-```python
-earth_radius = SolarSystemParameters["EarthRadius"] # m
-# create a (blank) figure so we can set some of its attributes. 
-fig = plt.figure()
-ax = fig.gca()
-# set labels and title; force square aspect ratio. 
-ax.set_xlabel("orbit x, km")
-ax.set_ylabel("orbit y, km")
-ax.set_title("GPS satellite trial orbit") 
-ax.set_aspect("equal")
-# plot stuff, 
-#plt.plot(xarray, yarray)
-# force the axes to be of equal scales... 
-rmax = np.max( (xarray**2+yarray**2)**0.5)
-pltmax = 1.05 * rmax
-plt.axis([-pltmax, pltmax, -pltmax, pltmax])
-# now draw the earth
-earth_disk = plt.Circle((0, 0), earth_radius , color = "#99FF99")
-fig.gca().add_artist(earth_disk)
-```
---><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
+<section id="c-earth-orbiting-the-sun">
+<h3>c.  Earth Orbiting the Sun<a class="headerlink" href="#c-earth-orbiting-the-sun" title="Link to this heading">#</a></h3>
+<p>🦉 Write some code to set up the parameters of the Earth orbiting the sun and then plot it.  Use a dt of 3600 seconds.  You should be able to plot it as <code class="docutils literal notranslate"><span class="pre">plt.plot(positions[:,0],positions[:,1])</span></code>. Confirm that it does indeed orbit once per year.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
 </pre></div>
@@ -557,10 +591,10 @@ fig.gca().add_artist(earth_disk)
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-<section id="c-animation">
-<h3>c. Animation<a class="headerlink" href="#c-animation" title="Link to this heading">#</a></h3>
-<p>Run the code below to plot an animation of your orbit.  Your coordinates have to be in positions.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">animation</span>
+<section id="d-animation">
+<h3>d. Animation<a class="headerlink" href="#d-animation" title="Link to this heading">#</a></h3>
+<p>🦉 Run the code below to plot an animation of your orbit.  Your coordinates have to be in positions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">animation</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">animateMe</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span><span class="n">fullLine</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -614,8 +648,8 @@ fig.gca().add_artist(earth_disk)
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-<section id="d-geosyncronous-orbit-extra-credit-5-points">
-<h3>d. Geosyncronous Orbit (Extra Credit: 5 Points)<a class="headerlink" href="#d-geosyncronous-orbit-extra-credit-5-points" title="Link to this heading">#</a></h3>
+<section id="e-geosyncronous-orbit-extra-credit-5-points">
+<h3>e. Geosyncronous Orbit (Extra Credit: 5 Points)<a class="headerlink" href="#e-geosyncronous-orbit-extra-credit-5-points" title="Link to this heading">#</a></h3>
 <p>🦉Determine the height a spaceship needs to be above the surface of the Earth to be in circular Geosynchronous orbit. A geosynchronous orbit is one that stays over the same point of Earth for the entire orbit.   To determine this, we need to set up our orbit simulation to run for an Earth/Satellite simulation.</p>
 <p>A useful thing to know is that the velocity that you need to apply tangeant to a circular orbit to stay in a circular orbit of radius <span class="math notranslate nohighlight">\(r\)</span> is</p>
 <div class="math notranslate nohighlight">
@@ -651,7 +685,7 @@ fig.gca().add_artist(earth_disk)
 <li><p><span class="math notranslate nohighlight">\(0.6 T_\textrm{orbit}&lt;t&lt;0.6 T_\textrm{orbit}+0.1T_\textrm{orbit}\)</span></p></li>
 </ul>
 <p>where <span class="math notranslate nohighlight">\(T_\textrm{orbit}\)</span> is the total time for an orbit.  Use Earth’s orbit to do this and a time-step of 1 hour.</p>
-<p>To compute the area, I summed a bunch of triangles that make up the points on the orbit.  Toward that end I found it useful to write a <code class="docutils literal notranslate"><span class="pre">TriangleArea</span></code> function.</p>
+<p>To compute the area, I summed a bunch of triangles that make up the points on the orbit.  To that end I found it useful to write a <code class="docutils literal notranslate"><span class="pre">triangle_area</span></code> function.</p>
 <p>Here is an example of the area sweeped out for 0.1T of an orbit at different times (<strong>but note that this is for a random orbit and not Earth’s orbit!</strong>):</p>
 <div><img src="https://clark.physics.illinois.edu/246img/KeplerSecond.png" width=600  alt="Kepler Second Law"></img><br></div><p>You should report what your two areas are.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
@@ -664,19 +698,24 @@ fig.gca().add_artist(earth_disk)
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="b-law-1-extra-credit-10-points">
 <h3>b. Law 1 (Extra Credit: 10 points)<a class="headerlink" href="#b-law-1-extra-credit-10-points" title="Link to this heading">#</a></h3>
-<p>The first law tells us that the orbit is an ellipse and the sun is at a focus.  🦉To check this,</p>
+<p>The first law tells us that:</p>
+<ol class="arabic simple">
+<li><p>the orbit is an ellipse and</p></li>
+<li><p>the sun is at a focus.</p></li>
+</ol>
+<p>You want to write two functions, each of which checks one of these criteria.</p>
+<p>🦉To check this,</p>
 <ul class="simple">
 <li><p>Modify the constants in your code to emulate planets (i.e. let <code class="docutils literal notranslate"><span class="pre">M</span></code> be the mass of the sun, <span class="math notranslate nohighlight">\(M_\textrm{sun} = 1.989 \times 10^{30}\)</span> kg)</p></li>
 <li><p>Let <code class="docutils literal notranslate"><span class="pre">dt</span></code> be an hour</p></li>
-<li><p>Emulate some eccentric orbits.  To do this, change the initial velocity by a little bit.  This will give you some eccentric orbits.</p></li>
+<li><p>Emulate some eccentric orbits.  To do this, change the initial velocity by a little bit.  This will give you eccentric orbits.</p></li>
 <li><p>Check that the orbit you get is an ellipse with the sun is a focus.</p></li>
 </ul>
-<p>The latter is a little subtle.  To check that you have an ellipse, we should verify that the points (<code class="docutils literal notranslate"><span class="pre">orbit.xs</span></code>) satisfy the general equation for an ellipse.</p>
-<p>The general equation for an ellipse (<a class="reference external" href="https://math.stackexchange.com/questions/426150/what-is-the-general-equation-of-the-ellipse-that-is-not-in-the-origin-and-rotate">stackexchange</a>) is</p>
-<div class="math notranslate nohighlight">
-\[ \frac{((x-h)\cos(A) + (y-k)\sin(A))^2}{a^2} + \frac{((x-h)\sin(A) - (y-k)\cos(A))^2}{b^2} =1\]</div>
-<p>where <span class="math notranslate nohighlight">\(a\)</span> is the length of the semi-major axis, <span class="math notranslate nohighlight">\(b\)</span> is the length of the semi-minor axis, <span class="math notranslate nohighlight">\((h,k)\)</span> is the center of the ellipse and <span class="math notranslate nohighlight">\(A\)</span> is the angle of the ellipse.</p>
-<p>Given a foci, we can compute the points closest and further from the loci, <span class="math notranslate nohighlight">\(p_{min}\)</span> and <span class="math notranslate nohighlight">\(p_{max}\)</span> which are at distance <span class="math notranslate nohighlight">\(r_{min}\)</span> and <span class="math notranslate nohighlight">\(r_{max}\)</span>.</p>
+<p>To check that you have an ellipse, we should verify that the points (<code class="docutils literal notranslate"><span class="pre">positions</span></code>) satisfy the general equation for an ellipse.</p>
+<p>The general equation for an ellipse (<a class="reference external" href="https://math.stackexchange.com/questions/426150/what-is-the-general-equation-of-the-ellipse-that-is-not-in-the-origin-and-rotate">stackexchange</a>) is
+$<span class="math notranslate nohighlight">\( \frac{((x-h)\cos(A) + (y-k)\sin(A))^2}{a^2} + \frac{((x-h)\sin(A) - (y-k)\cos(A))^2}{b^2} =1,\)</span><span class="math notranslate nohighlight">\(
+where \)</span>a<span class="math notranslate nohighlight">\( is the length of the semi-major axis, \)</span>b<span class="math notranslate nohighlight">\( is the length of the semi-minor axis, \)</span>(h,k)<span class="math notranslate nohighlight">\( is the center of the ellipse and \)</span>A$ is the angle of the ellipse.</p>
+<p>Given a focus, we can compute the points closest and further from the loci, <span class="math notranslate nohighlight">\(p_{min}\)</span> and <span class="math notranslate nohighlight">\(p_{max}\)</span> which are at distance <span class="math notranslate nohighlight">\(r_{min}\)</span> and <span class="math notranslate nohighlight">\(r_{max}\)</span>.</p>
 <p>With these we can compute</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(a=\frac{r_\textrm{min}+r_\textrm{max}}{2}\)</span></p></li>
@@ -685,7 +724,6 @@ fig.gca().add_artist(earth_disk)
 <li><p>the semi-major axis <span class="math notranslate nohighlight">\(\vec{a}=(p_\textrm{max}-p_\textrm{min})\)</span></p></li>
 <li><p>the angle <span class="math notranslate nohighlight">\(A=\tan^{-1}[\vec{a}(1)/\vec{a}(0)]\)</span></p></li>
 </ul>
-<p>I wrote a function <code class="docutils literal notranslate"><span class="pre">CheckEllipse</span></code> that given a set of coordinates (and the foci of the sun at the origin) assumed it was an ellipse and checked if the points obeyed this equation.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -700,7 +738,7 @@ fig.gca().add_artist(earth_disk)
 <p>In other words, <span class="math notranslate nohighlight">\(T^2 \propto a^3\)</span>.</p>
 <p><em>From Wikipedia quoting Kepler on finding the third law:</em></p>
 <div><img src="https://clark.physics.illinois.edu/246img/KeplerQuote.png" width=600  alt="Kepler Second Law"></img><br></div>
-<p>🦉Verify Kepler’s third law by computing the orbital period <span class="math notranslate nohighlight">\(T\)</span> (write a function that finds when your orbit essentially gets back to its starting place) and the semi-major axis (as you did above) for 25 different orbits.  To generate these orbits use random initial starting velocities of the form</p>
+<p>🦉Verify Kepler’s third law by computing the orbital period <span class="math notranslate nohighlight">\(T\)</span> (write a function that finds when your orbit gets back to its starting place) and the semi-major axis (as you did above) for 25 different orbits.  To generate these orbits use random initial starting velocities of the form</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v_circ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">M</span><span class="o">/</span><span class="n">r0</span><span class="p">)</span>
 <span class="n">v0</span><span class="o">=</span><span class="p">[</span><span class="n">v_circ</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span><span class="o">*</span><span class="n">v_circ</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span><span class="o">*</span><span class="n">v_circ</span><span class="p">]</span>
 </pre></div>
@@ -799,7 +837,7 @@ fig.gca().add_artist(earth_disk)
 <ul class="simple">
 <li><p>Start at the perihelion.</p></li>
 <li><p>Perform slightly more then one orbit (say 10% more)</p></li>
-<li><p>Measure the index in the array for the closest distance you get when you come back around.  To avoid measuring the fact that you are close at your “starting” location, I recommend that you look for your closest distance that isn’t in the first quarter of the orbit.</p></li>
+<li><p>Measure the index in the array for the closest point to the Sun you get when you come back around.  To avoid measuring the fact that you are close at your “starting” location, I recommend that you look for your closest distance that isn’t in the first quarter of the orbit.</p></li>
 <li><p>Now, because you are taking discrete time steps, the closest location you find might not actually be the closest location (because maybe it got closer somewhere between the steps you took).  This will matter for this measurement.  To fix this, let’s interpolate between around this part of the orbit.</p>
 <ul>
 <li><p>Take the three points before and after the position you found in the orbit</p></li>
@@ -809,29 +847,21 @@ fig.gca().add_artist(earth_disk)
 </ul>
 </li>
 </ul>
-<p>It will probably help you if you write a function <code class="docutils literal notranslate"><span class="pre">perihelion</span></code> that takes the positions array and generates the angle of precision.</p>
+<p>It will probably help you if you write a function <code class="docutils literal notranslate"><span class="pre">perihelion</span></code> that takes the positions array and generates the angle of precession.</p>
 <section id="a-mercury-without-general-relativity">
 <h3>a.  Mercury without general relativity<a class="headerlink" href="#a-mercury-without-general-relativity" title="Link to this heading">#</a></h3>
 <p>For our first step, we will compute the precession when we don’t have the relativistic term on.  If our integration was perfect, we should get zero. As we recall from earlier assignments, we know that that there is some time-step errors associated with our integration.  So instead of getting zero, we would expect to get something very close to zero.</p>
 <p>You are going to base your Mercury perihelion code on your orbital code from previous units. Let’s start by setting up your code for simulating Mercury’s orbit:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(r_\textrm{min}=4.60012 \times 10^{10}\)</span> m - i.e. <code class="docutils literal notranslate"><span class="pre">params[&quot;initPos&quot;]=np.array([0.0,4.60012e10])</span></code></p></li>
+<li><p><span class="math notranslate nohighlight">\(r_\textrm{min}=4.60012 \times 10^{10}\)</span> m - i.e. <code class="docutils literal notranslate"><span class="pre">initial_pos=np.array([0.0,4.60012e10])</span></code></p></li>
 <li><p><span class="math notranslate nohighlight">\(v=5.898 \times 10^{4}\)</span> m/s</p></li>
 <li><p><span class="math notranslate nohighlight">\(T=60 \times 60 \times 24 \times 88 \times 1.1\)</span> sec  (1.1 Mercury Years)</p></li>
 <li><p><span class="math notranslate nohighlight">\(dt=60\)</span>  sec.</p></li>
 </ul>
-<details>
-You may need to make sure to make all your parameters long doubles.  To do this I do 
-```
-for key in params.keys():
-  params[key]=np.longdouble(params[key])
-```
-However, I have found that this is not necessary.
-</details>
 <p>Plot the orbit of the eccentric Mercury and  report the closest and furthest distance your simulation gets from the sun.
 You should find a minimum distance of 46001200000.517811935.</p>
 <p>Then find the closest distance and nearby 5 points the second time around the orbit <em>not</em> where you started.  You should get</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                    <span class="n">y</span>                    <span class="n">r</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                    <span class="n">y</span>                    <span class="n">r</span> 
 <span class="o">-</span><span class="mf">10087525.09595282</span> <span class="mf">46001199082.443085</span> <span class="mf">46001200188.48122315</span>
 <span class="o">-</span><span class="mf">6548725.141774705</span> <span class="mf">46001199613.28912</span> <span class="mf">46001200079.42697562</span>
 <span class="o">-</span><span class="mf">3009925.1554468116</span> <span class="mf">46001199918.30062</span> <span class="mf">46001200016.772504188</span>
@@ -882,11 +912,11 @@ I get that it is -0.017013797776581767923 microradians (but because this is very
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">minimum</span> <span class="n">location</span> <span class="n">before</span> <span class="n">interpolation</span> <span class="ow">is</span>  <span class="mf">46001200000.654238053</span>
 <span class="n">The</span> <span class="n">minimum</span> <span class="n">location</span> <span class="n">after</span> <span class="n">interpolation</span> <span class="ow">is</span>  <span class="mf">46001199999.99801791</span>
 <span class="n">The</span> <span class="n">maximum</span> <span class="n">location</span> <span class="ow">is</span>  <span class="mf">46923484445.272278626</span>
-<span class="n">The</span> <span class="n">precision</span> <span class="n">angle</span> <span class="n">I</span> <span class="n">get</span> <span class="ow">is</span>  <span class="mf">0.4887683792163817</span>
+<span class="n">The</span> <span class="n">precession</span> <span class="n">angle</span> <span class="n">I</span> <span class="n">get</span> <span class="ow">is</span>  <span class="mf">0.4887683792163817</span>
 </pre></div>
 </div>
 <p>Note that the actual value is 0.5022 microradians per orbit. That’s pretty good!</p>
-<p><strong>HINT:</strong> For this assignment you need to get points around the closest distance (the second time around the orbit <em>not</em> where you start.  You should get some of the close points as</p>
+<p><strong>HINT:</strong> For this assignment you need to get points around the closest distance (the second time around the orbit, <em>not</em> where you start).  You should get some of the close points as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>                   <span class="n">y</span>                   <span class="n">r</span>
 <span class="o">-</span><span class="mf">9998967.016889445</span> <span class="mf">46001199099.338745</span> <span class="mf">46001200186.04237594</span>
 <span class="o">-</span><span class="mf">6460167.061694921</span> <span class="mf">46001199624.2306</span> <span class="mf">46001200077.84657632</span>
@@ -920,6 +950,215 @@ I get that it is -0.017013797776581767923 microradians (but because this is very
 <li><p>Ex 2: Bryan Clark (original)</p></li>
 <li><p>Ex 3: George Gollin (original); Bryan Clark (modifications)</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the filename</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">requests</span><span class="w"> </span><span class="kn">import</span> <span class="n">get</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">socket</span><span class="w"> </span><span class="kn">import</span> <span class="n">gethostname</span><span class="p">,</span> <span class="n">gethostbyname</span>
+<span class="n">ip</span> <span class="o">=</span> <span class="n">gethostbyname</span><span class="p">(</span><span class="n">gethostname</span><span class="p">())</span> 
+<span class="n">filename</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">:9000/api/sessions&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;%20&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CHECK FILENAME&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+<span class="c1"># Now we mount the file on Drive and convert it to HTML</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/Colab Notebooks/&quot;</span> <span class="o">+</span> <span class="n">filename</span>
+<span class="o">!</span>cp<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$filepath</span><span class="s2">&quot;</span><span class="w"> </span>./
+<span class="o">!</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>HTML<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span>
+<span class="n">files</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ipynb&quot;</span><span class="p">,</span><span class="s2">&quot;html&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ConnectionRefusedError</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connection.py:204,</span> in <span class="ni">HTTPConnection._new_conn</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">203</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">204</span>     <span class="n">sock</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span>         <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dns_host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span>         <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span>         <span class="n">source_address</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">source_address</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span>         <span class="n">socket_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">socket_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">gaierror</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/util/connection.py:85,</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address, socket_options)</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">85</span>     <span class="k">raise</span> <span class="n">err</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="c1"># Break explicitly a reference cycle</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/util/connection.py:73,</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address, socket_options)</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">source_address</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">73</span> <span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">sa</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="c1"># Break explicitly a reference cycle</span>
+
+<span class="ne">ConnectionRefusedError</span>: [Errno 111] Connection refused
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">NewConnectionError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connectionpool.py:787,</span> in <span class="ni">HTTPConnectionPool.urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span> <span class="c1"># Make the request on the HTTPConnection object</span>
+<span class="ne">--&gt; </span><span class="mi">787</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span>     <span class="n">conn</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span>     <span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span>     <span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span>     <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span>     <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span>     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">794</span>     <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>     <span class="n">retries</span><span class="o">=</span><span class="n">retries</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="n">response_conn</span><span class="o">=</span><span class="n">response_conn</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span>     <span class="n">preload_content</span><span class="o">=</span><span class="n">preload_content</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span>     <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span>     <span class="o">**</span><span class="n">response_kw</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">800</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">802</span> <span class="c1"># Everything went great!</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connectionpool.py:493,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">493</span>     <span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span>         <span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>         <span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span>         <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span>         <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>         <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span>         <span class="n">preload_content</span><span class="o">=</span><span class="n">preload_content</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span>         <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>         <span class="n">enforce_content_length</span><span class="o">=</span><span class="n">enforce_content_length</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">504</span> <span class="c1"># We are swallowing BrokenPipeError (errno.EPIPE) since the server is</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span> <span class="c1"># legitimately able to close the connection after sending a valid response.</span>
+<span class="g g-Whitespace">    </span><span class="mi">506</span> <span class="c1"># With this behaviour, the received response is still readable.</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connection.py:500,</span> in <span class="ni">HTTPConnection.request</span><span class="nt">(self, method, url, body, headers, chunked, preload_content, decode_content, enforce_content_length)</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span>     <span class="bp">self</span><span class="o">.</span><span class="n">putheader</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">500</span> <span class="bp">self</span><span class="o">.</span><span class="n">endheaders</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span> <span class="c1"># If we&#39;re given a body we start sending that in chunks.</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/http/client.py:1353,</span> in <span class="ni">HTTPConnection.endheaders</span><span class="nt">(self, message_body, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1352</span>     <span class="k">raise</span> <span class="n">CannotSendHeader</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1353</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send_output</span><span class="p">(</span><span class="n">message_body</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="o">=</span><span class="n">encode_chunked</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/http/client.py:1113,</span> in <span class="ni">HTTPConnection._send_output</span><span class="nt">(self, message_body, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1112</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">[:]</span>
+<span class="ne">-&gt; </span><span class="mi">1113</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1115</span> <span class="k">if</span> <span class="n">message_body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1116</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1117</span>     <span class="c1"># create a consistent interface to message_body</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/http/client.py:1057,</span> in <span class="ni">HTTPConnection.send</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1056</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_open</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1057</span>     <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1058</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connection.py:331,</span> in <span class="ni">HTTPConnection.connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span> <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">331</span>     <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_new_conn</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tunnel_host</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span>         <span class="c1"># If we&#39;re tunneling it means we&#39;re connected to our proxy.</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connection.py:219,</span> in <span class="ni">HTTPConnection._new_conn</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">219</span>     <span class="k">raise</span> <span class="n">NewConnectionError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>         <span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Failed to establish a new connection: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>     <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span> <span class="n">sys</span><span class="o">.</span><span class="n">audit</span><span class="p">(</span><span class="s2">&quot;http.client.connect&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+
+<span class="ne">NewConnectionError</span>: HTTPConnection(host=&#39;10.1.0.154&#39;, port=9000): Failed to establish a new connection: [Errno 111] Connection refused
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">MaxRetryError</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/adapters.py:644,</span> in <span class="ni">HTTPAdapter.send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">644</span>     <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span>         <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">646</span>         <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span>         <span class="n">body</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span>         <span class="n">headers</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span>         <span class="n">redirect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">assert_same_host</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">preload_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">652</span>         <span class="n">decode_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">653</span>         <span class="n">retries</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_retries</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">655</span>         <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span> <span class="k">except</span> <span class="p">(</span><span class="n">ProtocolError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connectionpool.py:841,</span> in <span class="ni">HTTPConnectionPool.urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">839</span>     <span class="n">new_e</span> <span class="o">=</span> <span class="n">ProtocolError</span><span class="p">(</span><span class="s2">&quot;Connection aborted.&quot;</span><span class="p">,</span> <span class="n">new_e</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">841</span> <span class="n">retries</span> <span class="o">=</span> <span class="n">retries</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">842</span>     <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">new_e</span><span class="p">,</span> <span class="n">_pool</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">_stacktrace</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">843</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">844</span> <span class="n">retries</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/util/retry.py:535,</span> in <span class="ni">Retry.increment</span><span class="nt">(self, method, url, response, error, _pool, _stacktrace)</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span>     <span class="n">reason</span> <span class="o">=</span> <span class="n">error</span> <span class="ow">or</span> <span class="n">ResponseError</span><span class="p">(</span><span class="n">cause</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">535</span>     <span class="k">raise</span> <span class="n">MaxRetryError</span><span class="p">(</span><span class="n">_pool</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">reason</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">reason</span>  <span class="c1"># type: ignore[arg-type]</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Incremented Retry for (url=&#39;</span><span class="si">%s</span><span class="s2">&#39;): </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">new_retry</span><span class="p">)</span>
+
+<span class="ne">MaxRetryError</span>: HTTPConnectionPool(host=&#39;10.1.0.154&#39;, port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError(&quot;HTTPConnection(host=&#39;10.1.0.154&#39;, port=9000): Failed to establish a new connection: [Errno 111] Connection refused&quot;))
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ConnectionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">socket</span><span class="w"> </span><span class="kn">import</span> <span class="n">gethostname</span><span class="p">,</span> <span class="n">gethostbyname</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ip</span> <span class="o">=</span> <span class="n">gethostbyname</span><span class="p">(</span><span class="n">gethostname</span><span class="p">())</span> 
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">:9000/api/sessions&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;%20&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CHECK FILENAME&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/api.py:73,</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="w">     </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Sends a GET request.</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span><span class="sd">     :param url: URL for the new :class:`Request` object.</span>
+<span class="sd">   (...)     70     :rtype: requests.Response</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">73</span>     <span class="k">return</span> <span class="n">request</span><span class="p">(</span><span class="s2">&quot;get&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/api.py:59,</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="c1"># By using the &#39;with&#39; statement we are sure the session is closed, thus we</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="c1"># avoid leaving sockets open which can trigger a ResourceWarning in some</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="c1"># cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="k">with</span> <span class="n">sessions</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">59</span>     <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/sessions.py:589,</span> in <span class="ni">Session.request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span> <span class="n">send_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span>     <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="n">timeout</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">586</span>     <span class="s2">&quot;allow_redirects&quot;</span><span class="p">:</span> <span class="n">allow_redirects</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> <span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span> <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span> <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span> <span class="k">return</span> <span class="n">resp</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/sessions.py:703,</span> in <span class="ni">Session.send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">700</span> <span class="n">start</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span> <span class="c1"># Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">703</span> <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span> <span class="c1"># Total elapsed time of the request (approximately)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span> <span class="n">elapsed</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/adapters.py:677,</span> in <span class="ni">HTTPAdapter.send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">673</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span> <span class="n">_SSLError</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span>         <span class="c1"># This branch is for urllib3 v1.22 and later.</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span>         <span class="k">raise</span> <span class="n">SSLError</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">677</span>     <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">679</span> <span class="k">except</span> <span class="n">ClosedPoolError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+
+<span class="ne">ConnectionError</span>: HTTPConnectionPool(host=&#39;10.1.0.154&#39;, port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError(&quot;HTTPConnection(host=&#39;10.1.0.154&#39;, port=9000): Failed to establish a new connection: [Errno 111] Connection refused&quot;))
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -990,14 +1229,14 @@ I get that it is -0.017013797776581767923 microradians (but because this is very
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmups">Warmups</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#planetary-parameters">Planetary Parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-dictionaries">Using Dictionaries</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-orbital-dynamics">Exercise 1. Orbital Dynamics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-modify-your-code-to-include-the-force-of-gravity">a. Modify your code to include the force of gravity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-earth-orbiting-the-sun">b.  Earth Orbiting the Sun</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-animation">c. Animation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-geosyncronous-orbit-extra-credit-5-points">d. Geosyncronous Orbit (Extra Credit: 5 Points)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-orbital-dynamics">Exercise 1. Orbital Dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-plot-a-model-of-the-solar-system">a. Plot a model of the solar system.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-modify-your-code-to-include-the-force-of-gravity">b. Modify your code to include the force of gravity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-earth-orbiting-the-sun">c.  Earth Orbiting the Sun</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-animation">d. Animation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-geosyncronous-orbit-extra-credit-5-points">e. Geosyncronous Orbit (Extra Credit: 5 Points)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-kepler-s-laws">Exercise 2. Kepler’s Laws</a><ul class="nav section-nav flex-column">

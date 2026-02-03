@@ -124,30 +124,24 @@ z2 = f(x=6,y=6)
 ##### Instructions for submitting your assignments
 Once you are finished working on an assignment, save a .pdf printout copy of your Colab document. This can be done by the following code
 ```
+# Get the filename
 from requests import get
 from socket import gethostname, gethostbyname
 ip = gethostbyname(gethostname()) 
 filename = get(f"http://{ip}:9000/api/sessions").json()[0]['name']
-print(filename)
+filename = filename.replace("%20"," ")
+print("CHECK FILENAME", filename)
+
+# Now we mount the file on Drive and convert it to HTML
 from google.colab import files
 from google.colab import drive
 drive.mount('/content/drive')
-#filename = "FILE_NAME_GOES_HERE"
 filepath = "/content/drive/MyDrive/Colab Notebooks/" + filename
 !cp "$filepath" ./
 !jupyter nbconvert --to HTML "$filename"
 files.download(filename.replace("ipynb","html"))
 ```
 where you replace your filenames above with the appropriate ones for your assignment. Then open the HTML file in your web browser and print from there.
-
-You need to make sure that you save your notebook in the path given; if you choose a different path then you need to change the code. 
-Sometimes if there are spaces in your filename, you may get an error; try putting in 
-```
-filename = get(f"http://{ip}:9000/api/sessions").json()[0]['name']
-filename = filename.replace("%20", " ")
-print(filename)
-```
-if you do have this issue.
 
 
 Assignments are submitted via Gradescope, which requires two simple steps.  
@@ -206,9 +200,9 @@ Sometimes there are typos in the assignment (although we are working hard to rem
 
 #### Attendance  
 
-Students are strongly enoucarged to attend class, participate in lectures, and make use of office hours. While no explicit attendance requirements are in place, participation is factored in at the end of the semester if a student has a boarderline grade as well as for when students ask for homework extensions.  Thus, it is in the student's best interest to regularly attend class. 
-
-The first half of class includes a lecture/overview of the problem. The second half of class provides you with time to work on the problem (in small groups and with the instructuor and TAs available for help). The first half of class is invaluable to introduce the problem, the second half can help you get started. 
+Students are strongly encouraged to attend class, participate in lectures, and make use of office hours. 
+A quiz will be given every class at the beginning, and can only be taken in class.
+The first half of class includes a lecture/overview of the problem. The second half of class provides you with time to work on the problem (in small groups and with the instructor and TAs available for help). The first half of class is invaluable to introduce the problem, the second half can help you get started. 
 
 If a major event occurs e.g. death in the family, major illness etc, it is best 
 
@@ -217,7 +211,7 @@ The quickest way to deal with the arcana of programing is to ask Google for exam
 
 The goal of this course is for you to deeply understand this material. For this to work, you’ll need to write your own code.
 
-#### About Large Langauge Models
+#### About Large Language Models
 In a similar vein, you aren't allowed to use LLM to write your code.  This includes chatGPT, google bard/gemini, claude, etc. **You must turn off the generative AI in colab if you have it on (which it might be by default)**. 
 
 #### Academic Integrity
@@ -228,6 +222,11 @@ It is cheating to receive answers from another student and then use them as your
 All activities in this course are subject to the Academic Integrity rules as described in Article 1, Part 4, Academic Integrity, of the Student Code.
 
 
+#### Late policy
+
+In general, we will apply a 10% penalty for every day that the homework is late. 
+If you need a little more time and have a qualifying reason (i.e., medical, etc), let us know and propose a new due date BEFORE the due date of the homework. 
+If this is approved, you will not be penalized for the late submission.
 
 ---
 

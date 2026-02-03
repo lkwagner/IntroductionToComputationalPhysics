@@ -49,8 +49,6 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-!pip install climlab
-!wget https://clark.physics.illinois.edu/temp.data
-
+!wget https://clark.physics.illinois.edu/particle_helper.py
 -------------------
 

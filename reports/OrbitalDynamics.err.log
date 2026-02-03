@@ -28,19 +28,23 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+# Get the filename
 from requests import get
 from socket import gethostname, gethostbyname
 ip = gethostbyname(gethostname()) 
 filename = get(f"http://{ip}:9000/api/sessions").json()[0]['name']
-print(filename)
+filename = filename.replace("%20"," ")
+print("CHECK FILENAME", filename)
+
+# Now we mount the file on Drive and convert it to HTML
 from google.colab import files
 from google.colab import drive
 drive.mount('/content/drive')
-#filename = "FILE_NAME_GOES_HERE"
 filepath = "/content/drive/MyDrive/Colab Notebooks/" + filename
 !cp "$filepath" ./
 !jupyter nbconvert --to HTML "$filename"
 files.download(filename.replace("ipynb","html"))
+
 ------------------
 
 
@@ -179,12 +183,12 @@ The above exception was the direct cause of the following exception:
 During handling of the above exception, another exception occurred:
 
 [31mConnectionError[39m                           Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[18][39m[32m, line 4[39m
-[32m      2[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01msocket[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m gethostname, gethostbyname
-[32m      3[39m ip = gethostbyname(gethostname()) 
-[32m----> [39m[32m4[39m filename = [43mget[49m[43m([49m[33;43mf[39;49m[33;43m"[39;49m[33;43mhttp://[39;49m[38;5;132;43;01m{[39;49;00m[43mip[49m[38;5;132;43;01m}[39;49;00m[33;43m:9000/api/sessions[39;49m[33;43m"[39;49m[43m)[49m.json()[[32m0[39m][[33m'[39m[33mname[39m[33m'[39m]
-[32m      5[39m [38;5;28mprint[39m(filename)
-[32m      6[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mgoogle[39;00m[34;01m.[39;00m[34;01mcolab[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m files
+[36mCell[39m[36m [39m[32mIn[14][39m[32m, line 5[39m
+[32m      3[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01msocket[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m gethostname, gethostbyname
+[32m      4[39m ip = gethostbyname(gethostname()) 
+[32m----> [39m[32m5[39m filename = [43mget[49m[43m([49m[33;43mf[39;49m[33;43m"[39;49m[33;43mhttp://[39;49m[38;5;132;43;01m{[39;49;00m[43mip[49m[38;5;132;43;01m}[39;49;00m[33;43m:9000/api/sessions[39;49m[33;43m"[39;49m[43m)[49m.json()[[32m0[39m][[33m'[39m[33mname[39m[33m'[39m]
+[32m      6[39m filename = filename.replace([33m"[39m[33m%[39m[33m20[39m[33m"[39m,[33m"[39m[33m [39m[33m"[39m)
+[32m      7[39m [38;5;28mprint[39m([33m"[39m[33mCHECK FILENAME[39m[33m"[39m, filename)
 
 [36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/api.py:73[39m, in [36mget[39m[34m(url, params, **kwargs)[39m
 [32m     62[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mget[39m(url, params=[38;5;28;01mNone[39;00m, **kwargs):
