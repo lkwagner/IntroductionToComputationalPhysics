@@ -144,7 +144,7 @@ The above exception was the direct cause of the following exception:
 [32m    221[39m     ) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01me[39;00m
 [32m    223[39m sys.audit([33m"[39m[33mhttp.client.connect[39m[33m"[39m, [38;5;28mself[39m, [38;5;28mself[39m.host, [38;5;28mself[39m.port)
 
-[31mNewConnectionError[39m: HTTPConnection(host='10.1.0.150', port=9000): Failed to establish a new connection: [Errno 111] Connection refused
+[31mNewConnectionError[39m: HTTPConnection(host='10.1.0.217', port=9000): Failed to establish a new connection: [Errno 111] Connection refused
 
 The above exception was the direct cause of the following exception:
 
@@ -178,7 +178,7 @@ The above exception was the direct cause of the following exception:
 [32m--> [39m[32m535[39m     [38;5;28;01mraise[39;00m MaxRetryError(_pool, url, reason) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mreason[39;00m  [38;5;66;03m# type: ignore[arg-type][39;00m
 [32m    537[39m log.debug([33m"[39m[33mIncremented Retry for (url=[39m[33m'[39m[38;5;132;01m%s[39;00m[33m'[39m[33m): [39m[38;5;132;01m%r[39;00m[33m"[39m, url, new_retry)
 
-[31mMaxRetryError[39m: HTTPConnectionPool(host='10.1.0.150', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.0.150', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[31mMaxRetryError[39m: HTTPConnectionPool(host='10.1.0.217', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.0.217', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
 
 During handling of the above exception, another exception occurred:
 
@@ -230,5 +230,5 @@ During handling of the above exception, another exception occurred:
 [32m    679[39m [38;5;28;01mexcept[39;00m ClosedPoolError [38;5;28;01mas[39;00m e:
 [32m    680[39m     [38;5;28;01mraise[39;00m [38;5;167;01mConnectionError[39;00m(e, request=request)
 
-[31mConnectionError[39m: HTTPConnectionPool(host='10.1.0.150', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.0.150', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[31mConnectionError[39m: HTTPConnectionPool(host='10.1.0.217', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.0.217', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
 
