@@ -442,13 +442,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 12, 23, 40, 34, 750435)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 18, 23, 51, 18, 224417)
 </pre></div>
 </div>
 </div>
 </details>
 </div>
-<p>In this project we are going to learn about pendulum and chaos.  We will start with a single pendulum, examining phase space diagrams and animating trajectories, and moving toward a double pendulum. Then we’ll wrap up by using automatic differentiation to look at the same problem, recast in a different form, to write a more general solution to the double pendulum problem.</p>
+<p>In this project we are going to learn about pendulum and chaos.  We will start with a single pendulum, examining phase space diagrams and animating trajectories, and moving toward a double pendulum.</p>
 <section id="exercise-1-single-pendulum">
 <h2>Exercise 1. Single Pendulum<a class="headerlink" href="#exercise-1-single-pendulum" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -464,12 +464,18 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">animateMe_single_pendulum</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">animate_single_pendulum</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">l1</span><span class="p">):</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Animate a trajectory</span>
+<span class="sd">    positions: list of np.array, each of shape (T,1) where T is the number of time steps and 1 corresponds to the angle of the pendulum</span>
+<span class="sd">    l1: length of the pendulum</span>
+<span class="sd">    returns: a matplotlib animation object that can be displayed in a Jupyter notebook by running HTML(ani.to_jshtml())</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">positionArray</span><span class="o">=</span><span class="p">[]</span>
     <span class="k">for</span> <span class="n">position</span> <span class="ow">in</span> <span class="n">positions</span><span class="p">:</span>
         <span class="n">theta1</span><span class="o">=</span><span class="n">position</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">x1</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span>
-        <span class="n">y1</span><span class="o">=-</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span>
+        <span class="n">x1</span><span class="o">=</span><span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span>
+        <span class="n">y1</span><span class="o">=-</span><span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span>
         <span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
         <span class="n">position</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">l</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
         <span class="n">position</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">x1</span>
@@ -498,7 +504,6 @@ document.write(`
             <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="o">+</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]],[</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
             <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]],[</span><span class="mi">0</span><span class="p">,</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
         <span class="k">return</span> <span class="n">lines</span>
-    <span class="n">ll</span><span class="o">=</span><span class="mi">1</span>
     <span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">positionArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">fargs</span><span class="o">=</span><span class="p">[</span><span class="n">positionArray</span><span class="p">,</span> <span class="n">lines</span><span class="p">],</span>
                       <span class="n">interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">repeat</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -513,8 +518,46 @@ document.write(`
 <p>When working with pendula, instead of keeping track of the position <span class="math notranslate nohighlight">\((x,y)\)</span>, we instead are going to keep track of the angle <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/pendula.png" width=400  alt="Answer (start)"></img><br></div><p>In this exercise, we are going to simulate a pendulum with a rigid rod <span class="math notranslate nohighlight">\(L\)</span> and a fixed mass <span class="math notranslate nohighlight">\(m\)</span> at the end of it.  We can define the position of the pendulum by the angle it makes with respect to hanging down (at <span class="math notranslate nohighlight">\(\theta=0\)</span>).</p>
 <p>You can force your code to use theta simply by giving initial conditions and velocities for a single dimension (i.e. <code class="docutils literal notranslate"><span class="pre">params['initPos']=np.array([0.1])</span></code> would start you pendulum at 0.1 radians.</p>
-<p>The “force” (angular acceleration) of a single pendulum is <span class="math notranslate nohighlight">\(\alpha(\theta)= -g\sin(\theta)/L\)</span>.  Modify the force function to use this new “force”.</p>
-<p>🦉Run a simulation with no initial velocity and an initial angle of <span class="math notranslate nohighlight">\(\theta=0.6\)</span> and a <span class="math notranslate nohighlight">\(dt=0.01\)</span> for a time <span class="math notranslate nohighlight">\(T=10\)</span>. Set <span class="math notranslate nohighlight">\(L=1\)</span> (<code class="docutils literal notranslate"><span class="pre">params['l1']=1</span></code>).</p>
+<p>The “force” (angular acceleration) of a single pendulum is</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha(\theta) \equiv \frac{d^2 \theta}{dt^2}= -B\sin(\theta)/L,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(B\)</span> (on Earth) is the gravitational constant <span class="math notranslate nohighlight">\(g\)</span>.</p>
+<p>🦉Write a function that uses the midpoint method to simulate a pendulum:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">simulate_single_pendulum</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulate a single pendulum </span>
+<span class="sd">    p: SinglePendulumParams that defines the system</span>
+<span class="sd">    s: SinglePendulumSimulation that defines the particular simulation parameters</span>
+
+<span class="sd">    Returns: </span>
+<span class="sd">       times: np.ndarray (nstep,)</span>
+<span class="sd">       thetas: np.ndaray (nstep,)</span>
+<span class="sd">       omegas: np.ndarray (nstep,)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>NOTE: If you have had trouble getting the midpoint method to work, please ask for help!</p>
+<p>We first want to run a simulation with the following parameters:</p>
+<ul class="simple">
+<li><p>B = 9.8  (this is the force of gravity)</p></li>
+<li><p>L = 1.0</p></li>
+<li><p>m = 1.0 (actually m doesn’t matter until we add driving forces later)</p></li>
+<li><p>A = C = omega_drive = 0  (these will be driving/damping which we will treat later)
+You can make a parameter object as follows:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">SinglePendulumParams</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="mf">9.8</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Run a simulation with no initial velocity and an initial angle of <span class="math notranslate nohighlight">\(\theta=0.6\)</span> and a <span class="math notranslate nohighlight">\(dt=0.01\)</span> for a time <span class="math notranslate nohighlight">\(T=10\)</span>. You can set this up by</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">SinglePendulumSimulation</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">theta_0</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">omega_0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You then should be able to generate the trajectory using your function by calling</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">times</span><span class="p">,</span> <span class="n">thetas</span><span class="p">,</span> <span class="n">omegas</span> <span class="o">=</span> <span class="n">simulate_single_pendulum</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Plot</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\theta\)</span> vs. <span class="math notranslate nohighlight">\(t\)</span></p></li>
@@ -525,7 +568,50 @@ document.write(`
 <p>A phase space diagram is a graph displaying the position and velocity of an object on the abscissa (x axis) and ordinate (y axis). Since an undamped, undriven harmonic oscillator moves with</p>
 <div class="math notranslate nohighlight">
 \[\theta(t) = A\cos(\Omega t + \phi)\hspace{2cm} \omega(t)=-A\Omega\sin(\Omega t+\phi)\]</div>
-<p>its phase trajectory will be an ellipse with axes of lengths <span class="math notranslate nohighlight">\(2A\)</span> and <span class="math notranslate nohighlight">\(2A\Omega\)</span>.</p>
+<p>its phase trajectory will be an ellipse with axes of lengths <span class="math notranslate nohighlight">\(2A\)</span> and <span class="math notranslate nohighlight">\(2A\Omega\)</span>. Confirm that you get this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclass</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SinglePendulumParams</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Define the parameters of the single pendulum system</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">m</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># mass (actually this doesn&#39;t really matter so we default it to 1)</span>
+    <span class="n">L</span><span class="p">:</span> <span class="nb">float</span>   <span class="c1"># length of the pendulum</span>
+    <span class="n">A</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># damping</span>
+    <span class="n">B</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">9.8</span> <span class="c1"># restoring force</span>
+    <span class="n">C</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># driving force</span>
+    <span class="n">omega_drive</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># driving frequency </span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SinglePendulumSimulation</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Define the simulation parameters for the single pendulum system</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># time step</span>
+    <span class="n">T</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">20.0</span> <span class="c1"># total time of the simulation</span>
+    <span class="n">omega_0</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># initial angular velocity</span>
+    <span class="n">theta_0</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># initial angle</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">dataclass</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nd">@dataclass</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">class</span><span class="w"> </span><span class="nc">SinglePendulumParams</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="sd">     Define the parameters of the single pendulum system</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="sd">     &quot;&quot;&quot;</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;dataclass&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-cell docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -547,37 +633,34 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#RUN ME TO ANIMATE YOUR CODE</span>
-<span class="n">ani</span><span class="o">=</span><span class="n">animateMe_single_pendulum</span><span class="p">([</span><span class="n">positions</span><span class="p">],</span> <span class="n">params</span><span class="p">)</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#RUN ME TO ANIMATE YOUR CODE</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ani</span><span class="o">=</span><span class="n">animateMe_single_pendulum</span><span class="p">([</span><span class="n">positions</span><span class="p">],</span> <span class="n">params</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-
-<span class="ne">NameError</span>: name &#39;positions&#39; is not defined
+<span class="c1">#ani=animate_single_pendulum([thetas], l1=p1.L)</span>
+<span class="c1">#HTML(ani.to_jshtml())</span>
 </pre></div>
 </div>
 </div>
 </details>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:</strong> Does the phase space diagram match your expectations? Explain</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:</strong> Does the phase space diagram match the analytic expectations? Explain how you know.</p>
 <p><strong>A:</strong></p>
 </section>
 <section id="b-pendula-and-different-starting-positions">
 <h3>b. Pendula and different starting positions<a class="headerlink" href="#b-pendula-and-different-starting-positions" title="Link to this heading">#</a></h3>
-<p>Recall in your intro mechanics class (Physics 211/etc) that you know the analytic solution for a pendulum is
-$<span class="math notranslate nohighlight">\(
+<p>Recall in your intro mechanics class (Physics 211/etc) that you know the analytic solution for a pendulum is</p>
+<div class="math notranslate nohighlight">
+\[
 \theta(t) = \theta_0 \cos(\Omega t)
-\)</span>$
-However, that solution only works for <em>small angles</em>.</p>
-<p>🦉Let’s quickly check this, by looking at the “<strong>error</strong>” (difference) against the ‘analytic solution’ for <span class="math notranslate nohighlight">\(\theta_0 \in \{0.1,0.3,1\}\)</span>.</p>
-<p>Then plot their phase space diagrams on top of one another. What do you see?</p>
+\]</div>
+<p>However, that solution only works for <em>small angles</em>.</p>
+<p>🦉Let’s quickly check this, by looking at the between the small-angle analytic formula and the numerical solution for <span class="math notranslate nohighlight">\(\theta_0 \in \{0.1,0.3,1\}\)</span>.</p>
+<p>For each value of <span class="math notranslate nohighlight">\(\theta_0\)</span>, plot the phase space diagram using the intro mechanics solution and the numerical solution on top of one another.</p>
+<p>It may help to use subplots; for example, you can do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">thetas1</span><span class="p">,</span> <span class="n">omegas1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;$theta_0$=0.1$)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">thetas2</span><span class="p">,</span><span class="n">omegas2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>etc.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###ANSWER HERE</span>
@@ -592,27 +675,16 @@ However, that solution only works for <em>small angles</em>.</p>
 <p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ani</span><span class="o">=</span><span class="n">animateMe_single_pendulum</span><span class="p">([</span><span class="n">positions</span><span class="p">,</span><span class="n">positions2</span><span class="p">,</span><span class="n">positions3</span><span class="p">],</span> <span class="n">params</span><span class="p">)</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="n">c20e2e49c50c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ani</span><span class="o">=</span><span class="n">animateMe_singlePendula</span><span class="p">([</span><span class="n">positions</span><span class="p">,</span><span class="n">positions2</span><span class="p">,</span><span class="n">positions3</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-
-<span class="ne">NameError</span>: name &#39;positions&#39; is not defined
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ani=animateMe_single_pendulum([positions,positions2,positions3], L)</span>
+<span class="c1">#HTML(ani.to_jshtml())</span>
 </pre></div>
 </div>
 </div>
 </details>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:</strong> Describe the “error” plot; what’s going on?</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:</strong> Describe the difference between the small-angle formula and numerical result as a function of the amplitude.</p>
 <p><strong>A:</strong></p>
-<p><strong>Q:</strong> What does the phase space diagram look like now? Do any of these initial conditions change the “simple” behaivor of the pendulum?</p>
+<p><strong>Q:</strong> Which solution do you expect to be more accurate? Can you explain the trend from above?</p>
 <p><strong>A:</strong></p>
 </section>
 <section id="c-damped-and-driven-and-phase-plots">
@@ -637,17 +709,21 @@ However, that solution only works for <em>small angles</em>.</p>
 <p>where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are positive constants.  We can rewrite this as a pair of first order equations:</p>
 <div class="math notranslate nohighlight">
 \[\frac{d\theta}{dt}=\omega \hspace{3cm} \frac{d\omega}{dt} = -A\omega -B\sin\theta+C\sin\Omega_\mathrm{ext} t\]</div>
-<p>🦉Please write a program to calculate (and graph) <span class="math notranslate nohighlight">\(\theta\)</span> vs. <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span> vs. <span class="math notranslate nohighlight">\(t\)</span> for the pendulum. You may find it convenient to write your expression for the force in this way:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Force</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">params</span><span class="p">):</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span>
-    <span class="n">B</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span>
-    <span class="n">C</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span>
-    <span class="n">OMEGA</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;OMEGA&#39;</span><span class="p">]</span>
-    <span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="n">A</span><span class="o">*</span><span class="n">vel</span> <span class="o">-</span> <span class="n">B</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">+</span> <span class="n">C</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">OMEGA</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> 
+<p>🦉Update <code class="docutils literal notranslate"><span class="pre">simulate_single_pendulum</span></code> to calculate (and graph) <span class="math notranslate nohighlight">\(\theta\)</span> vs. <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span> vs. <span class="math notranslate nohighlight">\(t\)</span> for the pendulum. You may find it convenient to write your expression for the force in this way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">force_single_pendulum</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">theta</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    t : current time (s)</span>
+<span class="sd">    theta: current angle</span>
+<span class="sd">    omega: current angular velocity</span>
+<span class="sd">    p: SinglePendulumParams </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    d omega / dt </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span><span class="o">.</span><span class="n">A</span><span class="o">*</span><span class="n">omega</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">B</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">C</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">omega_drive</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> 
     <span class="k">return</span> <span class="n">F</span>
 </pre></div>
 </div>
-<p><strong>Make sure when you make your plots that all values of <span class="math notranslate nohighlight">\(\theta\)</span> are <span class="math notranslate nohighlight">\(-\pi \leq \theta \leq \pi\)</span>.  When you produce your graphs make sure that you wrap things so that those are the only values that you see on your graph.</strong></p>
+<p><strong>Make sure when you make your plots that all values of <span class="math notranslate nohighlight">\(\theta\)</span> are <span class="math notranslate nohighlight">\(-\pi \leq \theta \leq \pi\)</span>.  When you produce your graphs make sure that you wrap things so that those are the only values that you see on your graph.</strong> You may want to use <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> so that there are not annoying lines.</p>
 <p>Run your program with the following parameters and be sure to include all the plots in your Jupyter notebook.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -708,7 +784,7 @@ However, that solution only works for <em>small angles</em>.</p>
 </div>
 <p>Version 1 is an undamped, undriven pendulum. The amplitude of motion is small enough so that it behaves very much like a harmonic oscillator with oscillation frequency <span class="math notranslate nohighlight">\(\Omega=\sqrt{0.1}\)</span>.   Version 2 is lightly damped, and driven at twice its natural frequency. As the initial motion (which has <span class="math notranslate nohighlight">\(\Omega=1\)</span>) dies away, the driving force will cause it to oscillate at the same frequency as the driving frequency.</p>
 <p>It takes longer for the pendulum to settle down than it did in case 2.</p>
-<p>If we had tuned the parameters just right, we might have found a set for which the motion was chaotic, never settling into a periodic mode.</p>
+<p>If we had tuned the parameters just right, we might have found a set for which the motion was chaotic, never settling into a periodic motion.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -782,21 +858,9 @@ However, that solution only works for <em>small angles</em>.</p>
 <p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions2</span><span class="p">)</span>
-<span class="n">ani</span><span class="o">=</span><span class="n">animateMe_single_pendulum</span><span class="p">([</span><span class="n">positions2</span><span class="p">[::</span><span class="n">l</span><span class="o">//</span><span class="mi">1000</span><span class="p">]],</span> <span class="n">params</span><span class="p">)</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">ba72a2bbd4c2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ani</span><span class="o">=</span><span class="n">animateMe_singlePendula</span><span class="p">([</span><span class="n">positions2</span><span class="p">[::</span><span class="n">l</span><span class="o">//</span><span class="mi">1000</span><span class="p">]])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-
-<span class="ne">NameError</span>: name &#39;positions2&#39; is not defined
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#l=len(positions2)</span>
+<span class="c1">#ani=animate_single_pendulum([positions2[::l//1000]], L)</span>
+<span class="c1">#HTML(ani.to_jshtml())</span>
 </pre></div>
 </div>
 </div>
@@ -809,21 +873,9 @@ However, that solution only works for <em>small angles</em>.</p>
 <p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions4</span><span class="p">)</span>
-<span class="n">ani</span><span class="o">=</span><span class="n">animateMe_single_pendulum</span><span class="p">([</span><span class="n">positions4</span><span class="p">[::</span><span class="n">l</span><span class="o">//</span><span class="mi">5000</span><span class="p">]],</span> <span class="n">params</span><span class="p">)</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">375</span><span class="n">a96337bdc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions4</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ani</span><span class="o">=</span><span class="n">animateMe_singlePendula</span><span class="p">([</span><span class="n">positions4</span><span class="p">[::</span><span class="n">l</span><span class="o">//</span><span class="mi">5000</span><span class="p">]])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-
-<span class="ne">NameError</span>: name &#39;positions4&#39; is not defined
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#l=len(positions4)</span>
+<span class="c1">#ani=animate_single_pendulum([positions4[::l//5000]], L)</span>
+<span class="c1">#HTML(ani.to_jshtml())</span>
 </pre></div>
 </div>
 </div>
@@ -837,7 +889,7 @@ However, that solution only works for <em>small angles</em>.</p>
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<p>Single (rigid) Pendula are somewhat boring.  We can compute most things about them analytically. A double pendulum on the other hand has a much richer behavior.  In this exercise you are going to simulate a double pendulum.</p>
+<p>Single (rigid) pendula are somewhat boring.  We can compute most things about them analytically. A double pendulum on the other hand has a much richer behavior.  In this exercise you are going to simulate a double pendulum.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -845,15 +897,22 @@ However, that solution only works for <em>small angles</em>.</p>
 <p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">animateMe_double_pendulum</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">animate_double_pendulum</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Animate a trajectory</span>
+<span class="sd">    positions: list of np.array, each of shape (T,2) where T is the number of time steps and 2 corresponds to the two angles of the pendulum</span>
+<span class="sd">    l1: length of the first pendulum</span>
+<span class="sd">    l2: length of the second pendulum</span>
+<span class="sd">    returns: a matplotlib animation object that can be displayed in a Jupyter notebook by running HTML(ani.to_jshtml())</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">positionArray</span><span class="o">=</span><span class="p">[]</span>
     <span class="k">for</span> <span class="n">position</span> <span class="ow">in</span> <span class="n">positions</span><span class="p">:</span>
         <span class="n">theta1</span><span class="o">=</span><span class="n">position</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">theta2</span><span class="o">=</span><span class="n">position</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">x1</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span>
-        <span class="n">y1</span><span class="o">=-</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span>
-        <span class="n">x2</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span><span class="o">+</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;l2&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta2</span><span class="p">)</span>
-        <span class="n">y2</span><span class="o">=-</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span><span class="o">-</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;l2&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta2</span><span class="p">)</span>
+        <span class="n">x1</span><span class="o">=</span><span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span>
+        <span class="n">y1</span><span class="o">=-</span><span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span>
+        <span class="n">x2</span><span class="o">=</span><span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span><span class="o">+</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta2</span><span class="p">)</span>
+        <span class="n">y2</span><span class="o">=-</span><span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta1</span><span class="p">)</span><span class="o">-</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta2</span><span class="p">)</span>
         <span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
         <span class="n">positions</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">l</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
         <span class="n">positions</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">x1</span>
@@ -876,10 +935,10 @@ However, that solution only works for <em>small angles</em>.</p>
     <span class="n">lines</span><span class="o">=</span><span class="p">[]</span>
     <span class="n">colorWheel</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span><span class="n">positions</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">positionArray</span><span class="p">):</span>
-        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colorWheel</span><span class="p">[</span><span class="mi">0</span><span class="p">]))[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colorWheel</span><span class="p">[</span><span class="mi">0</span><span class="p">]))[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colorWheel</span><span class="p">[</span><span class="mi">0</span><span class="p">]))[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colorWheel</span><span class="p">[</span><span class="mi">0</span><span class="p">]))[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colorWheel</span><span class="p">[</span><span class="n">idx</span><span class="o">%</span><span class="k">len</span>(colorWheel)]))[0])
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colorWheel</span><span class="p">[</span><span class="n">idx</span><span class="o">%</span><span class="k">len</span>(colorWheel)]))[0])
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colorWheel</span><span class="p">[</span><span class="n">idx</span><span class="o">%</span><span class="k">len</span>(colorWheel)]))[0])
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colorWheel</span><span class="p">[</span><span class="n">idx</span><span class="o">%</span><span class="k">len</span>(colorWheel)]))[0])
         
         
     <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">positionArray</span><span class="p">,</span><span class="n">lines</span><span class="p">):</span>
@@ -894,6 +953,27 @@ However, that solution only works for <em>small angles</em>.</p>
                       <span class="n">interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">repeat</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">ani</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DoublePendulumParams</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Define the parameters of the double pendulum system</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">m1</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span> 
+    <span class="n">m2</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span> 
+    <span class="n">L1</span><span class="p">:</span> <span class="nb">float</span>   <span class="c1"># length of the first pendulum</span>
+    <span class="n">L2</span><span class="p">:</span> <span class="nb">float</span>   <span class="c1"># length of the second pendulum</span>
+    <span class="n">g</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">9.8</span> <span class="c1"># restoring force</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DoublePendulumSimulation</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Define the simulation parameters for the double pendulum system</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># time step</span>
+    <span class="n">T</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">20.0</span> <span class="c1"># total time of the simulation</span>
+    <span class="n">omega_0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="c1"># initial angular velocity (2,)</span>
+    <span class="n">theta_0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="c1"># initial angle (2,)</span>
 </pre></div>
 </div>
 </div>
@@ -912,32 +992,45 @@ However, that solution only works for <em>small angles</em>.</p>
 <li><p>use the Euler-Lagrange equations.  This ia a better approach for systems with constraints and is something you will learn in classical mechanics.</p></li>
 </ul>
 <p>At the moment we will just give you the effective force<a class="reference internal" href="#fn1"><span class="xref myst"><sup>1</sup></span></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span><span class="o">=-</span><span class="n">l2</span><span class="o">/</span><span class="n">l1</span> <span class="o">*</span><span class="p">(</span><span class="n">m2</span><span class="o">/</span><span class="p">(</span><span class="n">m1</span><span class="o">+</span><span class="n">m2</span><span class="p">))</span><span class="o">*</span><span class="n">omega2</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t2</span><span class="p">)</span><span class="o">-</span><span class="n">g</span><span class="o">/</span><span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
-<span class="n">f2</span><span class="o">=</span><span class="n">l1</span><span class="o">/</span><span class="n">l2</span> <span class="o">*</span> <span class="n">omega1</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t2</span><span class="p">)</span><span class="o">-</span><span class="n">g</span><span class="o">/</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
-<span class="n">alpha1</span><span class="o">=</span><span class="n">l2</span><span class="o">/</span><span class="n">l1</span><span class="o">*</span><span class="p">(</span><span class="n">m2</span><span class="o">/</span><span class="p">(</span><span class="n">m1</span><span class="o">+</span><span class="n">m2</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t2</span><span class="p">)</span>
-<span class="n">alpha2</span><span class="o">=</span><span class="n">l1</span><span class="o">/</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t2</span><span class="p">)</span>
-<span class="n">den</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha1</span><span class="o">*</span><span class="n">alpha2</span><span class="p">)</span>
-<span class="n">omega1_dot</span> <span class="o">=</span> <span class="p">(</span><span class="n">f1</span><span class="o">-</span><span class="n">alpha1</span><span class="o">*</span><span class="n">f2</span><span class="p">)</span><span class="o">/</span><span class="n">den</span>
-<span class="n">omega2_dot</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">alpha2</span><span class="o">*</span><span class="n">f1</span><span class="o">+</span><span class="n">f2</span><span class="p">)</span><span class="o">/</span><span class="n">den</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span><span class="w"> </span><span class="nf">force_two_pendulum</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">omega1</span><span class="p">,</span> <span class="n">omega2</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">    t1: angle of the upper pendulum</span>
+<span class="sd">    t2: angle of the lower pendulum</span>
+<span class="sd">    omega1: angular velocity of upper pendulum</span>
+<span class="sd">    omega2: angular velocity of the upper pendulum</span>
+<span class="sd">    p: a DoublePendulumParams object</span>
+<span class="sd">    Returns:</span>
+<span class="sd">    omega1_dot, omega2_dot : angular acceleration</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f1</span><span class="o">=-</span><span class="n">p</span><span class="o">.</span><span class="n">l2</span><span class="o">/</span><span class="n">p</span><span class="o">.</span><span class="n">l1</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">m2</span><span class="o">/</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">m1</span><span class="o">+</span><span class="n">p</span><span class="o">.</span><span class="n">m2</span><span class="p">))</span><span class="o">*</span><span class="n">omega2</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t2</span><span class="p">)</span><span class="o">-</span><span class="n">p</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">p</span><span class="o">.</span><span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+    <span class="n">f2</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">l1</span><span class="o">/</span><span class="n">p</span><span class="o">.</span><span class="n">l2</span> <span class="o">*</span> <span class="n">omega1</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t2</span><span class="p">)</span><span class="o">-</span><span class="n">p</span><span class="o">.</span><span class="n">g</span><span class="o">/</span><span class="n">p</span><span class="o">.</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+    <span class="n">alpha1</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">l2</span><span class="o">/</span><span class="n">p</span><span class="o">.</span><span class="n">l1</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">m2</span><span class="o">/</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">m1</span><span class="o">+</span><span class="n">p</span><span class="o">.</span><span class="n">m2</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t2</span><span class="p">)</span>
+    <span class="n">alpha2</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">l1</span><span class="o">/</span><span class="n">p</span><span class="o">.</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">t2</span><span class="p">)</span>
+    <span class="n">den</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha1</span><span class="o">*</span><span class="n">alpha2</span><span class="p">)</span>
+    <span class="n">omega1_dot</span> <span class="o">=</span> <span class="p">(</span><span class="n">f1</span><span class="o">-</span><span class="n">alpha1</span><span class="o">*</span><span class="n">f2</span><span class="p">)</span><span class="o">/</span><span class="n">den</span>
+    <span class="n">omega2_dot</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">alpha2</span><span class="o">*</span><span class="n">f1</span><span class="o">+</span><span class="n">f2</span><span class="p">)</span><span class="o">/</span><span class="n">den</span>
+    <span class="k">return</span> <span class="n">omega1_dot</span><span class="p">,</span> <span class="n">omega2_dot</span>
 </pre></div>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">omega1</span></code>/<code class="docutils literal notranslate"><span class="pre">omega2</span></code> here mean the velocity or <span class="math notranslate nohighlight">\({d\theta_i}/{dt}\)</span>, <span class="math notranslate nohighlight">\(i=1,2\)</span> respectively.  Also, in the notation above <span class="math notranslate nohighlight">\(t1=\theta_1\)</span> and <span class="math notranslate nohighlight">\(t2=\theta_2\)</span>, not to be confused with the tensions!</p>
 <p>Put this force in your code.</p>
 <p>🦉Run with the following parameters:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;m1&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-         <span class="s1">&#39;m2&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-         <span class="s1">&#39;l1&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-         <span class="s1">&#39;l2&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-         <span class="s1">&#39;T&#39;</span> <span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
-         <span class="s1">&#39;g&#39;</span> <span class="p">:</span><span class="mf">9.8</span><span class="p">,</span>
-         <span class="s1">&#39;dt&#39;</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span>
-         <span class="s1">&#39;initPos&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.11</span><span class="p">]),</span>
-         <span class="s1">&#39;initVel&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
-       <span class="p">}</span>  
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">m1</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">m2</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">L1</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">L2</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">g</span><span class="p">:</span><span class="mf">9.8</span><span class="p">,</span>
+
+    <span class="n">T</span> <span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
+    <span class="n">dt</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">theta_0</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.11</span><span class="p">]),</span>
+    <span class="n">omega_0</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
+     
 </pre></div>
 </div>
 <p>and make a phase space plot of the system for both the first mass and the second mass (on the same plot).  Also go ahead and animate it.</p>
-<p>Then switch to use the initial position of <code class="docutils literal notranslate"> <span class="pre">'initPos':</span> <span class="pre">np.array([3.14,3.14+0.11]),</span></code>. How do these compare?</p>
+<p>Then switch to use the initial position of <code class="docutils literal notranslate"> <span class="pre">theta_0</span> <span class="pre">=</span>&#160; <span class="pre">np.array([3.14,3.14+0.11]),</span></code>. How do these compare?</p>
 <p>In the animation, you may not want to use all the points.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -954,20 +1047,8 @@ However, that solution only works for <em>small angles</em>.</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
-<span class="n">ani</span><span class="o">=</span><span class="n">animateMe_double_pendulum</span><span class="p">([</span><span class="n">pos</span><span class="p">[::</span><span class="n">l</span><span class="o">//</span><span class="mi">100</span><span class="p">]])</span>
+<span class="n">ani</span><span class="o">=</span><span class="n">animate_double_pendulum</span><span class="p">([</span><span class="n">pos</span><span class="p">[::</span><span class="n">l</span><span class="o">//</span><span class="mi">100</span><span class="p">]])</span>
 <span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="mi">978</span><span class="n">af12141c6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positions2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ani</span><span class="o">=</span><span class="n">animateMe_doublePendula</span><span class="p">([</span><span class="n">positions2</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-
-<span class="ne">NameError</span>: name &#39;positions2&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1013,19 +1094,8 @@ Animate them all simultaneously to see what happens.</p>
 <p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ani</span><span class="o">=</span><span class="n">animateMe_double_pendulum</span><span class="p">(</span><span class="n">allPositions</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ani</span><span class="o">=</span><span class="n">animate_double_pendulum</span><span class="p">(</span><span class="n">allPositions</span><span class="p">)</span>
 <span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="n">cd75d89109ff</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ani</span><span class="o">=</span><span class="n">animateMe_doublePendula</span><span class="p">(</span><span class="n">allPositions</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
-
-<span class="ne">NameError</span>: name &#39;allPositions&#39; is not defined
 </pre></div>
 </div>
 </div>
