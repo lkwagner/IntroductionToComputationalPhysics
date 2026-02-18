@@ -728,15 +728,15 @@ Use <code class="docutils literal notranslate"><span class="pre">plt.axhline(0,l
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.9652012735719042
--0.09222731981987042
-0.7414628037909767
-0.7077652283669942
-0.09486516890608176
-0.1656117065282987
--0.4361335777191633
-0.22497355688772802
-0.23998825651334976
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.18320588443174102
+-0.5412377024043638
+0.3220090629098056
+0.915717093228205
+0.6646070680797289
+-0.004348681474017235
+0.8611960437291188
+0.6475500260185145
+0.10869564575115986
 </pre></div>
 </div>
 </div>
@@ -943,7 +943,7 @@ Use <code class="docutils literal notranslate"><span class="pre">plt.axhline(0,l
 <span class="g g-Whitespace">    </span><span class="mi">221</span>     <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 <span class="g g-Whitespace">    </span><span class="mi">223</span> <span class="n">sys</span><span class="o">.</span><span class="n">audit</span><span class="p">(</span><span class="s2">&quot;http.client.connect&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
 
-<span class="ne">NewConnectionError</span>: HTTPConnection(host=&#39;10.1.0.172&#39;, port=9000): Failed to establish a new connection: [Errno 111] Connection refused
+<span class="ne">NewConnectionError</span>: HTTPConnection(host=&#39;10.1.0.87&#39;, port=9000): Failed to establish a new connection: [Errno 111] Connection refused
 
 <span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
 
@@ -977,7 +977,7 @@ Use <code class="docutils literal notranslate"><span class="pre">plt.axhline(0,l
 <span class="ne">--&gt; </span><span class="mi">535</span>     <span class="k">raise</span> <span class="n">MaxRetryError</span><span class="p">(</span><span class="n">_pool</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">reason</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">reason</span>  <span class="c1"># type: ignore[arg-type]</span>
 <span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Incremented Retry for (url=&#39;</span><span class="si">%s</span><span class="s2">&#39;): </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">new_retry</span><span class="p">)</span>
 
-<span class="ne">MaxRetryError</span>: HTTPConnectionPool(host=&#39;10.1.0.172&#39;, port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError(&quot;HTTPConnection(host=&#39;10.1.0.172&#39;, port=9000): Failed to establish a new connection: [Errno 111] Connection refused&quot;))
+<span class="ne">MaxRetryError</span>: HTTPConnectionPool(host=&#39;10.1.0.87&#39;, port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError(&quot;HTTPConnection(host=&#39;10.1.0.87&#39;, port=9000): Failed to establish a new connection: [Errno 111] Connection refused&quot;))
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
@@ -1029,7 +1029,7 @@ Use <code class="docutils literal notranslate"><span class="pre">plt.axhline(0,l
 <span class="g g-Whitespace">    </span><span class="mi">679</span> <span class="k">except</span> <span class="n">ClosedPoolError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">680</span>     <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
 
-<span class="ne">ConnectionError</span>: HTTPConnectionPool(host=&#39;10.1.0.172&#39;, port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError(&quot;HTTPConnection(host=&#39;10.1.0.172&#39;, port=9000): Failed to establish a new connection: [Errno 111] Connection refused&quot;))
+<span class="ne">ConnectionError</span>: HTTPConnectionPool(host=&#39;10.1.0.87&#39;, port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError(&quot;HTTPConnection(host=&#39;10.1.0.87&#39;, port=9000): Failed to establish a new connection: [Errno 111] Connection refused&quot;))
 </pre></div>
 </div>
 </div>

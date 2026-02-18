@@ -442,7 +442,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 18, 23, 51, 18, 224417)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 18, 23, 56, 8, 851321)
 </pre></div>
 </div>
 </div>
@@ -1061,23 +1061,27 @@ You can make a parameter object as follows:</p></li>
 </section>
 <section id="b-chaos">
 <h3>b. Chaos<a class="headerlink" href="#b-chaos" title="Link to this heading">#</a></h3>
-<p>Our goal now is to see that this double pendulum is chaotic.  Chaos means that if the system starts with very similar initial conditions, that the result will look very different in the future (long times).   Go ahead and run a series of 10 initial conditions except that each one differs from the previous one by an initial angle on the second pendulum of <span class="math notranslate nohighlight">\(10^{-4}\)</span>, i.e. <code class="docutils literal notranslate"><span class="pre">params['initPos'][1]+i*1e-4,params['initPos'][1]+(i+1)*1e-4</span></code>
+<p>Our goal now is to see that this double pendulum is chaotic.  Chaos means that if the system starts with very similar initial conditions, that the result will look very different in the future (long times).   Go ahead and run a series of 10 initial conditions except that each one differs from the previous one by an initial angle on the second pendulum of <span class="math notranslate nohighlight">\(10^{-4}\)</span>,
 Animate them all simultaneously to see what happens.</p>
 <p>Hint: Your code should have something like this</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;m1&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-         <span class="s1">&#39;m2&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-         <span class="s1">&#39;l1&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-         <span class="s1">&#39;l2&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span>
-         <span class="s1">&#39;T&#39;</span> <span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">DoublePendulumParameters</span><span class="p">(</span><span class="n">m1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">m2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">L1</span><span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">L2</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="mf">9.8</span><span class="p">)</span>
+     <span class="s1">&#39;T&#39;</span> <span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
          <span class="s1">&#39;g&#39;</span> <span class="p">:</span><span class="mf">9.8</span><span class="p">,</span>
          <span class="s1">&#39;dt&#39;</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span>
          <span class="s1">&#39;initPos&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.14</span><span class="p">,</span><span class="mf">3.14</span><span class="o">+</span><span class="mf">0.11</span><span class="p">]),</span>
          <span class="s1">&#39;initVel&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
        <span class="p">}</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">pos</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;initPos&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="mf">1e-4</span><span class="p">])</span>
-    <span class="n">vel</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;initVel&#39;</span><span class="p">]</span>
-    <span class="n">run_simulations</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="n">vel</span><span class="p">)</span>
+    <span class="c1">#pos = params[&#39;initPos&#39;]+np.array([0,i*1e-4])</span>
+    <span class="c1">#vel = params[&#39;initVel&#39;]</span>
+    <span class="n">theta2</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">+</span><span class="mf">0.11</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mf">1e-4</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">DoublePendulumSimulation</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mf">15.0</span><span class="p">,</span> 
+                                 <span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> 
+                                 <span class="n">theta_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">theta2</span><span class="p">])),</span>
+                                 <span class="n">omega_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
+
+    <span class="n">ts</span><span class="p">,</span> <span class="n">thetas</span><span class="p">,</span> <span class="n">omegas</span> <span class="o">=</span> <span class="n">simulate_double_pendulum</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+    <span class="c1"># collecte and plot data</span>
 </pre></div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
