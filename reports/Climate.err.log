@@ -1,5 +1,5 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
     ~~~~~~~~~^
         nb,
@@ -9,22 +9,22 @@ Traceback (most recent call last):
         ^^^^^^^^^
     )
     ^
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/nbclient/client.py", line 1323, in execute
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 1323, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
     return future.result()
            ~~~~~~~~~~~~~^^
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
         cell, index, execution_count=self.code_cells_executed + 1
     )
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -54,9 +54,9 @@ import datetime;datetime.datetime.now()
 ------------------
 
 ----- stderr -----
-/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/process/process.py:344: SyntaxWarning: "\c" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\c"? A raw string is also an option.
+/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/process/process.py:344: SyntaxWarning: "\c" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\c"? A raw string is also an option.
   :math:`-5 ^{\circ} \\textrm{C}` on all latitues::
-/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/domain/initial.py:102: SyntaxWarning: "\p" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\p"? A raw string is also an option.
+/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/domain/initial.py:102: SyntaxWarning: "\p" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\p"? A raw string is also an option.
   T(\phi) = T_0 + T_2 P_2(\sin\phi)
 ------------------
 
@@ -69,14 +69,14 @@ import datetime;datetime.datetime.now()
 [32m      5[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01msolar[39;00m[34;01m.[39;00m[34;01minsolation[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m daily_insolation
 [32m      6[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m legendre
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/__init__.py:20[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/__init__.py:20[39m
 [32m     18[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01m.[39;00m[34;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m constants, thermo, legendre
 [32m     19[39m [38;5;66;03m# some more useful shorcuts[39;00m
 [32m---> [39m[32m20[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01m.[39;00m[34;01mmodel[39;00m[34;01m.[39;00m[34;01mcolumn[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m GreyRadiationModel, RadiativeConvectiveModel, BandRCModel
 [32m     21[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01m.[39;00m[34;01mmodel[39;00m[34;01m.[39;00m[34;01mebm[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m EBM, EBM_annual, EBM_seasonal
 [32m     22[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01m.[39;00m[34;01mdomain[39;00m[34;01m.[39;00m[34;01mfield[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Field, global_mean
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/model/__init__.py:28[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/model/__init__.py:28[39m
 [32m      1[39m [33;03m'''[39;00m
 [32m      2[39m [33;03mThis package contains ready-made models that can be run "off-the-shelf".[39;00m
 [32m      3[39m 
@@ -85,7 +85,7 @@ import datetime;datetime.datetime.now()
 [32m---> [39m[32m28[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01m.[39;00m[34;01mcolumn[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m GreyRadiationModel, RadiativeConvectiveModel, BandRCModel
 [32m     29[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01m.[39;00m[34;01mebm[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m EBM, EBM_annual, EBM_seasonal
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/model/column.py:39[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/model/column.py:39[39m
 [32m     37[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m
 [32m     38[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m constants [38;5;28;01mas[39;00m const
 [32m---> [39m[32m39[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mprocess[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m TimeDependentProcess
@@ -93,34 +93,34 @@ import datetime;datetime.datetime.now()
 [32m     41[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mradiation[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m (FixedInsolation, GreyGas, GreyGasSW,
 [32m     42[39m         ThreeBandSW, FourBandLW, ManabeWaterVapor)
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/process/__init__.py:2[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/process/__init__.py:2[39m
 [32m      1[39m [33;03m'''The base classes for all climlab processes.'''[39;00m
 [32m----> [39m[32m2[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01m.[39;00m[34;01mprocess[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Process, process_like, get_axes
 [32m      3[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01m.[39;00m[34;01mtime_dependent_process[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m TimeDependentProcess, couple
 [32m      4[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01m.[39;00m[34;01mimplicit[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m ImplicitProcess
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/process/process.py:69[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/process/process.py:69[39m
 [32m     67[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mtime[39;00m,[38;5;250m [39m[34;01mcopy[39;00m
 [32m     68[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m
 [32m---> [39m[32m69[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[34;01m.[39;00m[34;01mfield[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Field
 [32m     70[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _Domain, zonal_mean_surface
 [32m     71[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m walk
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/domain/__init__.py:7[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/domain/__init__.py:7[39m
 [32m      4[39m __all__ = [[33m'[39m[33maxis[39m[33m'[39m, [33m'[39m[33mdomain[39m[33m'[39m, [33m'[39m[33mfield[39m[33m'[39m, [33m'[39m[33minitial[39m[33m'[39m, [33m'[39m[33mxarray[39m[33m'[39m]
 [32m      6[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m single_column, zonal_mean_surface, surface_2D, zonal_mean_column, box_model_domain
 [32m----> [39m[32m7[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[34;01m.[39;00m[34;01minitial[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m column_state, surface_state
 [32m      8[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[34;01m.[39;00m[34;01mfield[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Field, global_mean
 [32m      9[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[34;01m.[39;00m[34;01maxis[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Axis
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/domain/initial.py:4[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/domain/initial.py:4[39m
 [32m      2[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m
 [32m      3[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m domain
 [32m----> [39m[32m4[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[34;01m.[39;00m[34;01mfield[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Field
 [32m      5[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mutils[39;00m[34;01m.[39;00m[34;01mattrdict[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m AttrDict
 [32m      6[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m legendre
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/domain/field.py:9[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/domain/field.py:9[39m
 [32m      1[39m [38;5;66;03m#  Trying a new data model for state variables and domains:[39;00m
 [32m      2[39m [38;5;66;03m#  Create a new sub-class of numpy.ndarray[39;00m
 [32m      3[39m [38;5;66;03m#  that has as an attribute the domain itself[39;00m
@@ -135,7 +135,7 @@ import datetime;datetime.datetime.now()
 [32m   (...)[39m[32m     83[39m 
 [32m     84[39m [33;03m    """[39;00m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/domain/xarray.py:3[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/climlab/domain/xarray.py:3[39m
 [32m      1[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mbuiltins[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;28mstr[39m
 [32m      2[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mbuiltins[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m [38;5;28mobject[39m
 [32m----> [39m[32m3[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mxarray[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Dataset, DataArray

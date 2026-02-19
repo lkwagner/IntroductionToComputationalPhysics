@@ -1,5 +1,5 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
     ~~~~~~~~~^
         nb,
@@ -9,22 +9,22 @@ Traceback (most recent call last):
         ^^^^^^^^^
     )
     ^
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/nbclient/client.py", line 1323, in execute
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 1323, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
     return future.result()
            ~~~~~~~~~~~~~^^
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
         cell, index, execution_count=self.code_cells_executed + 1
     )
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -50,7 +50,7 @@ files.download(filename.replace("ipynb","html"))
 
 [31m---------------------------------------------------------------------------[39m
 [31mConnectionRefusedError[39m                    Traceback (most recent call last)
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/urllib3/connection.py:204[39m, in [36mHTTPConnection._new_conn[39m[34m(self)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connection.py:204[39m, in [36mHTTPConnection._new_conn[39m[34m(self)[39m
 [32m    203[39m [38;5;28;01mtry[39;00m:
 [32m--> [39m[32m204[39m     sock = [43mconnection[49m[43m.[49m[43mcreate_connection[49m[43m([49m
 [32m    205[39m [43m        [49m[43m([49m[38;5;28;43mself[39;49m[43m.[49m[43m_dns_host[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m.[49m[43mport[49m[43m)[49m[43m,[49m
@@ -60,13 +60,13 @@ files.download(filename.replace("ipynb","html"))
 [32m    209[39m [43m    [49m[43m)[49m
 [32m    210[39m [38;5;28;01mexcept[39;00m socket.gaierror [38;5;28;01mas[39;00m e:
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/urllib3/util/connection.py:85[39m, in [36mcreate_connection[39m[34m(address, timeout, source_address, socket_options)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/util/connection.py:85[39m, in [36mcreate_connection[39m[34m(address, timeout, source_address, socket_options)[39m
 [32m     84[39m [38;5;28;01mtry[39;00m:
 [32m---> [39m[32m85[39m     [38;5;28;01mraise[39;00m err
 [32m     86[39m [38;5;28;01mfinally[39;00m:
 [32m     87[39m     [38;5;66;03m# Break explicitly a reference cycle[39;00m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/urllib3/util/connection.py:73[39m, in [36mcreate_connection[39m[34m(address, timeout, source_address, socket_options)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/util/connection.py:73[39m, in [36mcreate_connection[39m[34m(address, timeout, source_address, socket_options)[39m
 [32m     72[39m     sock.bind(source_address)
 [32m---> [39m[32m73[39m [43msock[49m[43m.[49m[43mconnect[49m[43m([49m[43msa[49m[43m)[49m
 [32m     74[39m [38;5;66;03m# Break explicitly a reference cycle[39;00m
@@ -76,7 +76,7 @@ files.download(filename.replace("ipynb","html"))
 The above exception was the direct cause of the following exception:
 
 [31mNewConnectionError[39m                        Traceback (most recent call last)
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/urllib3/connectionpool.py:787[39m, in [36mHTTPConnectionPool.urlopen[39m[34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connectionpool.py:787[39m, in [36mHTTPConnectionPool.urlopen[39m[34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)[39m
 [32m    786[39m [38;5;66;03m# Make the request on the HTTPConnection object[39;00m
 [32m--> [39m[32m787[39m response = [38;5;28;43mself[39;49m[43m.[49m[43m_make_request[49m[43m([49m
 [32m    788[39m [43m    [49m[43mconn[49m[43m,[49m
@@ -94,7 +94,7 @@ The above exception was the direct cause of the following exception:
 [32m    800[39m [43m[49m[43m)[49m
 [32m    802[39m [38;5;66;03m# Everything went great![39;00m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/urllib3/connectionpool.py:493[39m, in [36mHTTPConnectionPool._make_request[39m[34m(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connectionpool.py:493[39m, in [36mHTTPConnectionPool._make_request[39m[34m(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)[39m
 [32m    492[39m [38;5;28;01mtry[39;00m:
 [32m--> [39m[32m493[39m     [43mconn[49m[43m.[49m[43mrequest[49m[43m([49m
 [32m    494[39m [43m        [49m[43mmethod[49m[43m,[49m
@@ -110,46 +110,46 @@ The above exception was the direct cause of the following exception:
 [32m    505[39m [38;5;66;03m# legitimately able to close the connection after sending a valid response.[39;00m
 [32m    506[39m [38;5;66;03m# With this behaviour, the received response is still readable.[39;00m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/urllib3/connection.py:500[39m, in [36mHTTPConnection.request[39m[34m(self, method, url, body, headers, chunked, preload_content, decode_content, enforce_content_length)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connection.py:500[39m, in [36mHTTPConnection.request[39m[34m(self, method, url, body, headers, chunked, preload_content, decode_content, enforce_content_length)[39m
 [32m    499[39m     [38;5;28mself[39m.putheader(header, value)
 [32m--> [39m[32m500[39m [38;5;28;43mself[39;49m[43m.[49m[43mendheaders[49m[43m([49m[43m)[49m
 [32m    502[39m [38;5;66;03m# If we're given a body we start sending that in chunks.[39;00m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/http/client.py:1353[39m, in [36mHTTPConnection.endheaders[39m[34m(self, message_body, encode_chunked)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/http/client.py:1353[39m, in [36mHTTPConnection.endheaders[39m[34m(self, message_body, encode_chunked)[39m
 [32m   1352[39m     [38;5;28;01mraise[39;00m CannotSendHeader()
 [32m-> [39m[32m1353[39m [38;5;28;43mself[39;49m[43m.[49m[43m_send_output[49m[43m([49m[43mmessage_body[49m[43m,[49m[43m [49m[43mencode_chunked[49m[43m=[49m[43mencode_chunked[49m[43m)[49m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/http/client.py:1113[39m, in [36mHTTPConnection._send_output[39m[34m(self, message_body, encode_chunked)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/http/client.py:1113[39m, in [36mHTTPConnection._send_output[39m[34m(self, message_body, encode_chunked)[39m
 [32m   1112[39m [38;5;28;01mdel[39;00m [38;5;28mself[39m._buffer[:]
 [32m-> [39m[32m1113[39m [38;5;28;43mself[39;49m[43m.[49m[43msend[49m[43m([49m[43mmsg[49m[43m)[49m
 [32m   1115[39m [38;5;28;01mif[39;00m message_body [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
 [32m   1116[39m 
 [32m   1117[39m     [38;5;66;03m# create a consistent interface to message_body[39;00m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/http/client.py:1057[39m, in [36mHTTPConnection.send[39m[34m(self, data)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/http/client.py:1057[39m, in [36mHTTPConnection.send[39m[34m(self, data)[39m
 [32m   1056[39m [38;5;28;01mif[39;00m [38;5;28mself[39m.auto_open:
 [32m-> [39m[32m1057[39m     [38;5;28;43mself[39;49m[43m.[49m[43mconnect[49m[43m([49m[43m)[49m
 [32m   1058[39m [38;5;28;01melse[39;00m:
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/urllib3/connection.py:331[39m, in [36mHTTPConnection.connect[39m[34m(self)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connection.py:331[39m, in [36mHTTPConnection.connect[39m[34m(self)[39m
 [32m    330[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mconnect[39m([38;5;28mself[39m) -> [38;5;28;01mNone[39;00m:
 [32m--> [39m[32m331[39m     [38;5;28mself[39m.sock = [38;5;28;43mself[39;49m[43m.[49m[43m_new_conn[49m[43m([49m[43m)[49m
 [32m    332[39m     [38;5;28;01mif[39;00m [38;5;28mself[39m._tunnel_host:
 [32m    333[39m         [38;5;66;03m# If we're tunneling it means we're connected to our proxy.[39;00m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/urllib3/connection.py:219[39m, in [36mHTTPConnection._new_conn[39m[34m(self)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connection.py:219[39m, in [36mHTTPConnection._new_conn[39m[34m(self)[39m
 [32m    218[39m [38;5;28;01mexcept[39;00m [38;5;167;01mOSError[39;00m [38;5;28;01mas[39;00m e:
 [32m--> [39m[32m219[39m     [38;5;28;01mraise[39;00m NewConnectionError(
 [32m    220[39m         [38;5;28mself[39m, [33mf[39m[33m"[39m[33mFailed to establish a new connection: [39m[38;5;132;01m{[39;00me[38;5;132;01m}[39;00m[33m"[39m
 [32m    221[39m     ) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01me[39;00m
 [32m    223[39m sys.audit([33m"[39m[33mhttp.client.connect[39m[33m"[39m, [38;5;28mself[39m, [38;5;28mself[39m.host, [38;5;28mself[39m.port)
 
-[31mNewConnectionError[39m: HTTPConnection(host='10.1.0.212', port=9000): Failed to establish a new connection: [Errno 111] Connection refused
+[31mNewConnectionError[39m: HTTPConnection(host='10.1.1.122', port=9000): Failed to establish a new connection: [Errno 111] Connection refused
 
 The above exception was the direct cause of the following exception:
 
 [31mMaxRetryError[39m                             Traceback (most recent call last)
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/adapters.py:644[39m, in [36mHTTPAdapter.send[39m[34m(self, request, stream, timeout, verify, cert, proxies)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/adapters.py:644[39m, in [36mHTTPAdapter.send[39m[34m(self, request, stream, timeout, verify, cert, proxies)[39m
 [32m    643[39m [38;5;28;01mtry[39;00m:
 [32m--> [39m[32m644[39m     resp = [43mconn[49m[43m.[49m[43murlopen[49m[43m([49m
 [32m    645[39m [43m        [49m[43mmethod[49m[43m=[49m[43mrequest[49m[43m.[49m[43mmethod[49m[43m,[49m
@@ -166,19 +166,19 @@ The above exception was the direct cause of the following exception:
 [32m    656[39m [43m    [49m[43m)[49m
 [32m    658[39m [38;5;28;01mexcept[39;00m (ProtocolError, [38;5;167;01mOSError[39;00m) [38;5;28;01mas[39;00m err:
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/urllib3/connectionpool.py:841[39m, in [36mHTTPConnectionPool.urlopen[39m[34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/connectionpool.py:841[39m, in [36mHTTPConnectionPool.urlopen[39m[34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)[39m
 [32m    839[39m     new_e = ProtocolError([33m"[39m[33mConnection aborted.[39m[33m"[39m, new_e)
 [32m--> [39m[32m841[39m retries = [43mretries[49m[43m.[49m[43mincrement[49m[43m([49m
 [32m    842[39m [43m    [49m[43mmethod[49m[43m,[49m[43m [49m[43murl[49m[43m,[49m[43m [49m[43merror[49m[43m=[49m[43mnew_e[49m[43m,[49m[43m [49m[43m_pool[49m[43m=[49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43m_stacktrace[49m[43m=[49m[43msys[49m[43m.[49m[43mexc_info[49m[43m([49m[43m)[49m[43m[[49m[32;43m2[39;49m[43m][49m
 [32m    843[39m [43m[49m[43m)[49m
 [32m    844[39m retries.sleep()
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/urllib3/util/retry.py:535[39m, in [36mRetry.increment[39m[34m(self, method, url, response, error, _pool, _stacktrace)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/urllib3/util/retry.py:535[39m, in [36mRetry.increment[39m[34m(self, method, url, response, error, _pool, _stacktrace)[39m
 [32m    534[39m     reason = error [38;5;129;01mor[39;00m ResponseError(cause)
 [32m--> [39m[32m535[39m     [38;5;28;01mraise[39;00m MaxRetryError(_pool, url, reason) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mreason[39;00m  [38;5;66;03m# type: ignore[arg-type][39;00m
 [32m    537[39m log.debug([33m"[39m[33mIncremented Retry for (url=[39m[33m'[39m[38;5;132;01m%s[39;00m[33m'[39m[33m): [39m[38;5;132;01m%r[39;00m[33m"[39m, url, new_retry)
 
-[31mMaxRetryError[39m: HTTPConnectionPool(host='10.1.0.212', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.0.212', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[31mMaxRetryError[39m: HTTPConnectionPool(host='10.1.1.122', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.1.122', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
 
 During handling of the above exception, another exception occurred:
 
@@ -190,7 +190,7 @@ During handling of the above exception, another exception occurred:
 [32m      6[39m filename = filename.replace([33m"[39m[33m%[39m[33m20[39m[33m"[39m,[33m"[39m[33m [39m[33m"[39m)
 [32m      7[39m [38;5;28mprint[39m([33m"[39m[33mCHECK FILENAME[39m[33m"[39m, filename)
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/api.py:73[39m, in [36mget[39m[34m(url, params, **kwargs)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/api.py:73[39m, in [36mget[39m[34m(url, params, **kwargs)[39m
 [32m     62[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mget[39m(url, params=[38;5;28;01mNone[39;00m, **kwargs):
 [32m     63[39m [38;5;250m    [39m[33mr[39m[33;03m"""Sends a GET request.[39;00m
 [32m     64[39m 
@@ -199,14 +199,14 @@ During handling of the above exception, another exception occurred:
 [32m     71[39m [33;03m    """[39;00m
 [32m---> [39m[32m73[39m     [38;5;28;01mreturn[39;00m [43mrequest[49m[43m([49m[33;43m"[39;49m[33;43mget[39;49m[33;43m"[39;49m[43m,[49m[43m [49m[43murl[49m[43m,[49m[43m [49m[43mparams[49m[43m=[49m[43mparams[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/api.py:59[39m, in [36mrequest[39m[34m(method, url, **kwargs)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/api.py:59[39m, in [36mrequest[39m[34m(method, url, **kwargs)[39m
 [32m     55[39m [38;5;66;03m# By using the 'with' statement we are sure the session is closed, thus we[39;00m
 [32m     56[39m [38;5;66;03m# avoid leaving sockets open which can trigger a ResourceWarning in some[39;00m
 [32m     57[39m [38;5;66;03m# cases, and look like a memory leak in others.[39;00m
 [32m     58[39m [38;5;28;01mwith[39;00m sessions.Session() [38;5;28;01mas[39;00m session:
 [32m---> [39m[32m59[39m     [38;5;28;01mreturn[39;00m [43msession[49m[43m.[49m[43mrequest[49m[43m([49m[43mmethod[49m[43m=[49m[43mmethod[49m[43m,[49m[43m [49m[43murl[49m[43m=[49m[43murl[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/sessions.py:589[39m, in [36mSession.request[39m[34m(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/sessions.py:589[39m, in [36mSession.request[39m[34m(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)[39m
 [32m    584[39m send_kwargs = {
 [32m    585[39m     [33m"[39m[33mtimeout[39m[33m"[39m: timeout,
 [32m    586[39m     [33m"[39m[33mallow_redirects[39m[33m"[39m: allow_redirects,
@@ -215,14 +215,14 @@ During handling of the above exception, another exception occurred:
 [32m--> [39m[32m589[39m resp = [38;5;28;43mself[39;49m[43m.[49m[43msend[49m[43m([49m[43mprep[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43msend_kwargs[49m[43m)[49m
 [32m    591[39m [38;5;28;01mreturn[39;00m resp
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/sessions.py:703[39m, in [36mSession.send[39m[34m(self, request, **kwargs)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/sessions.py:703[39m, in [36mSession.send[39m[34m(self, request, **kwargs)[39m
 [32m    700[39m start = preferred_clock()
 [32m    702[39m [38;5;66;03m# Send the request[39;00m
 [32m--> [39m[32m703[39m r = [43madapter[49m[43m.[49m[43msend[49m[43m([49m[43mrequest[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
 [32m    705[39m [38;5;66;03m# Total elapsed time of the request (approximately)[39;00m
 [32m    706[39m elapsed = preferred_clock() - start
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/adapters.py:677[39m, in [36mHTTPAdapter.send[39m[34m(self, request, stream, timeout, verify, cert, proxies)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/requests/adapters.py:677[39m, in [36mHTTPAdapter.send[39m[34m(self, request, stream, timeout, verify, cert, proxies)[39m
 [32m    673[39m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(e.reason, _SSLError):
 [32m    674[39m         [38;5;66;03m# This branch is for urllib3 v1.22 and later.[39;00m
 [32m    675[39m         [38;5;28;01mraise[39;00m SSLError(e, request=request)
@@ -230,5 +230,5 @@ During handling of the above exception, another exception occurred:
 [32m    679[39m [38;5;28;01mexcept[39;00m ClosedPoolError [38;5;28;01mas[39;00m e:
 [32m    680[39m     [38;5;28;01mraise[39;00m [38;5;167;01mConnectionError[39;00m(e, request=request)
 
-[31mConnectionError[39m: HTTPConnectionPool(host='10.1.0.212', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.0.212', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[31mConnectionError[39m: HTTPConnectionPool(host='10.1.1.122', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.1.122', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
 
