@@ -442,7 +442,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 18, 23, 56, 8, 851321)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 19, 16, 0, 59, 628619)
 </pre></div>
 </div>
 </div>
@@ -517,13 +517,12 @@ document.write(`
 <h3>a. A Single pendulum<a class="headerlink" href="#a-a-single-pendulum" title="Link to this heading">#</a></h3>
 <p>When working with pendula, instead of keeping track of the position <span class="math notranslate nohighlight">\((x,y)\)</span>, we instead are going to keep track of the angle <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/pendula.png" width=400  alt="Answer (start)"></img><br></div><p>In this exercise, we are going to simulate a pendulum with a rigid rod <span class="math notranslate nohighlight">\(L\)</span> and a fixed mass <span class="math notranslate nohighlight">\(m\)</span> at the end of it.  We can define the position of the pendulum by the angle it makes with respect to hanging down (at <span class="math notranslate nohighlight">\(\theta=0\)</span>).</p>
-<p>You can force your code to use theta simply by giving initial conditions and velocities for a single dimension (i.e. <code class="docutils literal notranslate"><span class="pre">params['initPos']=np.array([0.1])</span></code> would start you pendulum at 0.1 radians.</p>
 <p>The “force” (angular acceleration) of a single pendulum is</p>
 <div class="math notranslate nohighlight">
 \[
 \alpha(\theta) \equiv \frac{d^2 \theta}{dt^2}= -B\sin(\theta)/L,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(B\)</span> (on Earth) is the gravitational constant <span class="math notranslate nohighlight">\(g\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(B\)</span> (on Earth) is the gravitational constant <span class="math notranslate nohighlight">\(mg\)</span>.</p>
 <p>🦉Write a function that uses the midpoint method to simulate a pendulum:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">simulate_single_pendulum</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -547,7 +546,7 @@ document.write(`
 <li><p>A = C = omega_drive = 0  (these will be driving/damping which we will treat later)
 You can make a parameter object as follows:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">SinglePendulumParams</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="mf">9.8</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">SinglePendulumParams</span><span class="p">(</span><span class="n">L</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="mf">9.8</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Run a simulation with no initial velocity and an initial angle of <span class="math notranslate nohighlight">\(\theta=0.6\)</span> and a <span class="math notranslate nohighlight">\(dt=0.01\)</span> for a time <span class="math notranslate nohighlight">\(T=10\)</span>. You can set this up by</p>
@@ -577,7 +576,6 @@ You can make a parameter object as follows:</p></li>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Define the parameters of the single pendulum system</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">m</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># mass (actually this doesn&#39;t really matter so we default it to 1)</span>
     <span class="n">L</span><span class="p">:</span> <span class="nb">float</span>   <span class="c1"># length of the pendulum</span>
     <span class="n">A</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># damping</span>
     <span class="n">B</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">9.8</span> <span class="c1"># restoring force</span>

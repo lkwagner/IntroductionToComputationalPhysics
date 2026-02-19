@@ -34,7 +34,6 @@ class SinglePendulumParams:
     """
     Define the parameters of the single pendulum system
     """
-    m: float = 1.0  # mass (actually this doesn't really matter so we default it to 1)
     L: float   # length of the pendulum
     A: float = 0.0 # damping
     B: float = 9.8 # restoring force
