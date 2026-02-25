@@ -382,8 +382,9 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-minimal-simulation-of-the-tracking-chamber-calorimeter">Exercise 1 - Minimal Simulation of the tracking chamber &amp; Calorimeter</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-preliminaries">0. Some Preliminaries</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-histograms-and-so-forth">a. Histograms and so forth</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-why-events-fail-to-satisfy-the-trigger">b. Why events fail to satisfy the trigger</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-check-your-collision-calculation">a. Check your collision calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-histograms-and-so-forth">b. Histograms and so forth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-why-events-fail-to-satisfy-the-trigger">c. Why events fail to satisfy the trigger</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-geometrical-acceptance">Exercise 2 - Geometrical acceptance</a><ul class="nav section-nav flex-column">
@@ -423,16 +424,12 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-02-19 21:13:55--  https://clark.physics.illinois.edu/particle_helper.py
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-02-25 21:46:43--  https://clark.physics.illinois.edu/particle_helper.py
 Resolving clark.physics.illinois.edu (clark.physics.illinois.edu)... 18.220.149.166
-Connecting to clark.physics.illinois.edu (clark.physics.illinois.edu)|18.220.149.166|:443... 
+Connecting to clark.physics.illinois.edu (clark.physics.illinois.edu)|18.220.149.166|:443... connected.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
-HTTP request sent, awaiting response... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 200 OK
 Length: 9503 (9.3K)
 Saving to: ‘particle_helper.py’
 
@@ -440,7 +437,7 @@ Saving to: ‘particle_helper.py’
 particle_helper.py    0%[                    ]       0  --.-KB/s               
 particle_helper.py  100%[===================&gt;]   9.28K  --.-KB/s    in 0s      
 
-2026-02-19 21:13:56 (43.6 MB/s) - ‘particle_helper.py’ saved [9503/9503]
+2026-02-25 21:46:43 (58.7 MB/s) - ‘particle_helper.py’ saved [9503/9503]
 </pre></div>
 </div>
 </div>
@@ -473,7 +470,7 @@ particle_helper.py  100%[===================&gt;]   9.28K  --.-KB/s    in 0s
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 19, 21, 13, 56, 590230)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 25, 21, 46, 43, 659003)
 </pre></div>
 </div>
 </div>
@@ -580,22 +577,49 @@ Here are a couple of diagrams:</p>
 <span class="n">KDG</span> <span class="o">=</span> <span class="n">Kdecay</span><span class="p">()</span>
 
 <span class="c1"># now get the kinematic details about a kaon decay. The decay generator returns</span>
-<span class="c1"># numpy arrays with vertex x, y, z; pi+ four momentum [E/c, px, py, pz];</span>
+<span class="c1"># numpy arrays with vertex (i.e. the origin) x, y, z; pi+ four momentum [E/c, px, py, pz];</span>
 <span class="c1"># pi- four momentum.</span>
 <span class="n">vertex</span><span class="p">,</span> <span class="n">pmu_plus</span><span class="p">,</span> <span class="n">pmu_minus</span> <span class="o">=</span> <span class="n">KDG</span><span class="o">.</span><span class="n">getdecay</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;vertex: &quot;</span><span class="p">,</span> <span class="n">vertex</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pmu_plus: &quot;</span><span class="p">,</span> <span class="n">pmu_plus</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pmu_minus: &quot;</span><span class="p">,</span> <span class="n">pmu_minus</span><span class="p">)</span>
+
+<span class="c1"># If you want to take a bunch of samples, you can do it as follows:</span>
+<span class="c1"># You may want to make this a function!</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">vertices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">pmu_pluses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">pmu_minuses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">vertex</span><span class="p">,</span> <span class="n">pmu_plus</span><span class="p">,</span> <span class="n">pmu_minus</span> <span class="o">=</span> <span class="n">KDG</span><span class="o">.</span><span class="n">getdecay</span><span class="p">()</span>
+    <span class="n">vertices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vertex</span>
+    <span class="n">pmu_pluses</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pmu_plus</span>
+    <span class="n">pmu_minuses</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pmu_minus</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Now instantiating the kaon decay generator.
+vertex:  [0.         0.         1.89502913]
+pmu_plus:  [39.2588937   0.07190715 -0.1771161  39.25818022]
+pmu_minus:  [20.7411063  -0.07190715  0.1771161  20.73975578]
 </pre></div>
 </div>
 </div>
 </div>
 <p>Since the decay generator returns the momentum components for the pions you can project them from the decay vertex to their downstream x, y positions at the z locations of the tracking chambers and calorimeter. This will let you determine whether or not the pions are inside the active volumes of the tracking chambers and calorimeters.</p>
 </section>
-<section id="a-histograms-and-so-forth">
-<h3>a. Histograms and so forth<a class="headerlink" href="#a-histograms-and-so-forth" title="Link to this heading">#</a></h3>
+<section id="a-check-your-collision-calculation">
+<h3>a. Check your collision calculation<a class="headerlink" href="#a-check-your-collision-calculation" title="Link to this heading">#</a></h3>
+<p>The pions start at the vertex and continue on a straight line (given by the momentum part of the energy-momentum four-vector).
+We will want to check whether the pions intersect the two tracking chambers and the calorimeter.
+Go ahead and generate 100 pion trajectories.</p>
+<p>Make three plots, one for each of the three objects, which shows the pions’ placement on the tracker or calorimeter.
+Color the pion one color (say ‘r’) if it intersects the tracker or calorimeter, and another color (say ‘b’) if it does not.
+Make sure to draw in the extent of the calorimeter/tracker as a square (or a square with a hole in in), so you can visually check whether your target calculation makes sense.</p>
+</section>
+<section id="b-histograms-and-so-forth">
+<h3>b. Histograms and so forth<a class="headerlink" href="#b-histograms-and-so-forth" title="Link to this heading">#</a></h3>
 <p>In our simulated experiment we require both pions to pass through the sensitive regions of the tracking chambers and land in the active region of the calorimeter. An event in which a pion misses a tracking chamber, goes wide of the calorimeter, or goes down the hole in the middle of the calorimeter will not satisfy the trigger (the high speed logic that decides whether or not we should record data from the decay), and won’t be written to a data file for further analysis.  <strong>In other words, <em>both</em> pions must hit both trackers and the calorimeter in order to satisfy the trigger</strong>.</p>
 <p>🦉Please generate histograms of the following quantities, assuming the apparatus is configured as described in the above table. Once your program runs, I suggest you have it generate 100,000 kaon decays.</p>
 <ol class="arabic simple">
@@ -617,8 +641,8 @@ Here are a couple of diagrams:</p>
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
-<section id="b-why-events-fail-to-satisfy-the-trigger">
-<h3>b. Why events fail to satisfy the trigger<a class="headerlink" href="#b-why-events-fail-to-satisfy-the-trigger" title="Link to this heading">#</a></h3>
+<section id="c-why-events-fail-to-satisfy-the-trigger">
+<h3>c. Why events fail to satisfy the trigger<a class="headerlink" href="#c-why-events-fail-to-satisfy-the-trigger" title="Link to this heading">#</a></h3>
 <p>Please determine the fraction of kaon decays that fall into the following categories:</p>
 <ol class="arabic simple">
 <li><p>the decay satisfies the experiment trigger: both pions pass through the active areas of the two tracking chambers and strike the active region of the calorimeter;</p></li>
@@ -835,8 +859,9 @@ George Gollin (original)</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-minimal-simulation-of-the-tracking-chamber-calorimeter">Exercise 1 - Minimal Simulation of the tracking chamber &amp; Calorimeter</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-preliminaries">0. Some Preliminaries</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-histograms-and-so-forth">a. Histograms and so forth</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-why-events-fail-to-satisfy-the-trigger">b. Why events fail to satisfy the trigger</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-check-your-collision-calculation">a. Check your collision calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-histograms-and-so-forth">b. Histograms and so forth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-why-events-fail-to-satisfy-the-trigger">c. Why events fail to satisfy the trigger</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-geometrical-acceptance">Exercise 2 - Geometrical acceptance</a><ul class="nav section-nav flex-column">
