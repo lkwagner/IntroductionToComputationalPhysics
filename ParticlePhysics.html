@@ -424,12 +424,21 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-02-25 21:46:43--  https://clark.physics.illinois.edu/particle_helper.py
-Resolving clark.physics.illinois.edu (clark.physics.illinois.edu)... 18.220.149.166
-Connecting to clark.physics.illinois.edu (clark.physics.illinois.edu)|18.220.149.166|:443... connected.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-02-26 14:49:16--  https://clark.physics.illinois.edu/particle_helper.py
+Resolving clark.physics.illinois.edu (clark.physics.illinois.edu)... 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 200 OK
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.220.149.166
+Connecting to clark.physics.illinois.edu (clark.physics.illinois.edu)|18.220.149.166|:443... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
 Length: 9503 (9.3K)
 Saving to: ‘particle_helper.py’
 
@@ -437,7 +446,7 @@ Saving to: ‘particle_helper.py’
 particle_helper.py    0%[                    ]       0  --.-KB/s               
 particle_helper.py  100%[===================&gt;]   9.28K  --.-KB/s    in 0s      
 
-2026-02-25 21:46:43 (58.7 MB/s) - ‘particle_helper.py’ saved [9503/9503]
+2026-02-26 14:49:16 (132 MB/s) - ‘particle_helper.py’ saved [9503/9503]
 </pre></div>
 </div>
 </div>
@@ -470,7 +479,7 @@ particle_helper.py  100%[===================&gt;]   9.28K  --.-KB/s    in 0s
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 25, 21, 46, 43, 659003)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 2, 26, 14, 49, 17, 263814)
 </pre></div>
 </div>
 </div>
@@ -600,9 +609,9 @@ Here are a couple of diagrams:</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Now instantiating the kaon decay generator.
-vertex:  [0.         0.         1.89502913]
-pmu_plus:  [39.2588937   0.07190715 -0.1771161  39.25818022]
-pmu_minus:  [20.7411063  -0.07190715  0.1771161  20.73975578]
+vertex:  [0.         0.         0.50797586]
+pmu_plus:  [12.29291446 -0.10577842  0.09837326 12.29127332]
+pmu_minus:  [47.70708554  0.10577842 -0.09837326 47.70666268]
 </pre></div>
 </div>
 </div>
@@ -614,10 +623,10 @@ pmu_minus:  [20.7411063  -0.07190715  0.1771161  20.73975578]
 <p>The pions start at the vertex and continue on a straight line (given by the momentum part of the energy-momentum four-vector).
 We will want to check whether the pions intersect the two tracking chambers and the calorimeter.
 Go ahead and generate 100 pion trajectories.</p>
-<p>Make three plots, one for each of the three objects, which shows the pions’ placement on the tracker or calorimeter.
+<p>🦉 Make three plots, one for each of the three objects, which shows the pions’ placement on the tracker or calorimeter.
 Color the pion one color (say ‘r’) if it intersects the tracker or calorimeter, and another color (say ‘b’) if it does not.
 Make sure to draw in the extent of the calorimeter/tracker as a square (or a square with a hole in in), so you can visually check whether your target calculation makes sense.</p>
-</section>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="b-histograms-and-so-forth">
 <h3>b. Histograms and so forth<a class="headerlink" href="#b-histograms-and-so-forth" title="Link to this heading">#</a></h3>
 <p>In our simulated experiment we require both pions to pass through the sensitive regions of the tracking chambers and land in the active region of the calorimeter. An event in which a pion misses a tracking chamber, goes wide of the calorimeter, or goes down the hole in the middle of the calorimeter will not satisfy the trigger (the high speed logic that decides whether or not we should record data from the decay), and won’t be written to a data file for further analysis.  <strong>In other words, <em>both</em> pions must hit both trackers and the calorimeter in order to satisfy the trigger</strong>.</p>
