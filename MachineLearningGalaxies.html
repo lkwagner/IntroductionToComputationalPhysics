@@ -468,8 +468,8 @@ document.write(`
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
 <p>In this assignment, we are going to learn how to automatically classify galaxies using a deep neural network. Our goal will be to take a picture of a galaxy and decide which category it falls into (disc, round, cigar shape, etc).</p>
-<p>We are going to get the pictures of our galaxies from the Sloan Digital Sky Survey and the labels from the Galaxy Zoo (where the public hand-categorizes the galaxies).  We will then write and train a neural network to do this classification. Our goal is to be at least 66% accuracy (one can do much better but it requires more work then is reasonable for this assignment).</p>
-<p>Let’s start by reading in the data. Run the following command to download a copy of the data we’ll need</p>
+<p>We are going to get the pictures of our galaxies from the Sloan Digital Sky Survey and the labels from the Galaxy Zoo (where the public hand-categorizes the galaxies).  We will then write and train a neural network to do this classification. Our goal is to be at least 66% accuracy (one can do much better but it requires more work than is reasonable for this assignment).</p>
+<p>Let’s start by reading in the data. Run the following command to download a copy of the data we’ll need.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -513,7 +513,7 @@ Wall time: 2.47 s
 </div>
 </div>
 </div>
-<p>here’s what you now have:</p>
+<p>Here’s what you now have:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">train_images_raw</span></code> - images in the training set, shape: (17457, 69, 69, 1)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">train_labels</span></code>     - labels that explain the image classification for the training set</p></li>
@@ -613,8 +613,27 @@ Wall time: 2.47 s
 <p>Notice that at the top of the file, we have imported <code class="docutils literal notranslate"><span class="pre">jax.numpy</span> <span class="pre">as</span> <span class="pre">jnp</span></code> alongside regular <code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>. To proceed with this assignment, you now need to start using <code class="docutils literal notranslate"><span class="pre">jnp</span></code> instead of <code class="docutils literal notranslate"><span class="pre">np</span></code>. It’s a drop-in replacement for all functions (<code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code>, etc.) that you’ll normally use in numpy but is required for the fancy gradient calculations necessary for training your net.</p>
 <hr class="docutils" />
 <p>Our next step is to write a neural network.   A neural network might sound complicated but it’s actually really simple.  All our neural network does is take the input vector (our reshaped image) to an output vector (of size 5 because we have five different ways to classify a galaxy).</p>
-<p>The equation for how to do this is
-<span class="math notranslate nohighlight">\(v_{out} = 1.0/(1+\exp(-(W_2 \textrm{tanh}(W_1 v_{in} + b_1) +b_2))\)</span>
+<p>Our neural network will be a single hidden layer as follows.
+We start with <span class="math notranslate nohighlight">\(v_{in}\)</span> which is a vector of all the pixels in the image.
+Then the hidden layer is computed as
+$<span class="math notranslate nohighlight">\(
+y_1 = \tanh(W_1 v_{in} + b_1),
+\)</span><span class="math notranslate nohighlight">\(
+where \)</span>W_1<span class="math notranslate nohighlight">\( is a (d,4761) matrix (so \)</span>W_1 v_{in}<span class="math notranslate nohighlight">\( is a matrix-vector multiplication).
+The hidden layer *encodes* the major features. You will see that while \)</span>v_{in}<span class="math notranslate nohighlight">\( is 4761 floats, \)</span>y_1<span class="math notranslate nohighlight">\( will be much smaller, only \)</span>d$, which will be around 100.</p>
+<p>We then want to output how likely the network thinks the image is each of our 5 image classes.
+We do this by reducing from <span class="math notranslate nohighlight">\(d\)</span> to 5 with the matrix <span class="math notranslate nohighlight">\(W_2\)</span> and shifted by <span class="math notranslate nohighlight">\(b_2\)</span>:
+$<span class="math notranslate nohighlight">\(
+y_2 = W_2 y_1  + b_2
+\)</span><span class="math notranslate nohighlight">\(
+Finally, we would like to map onto 5 numbers between 0 and 1. 
+\)</span><span class="math notranslate nohighlight">\(
+v_{out} = \frac{1}{1+e^{-y_2}}
+\)</span>$</p>
+<p>The overall equation is thus
+$<span class="math notranslate nohighlight">\(
+v_{out} = \frac{1.0}{1+\exp(-(W_2 \textrm{tanh}(W_1 v_{in} + b_1) +b_2)}
+\)</span>$
 where</p>
 <ul class="simple">
 <li><p>W1 is a size d x 4761 matrix</p></li>
@@ -624,8 +643,16 @@ where</p>
 </ul>
 <p>The last term: <span class="math notranslate nohighlight">\(1/(1+e^{-x})\)</span> ensures that all the numbers in <span class="math notranslate nohighlight">\(v_{out}\)</span> are between 0 and 1.</p>
 <p>Implement a function</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">net</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">imageVector</span><span class="p">):</span>
-   <span class="n">a1</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">W1</span><span class="nd">@imageVector</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">net</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">vin</span><span class="p">):</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Represent a classifier neural network.</span>
+<span class="sd">   Arguments:</span>
+<span class="sd">   p: a Params NamedTuple with W1, b1, W2, b2 as defined below</span>
+<span class="sd">   vin: np.ndarray (4761,)</span>
+<span class="sd">   Returns:</span>
+<span class="sd">   v_{out}: np.ndarray (5,) numbers from 0 to 1 which represent confidence in each of the 5 image classes.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">y1</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">W1</span><span class="nd">@vin</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">b1</span>
    <span class="c1"># other computations</span>
    <span class="c1"># return output</span>
 </pre></div>
@@ -635,10 +662,10 @@ where</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Params</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
-    <span class="n">W1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>  <span class="c1"># d x 4761</span>
-    <span class="n">b1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>
-    <span class="n">W2</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>
-    <span class="n">b2</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">W1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>  <span class="c1"># (d,4761)</span>
+    <span class="n">b1</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>  <span class="c1"># (d)</span>
+    <span class="n">W2</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>  <span class="c1"># (5,d)</span>
+    <span class="n">b2</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ndarray</span>  <span class="c1"># 5</span>
 
 <span class="n">d</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">12423</span><span class="p">)</span>
@@ -696,13 +723,21 @@ In addition to the cross-entropy, we care whether the winning labelling is corre
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>You probably got about 30% correct with your random values of <code class="docutils literal notranslate"><span class="pre">w1,b1,w2,b2</span></code>. Now we have to do better.  We are going to work on getting our loss down (and this will get our fractionCorrect down).  Getting the loss down is easier because it depends continuously on the parameters).</p>
-<p>To make an objective function better, what we should do is to step in a direction where it gets better.  To do this, we are going to want to get the gradient.  We can use jax to get the gradient as we have in earlier assignments.</p>
-<p>Let’s define the gradient of the loss as
-<code class="docutils literal notranslate"><span class="pre">loss_grad</span> <span class="pre">=</span> <span class="pre">jit(jax.grad(jit(loss)))</span></code>.  (The <code class="docutils literal notranslate"><span class="pre">jit</span></code> are there to make things faster.  This is morally just <code class="docutils literal notranslate"><span class="pre">jax.grad(loss)</span></code> and that would work albeit be slower).</p>
-</section>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
 <section id="d-training-using-stochastic-gradient-descent">
 <h3>d. Training using stochastic gradient descent<a class="headerlink" href="#d-training-using-stochastic-gradient-descent" title="Link to this heading">#</a></h3>
+<p>You probably got about 30% correct with your random values of <code class="docutils literal notranslate"><span class="pre">w1,b1,w2,b2</span></code>. Now we have to do better.  We are going to work on getting our loss down (and this will get our fractionCorrect <strong>up</strong>).  Getting the loss down is easier because it depends continuously on the parameters).</p>
+<p>To make an objective function better, what we should do is to step in a direction where it gets better.  To do this, we are going to want to get the gradient.  We can use jax to get the gradient as we have in earlier assignments.</p>
+<p>Let’s define the gradient of the loss as
+<code class="docutils literal notranslate"><span class="pre">loss_grad</span> <span class="pre">=</span> <span class="pre">jit(jax.grad(jit(loss)))</span></code>.  (The <code class="docutils literal notranslate"><span class="pre">jit</span></code> are there to make things faster.  This will give the same result as just doing <code class="docutils literal notranslate"><span class="pre">jax.grad(loss)</span></code>).</p>
+<p><strong>NOTE</strong> You only have to generate the gradient function <em>once</em>, and then use it many times. For example, do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loss_grad</span> <span class="o">=</span> <span class="n">jit</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">jit</span><span class="p">(</span><span class="n">loss</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="c1"># choose vin</span>
+    <span class="n">gradient</span> <span class="o">=</span> <span class="n">loss_grad</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">vin</span><span class="p">)</span>
+    <span class="c1"># change parameters etc.</span>
+</pre></div>
+</div>
 <p>Now all we need to do is to (over and over again)</p>
 <ul class="simple">
 <li><p>choose a random image in the <strong>training</strong> set.</p></li>
@@ -710,7 +745,7 @@ In addition to the cross-entropy, we care whether the winning labelling is corre
 <li><p>change the parameters (W1,W2,b1,b2) by 0.1% of the gradient (called the <em>learning rate</em> <span class="math notranslate nohighlight">\(\eta\)</span>)</p></li>
 </ul>
 <p>This will make your result on this image marginally better.</p>
-<p>Every 2000 steps you might want to check the fraction of your test set that is now correct. Print it out as well as push it to a list.  You should find that your accuracy rises from 30% beyond 66%.  Plot your accuracy as a function of step for at least 50*2000, and if patient out to 100*2000.</p>
+<p>Every 2000 steps you might want to check the fraction of your test set that is now correct. Print it out as well as push it to a list.  You should find that your accuracy rises from 30% to more than 66%.  Plot your accuracy as a function of step for at least 50*2000, and if patient out to 100*2000.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##</span>
