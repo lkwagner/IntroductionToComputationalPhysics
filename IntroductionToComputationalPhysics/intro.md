@@ -19,7 +19,7 @@ Welcome! In this course, you are going to learn how to use computation to do ama
  - **Lectures:** Thursday 4:00-5:50, 276 Loomis
  - **Professor:** Lucas Wagner
     - email: lkwagner@illinois.edu
-    - Office Hours: 3-4 on Wednesdays, 2131 Engineering Science Building
+    - Office Hours: 10-11 on Thursdays, 2131 Engineering Science Building
 
   - **TA(s):**
   - Will Huie
