@@ -16,37 +16,40 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -66,6 +69,7 @@
     <link rel="prev" title="Fluid Dynamics" href="FluidDynamics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -81,19 +85,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -101,7 +94,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,8 +101,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +149,17 @@
     
     
     <img src="_static/FD.png" class="logo__image only-light" alt="Physics 246 - Home"/>
-    <script>document.write(`<img src="_static/FD.png" class="logo__image only-dark" alt="Physics 246 - Home"/>`);</script>
+    <img src="_static/FD.png" class="logo__image only-dark pst-js-only" alt="Physics 246 - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -204,9 +193,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -320,7 +314,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -334,25 +328,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -432,11 +418,9 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading qiskit-2.3.0-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (12 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting rustworkx&gt;=0.15.0 (from qiskit[visualization])
+Collecting rustworkx&gt;=0.15.0 (from qiskit[visualization])
   Downloading rustworkx-0.17.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
-Requirement already satisfied: numpy&lt;3,&gt;=1.17 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit[visualization]) (2.4.2)
+Requirement already satisfied: numpy&lt;3,&gt;=1.17 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit[visualization]) (2.4.3)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scipy&gt;=1.5 (from qiskit[visualization])
@@ -446,18 +430,16 @@ Requirement already satisfied: numpy&lt;3,&gt;=1.17 in /opt/hostedtoolcache/Pyth
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting dill&gt;=0.3 (from qiskit[visualization])
   Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
 Collecting stevedore&gt;=3.0.0 (from qiskit[visualization])
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading stevedore-5.7.0-py3-none-any.whl.metadata (2.4 kB)
+  Downloading stevedore-5.7.0-py3-none-any.whl.metadata (2.4 kB)
 Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit[visualization]) (4.15.0)
 Requirement already satisfied: matplotlib&gt;=3.3 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit[visualization]) (3.10.8)
 Collecting pydot (from qiskit[visualization])
   Downloading pydot-4.0.1-py3-none-any.whl.metadata (11 kB)
 Requirement already satisfied: Pillow&gt;=4.2.1 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit[visualization]) (12.1.1)
-Collecting pylatexenc&gt;=1.4 (from qiskit[visualization])
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pylatexenc-2.10.tar.gz (162 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pylatexenc&gt;=1.4 (from qiskit[visualization])
+  Downloading pylatexenc-2.10.tar.gz (162 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Installing build dependencies ... ?25l-
@@ -485,57 +467,58 @@ Collecting pylatexenc&gt;=1.4 (from qiskit[visualization])
   Downloading seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
 Collecting sympy&gt;=1.3 (from qiskit[visualization])
   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.3.3)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.3.3)
 Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (0.12.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (4.61.1)
-Requirement already satisfied: kiwisolver&gt;=1.3.1 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.4.9)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (4.62.0)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.5.0)
 Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (26.0)
 Requirement already satisfied: pyparsing&gt;=3 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (3.3.2)
 Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (2.9.0.post0)
-Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.17.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.17.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pandas&gt;=1.2 (from seaborn&gt;=0.9.0-&gt;qiskit[visualization])
+  Downloading pandas-3.0.1-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas-3.0.1-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
-Collecting mpmath&lt;1.4,&gt;=1.1.0 (from sympy&gt;=1.3-&gt;qiskit[visualization])
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting mpmath&lt;1.4,&gt;=1.1.0 (from sympy&gt;=1.3-&gt;qiskit[visualization])
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
 Downloading qiskit-2.3.0-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.9 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/8.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.9/8.9 MB</span> <span class=" -Color -Color-Red">128.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.9/8.9 MB</span> <span class=" -Color -Color-Red">112.8 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading dill-0.4.1-py3-none-any.whl (120 kB)
+Downloading rustworkx-0.17.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading rustworkx-0.17.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.2/2.2 MB</span> <span class=" -Color -Color-Red">71.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.2/2.2 MB</span> <span class=" -Color -Color-Red">77.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading scipy-1.17.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.2 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/35.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">35.2/35.2 MB</span> <span class=" -Color -Color-Red">272.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━ <span class=" -Color -Color-Green">32.5/35.2 MB</span> <span class=" -Color -Color-Red">166.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">35.2/35.2 MB</span> <span class=" -Color -Color-Red">134.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading seaborn-0.13.2-py3-none-any.whl (294 kB)
 Downloading pandas-3.0.1-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.9 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/10.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.9/10.9 MB</span> <span class=" -Color -Color-Red">131.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.9/10.9 MB</span> <span class=" -Color -Color-Red">77.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading stevedore-5.7.0-py3-none-any.whl (54 kB)
 Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/6.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/6.3 MB</span> <span class=" -Color -Color-Red">225.6 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/6.3 MB</span> <span class=" -Color -Color-Red">229.8 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading mpmath-1.3.0-py3-none-any.whl (536 kB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/536.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">536.2/536.2 kB</span> <span class=" -Color -Color-Red">80.6 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">536.2/536.2 kB</span> <span class=" -Color -Color-Red">84.6 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading pydot-4.0.1-py3-none-any.whl (37 kB)
 </pre></div>
 </div>
@@ -546,7 +529,7 @@ Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for pylatexenc: filename=pylatexenc-2.10-py3-none-any.whl size=136897 sha256=5b76ca170508eddc145a1a9ff81c2c7cc5eba7bc71638442dbceb859dd27c0b1
+?25h  Created wheel for pylatexenc: filename=pylatexenc-2.10-py3-none-any.whl size=136897 sha256=125e0b216b3a0b09412609196f968cfa7598496754bafdf0234347a7735639ce
   Stored in directory: /home/runner/.cache/pip/wheels/6e/51/1c/e4691ba960b6fe12c01239f26bc63c58d5c4e754b58ace903d
 Successfully built pylatexenc
 </pre></div>
@@ -562,9 +545,6 @@ Successfully built pylatexenc
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 1/11</span> [mpmath]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 2/11</span> [sympy]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 2/11</span> [sympy]
@@ -810,15 +790,6 @@ Successfully built pylatexenc
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green"> 8/11</span> [qiskit]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green"> 8/11</span> [qiskit]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green"> 9/11</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green"> 9/11</span> [pandas]
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green"> 9/11</span> [pandas]
 </pre></div>
 </div>
@@ -924,7 +895,8 @@ Successfully built pylatexenc
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ <span class=" -Color -Color-Green">10/11</span> [seaborn]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11/11</span> [seaborn]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ <span class=" -Color -Color-Green">10/11</span> [seaborn]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11/11</span> [seaborn]
 ?25h
 Successfully installed dill-0.4.1 mpmath-1.3.0 pandas-3.0.1 pydot-4.0.1 pylatexenc-2.10 qiskit-2.3.0 rustworkx-0.17.1 scipy-1.17.1 seaborn-0.13.2 stevedore-5.7.0 sympy-1.14.0
 </pre></div>
@@ -933,22 +905,17 @@ Successfully installed dill-0.4.1 mpmath-1.3.0 pandas-3.0.1 pydot-4.0.1 pylatexe
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading qutip-5.2.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
-Requirement already satisfied: numpy&gt;=1.22 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qutip) (2.4.2)
+Requirement already satisfied: numpy&gt;=1.22 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qutip) (2.4.3)
 Requirement already satisfied: scipy!=1.16.0,!=1.17.0,&gt;=1.9 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qutip) (1.17.1)
 Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qutip) (26.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading qutip-5.2.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (32.8 MB)
+Downloading qutip-5.2.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (32.8 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/32.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.8/32.8 MB</span> <span class=" -Color -Color-Red">37.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">20.2/32.8 MB</span> <span class=" -Color -Color-Red">112.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green">24.1/32.8 MB</span> <span class=" -Color -Color-Red">63.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">32.8/32.8 MB</span> <span class=" -Color -Color-Red">61.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">32.8/32.8 MB</span> <span class=" -Color -Color-Red">90.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -963,7 +930,7 @@ Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.14.3/x
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading qiskit_aer-0.17.2-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.2 kB)
 Requirement already satisfied: qiskit&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit_aer) (2.3.0)
-Requirement already satisfied: numpy&gt;=1.16.3 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit_aer) (2.4.2)
+Requirement already satisfied: numpy&gt;=1.16.3 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit_aer) (2.4.3)
 Requirement already satisfied: scipy&gt;=1.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit_aer) (1.17.1)
 Requirement already satisfied: psutil&gt;=5 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit_aer) (7.2.2)
 Requirement already satisfied: python-dateutil&gt;=2.8.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit_aer) (2.9.0.post0)
@@ -978,19 +945,14 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/14.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.6/14.2 MB</span> <span class=" -Color -Color-Red">36.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.2/14.2 MB</span> <span class=" -Color -Color-Red">52.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.2/14.2 MB</span> <span class=" -Color -Color-Red">83.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25h
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: qiskit_aer
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-<span class=" -Color -Color-Red">ERROR: Operation cancelled by user</span>
-
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed qiskit_aer-0.17.2
 </pre></div>
 </div>
 </div>
@@ -1555,14 +1517,16 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-a-single-qubit-33-points">Exercise 1: A Single Qubit (33 points)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-a-one-qubit-state">a. A one qubit state</a></li>
@@ -1633,8 +1597,8 @@ By Bryan Clark; George Gollin; Ryan Levy
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
