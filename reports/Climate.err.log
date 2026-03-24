@@ -54,7 +54,7 @@ import datetime;datetime.datetime.now()
 ------------------
 
 ----- stderr -----
-/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/process/process.py:344: SyntaxWarning: "\c" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\c"? A raw string is also an option.
+/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/process/process.py:337: SyntaxWarning: "\c" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\c"? A raw string is also an option.
   :math:`-5 ^{\circ} \\textrm{C}` on all latitues::
 /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/domain/initial.py:102: SyntaxWarning: "\p" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\p"? A raw string is also an option.
   T(\phi) = T_0 + T_2 P_2(\sin\phi)
@@ -104,7 +104,7 @@ import datetime;datetime.datetime.now()
 [32m     68[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m
 [32m---> [39m[32m69[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[34;01m.[39;00m[34;01mfield[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m Field
 [32m     70[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[34;01m.[39;00m[34;01mdomain[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m _Domain, zonal_mean_surface
-[32m     71[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m walk
+[32m     71[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m walk, ProcNameWarning, _make_dict
 
 [36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/domain/__init__.py:7[39m
 [32m      4[39m __all__ = [[33m'[39m[33maxis[39m[33m'[39m, [33m'[39m[33mdomain[39m[33m'[39m, [33m'[39m[33mfield[39m[33m'[39m, [33m'[39m[33minitial[39m[33m'[39m, [33m'[39m[33mxarray[39m[33m'[39m]

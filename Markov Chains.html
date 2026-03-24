@@ -416,7 +416,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 3, 10, 20, 10, 48, 857001)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 3, 24, 15, 31, 44, 807928)
 </pre></div>
 </div>
 </div>
@@ -431,7 +431,7 @@
 <h3>0. Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h3>
 <p>In science and engineering, random (or stochastic) processes are commonplace. Electron velocities in a wire, stock prices in the stock market, and traffic congestion on a highway are all examples of time-dependent random processes. To understand such systems, scientists and engineers make use of the Markov chain, a stochastic process model developed by the Russian mathematician Andrey Markov in the 1900s.</p>
 <p>A Markov chain is often described as a “memory-less” random process. This means that the next state of the system only depends on the current state and not on any previous states. To see how a Markov chain works, we will study a simple example with a helpful visualization.</p>
-<p>Suppose we make a simplistic model of summer weather in Champaign, Illinois using a Markov chain. We say that there are only three states for a day’s weather: sunny, cloudy, and rainy. The Markov chain is specified by the probabilities of transitioning from state 𝐴 to state 𝐵, i.e., from today’s weather 𝐴 to tomorrow’s weather 𝐵, which we call <span class="math notranslate nohighlight">\(P(A \rightarrow B)\)</span>  For example, maybe we think that 50% of the time a cloudy day leads to a rainy day, so that <span class="math notranslate nohighlight">\(P(\textrm{cloudy } \rightarrow \textrm{ rainy})=0.5\)</span>  And maybe we believe that 75% of the time a sunny day is followed by another sunny day, so that <span class="math notranslate nohighlight">\(𝑃(\textrm{ sunny } \rightarrow \textrm{sunny}) =0.75\)</span>  Once we have defined all these transition probabilities we have made a Markov chain such as the one below.</p>
+<p>Suppose we make a simplistic model of summer weather in Champaign, Illinois using a Markov chain. We say that there are only three states for a day’s weather: sunny, cloudy, and rainy. The Markov chain is specified by the probabilities of transitioning from state 𝐴 to state 𝐵, i.e., from today’s weather 𝐴 to tomorrow’s weather 𝐵, which we call <span class="math notranslate nohighlight">\(P(A \rightarrow B)\)</span>.  For example, maybe we think that 50% of the time a cloudy day leads to a rainy day, so that <span class="math notranslate nohighlight">\(P(\textrm{cloudy } \rightarrow \textrm{ rainy})=0.5\)</span>.  And maybe we believe that 75% of the time a sunny day is followed by another sunny day, so that <span class="math notranslate nohighlight">\(𝑃(\textrm{ sunny } \rightarrow \textrm{sunny}) =0.75\)</span>.  Once we have defined all these transition probabilities we have made a Markov chain such as the one below.</p>
 <!--![image.png](attachment:image.png)-->
 <div><img src="https://clark.physics.illinois.edu/246img/MC_weather.png" width=400 alt="Answer (start)"></img><br></div>
 <p>Now that we have our Markov chain, what can we do with it? We can sample states from it! Here’s how that works:</p>
@@ -485,7 +485,7 @@ For example, draw a uniform random number <span class="math notranslate nohighli
 </div>
 <p>which will show us how often any given weather is.</p>
 <p><em>Slight Aside:</em>. Each Markov chain has an equilibration time. One should always wait until after the equilibration time before using statistics from a Markov chain. While we have not measured the equilibration time here, the equilibration time is short.  That said, the <code class="docutils literal notranslate"><span class="pre">100</span></code> in <code class="docutils literal notranslate"><span class="pre">weather[100:]</span></code> is to ensure the statistics start after the equilibration.  There are other time scales, such as the autocorrelation time and the mixing time, that are important to consider when using Markov chains, but I will not discuss them here.</p>
-<p>Alternatively, we might want to see the fluctations of the weather over time.  If you just plot weather (i.e. <code class="docutils literal notranslate"><span class="pre">plt.plot(weather)</span></code>) it won’t be very instructive because it will just jump around.  Instead it makes sense to get a running average.  Note that <code class="docutils literal notranslate"><span class="pre">np.average(measure[i-window//2:i+window//2]==0)</span></code> will give you the fraction of the time that it is sunny around day <code class="docutils literal notranslate"><span class="pre">i</span></code>. Using <code class="docutils literal notranslate"><span class="pre">window=100</span></code> go ahead and compute the fraction of time it is sunny (respectively cloudy and rainy) around day <code class="docutils literal notranslate"><span class="pre">i</span></code> plotting it is a function of <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
+<p>Alternatively, we might want to see the fluctations of the weather over time.  If you just plot weather (i.e. <code class="docutils literal notranslate"><span class="pre">plt.plot(weather)</span></code>) it won’t be very instructive because it will just jump around.  Instead it makes sense to get a running average.  Note that <code class="docutils literal notranslate"><span class="pre">np.average(measure[i-window//2:i+window//2]==0)</span></code> will give you the fraction of the time that it is sunny around day <code class="docutils literal notranslate"><span class="pre">i</span></code>. Using <code class="docutils literal notranslate"><span class="pre">window=100</span></code> go ahead and compute the fraction of time it is sunny (respectively cloudy and rainy) around day <code class="docutils literal notranslate"><span class="pre">i</span></code> plotting it as a function of <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
 <!--![image.png](attachment:image.png)-->
 <div><img src="https://clark.physics.illinois.edu/246img/MC_probability.png" width=500  alt="Answer (start)"></img><br></div><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -512,7 +512,7 @@ For example, draw a uniform random number <span class="math notranslate nohighli
 <section id="metropolis-algorithm">
 <h3>Metropolis Algorithm<a class="headerlink" href="#metropolis-algorithm" title="Link to this heading">#</a></h3>
 <p>A very common form of Markov Chain Monte Carlo is the Metropolis algorithm. This was the first MCMC algorithm developed. It was proposed in 1953 by Edward Teller, Nicholas Metropolis, and others at Los Alamos National Laboratory in New Mexico during the early days of scientific computing. Teller and his physics colleagues were interested in using MCMC to calculate the thermodynamic properties of a weakly interacting classical gas, which was very difficult to calculate analytically. Impressively, more than half a century after its introduction, Metropolis MCMC is still in wide use today in many areas of science, engineering, and statistics.</p>
-<p>The Metropolis algorithm samples a Markov chain by proposing moves between states, which are then either accepted or rejected according to a specific criterion. These proposed moves are chosen so that the Markov chain’s transition probabilities give the correct equilibrium distribution4. In general, Metropolis Markov chain sampling of a probability distribution <span class="math notranslate nohighlight">\(P(S)\)</span> works as follows:</p>
+<p>The Metropolis algorithm samples a Markov chain by proposing moves between states, which are then either accepted or rejected according to a specific criterion. These proposed moves are chosen so that the Markov chain’s transition probabilities give the correct equilibrium distribution. In general, Metropolis Markov chain sampling of a probability distribution <span class="math notranslate nohighlight">\(P(S)\)</span> works as follows:</p>
 <ol class="arabic simple">
 <li><p>Start at a state <span class="math notranslate nohighlight">\(𝑆_t\)</span>.</p></li>
 <li><p>Propose a move to a new state <span class="math notranslate nohighlight">\(S'\)</span> based on the current state <span class="math notranslate nohighlight">\(S_t\)</span>.</p></li>
@@ -530,7 +530,7 @@ For example, draw a uniform random number <span class="math notranslate nohighli
 <div><img src="https://clark.physics.illinois.edu/246img/MC_heatbath.png" width=400  alt="Answer (start)"></img><br></div><p>Statistical mechanics tells us that the probability distribution of the small system’s states in thermal equilibrium with the heat bath is given by the Boltzmann distribution</p>
 <div class="math notranslate nohighlight">
 \[P(S) = \frac{1}{Z} e^{-E(S)/k_BT}\]</div>
-<p>where <span class="math notranslate nohighlight">\(S\)</span> is a state of the system, <span class="math notranslate nohighlight">\(E(S)\)</span>  is the energy of the system in state <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(T\)</span>  is the temperature in Kelvin, <span class="math notranslate nohighlight">\(k_B=1.38 \times 10^{-23} J/K\)</span> is the  Boltzmann’s constant, and <span class="math notranslate nohighlight">\(Z\)</span> is a normalization constant.</p>
+<p>where <span class="math notranslate nohighlight">\(S\)</span> is a state of the system, <span class="math notranslate nohighlight">\(E(S)\)</span>  is the energy of the system in state <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(T\)</span>  is the temperature in Kelvin, <span class="math notranslate nohighlight">\(k_B=1.38 \times 10^{-23} J/K\)</span> is Boltzmann’s constant, and <span class="math notranslate nohighlight">\(Z\)</span> is a normalization constant.</p>
 <p>The Boltzmann distribution tells us which of the small system’s states are most important in thermal equilibrium. In general, at low temperatures, the ground state configuration is most important. At high temperatures <span class="math notranslate nohighlight">\((k_B T \gg E(S))\)</span>, all states are equally important.  For intermediate temperatures, things can be quite complicated. In such situations, we can use MCMC to efficiently sample the Boltzmann distribution to understand the thermal physics of our system.</p>
 <p>To gain some intuition about the Boltzmann distribution, let’s look at an example. Consider a physical system whose state energies are given by the following quadratic function:</p>
 <!-- ![image.png](attachment:image.png) -->
@@ -554,16 +554,17 @@ For example, draw a uniform random number <span class="math notranslate nohighli
 <div class="math notranslate nohighlight">
 \[E=-\textbf{B} \cdot \textbf{m}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\textbf{m} = \mu \textbf{S}\)</span> is the dipole moment. These are vector quantities. For simplicity, we will assume
-that the magnetic field <span class="math notranslate nohighlight">\(\textbf{B}\)</span> points in the 𝑧-direction so that the equation can be written as
-$<span class="math notranslate nohighlight">\(E = -\mu B \cos \theta\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\theta$ is the angle between the magnetic moment and the magnetic field.</p>
+that the magnetic field <span class="math notranslate nohighlight">\(\textbf{B}\)</span> points in the 𝑧-direction so that the equation can be written as</p>
+<div class="math notranslate nohighlight">
+\[E = -\mu B \cos \theta\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between the magnetic moment and the magnetic field.</p>
 <p>Each orientation of the dipole is called a “state.” The possible states for the dipole are specified by the angle <span class="math notranslate nohighlight">\(0\leq \theta &lt; 2\pi\)</span>; the probability of such states in thermal equilibrium is given by the Boltzmann distribution</p>
 <div class="math notranslate nohighlight">
 \[
 P(\theta) = \frac{1}{Z} e^{-E(\theta)/k_bT} = \frac{1}{Z} e^{\mu B \cos(\theta)/k_B T} \equiv \frac{1}{Z} e^{h \cos\theta},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(h=\mu B/k_BT\)</span> is a dimensionless quantity.</p>
-<p>Now, we want to use Metropolis Markov Chain Monte Carlo to samples states from <span class="math notranslate nohighlight">\(P(\theta)\)</span>. To sample states from the Markov chain, we use the steps outlined in the section on the Metropolis algorithm, but filling in the details for this specific problem:</p>
+<p>Now, we want to use Metropolis Markov Chain Monte Carlo to sample states from <span class="math notranslate nohighlight">\(P(\theta)\)</span>. To sample states from the Markov chain, we use the steps outlined in the section on the Metropolis algorithm, but filling in the details for this specific problem:</p>
 <ol class="arabic simple">
 <li><p>Start at state <span class="math notranslate nohighlight">\(\theta_t\)</span></p></li>
 <li><p>Propose a new state <span class="math notranslate nohighlight">\(\theta'\)</span> by doing a Gaussian random step away from <span class="math notranslate nohighlight">\(\theta_t\)</span>.</p></li>
@@ -579,9 +580,10 @@ P(\theta) = \frac{1}{Z} e^{-E(\theta)/k_bT} = \frac{1}{Z} e^{\mu B \cos(\theta)/
 </pre></div>
 </div>
 <p>and run the Markov chain for <span class="math notranslate nohighlight">\(T_{max}=2000\)</span> steps.  Plot <span class="math notranslate nohighlight">\(M\)</span> versus <span class="math notranslate nohighlight">\(h\)</span>.</p>
-<p>For this problem, there is an exact analytic solution, given by the formula
-$<span class="math notranslate nohighlight">\(M(h) = I_1(h)/I_0(h)\)</span><span class="math notranslate nohighlight">\(
-where \)</span>I_\nu(z)<span class="math notranslate nohighlight">\(  is a modified Bessel function of the second kind of order \)</span>\nu$.</p>
+<p>For this problem, there is an exact analytic solution, given by the formula</p>
+<div class="math notranslate nohighlight">
+\[M(h) = I_1(h)/I_0(h)\]</div>
+<p>where <span class="math notranslate nohighlight">\(I_\nu(z)\)</span>  is a modified Bessel function of the first kind of order <span class="math notranslate nohighlight">\(\nu\)</span>.</p>
 <p><strong>Plotting</strong><br />
 🦉Plot your MCMC calculation results and the exact answer given by the above formula on the same plot. You can use the <code class="docutils literal notranslate"><span class="pre">scipy.special</span></code> module to compute the Bessel functions. For example,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sps</span>
@@ -622,7 +624,7 @@ where \)</span>I_\nu(z)<span class="math notranslate nohighlight">\(  is a modif
 </pre></div>
 </div>
 <p>Here we chose to have the number one represent a flat polymer and the number zero a bent one.</p>
-<p>Now, let’s suppose that there is an energy difference <span class="math notranslate nohighlight">\(\epsilon\)</span> between a polymer it its flat and bent states, so that the total energy of a configuration <span class="math notranslate nohighlight">\(S\)</span> o a rubber band of length <span class="math notranslate nohighlight">\(M(S)a\)</span> is</p>
+<p>Now, let’s suppose that there is an energy difference <span class="math notranslate nohighlight">\(\epsilon\)</span> between a polymer it its flat and bent states, so that the total energy of a configuration <span class="math notranslate nohighlight">\(S\)</span> of a rubber band of length <span class="math notranslate nohighlight">\(aM(S)\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[
 E(S) = \epsilon M(S).
@@ -664,6 +666,7 @@ E(S) = \epsilon M(S).
 <ol class="arabic simple">
 <li><p>Start at a polymer chain configuration  <span class="math notranslate nohighlight">\(S_t\)</span>.   Compute the chain length <span class="math notranslate nohighlight">\(M(S_t)\)</span> and use it to update your estimate of <span class="math notranslate nohighlight">\(\langle M \rangle\)</span>.</p></li>
 <li><p>Propose a new configuration <span class="math notranslate nohighlight">\(S'\)</span>  by randomly switching a single, randomly selected polymer in <span class="math notranslate nohighlight">\(S_t\)</span>  from flat to bent, or from bent to flat.</p></li>
+<li><p>Choose a uniform random number <span class="math notranslate nohighlight">\(r\)</span> between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(r&lt;P(S')/P(S_t)= e^{-(E(S')- E(S_t))/k_BT}\)</span>, then accept the move and set  <span class="math notranslate nohighlight">\(S_{t+1}=S'\)</span> . Otherwise, reject the move and set <span class="math notranslate nohighlight">\(S_{t+1}=S_t\)</span>.</p></li>
 <li><p>Increment <span class="math notranslate nohighlight">\(t\)</span> and repeat.</p></li>
 </ol>
@@ -673,7 +676,7 @@ computes the expectation value of the chain length</p>
 \[\langle M \rangle = \sum_S M(S) P(S) \approx \frac{1}{T_{max}} \sum_{t=1}^{T_{max}} M(S_t)\]</div>
 <p>given the value of the ratio <span class="math notranslate nohighlight">\(\epsilon/k_BT\)</span>.  Your function, for instance, can look like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the average chain length using Metropolis MCMC.</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">computeAvgLength</span><span class="p">(</span><span class="n">epsilonRatio</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">computeAvgLength</span><span class="p">(</span><span class="n">epsilonRatio</span><span class="p">):</span>
     <span class="c1"># TODO: Write your code to compute avgLength here</span>
     <span class="c1">#...</span>
     <span class="k">return</span> <span class="n">avgLength</span>
@@ -683,11 +686,11 @@ computes the expectation value of the chain length</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">epsilonRatios</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>compute and store the average chain length in an array of the same size. 🦉Plot the normalized chain length <span class="math notranslate nohighlight">\(\langle M \rangle/N\)</span> versus <span class="math notranslate nohighlight">\(\epsilon/k_BT\)</span> and theck that it matches the following plot.</p>
+<p>compute and store the average chain length in an array of the same size. 🦉Plot the normalized chain length <span class="math notranslate nohighlight">\(\langle M \rangle/N\)</span> versus <span class="math notranslate nohighlight">\(\epsilon/k_BT\)</span> and check that it matches the following plot.</p>
 <!--![image.png](attachment:image.png)-->
 <div><img src="https://clark.physics.illinois.edu/246img/MC_rubberBand3.png" width=400  alt="Answer (start)"></img><br></div><p>From this plot, we can see that when <span class="math notranslate nohighlight">\(\epsilon\)</span> is negative flat polymers are energetically preferred and the average length of the rubber band increases. When <span class="math notranslate nohighlight">\(\epsilon\)</span> is positive, bent polymers are more energetically favorable and the average length decreases.</p>
-<p>Notice the dependence on temperature. When temperature is very high, the rubber band has a nearly equal number of flat and bent polymers and so is about <span class="math notranslate nohighlight">\(Na/2\)</span> in length. When temperature is low, then the sign of ! determines whether the rubber band is maximally stretched or contracted.</p>
-<p>For the typical rubber bands you would get in the store, the polymers within it energetically prefer to lie flat so that <span class="math notranslate nohighlight">\(\epsilon&lt;0.\)</span>  This sign of <span class="math notranslate nohighlight">\(\epsilon\)</span> means that rubber bands contract when heated and expanded when cold!</p>
+<p>Notice the dependence on temperature. When temperature is very high, the rubber band has a nearly equal number of flat and bent polymers and so is about <span class="math notranslate nohighlight">\(Na/2\)</span> in length. When temperature is low, then the sign of <span class="math notranslate nohighlight">\(\epsilon\)</span> determines whether the rubber band is maximally stretched or contracted.</p>
+<p>For the typical rubber bands you would get in the store, the polymers within it energetically prefer to lie flat so that <span class="math notranslate nohighlight">\(\epsilon&lt;0.\)</span>  This sign of <span class="math notranslate nohighlight">\(\epsilon\)</span> means that rubber bands contract when heated and expand when cooled!</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
