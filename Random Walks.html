@@ -379,12 +379,12 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-animation-extra-credit-5-points">d.  Animation (extra credit: 5 points)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-diffusion-limited-aggregation">Exercise 3: Diffusion Limited Aggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-diffusion-limited-aggregation">Exercise 4: Diffusion Limited Aggregation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dla-onto-a-core-point-at-the-origin">a. DLA onto a core point at the origin</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-dla-onto-a-surface-extra-credit-5-points">b. DLA onto a surface (extra credit: 5 points)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-symmetry-restoration">Exercise 4: Symmetry Restoration</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-symmetry-restoration">Exercise 5: Symmetry Restoration</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-one-dimensional-discrete-walks">a. One dimensional Discrete Walks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-rotational-invariance-in-2d">b. Rotational Invariance in 2D</a></li>
 </ul>
@@ -444,7 +444,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 3, 24, 15, 32, 30, 26950)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 3, 26, 20, 47, 2, 144491)
 </pre></div>
 </div>
 </div>
@@ -745,7 +745,7 @@ Make a random walk of 128,000 steps.  Then plot (on separate plots)</p>
 <p>Like in the 1D case, we expect the average <span class="math notranslate nohighlight">\(\langle x_k \rangle\)</span> to be zero.  Let’s just go ahead and plot the standard deviation</p>
 <div class="math notranslate nohighlight">
 \[\langle \sigma \rangle = \langle \sqrt{x_k^2 + y_k^2}  \rangle\]</div>
-<p><em>for 1000 copies of the gaussian plot.</em></p>
+<p><em>for 2D process with 1000 walkers</em></p>
 <p>You should obtain a similar curve to that obtained in the one-dimensional case, but increased somewhat in amplitude.  Even in two dimensions, the displacement goes with the square root of time. <strong>Show this by also plotting it on a log-log plot and fitting the slope</strong>.</p>
 <p>It turns out that you also see this behavior in three dimensions. In general, the standard deviation always scales as the square root of time for any physical system undergoing diffusive motion.</p>
  <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
@@ -761,8 +761,8 @@ Make a random walk of 128,000 steps.  Then plot (on separate plots)</p>
 <p>Animate the two-dimensional random walk.  You may find the animation code from previous exercise helpful.</p>
 </section>
 </section>
-<section id="exercise-3-diffusion-limited-aggregation">
-<h2>Exercise 3: Diffusion Limited Aggregation<a class="headerlink" href="#exercise-3-diffusion-limited-aggregation" title="Link to this heading">#</a></h2>
+<section id="exercise-4-diffusion-limited-aggregation">
+<h2>Exercise 4: Diffusion Limited Aggregation<a class="headerlink" href="#exercise-4-diffusion-limited-aggregation" title="Link to this heading">#</a></h2>
 <p>In the previous exercises we learned some properties of random walks.  It turns out that some crystal formation can be modeled accurately using random walks. You can see some beautiful pictures of this <a class="reference external" href="https://en.wikipedia.org/wiki/Diffusion-limited_aggregation">here</a></p>
 <p>The simplest model of these systems is the following: A single particle (be that an atom or a cluster of atoms) is initially stuck to a substrate. Particles in the environment randomly move around until they find that first particle, at which point they stick to it and stop moving.</p>
 <section id="a-dla-onto-a-core-point-at-the-origin">
@@ -808,8 +808,8 @@ Use 1000 different particles.</p>
 </div>
  <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 </section>
-<section id="exercise-4-symmetry-restoration">
-<h2>Exercise 4: Symmetry Restoration<a class="headerlink" href="#exercise-4-symmetry-restoration" title="Link to this heading">#</a></h2>
+<section id="exercise-5-symmetry-restoration">
+<h2>Exercise 5: Symmetry Restoration<a class="headerlink" href="#exercise-5-symmetry-restoration" title="Link to this heading">#</a></h2>
 <section id="a-one-dimensional-discrete-walks">
 <h3>a. One dimensional Discrete Walks<a class="headerlink" href="#a-one-dimensional-discrete-walks" title="Link to this heading">#</a></h3>
 <p>So far we’ve been doing random walks with gaussian steps.  We would like to see what changes if instead we did discrete walks - i.e. at each step we are going to walk either left exactly 6 units or right exactly 6 units.</p>
@@ -942,12 +942,12 @@ Use 1000 different particles.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-animation-extra-credit-5-points">d.  Animation (extra credit: 5 points)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-diffusion-limited-aggregation">Exercise 3: Diffusion Limited Aggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-diffusion-limited-aggregation">Exercise 4: Diffusion Limited Aggregation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-dla-onto-a-core-point-at-the-origin">a. DLA onto a core point at the origin</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-dla-onto-a-surface-extra-credit-5-points">b. DLA onto a surface (extra credit: 5 points)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-symmetry-restoration">Exercise 4: Symmetry Restoration</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-symmetry-restoration">Exercise 5: Symmetry Restoration</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-one-dimensional-discrete-walks">a. One dimensional Discrete Walks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-rotational-invariance-in-2d">b. Rotational Invariance in 2D</a></li>
 </ul>

@@ -144,27 +144,27 @@ The above exception was the direct cause of the following exception:
 [32m    221[39m     ) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01me[39;00m
 [32m    223[39m sys.audit([33m"[39m[33mhttp.client.connect[39m[33m"[39m, [38;5;28mself[39m, [38;5;28mself[39m.host, [38;5;28mself[39m.port)
 
-[31mNewConnectionError[39m: HTTPConnection(host='10.1.1.103', port=9000): Failed to establish a new connection: [Errno 111] Connection refused
+[31mNewConnectionError[39m: HTTPConnection(host='10.1.0.57', port=9000): Failed to establish a new connection: [Errno 111] Connection refused
 
 The above exception was the direct cause of the following exception:
 
 [31mMaxRetryError[39m                             Traceback (most recent call last)
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/adapters.py:644[39m, in [36mHTTPAdapter.send[39m[34m(self, request, stream, timeout, verify, cert, proxies)[39m
-[32m    643[39m [38;5;28;01mtry[39;00m:
-[32m--> [39m[32m644[39m     resp = [43mconn[49m[43m.[49m[43murlopen[49m[43m([49m
-[32m    645[39m [43m        [49m[43mmethod[49m[43m=[49m[43mrequest[49m[43m.[49m[43mmethod[49m[43m,[49m
-[32m    646[39m [43m        [49m[43murl[49m[43m=[49m[43murl[49m[43m,[49m
-[32m    647[39m [43m        [49m[43mbody[49m[43m=[49m[43mrequest[49m[43m.[49m[43mbody[49m[43m,[49m
-[32m    648[39m [43m        [49m[43mheaders[49m[43m=[49m[43mrequest[49m[43m.[49m[43mheaders[49m[43m,[49m
-[32m    649[39m [43m        [49m[43mredirect[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
-[32m    650[39m [43m        [49m[43massert_same_host[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
-[32m    651[39m [43m        [49m[43mpreload_content[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
-[32m    652[39m [43m        [49m[43mdecode_content[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
-[32m    653[39m [43m        [49m[43mretries[49m[43m=[49m[38;5;28;43mself[39;49m[43m.[49m[43mmax_retries[49m[43m,[49m
-[32m    654[39m [43m        [49m[43mtimeout[49m[43m=[49m[43mtimeout[49m[43m,[49m
-[32m    655[39m [43m        [49m[43mchunked[49m[43m=[49m[43mchunked[49m[43m,[49m
-[32m    656[39m [43m    [49m[43m)[49m
-[32m    658[39m [38;5;28;01mexcept[39;00m (ProtocolError, [38;5;167;01mOSError[39;00m) [38;5;28;01mas[39;00m err:
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/adapters.py:645[39m, in [36mHTTPAdapter.send[39m[34m(self, request, stream, timeout, verify, cert, proxies)[39m
+[32m    644[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m645[39m     resp = [43mconn[49m[43m.[49m[43murlopen[49m[43m([49m
+[32m    646[39m [43m        [49m[43mmethod[49m[43m=[49m[43mrequest[49m[43m.[49m[43mmethod[49m[43m,[49m
+[32m    647[39m [43m        [49m[43murl[49m[43m=[49m[43murl[49m[43m,[49m
+[32m    648[39m [43m        [49m[43mbody[49m[43m=[49m[43mrequest[49m[43m.[49m[43mbody[49m[43m,[49m
+[32m    649[39m [43m        [49m[43mheaders[49m[43m=[49m[43mrequest[49m[43m.[49m[43mheaders[49m[43m,[49m
+[32m    650[39m [43m        [49m[43mredirect[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
+[32m    651[39m [43m        [49m[43massert_same_host[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
+[32m    652[39m [43m        [49m[43mpreload_content[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
+[32m    653[39m [43m        [49m[43mdecode_content[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
+[32m    654[39m [43m        [49m[43mretries[49m[43m=[49m[38;5;28;43mself[39;49m[43m.[49m[43mmax_retries[49m[43m,[49m
+[32m    655[39m [43m        [49m[43mtimeout[49m[43m=[49m[43mtimeout[49m[43m,[49m
+[32m    656[39m [43m        [49m[43mchunked[49m[43m=[49m[43mchunked[49m[43m,[49m
+[32m    657[39m [43m    [49m[43m)[49m
+[32m    659[39m [38;5;28;01mexcept[39;00m (ProtocolError, [38;5;167;01mOSError[39;00m) [38;5;28;01mas[39;00m err:
 
 [36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/urllib3/connectionpool.py:841[39m, in [36mHTTPConnectionPool.urlopen[39m[34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)[39m
 [32m    839[39m     new_e = ProtocolError([33m"[39m[33mConnection aborted.[39m[33m"[39m, new_e)
@@ -178,7 +178,7 @@ The above exception was the direct cause of the following exception:
 [32m--> [39m[32m535[39m     [38;5;28;01mraise[39;00m MaxRetryError(_pool, url, reason) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mreason[39;00m  [38;5;66;03m# type: ignore[arg-type][39;00m
 [32m    537[39m log.debug([33m"[39m[33mIncremented Retry for (url=[39m[33m'[39m[38;5;132;01m%s[39;00m[33m'[39m[33m): [39m[38;5;132;01m%r[39;00m[33m"[39m, url, new_retry)
 
-[31mMaxRetryError[39m: HTTPConnectionPool(host='10.1.1.103', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.1.103', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[31mMaxRetryError[39m: HTTPConnectionPool(host='10.1.0.57', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.0.57', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
 
 During handling of the above exception, another exception occurred:
 
@@ -206,29 +206,29 @@ During handling of the above exception, another exception occurred:
 [32m     58[39m [38;5;28;01mwith[39;00m sessions.Session() [38;5;28;01mas[39;00m session:
 [32m---> [39m[32m59[39m     [38;5;28;01mreturn[39;00m [43msession[49m[43m.[49m[43mrequest[49m[43m([49m[43mmethod[49m[43m=[49m[43mmethod[49m[43m,[49m[43m [49m[43murl[49m[43m=[49m[43murl[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/sessions.py:589[39m, in [36mSession.request[39m[34m(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)[39m
-[32m    584[39m send_kwargs = {
-[32m    585[39m     [33m"[39m[33mtimeout[39m[33m"[39m: timeout,
-[32m    586[39m     [33m"[39m[33mallow_redirects[39m[33m"[39m: allow_redirects,
-[32m    587[39m }
-[32m    588[39m send_kwargs.update(settings)
-[32m--> [39m[32m589[39m resp = [38;5;28;43mself[39;49m[43m.[49m[43msend[49m[43m([49m[43mprep[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43msend_kwargs[49m[43m)[49m
-[32m    591[39m [38;5;28;01mreturn[39;00m resp
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/sessions.py:592[39m, in [36mSession.request[39m[34m(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)[39m
+[32m    587[39m send_kwargs = {
+[32m    588[39m     [33m"[39m[33mtimeout[39m[33m"[39m: timeout,
+[32m    589[39m     [33m"[39m[33mallow_redirects[39m[33m"[39m: allow_redirects,
+[32m    590[39m }
+[32m    591[39m send_kwargs.update(settings)
+[32m--> [39m[32m592[39m resp = [38;5;28;43mself[39;49m[43m.[49m[43msend[49m[43m([49m[43mprep[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43msend_kwargs[49m[43m)[49m
+[32m    594[39m [38;5;28;01mreturn[39;00m resp
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/sessions.py:703[39m, in [36mSession.send[39m[34m(self, request, **kwargs)[39m
-[32m    700[39m start = preferred_clock()
-[32m    702[39m [38;5;66;03m# Send the request[39;00m
-[32m--> [39m[32m703[39m r = [43madapter[49m[43m.[49m[43msend[49m[43m([49m[43mrequest[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
-[32m    705[39m [38;5;66;03m# Total elapsed time of the request (approximately)[39;00m
-[32m    706[39m elapsed = preferred_clock() - start
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/sessions.py:706[39m, in [36mSession.send[39m[34m(self, request, **kwargs)[39m
+[32m    703[39m start = preferred_clock()
+[32m    705[39m [38;5;66;03m# Send the request[39;00m
+[32m--> [39m[32m706[39m r = [43madapter[49m[43m.[49m[43msend[49m[43m([49m[43mrequest[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+[32m    708[39m [38;5;66;03m# Total elapsed time of the request (approximately)[39;00m
+[32m    709[39m elapsed = preferred_clock() - start
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/adapters.py:677[39m, in [36mHTTPAdapter.send[39m[34m(self, request, stream, timeout, verify, cert, proxies)[39m
-[32m    673[39m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(e.reason, _SSLError):
-[32m    674[39m         [38;5;66;03m# This branch is for urllib3 v1.22 and later.[39;00m
-[32m    675[39m         [38;5;28;01mraise[39;00m SSLError(e, request=request)
-[32m--> [39m[32m677[39m     [38;5;28;01mraise[39;00m [38;5;167;01mConnectionError[39;00m(e, request=request)
-[32m    679[39m [38;5;28;01mexcept[39;00m ClosedPoolError [38;5;28;01mas[39;00m e:
-[32m    680[39m     [38;5;28;01mraise[39;00m [38;5;167;01mConnectionError[39;00m(e, request=request)
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/requests/adapters.py:678[39m, in [36mHTTPAdapter.send[39m[34m(self, request, stream, timeout, verify, cert, proxies)[39m
+[32m    674[39m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(e.reason, _SSLError):
+[32m    675[39m         [38;5;66;03m# This branch is for urllib3 v1.22 and later.[39;00m
+[32m    676[39m         [38;5;28;01mraise[39;00m SSLError(e, request=request)
+[32m--> [39m[32m678[39m     [38;5;28;01mraise[39;00m [38;5;167;01mConnectionError[39;00m(e, request=request)
+[32m    680[39m [38;5;28;01mexcept[39;00m ClosedPoolError [38;5;28;01mas[39;00m e:
+[32m    681[39m     [38;5;28;01mraise[39;00m [38;5;167;01mConnectionError[39;00m(e, request=request)
 
-[31mConnectionError[39m: HTTPConnectionPool(host='10.1.1.103', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.1.103', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[31mConnectionError[39m: HTTPConnectionPool(host='10.1.0.57', port=9000): Max retries exceeded with url: /api/sessions (Caused by NewConnectionError("HTTPConnection(host='10.1.0.57', port=9000): Failed to establish a new connection: [Errno 111] Connection refused"))
 
