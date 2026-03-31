@@ -37,7 +37,7 @@ HTML(ani.to_jshtml())
 [31m---------------------------------------------------------------------------[39m
 [31mNameError[39m                                 Traceback (most recent call last)
 [36mCell[39m[36m [39m[32mIn[14][39m[32m, line 1[39m
-[32m----> [39m[32m1[39m l=[38;5;28mlen[39m([43mpos[49m)
+[32m----> [39m[32m1[39m l=len(pos)
 [32m      2[39m ani=animate_double_pendulum([pos[::l//[32m100[39m]])
 [32m      3[39m HTML(ani.to_jshtml())
 

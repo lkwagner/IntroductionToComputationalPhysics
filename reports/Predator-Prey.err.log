@@ -28,10 +28,20 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Assumes locsF and locsB is a list of locations at each time step
 
-def AnimateMe():
+def AnimateMe(locsB, locsF):
+    """
+    Animate locations
 
+    Parameters
+    ----------
+    locsB : np.ndarray (frames, x, y): locations of the bunnies
+    locsF : np.ndarray (frames, x, y): locations of the foxes
+
+    Returns
+    -------
+    animation object
+    """
     def GetData(mm):
         mm=min(mm,len(locsF)-3)
         maskFox=locsF[mm]>0
@@ -65,25 +75,14 @@ HTML(anim.to_jshtml())
 
 
 [31m---------------------------------------------------------------------------[39m
-[31mNameError[39m                                 Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[16][39m[32m, line 31[39m
-[32m     29[39m     plt.close()
-[32m     30[39m     [38;5;28;01mreturn[39;00m anim
-[32m---> [39m[32m31[39m anim=[43mAnimateMe[49m[43m([49m[43m)[49m
-[32m     32[39m HTML(anim.to_jshtml())
+[31mTypeError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[16][39m[32m, line 40[39m
+[32m     36[39m     [38;5;28;01mfrom[39;00m IPython.display [38;5;28;01mimport[39;00m HTML
+[32m     37[39m     anim = FuncAnimation(fig, update, frames=len(locsF), interval = [32m30[39m, blit=[38;5;28;01mTrue[39;00m,repeat=[38;5;28;01mFalse[39;00m)
+[32m     38[39m     plt.close()
+[32m     39[39m     [38;5;28;01mreturn[39;00m anim
+[32m---> [39m[32m40[39m anim=AnimateMe()
+[32m     41[39m HTML(anim.to_jshtml())
 
-[36mCell[39m[36m [39m[32mIn[16][39m[32m, line 16[39m, in [36mAnimateMe[39m[34m()[39m
-[32m     12[39m     [38;5;28;01mreturn[39;00m toShow
-[32m     14[39m fig=plt.figure(figsize=([32m20[39m,[32m10[39m)) 
-[32m---> [39m[32m16[39m plot = plt.imshow([43mGetData[49m[43m([49m[32;43m0[39;49m[43m)[49m)
-[32m     17[39m plt.axis([33m'[39m[33mimage[39m[33m'[39m)
-[32m     19[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34minit[39m():
-
-[36mCell[39m[36m [39m[32mIn[16][39m[32m, line 6[39m, in [36mAnimateMe.<locals>.GetData[39m[34m(mm)[39m
-[32m      5[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mGetData[39m(mm):
-[32m----> [39m[32m6[39m     mm=[38;5;28mmin[39m(mm,[38;5;28mlen[39m([43mlocsF[49m)-[32m3[39m)
-[32m      7[39m     maskFox=locsF[mm]>[32m0[39m
-[32m      8[39m     maskBunny=locsB[mm]>[32m0[39m
-
-[31mNameError[39m: name 'locsF' is not defined
+[31mTypeError[39m: AnimateMe() missing 2 required positional arguments: 'locsB' and 'locsF'
 

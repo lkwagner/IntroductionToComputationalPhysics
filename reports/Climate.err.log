@@ -63,11 +63,13 @@ import datetime;datetime.datetime.now()
 [31m---------------------------------------------------------------------------[39m
 [31mModuleNotFoundError[39m                       Traceback (most recent call last)
 [36mCell[39m[36m [39m[32mIn[2][39m[32m, line 4[39m
-[32m      2[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mmatplotlib[39;00m[34;01m.[39;00m[34;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mplt[39;00m
-[32m      3[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mrandom[39;00m
-[32m----> [39m[32m4[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m constants [38;5;28;01mas[39;00m const
-[32m      5[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01msolar[39;00m[34;01m.[39;00m[34;01minsolation[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m daily_insolation
-[32m      6[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mclimlab[39;00m[34;01m.[39;00m[34;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m legendre
+[32m      1[39m [38;5;28;01mimport[39;00m numpy [38;5;28;01mas[39;00m np
+[32m      2[39m [38;5;28;01mimport[39;00m matplotlib.pyplot [38;5;28;01mas[39;00m plt
+[32m      3[39m [38;5;28;01mimport[39;00m random
+[32m----> [39m[32m4[39m [38;5;28;01mfrom[39;00m climlab [38;5;28;01mimport[39;00m constants [38;5;28;01mas[39;00m const
+[32m      5[39m [38;5;28;01mfrom[39;00m climlab.solar.insolation [38;5;28;01mimport[39;00m daily_insolation
+[32m      6[39m [38;5;28;01mfrom[39;00m climlab.utils [38;5;28;01mimport[39;00m legendre
+[32m      7[39m [38;5;28;01mimport[39;00m climlab
 
 [36mFile [39m[32m/opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages/climlab/__init__.py:20[39m
 [32m     18[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01m.[39;00m[34;01mutils[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m constants, thermo, legendre
