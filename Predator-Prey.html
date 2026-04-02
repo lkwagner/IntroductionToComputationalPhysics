@@ -561,11 +561,11 @@ Also generate a plot of the minimum prey seen during an ecosystem simulation for
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:  What is the minimum amount of bunnies you ever see in your simulation?</strong></p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p><strong>Q:  What is the minimum number of bunnies you ever see in your simulation?</strong></p>
 <p>A:</p>
 <p><strong>Q: As you increase <span class="math notranslate nohighlight">\(x\)</span>, you will find that the populations start to crash near zero. Which population does that first?</strong></p>
 <p>A:</p>
-<p><strong>Q: Which value of <span class="math notranslate nohighlight">\(x\)</span>, do you think is most likely to avoid extinction given these parameters ?</strong></p>
+<p><strong>Q: Which value of <span class="math notranslate nohighlight">\(x\)</span> do you think is most likely to avoid extinction given these parameters ?</strong></p>
 <p>A:</p>
 </section>
 <section id="d-stationary-points">
@@ -643,7 +643,7 @@ Also generate a plot of the minimum prey seen during an ecosystem simulation for
 <p>This follows because</p>
 <div class="math notranslate nohighlight">
 \[ \lim_{t \rightarrow 0} (1-\alpha t)^{T/t}\alpha = \alpha e^{-\alpha T} \]</div>
-<p>This is called a Poisson process, and it shows up in many situations, from nuclear decay to phone call frequency. It is essentially saying that a bunny reproduces on average every <span class="math notranslate nohighlight">\(1/\alpha\)</span> time, and once it has reproduced, it starts again with no memory of when it last reproduced. You can imagine that such a process might not apply to human behavior but we will use it for bunnies.</p>
+<p>This is called a Poisson process, and it shows up in many situations, from nuclear decay to phone call frequency. It is essentially saying that a bunny reproduces on average every <span class="math notranslate nohighlight">\(1/\alpha\)</span> units of time, and once it has reproduced, it starts again with no memory of when it last reproduced. You can imagine that such a process might not apply to human behavior but we will use it for bunnies.</p>
 <p>Let’s test this.</p>
 <p>🦉Implement the following function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">time_of_first_bunny</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">deltaT</span><span class="p">):</span>
@@ -868,24 +868,24 @@ Because of the randomness involved, this may take a while to run (~5 minutes). F
 </ul>
 <p>In this exercise, we want to simulate an agent-based model of the predator-prey simulation.  Instead of the previous exercises where you are using a differential equation, here we are going to simulate each individual bunny and fox separately as an <em>agent</em>.  These bunnies and foxes are going to live on a <span class="math notranslate nohighlight">\(s \times s\)</span> grid.  Foxes will keep track of how full they are.  All foxes are born with a fullness amount <span class="math notranslate nohighlight">\(F\)</span>.   The dynamics of our simulation will be:</p>
 <ul class="simple">
-<li><p>The bunnies and foxes will be allowed to move around the grid.   At each time step, every bunny and every fox will decide either to stay where they are or try to move in one of four directions.  If they decide to try to move, they will move if its empty of the same type of animal (i.e. foxes don’t move to where foxes are).  If someone is in the direction they wanted to go, they will stay where they are.</p></li>
-<li><p>Every time step, the fox gets <span class="math notranslate nohighlight">\(f\)</span> less full.</p></li>
+<li><p>The bunnies and foxes will be allowed to move around the grid.   At each time step, every bunny and every fox will decide either to stay where they are or try to move in one of four directions.  If they decide to try to move, they will move if its empty of the same type of animal (i.e. foxes don’t move to where foxes are).  If the grid space they wanted to go is occupied, they will stay where they are.</p></li>
+<li><p>Every time step, every fox’s fullness decreases by <span class="math notranslate nohighlight">\(f\)</span>.</p></li>
 <li><p>When the foxes and bunnies are on the same grid point (after everyone moves) one fox on that grid (pick arbitrarily) eats all the bunnies on that grid. The foxes full-ness increases by the number of bunnies they eat.</p></li>
-<li><p>An <span class="math notranslate nohighlight">\(\alpha\)</span> fraction of bunnies reproduce (appearing at the same location) at each time-step.</p></li>
-<li><p>All foxes whose full <span class="math notranslate nohighlight">\(F\)</span> is more than <span class="math notranslate nohighlight">\(R\)</span>, reproduce (at the same location) at each time-step.</p></li>
-<li><p>All foxes whose full <span class="math notranslate nohighlight">\(F\)</span> is less than 0 starve.</p></li>
+<li><p>A fraction <span class="math notranslate nohighlight">\(\alpha\)</span> fraction of bunnies reproduce (appearing at the same location) at each time-step.</p></li>
+<li><p>All foxes whose fullness <span class="math notranslate nohighlight">\(F\)</span> is more than <span class="math notranslate nohighlight">\(R\)</span>, reproduce (at the same location) at each time-step.</p></li>
+<li><p>All foxes whose fullness <span class="math notranslate nohighlight">\(F\)</span> is less than 0 starve.</p></li>
 </ul>
 <p>To do this, we are going to have a class to store each “fox” or “bunny”:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">fox</span><span class="p">:</span>
-    <span class="n">location</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">location</span><span class="p">:</span> <span class="nb">list</span> 
     <span class="n">full</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <p>and</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">bunny</span><span class="p">:</span>
-    <span class="n">location</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">location</span><span class="p">:</span> <span class="nb">list</span> 
     <span class="n">eaten</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 </div>
@@ -994,15 +994,15 @@ Because of the randomness involved, this may take a while to run (~5 minutes). F
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fox_reproduction</span><span class="p">(</span><span class="n">foxes</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">* The foxes&#39; full state should decrease by $f$.</span>
-<span class="sd">* If the foxes&#39; full state is $\leq 0$ then the fox starves</span>
-<span class="sd">* If the foxes&#39; full state is $\geq R$ then the fox reproduces.</span>
+<span class="sd">* If the foxes&#39; full state is &lt;=0  then the fox starves</span>
+<span class="sd">* If the foxes&#39; full state is &gt;=R then the fox reproduces.</span>
 <span class="sd">   &quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <p>The bunny function should do the following:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bunny_reproduction</span><span class="p">(</span><span class="n">bunnies</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">* an $\alpha$&#39;th fraction of the bunnies should reproduce.</span>
+<span class="sd">* an alpha&#39;th fraction of the bunnies should reproduce.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
