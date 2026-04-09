@@ -413,7 +413,7 @@
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.1/3.1 MB</span> <span class=" -Color -Color-Red">77.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.1/3.1 MB</span> <span class=" -Color -Color-Red">135.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -452,7 +452,7 @@
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for climlab: filename=climlab-0.9.2-py3-none-any.whl size=186200 sha256=bfdcfd6aadda5ef4d7496c27c9203087f6437a5cffb58ff49a90c757f9c84a69
+?25h  Created wheel for climlab: filename=climlab-0.9.2-py3-none-any.whl size=186200 sha256=bbb15b29135dab8e0f2a12119fa8b44775dffcde620baf878ab48ede5915abda
   Stored in directory: /home/runner/.cache/pip/wheels/72/3d/02/a6bf83d60cb0a993d670e782aae661702e0c43da6ef76731b4
 </pre></div>
 </div>
@@ -465,7 +465,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed climlab-0.9.2
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-04-02 22:34:03--  https://clark.physics.illinois.edu/temp.data
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-04-09 17:58:08--  https://clark.physics.illinois.edu/temp.data
 Resolving clark.physics.illinois.edu (clark.physics.illinois.edu)... 
 </pre></div>
 </div>
@@ -474,15 +474,8 @@ Connecting to clark.physics.illinois.edu (clark.physics.illinois.edu)|18.220.149
 HTTP request sent, awaiting response... 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
-Length: 17595 (17K)
-Saving to: ‘temp.data’
-
-
-temp.data             0%[                    ]       0  --.-KB/s               
-temp.data           100%[===================&gt;]  17.18K  --.-KB/s    in 0.01s   
-
-2026-04-02 22:34:03 (1.71 MB/s) - ‘temp.data’ saved [17595/17595]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>415 Unsupported Media Type
+2026-04-09 17:58:09 ERROR 415: Unsupported Media Type.
 </pre></div>
 </div>
 </div>
@@ -514,8 +507,6 @@ temp.data           100%[===================&gt;]  17.18K  --.-KB/s    in 0.01s
         <span class="o">%</span><span class="k">reset_selective</span> -f {jjjj}
     <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
     <span class="k">return</span>
-<span class="n">tempData</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;temp.data&quot;</span><span class="p">)</span>
-<span class="n">tempData</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">tempData</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mf">14.2</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="p">;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -621,18 +612,34 @@ temp.data           100%[===================&gt;]  17.18K  --.-KB/s    in 0.01s
 <h2>Exercise 1: Climate and Global Warming<a class="headerlink" href="#exercise-1-climate-and-global-warming" title="Link to this heading">#</a></h2>
 <section id="a-the-temperature-of-the-dark-airless-earth">
 <h3>a. The temperature of the dark airless Earth<a class="headerlink" href="#a-the-temperature-of-the-dark-airless-earth" title="Link to this heading">#</a></h3>
-<p>Our goal is to start understanding something about the climate.  We first want two functions:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">IncomingRadiationPerSquareMeter</span><span class="p">():</span>
-  <span class="o">...</span>
-  <span class="o">...</span>
-  <span class="k">return</span> <span class="o">...</span>
+<p>Our goal is to start understanding the very basics about the climate.  We first want two functions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">incoming_radiation_simple</span><span class="p">(</span><span class="n">S</span><span class="o">=</span><span class="mf">1367.6</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  return the incoming radiation, assuming that there is no cloud cover (all of )</span>
+<span class="sd">  </span>
+<span class="sd">  Arguments:</span>
+<span class="sd">  ----------------</span>
+<span class="sd">  S: float : incoming radiation (W/m^2) on the disk facing the sun.</span>
+<span class="sd">  </span>
+<span class="sd">  Returns:</span>
+<span class="sd">  ------------------</span>
+<span class="sd">  P : Average power per square meter across the entire Earth&#39;s surface</span>
+<span class="sd">  &quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <p>which returns the incoming radiation to the Earth and</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">OutgoingRadiationPerSquareMeter</span><span class="p">():</span>
-  <span class="o">...</span>
-  <span class="o">...</span>
-  <span class="k">return</span> <span class="o">...</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outgoing_radiation_simple</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="p">[</span><span class="n">insert</span> <span class="n">value</span><span class="p">]):</span>
+  <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  Return the outgoing radiation for an earth of radius R and temperature T due to blackbody radiation.</span>
+<span class="s2">  </span>
+<span class="s2">  Arguments:</span>
+<span class="s2">  -----------------</span>
+<span class="s2">  T: float : temperature of the Earth</span>
+<span class="s2">  R: float : radius of the earth. Make it default to the actual value.</span>
+
+<span class="s2">  Returns:</span>
+<span class="s2">  ---------</span>
+<span class="s2">  P : Average power per square meter radiated to space</span>
 </pre></div>
 </div>
 <p>which returns the outgoing radiation.</p>
@@ -643,7 +650,7 @@ temp.data           100%[===================&gt;]  17.18K  --.-KB/s    in 0.01s
 </ul>
 <p>From the Sun’s point of view, the earth is a disc (circle) that is of area <span class="math notranslate nohighlight">\(\pi R^2\)</span> where <span class="math notranslate nohighlight">\(R\)</span> is the radius of the Earth.</p>
 <p>From this, we can compute the amount of radiation that is hitting Earth. That radiation, though, is split out over the entire surface of the Earth - an area of <span class="math notranslate nohighlight">\(4\pi R^2\)</span>.</p>
-<p>Using this information you should be able to write a function <code class="docutils literal notranslate"><span class="pre">IncomingRadiationPerSquareMeter()</span></code> which specifies how much radiation hits the Earth. Notice that this doesn’t depend on the radius of the Earth <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p>Write <code class="docutils literal notranslate"><span class="pre">incoming_radiation_simple</span></code> here:</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Answer here</span>
@@ -651,11 +658,11 @@ temp.data           100%[===================&gt;]  17.18K  --.-KB/s    in 0.01s
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>To get an estimate of the outgoing radiation, we can use the Stefan-Boltzmann law.   This law tell us that a blackbody (like the Earth) radiates at <span class="math notranslate nohighlight">\(\sigma T^4\)</span> where</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>To get an estimate of the outgoing radiation, we can use the Stefan-Boltzmann law.   This law tells us that a blackbody (like the Earth) radiates at <span class="math notranslate nohighlight">\(\sigma T^4\)</span> where</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\sigma =  5.67 \times 10^{-8}\)</span> W/ (<span class="math notranslate nohighlight">\(m^2\)</span> <span class="math notranslate nohighlight">\(K^4\)</span>)</p></li>
 </ul>
-<p>We can now write the function <code class="docutils literal notranslate"><span class="pre">OutgoingRadiationPerSquareMeter(T)</span></code> which computes the outgoing radiation given the temperature <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p>We can now write the function <code class="docutils literal notranslate"><span class="pre">outgoing_radiation_simple</span></code> which computes the outgoing radiation given the temperature <span class="math notranslate nohighlight">\(T\)</span>.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Answer here</span>
@@ -683,13 +690,44 @@ temp.data           100%[===================&gt;]  17.18K  --.-KB/s    in 0.01s
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="b-the-temperature-of-earth-with-air-and-clouds">
 <h3>b. The temperature of Earth with air and clouds<a class="headerlink" href="#b-the-temperature-of-earth-with-air-and-clouds" title="Link to this heading">#</a></h3>
-<p>We have ignored two important effects in the previous analysis.</p>
+<p>We have ignored two important effects in the previous analysis:</p>
 <p><strong>Albedo</strong></p>
 <p>Some fraction of the radiation that is incoming to the Earth simply gets reflected back immediately from things like clouds and ice.  This fraction is approximately <span class="math notranslate nohighlight">\(\alpha=0.3\)</span>.  The incoming radiation per square meter is then instead <span class="math notranslate nohighlight">\(\frac{S}{4}( 1-\alpha)\)</span>.</p>
 <p><strong>Greenhouse Gases</strong></p>
 <p>In practice, some fraction of the radiation that would typically be radiated back into space is blocked by the greenhouse gases in the atmosphere. We call the fraction that escapes <span class="math notranslate nohighlight">\(\epsilon\)</span>, which we do not have a good way to measure directly. We can represent this by including an emissivity term for the atmosphere so that the radiation emitted is <span class="math notranslate nohighlight">\(\epsilon \sigma T^4\)</span>.</p>
-<p>The reason that the outgoing radiation is blocked separately from the incoming radiation is that incoming radiation is near-infrared and visible (it’s the sunlight!), while the outgoing radiation is further in the infrared. This difference in frequencies causes different absorption/reflection by the atomosphere.</p>
-<p>🦉 Plot the earth’s temperature versus <span class="math notranslate nohighlight">\(\epsilon\)</span>, including the effect of Earth’s albedo. Note that <span class="math notranslate nohighlight">\(\epsilon\)</span>=1 means no greenhouse effect, and <span class="math notranslate nohighlight">\(\epsilon=0\)</span> means a complete greenhouse effect (no light ). You should not include <span class="math notranslate nohighlight">\(\epsilon=0\)</span>.</p>
+<p>The reason that the outgoing radiation is blocked separately from the incoming radiation is that incoming radiation is near-infrared and visible (it’s the sunlight!), while the outgoing radiation is further in the infrared. This difference in frequencies causes different absorption/reflection by the atmosphere.</p>
+<p>🦉 Write two new functions,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">incoming_radiation_albedo</span><span class="p">(</span><span class="n">S</span><span class="o">=</span><span class="mf">1367.6</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  return the incoming radiation, assuming that there is no cloud cover (all of )</span>
+<span class="sd">  </span>
+<span class="sd">  Arguments:</span>
+<span class="sd">  ----------------</span>
+<span class="sd">  S: float : incoming radiation (W/m^2) on the disk facing the sun.</span>
+<span class="sd">  alpha: float : how much is reflected back to space. Between 0 and 1.</span>
+<span class="sd">  </span>
+<span class="sd">  Returns:</span>
+<span class="sd">  ------------------</span>
+<span class="sd">  P : Average power per square meter across the entire Earth&#39;s surface</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outgoing_radiation_greenhouse</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="p">[</span><span class="n">insert</span> <span class="n">value</span><span class="p">]):</span>
+  <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  Return the outgoing radiation for an earth of radius R and temperature T due to blackbody radiation.</span>
+<span class="s2">  </span>
+<span class="s2">  Arguments:</span>
+<span class="s2">  -----------------</span>
+<span class="s2">  T: float : temperature of the Earth</span>
+<span class="s2">  epsilon: float : Between 0 and 1, how much emitted radiation is kept at the Earth&#39;s surface</span>
+<span class="s2">  R: float : radius of the earth. Default to the actual value.</span>
+
+<span class="s2">  Returns:</span>
+<span class="s2">  ---------</span>
+<span class="s2">  P : Average power per square meter radiated to space</span>
+</pre></div>
+</div>
+<p>🦉 Using these two functions and <span class="math notranslate nohighlight">\(\alpha=0.3\)</span>, plot the earth’s temperature versus <span class="math notranslate nohighlight">\(\epsilon\)</span>, including the effect of Earth’s albedo. Note that <span class="math notranslate nohighlight">\(\epsilon\)</span>=1 means no greenhouse effect, and <span class="math notranslate nohighlight">\(\epsilon=0\)</span> means a complete greenhouse effect (no light ). You should not include <span class="math notranslate nohighlight">\(\epsilon=0\)</span>.</p>
 <p>🦉 Find the value of <span class="math notranslate nohighlight">\(\epsilon\)</span> that corresponds to the pre-industrial average temperature of 14 degrees Celsius, in a similar way as you found the temperature above.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -710,16 +748,35 @@ P_{out} = A + B T_{c},
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(A=221.2\)</span> W/m<sup>2</sup></p></li>
 <li><p><span class="math notranslate nohighlight">\(B=1.3\)</span> W/m<sup>2</sup> K</p></li>
-<li><p><span class="math notranslate nohighlight">\(T_c\)</span> is the temperature in Celcius.</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_c\)</span> is the temperature in Celcius. [BE CAREFUL!]</p></li>
 </ul>
 <p>Change your radiation function to use <span class="math notranslate nohighlight">\(A+BT_c\)</span>.  Your function should take <span class="math notranslate nohighlight">\(T\)</span> in Kelvin but needs to convert it to Celsius to work here.</p>
-<p>Check that these new parameters give a much closer equilbrium temperature (for the pre-industrial average) of 13.94° C.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outgoing_radiation_linear_model</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">A</span> <span class="o">=</span> <span class="mf">221.2</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="p">[</span><span class="n">insert</span> <span class="n">value</span><span class="p">]):</span>
+  <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  Return the outgoing radiation for an earth of radius R and temperature T due to blackbody radiation.</span>
+<span class="s2">  P_</span><span class="si">{out}</span><span class="s2"> = A + B T_</span><span class="si">{c}</span><span class="s2">,</span>
+<span class="s2">  Arguments:</span>
+<span class="s2">  -----------------</span>
+<span class="s2">  T: float : temperature of the Earth</span>
+<span class="s2">  A : float : W/m^2</span>
+<span class="s2">  B : flaot : W/(m^2 K)</span>
+<span class="s2">  R: float : radius of the earth. Default to the actual value.</span>
+
+<span class="s2">  Returns:</span>
+<span class="s2">  ---------</span>
+<span class="s2">  P : Average power per square meter radiated to space</span>
+</pre></div>
+</div>
+<p>Check that these new parameters give a much closer equilibrium temperature (for the pre-industrial average) of 13.94° C.</p>
 <details>
 If you were to linearize the Stefan-Boltzmann law around 0 Celcius, you would get
-$\epsilon \sigma (T_0 + T_c)^4 \approx \epsilon \sigma(T_0^4 + 4 T_0^3 T_c) = A + BT_c$
-where $T_0=273.15$ and $T_c$ is the temperature in Celsius.
+<div class="math notranslate nohighlight">
+\[
+\epsilon \sigma (T_0 + T_c)^4 \approx \epsilon \sigma(T_0^4 + 4 T_0^3 T_c) = A + BT_c
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_0=273.15\)</span> and <span class="math notranslate nohighlight">\(T_c\)</span> is the temperature in Celsius.</p>
 <p>Plugging in our numbers from previous parts of the exercise, we get <span class="math notranslate nohighlight">\(A=195.94\)</span> W/m<sup>2</sup> and <span class="math notranslate nohighlight">\(B=2.87\)</span>  W/m<sup>2</sup> K. This is close to the measured values, which is reassuring.</p>
-<p>If you used these naiive values, you’d find that we get a temperature <span class="math notranslate nohighlight">\(T=15.11878309\)</span>.</p>
+<p>If you used these naive values, you’d find that we get a temperature <span class="math notranslate nohighlight">\(T=15.11878309\)</span>.</p>
 </details><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Answer Here</span>
@@ -727,15 +784,7 @@ where $T_0=273.15$ and $T_c$ is the temperature in Celsius.
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>We will be building up a dictionary with the relevant parameters in it - so far</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;alpha&#39;</span> <span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
-    <span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="mf">221.2</span>  <span class="p">,</span>
-    <span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="mf">1.3</span>
-    <span class="p">}</span>
-</pre></div>
-</div>
-</section>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
 <section id="d-the-effects-of-changing-carbon-dioxide">
 <h3>d. The effects of changing carbon dioxide<a class="headerlink" href="#d-the-effects-of-changing-carbon-dioxide" title="Link to this heading">#</a></h3>
 <p>Changing carbon dioxide changes <span class="math notranslate nohighlight">\(\epsilon\)</span> (and therefore <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>); however, typically this is measured in terms of ‘forcing,’ which is how much more energy from some reference that is reflected back to the Earth’s surface.
@@ -797,6 +846,7 @@ You can see that if the CO<sub>2</sub> concentration increases, the power out de
 <span class="p">[</span><span class="mf">2019.6654310227143</span><span class="p">,</span> <span class="mf">416.4738292011019</span><span class="p">],</span>
 <span class="p">[</span><span class="mf">2020.6833146061517</span><span class="p">,</span> <span class="mf">418.23691460055096</span><span class="p">]])</span>
 
+
 <span class="c1">### Plot Here</span>
 </pre></div>
 </div>
@@ -804,14 +854,29 @@ You can see that if the CO<sub>2</sub> concentration increases, the power out de
 </details>
 </div>
 <p>Now, modify your code to include this additional forcing term into the emitted radiation.</p>
-<p>Compute the equilibrium temperature at the value of carbon dioxide for each year and graph this equilibrium temperature against the year.  Plot it on top of the actual measured temperature which is in <code class="docutils literal notranslate"><span class="pre">tempData[:,1]</span></code> (where the year is in <code class="docutils literal notranslate"><span class="pre">tempData[:,0]</span></code>).   Notice the close agreement between the predicted temperature based on the CO<sub>2</sub> and our 0D EBM vs the actual temperature (actually the prediction is probably closer then it should be expected given the spherical cow nature of our approximation)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;alpha&#39;</span> <span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
-    <span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="mf">221.2</span>  <span class="p">,</span>
-    <span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="mf">1.3</span><span class="p">,</span>
-    <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span>
-    <span class="s1">&#39;Current_CO2&#39;</span> <span class="p">:</span> <span class="o">...</span>
-    <span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outgoing_radiation_co2</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">co2</span><span class="p">,</span> <span class="n">co2_old</span><span class="o">=</span><span class="mf">277.1900826446281</span><span class="p">,</span> <span class="n">A</span> <span class="o">=</span> <span class="mf">221.2</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span> <span class="n">r</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="p">[</span><span class="n">insert</span> <span class="n">value</span><span class="p">]):</span>
+  <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  Return the outgoing radiation for an earth of radius R and temperature T due to blackbody radiation.</span>
+<span class="s2">  P_</span><span class="si">{out}</span><span class="s2"> = A + B T_</span><span class="si">{c}</span><span class="s2"> + rlog(co2_current/co2_old),</span>
+<span class="s2">  Arguments:</span>
+<span class="s2">  -----------------</span>
+<span class="s2">  T: float : temperature of the Earth</span>
+<span class="s2">  co2: float : current co2 concentration</span>
+<span class="s2">  co2_old: CO2 in 1751 (concentration)</span>
+<span class="s2">  A : float : W/m^2</span>
+<span class="s2">  B : float : W/(m^2 K)</span>
+<span class="s2">  r : float : forcing constant (W/m^2)</span>
+<span class="s2">  R: float : radius of the earth.</span>
+
+<span class="s2">  Returns:</span>
+<span class="s2">  ---------</span>
+<span class="s2">  P : Average power per square meter radiated to space</span>
+</pre></div>
+</div>
+<p>Compute the equilibrium temperature at the value of carbon dioxide for each year and graph this equilibrium temperature against the year.  Plot it on top of the actual measured temperature which is in <code class="docutils literal notranslate"><span class="pre">tempData[:,1]</span></code> (where the year is in <code class="docutils literal notranslate"><span class="pre">tempData[:,0]</span></code>).   Notice the close agreement between the predicted temperature based on the CO<sub>2</sub> and our 0D EBM vs the actual temperature (actually the prediction is probably closer than should be expected given the spherical cow nature of our approximation)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#load the temperature data</span>
+<span class="n">tempData</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;temp.data&quot;</span><span class="p">)</span>
+<span class="n">tempData</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">tempData</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mf">14.2</span>
 </pre></div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
@@ -836,12 +901,15 @@ You can see that if the CO<sub>2</sub> concentration increases, the power out de
 <section id="a-climate-dynamics">
 <h3>a. Climate Dynamics<a class="headerlink" href="#a-climate-dynamics" title="Link to this heading">#</a></h3>
 <p>So far we’ve focused on the equilibrium temperature of the Earth. It turns out that dynamics can be an important part of the Earth’s temperature, since there can be feedback loops. For this part of the exercise, we are going to assume that nothing is pumping tons of CO<sub>2</sub> into the air.</p>
-<p>It shouldn’t surprise us that we to answer this question, we should start by writing down a differential equation that tells us <span class="math notranslate nohighlight">\(\partial T / \partial t\)</span> where <span class="math notranslate nohighlight">\(T\)</span> is the temperature and <span class="math notranslate nohighlight">\(t\)</span> is the time.</p>
+<p>It shouldn’t surprise us that, to answer this question, we should start by writing down a differential equation that tells us <span class="math notranslate nohighlight">\(\partial T / \partial t\)</span> where <span class="math notranslate nohighlight">\(T\)</span> is the temperature and <span class="math notranslate nohighlight">\(t\)</span> is the time.</p>
 <div class="math notranslate nohighlight">
 \[ C \frac{\partial T}{\partial t} = \frac{S}{4}(1-\alpha) - (A+B T) \]</div>
 <p>(remember in <span class="math notranslate nohighlight">\(BT\)</span> we need that <span class="math notranslate nohighlight">\(T\)</span> is in Celsius). The r.h.s. of this is just the radiation into the Earth and the radiation out of Earth that we were working on in exercise 1.  Previously, we were just setting this r.h.s. to zero to find equilibrium  - i.e. we wanted the temperature at which the change in temperature over time was zero. But when it’s not zero, it’s telling us how much the temperature changes in a unit of time. If there is more radiation coming in then going out, we expect that the temperature of the planet should heat up.</p>
 <p><span class="math notranslate nohighlight">\(C\)</span> is the heat capacity per meter squared of the planet – heat capacity is how much energy it takes to change the temperature by 1 Kelvin. If the Earth were a big chunk of iron it would heat up pretty quickly (think a pot). On the other hand, if it was a big chunk of granite, it would heat up quite slowly. It turns out that Earth (at least the relevant part that’s heating up) is essentially a big bag of water - i.e. a big ocean, so we use that heat capacity.  The question is how deep do we go, and the answer is about 10 meters.  From the specific heat of water, we can do some unit analysis and get that the heat capacity is <span class="math notranslate nohighlight">\(C=4.1813 \times 10^7 \frac{\textrm{J}}{\textrm{K}\cdot \textrm{m}^2}\)</span>.</p>
-<p>Set up a first order integrator for this system.  Use a time step <span class="math notranslate nohighlight">\(dt\)</span> of 1 month (written in seconds!). You can use <code class="docutils literal notranslate"><span class="pre">const.seconds_per_month</span></code> to get the correct number of seconds.</p>
+<p>Set up a first order integrator for this system.  Use a time step <span class="math notranslate nohighlight">\(dt\)</span> of 1 month (written in seconds!). You can use <code class="docutils literal notranslate"><span class="pre">const.seconds_per_month</span></code> to get the correct number of seconds. It should look something like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">earth_integrator</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span> <span class="n">total_time</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">const</span><span class="o">.</span><span class="n">seconds_per_month</span><span class="p">,</span> <span class="n">A</span> <span class="o">=</span> <span class="mf">221.2</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1367.6</span><span class="p">):</span>
+</pre></div>
+</div>
 <p>Start the temperature of the Earth at 295 degrees Kelvin and allow that temperature to evolve in time.  Plot the temperature as a function of time (in years).
 We want to observe three things:</p>
 <ul class="simple">
@@ -867,13 +935,13 @@ We want to observe three things:</p>
 </section>
 <section id="b-snowball-earth">
 <h3>b. Snowball Earth<a class="headerlink" href="#b-snowball-earth" title="Link to this heading">#</a></h3>
-<p>We have seen that the Earth is very stable and largely independent of the initial temperature. But we are missing some important qualitiative physics.  In particular, once water gets cold enough it freezes into ice.  This ice is actually much more reflective of the Sun than water or land and so the albedo is therefore much higher.  This tells us that we should have the albedo (and hence the radiation entering the planet) depend on temperature.</p>
+<p>We have seen that the Earth is very stable and largely independent of the initial temperature. But we are missing some important qualitative physics.  In particular, once water gets cold enough it freezes into ice.  This ice is actually much more reflective of the Sun than water or land and so the albedo is therefore much higher.  This tells us that we should have the albedo (and hence the radiation entering the planet) depend on temperature.</p>
 <ul class="simple">
 <li><p>If the temperature <span class="math notranslate nohighlight">\(T&lt;-10\)</span> degrees celsius, then we should have the albedo be <span class="math notranslate nohighlight">\(\alpha_i = 0.5\)</span></p></li>
 <li><p>If the temperature <span class="math notranslate nohighlight">\(T&gt;10\)</span> degrees celsius, then we should have the albedo be <span class="math notranslate nohighlight">\(\alpha_0 = 0.3\)</span></p></li>
 <li><p>In the intermediate regime <span class="math notranslate nohighlight">\(-10 &lt; T &lt; 10\)</span> we can adjust it continuously as <span class="math notranslate nohighlight">\(\alpha_i + (\alpha_0-\alpha_i)(T+10)/20\)</span></p></li>
 </ul>
-<p>Write a function <code class="docutils literal notranslate"><span class="pre">GetAlpha(T)</span></code> which returns the temperature dependent albedo and plot the albedo for temperatures from <span class="math notranslate nohighlight">\(-20 &lt; T &lt; 20\)</span>° Celsius</p>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">get_alpha(T)</span></code> which returns the temperature dependent albedo and plot the albedo for temperatures from <span class="math notranslate nohighlight">\(-20 &lt; T &lt; 20\)</span>° Celsius.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Answer Here</span>
@@ -881,7 +949,11 @@ We want to observe three things:</p>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>Now we want to incorporate our new temperature dependent albedo in our code.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>Now we want to incorporate our new temperature dependent albedo in our code.<br />
+Your integrator actually now gets simplified:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">earth_integrator_ice</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span> <span class="n">total_time</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">const</span><span class="o">.</span><span class="n">seconds_per_month</span><span class="p">,</span> <span class="n">A</span> <span class="o">=</span> <span class="mf">221.2</span><span class="p">,</span> <span class="n">B</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1367.6</span><span class="p">):</span>
+</pre></div>
+</div>
 <p>Loop over at least 10 initial temperatures from <span class="math notranslate nohighlight">\(T=-50\)</span> to <span class="math notranslate nohighlight">\(T=100\)</span> degrees Celsius and then examine what the temperature is as a function of time.</p>
 <ul class="simple">
 <li><p>Plot temperature as a function of time for many different initial temperatures (all plotted as a different line).</p></li>
@@ -899,7 +971,7 @@ We want to observe three things:</p>
 </section>
 <section id="c-hysteresis">
 <h3>c. Hysteresis<a class="headerlink" href="#c-hysteresis" title="Link to this heading">#</a></h3>
-<p>Because the Earth takes some time (of order 5 years) to respond to changes, it exhibits hysteresis, which refers to a lag in physical properties compared to the stimulus.  Let’s see this explicitly.  Let’s start with a warm planet (10 degrees Celsisus) and the current solar insolation. Now let’s do the following:</p>
+<p>Because the Earth takes some time (of order 5 years) to respond to changes, it exhibits hysteresis, which refers to a lag in physical properties compared to the stimulus.  Let’s see this explicitly.  Let’s start with a warm planet (10 degrees Celsius) and the current solar insolation. Now let’s do the following:</p>
 <p>Start S = 1367.6 J/m<sup>2</sup></p>
 <ul class="simple">
 <li><p>for step in range(0,10):</p>
@@ -928,7 +1000,7 @@ We want to observe three things:</p>
 </section>
 <section id="exercise-3-one-dimensional-ebm">
 <h2>Exercise 3: One-dimensional EBM<a class="headerlink" href="#exercise-3-one-dimensional-ebm" title="Link to this heading">#</a></h2>
-<p>We want to implement a more accurate climate model.  Previously, we had worked on a zero-dimensional model.  To add some realism to this model, we are going to add an additional dimension splitting up the world into different latititudes.  This is the most important effect that we are missing as these different latitudes get significantly different sunlight.</p>
+<p>We want to implement a more accurate climate model.  Previously, we had worked on a zero-dimensional model.  To add some realism to this model, we are going to add an additional dimension splitting up the world into different latitudes.  This is the most important effect that we are missing as these different latitudes get significantly different sunlight.</p>
 <p>The energy balance model that we will work with will be</p>
 <div class="math notranslate nohighlight">
 \[ C \frac{dT_s(\phi)}{dt} = (1-\alpha(\phi;T)) Q(\phi) - (A+B T_s(\phi)) + \frac{D}{\cos⁡\phi } \frac{\partial }{\partial \phi} \left(   \cos⁡\phi  ~ \frac{\partial T}{\partial \phi} \right)\]</div>
@@ -936,17 +1008,24 @@ We want to observe three things:</p>
 <p>Be careful here because <code class="docutils literal notranslate"><span class="pre">climlab</span></code> works with degrees and most numpy functions work with radians.</p>
 <section id="a-latitude-dependence-of-solar-isolation-and-albedo">
 <h3>a. Latitude dependence of solar isolation and albedo<a class="headerlink" href="#a-latitude-dependence-of-solar-isolation-and-albedo" title="Link to this heading">#</a></h3>
-<p>The first thing you should notice is that there are now a lot of different terms that depend on the latitude, mainly the solar iradiation, temperature, and there is a diffusion part that transports heat between latitudes.</p>
+<p>The first thing you should notice is that there are now a lot of different terms that depend on the latitude, mainly the solar irradiation, temperature, and there is a diffusion part that transports heat between latitudes.</p>
 <p>To treat this, you need to discretize the Earth into a number of different latitude zones.  You could just discretize your own latitudes but because we need to sync our functions with yours, we will give you the latitude zones that you are going to use.  You can get them by calling the following function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">GetLatitudes</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_latitudes</span><span class="p">():</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Returns a grid of latitudes (by default 180 points from -90 to 90 degrees )</span>
+<span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">sfc</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">zonal_mean_surface</span><span class="p">(</span><span class="n">num_lat</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">water_depth</span><span class="o">=</span><span class="mf">10.</span><span class="p">)</span>
   <span class="n">lat</span> <span class="o">=</span> <span class="n">sfc</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">points</span>
   <span class="k">return</span> <span class="n">lat</span>
 </pre></div>
 </div>
 <p>The first important thing that depends on latitude is the amount of radiation from the Sun is being deposited on different parts of the Earth.  The equator gets significantly more sunlight then the poles.</p>
-<p>The package <code class="docutils literal notranslate"><span class="pre">climlab</span></code> has a function that computes this conveniently. You can get the insolation per  by calling the following function.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">GetInsolation</span><span class="p">(</span><span class="n">param</span><span class="p">):</span>
+<p>The package <code class="docutils literal notranslate"><span class="pre">climlab</span></code> has a function that computes this conveniently. You can get the insolation per square meter by calling the following function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_insolation</span><span class="p">(</span><span class="n">param</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  given a dictionary of parameters (defined below), </span>
+<span class="sd">  returns a (180,) np.ndarray of insolation as a function of latitude.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">model1</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">EBM_annual</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;EBM with interactive ice line&#39;</span><span class="p">,</span>
                             <span class="n">num_lat</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span><span class="n">timestep</span><span class="o">=</span><span class="n">const</span><span class="o">.</span><span class="n">seconds_per_month</span><span class="p">,</span>
                             <span class="o">**</span><span class="n">param</span><span class="p">)</span>
@@ -973,7 +1052,7 @@ We will use the following parameters to model Earth</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Plot the insolation as as a function of latitude</p></li>
+<li><p>Plot the insolation as a function of latitude</p></li>
 <li><p>Measure the average radiation on the Earth and verify that it is approximately 1370/4 (the number we were using before). You need to be careful when you do this.  When averaging over a sphere, you need to weight by the volume at that latitude by <span class="math notranslate nohighlight">\(\cos \phi\)</span>.  It will be useful to write a function which takes a array over the latitudes and averages them correctly (we will need this for the average temperature of the planet as well).</p></li>
 </ul>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
@@ -989,10 +1068,16 @@ We will use the following parameters to model Earth</p>
 <li><p>Otherwise, set the albedo to <span class="math notranslate nohighlight">\(\alpha_0 + a_2 P_2(\sin \phi)\)</span> where <span class="math notranslate nohighlight">\(P_2\)</span> is the second legendre polynomial and can be gotten by doing <code class="docutils literal notranslate"><span class="pre">legendre.P2(x)</span></code>.</p></li>
 </ul>
 <p>We will also start with initial conditions as follows.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">GetInitial</span><span class="p">(</span><span class="n">lat</span><span class="p">):</span>
-  <span class="n">initial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mf">12.</span> <span class="o">-</span> <span class="mf">40.</span> <span class="o">*</span> <span class="n">legendre</span><span class="o">.</span><span class="n">P2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">lat</span><span class="p">))))</span><span class="o">+</span><span class="mf">273.15</span>
-  <span class="k">return</span> <span class="n">initial</span>
-<span class="n">initialTemperature</span><span class="o">=</span><span class="n">GetInitial</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initial_temperature</span><span class="p">(</span><span class="n">lat</span><span class="p">):</span>
+  <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">  Create an initial temperature profile.</span>
+<span class="s2">  Arguments: </span>
+<span class="s2">  lat: np.ndarray (180,): latitudes</span>
+<span class="s2">  Returns:</span>
+<span class="s2">  T: np.ndarray(180,) : temperatures at those latitudes.</span>
+<span class="s2">  initial = np.array(12. - 40. * legendre.P2(np.sin(np.deg2rad(lat))))+273.15</span>
+<span class="s2">  return initial</span>
+<span class="s2">T0=initial_temperature(lat)</span>
 </pre></div>
 </div>
 <p>Plot the initial temperature. Compute the average of the initial temperature and verify that it is reasonable for the Earth.</p>
@@ -1007,7 +1092,7 @@ We will use the following parameters to model Earth</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="b-a-diffusion-less-planet">
 <h3>b. A diffusion-less planet<a class="headerlink" href="#b-a-diffusion-less-planet" title="Link to this heading">#</a></h3>
-<p>We are now in a position to deal with the incoming and outgoing radiation (but not yet the diffusion).  This is implementing the same energy balance that you had previously except that now you are going to simultaneously deal with all the latititudes. Write a function to time evolve this for 100 years.</p>
+<p>We are now in a position to deal with the incoming and outgoing radiation (but not yet the diffusion).  This is implementing the same energy balance that you had previously except that now you are going to simultaneously deal with all the latitudes. Write a function to time evolve this for 100 years.</p>
 <ul class="simple">
 <li><p>Plot the average temperature vs time (getting a point once a year)</p></li>
 <li><p>Plot the final temperature profile</p></li>
@@ -1027,7 +1112,14 @@ We will use the following parameters to model Earth</p>
 <h3>c. Diffusion<a class="headerlink" href="#c-diffusion" title="Link to this heading">#</a></h3>
 <p>We are missing an important piece of the physics once we’ve moved to 1D.  The temperature at different latitudes can interact with each other.  Heat can move both by diffusion and advection.  Here we are going to concern ourself primarily with diffusion.  We’ve seen diffusion before in this class but typically as <span class="math notranslate nohighlight">\(\partial^2/ \partial x^2\)</span>.  In our case though we are on a sphere and need to do something different essentially writing our gradient in spherical coordinates - see the last term of our energy balance model.</p>
 <p>We’d like to go ahead and implement the diffusion just like we’ve done in previous cases using a finite difference stencil. Unfortunately, this won’t work here naively (we run into numerical instabilities at the poles).  To fix this is out of scope for this assignment, so instead we will give you a function you can call</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Diffuse</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">params</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">diffuse</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">params</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Arguments:</span>
+<span class="sd">  T: np.ndarray (180,) : temperature as a function of parameters</span>
+<span class="sd">  params: big old dictionary</span>
+<span class="sd">  Returns:</span>
+<span class="sd">  T&#39;: new temperature after params[&#39;timeStep&#39;]</span>
+<span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">sfc</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">zonal_mean_surface</span><span class="p">(</span><span class="n">num_lat</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">water_depth</span><span class="o">=</span><span class="mf">10.</span><span class="p">)</span>
   <span class="n">Ts</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">domain</span><span class="o">=</span><span class="n">sfc</span><span class="p">)</span>
   <span class="n">d</span> <span class="o">=</span> <span class="n">climlab</span><span class="o">.</span><span class="n">dynamics</span><span class="o">.</span><span class="n">MeridionalHeatDiffusion</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Diffusion&#39;</span><span class="p">,</span><span class="n">state</span><span class="o">=</span><span class="n">Ts</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">],</span><span class="n">timestep</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;timeStep&#39;</span><span class="p">])</span>
@@ -1040,7 +1132,7 @@ We will use the following parameters to model Earth</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">=</span><span class="n">Diffuse</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This will defuse through a time-step of <code class="docutils literal notranslate"><span class="pre">params['timeStep']</span></code>.</p>
+<p>This will diffuse through a time-step of <code class="docutils literal notranslate"><span class="pre">params['timeStep']</span></code>.</p>
 <p>Add the diffusion to your timestepping from part b as an additional step. Then</p>
 <ul class="simple">
 <li><p>Plot the average temperature vs time (getting a point once a year)</p></li>
@@ -1048,7 +1140,7 @@ We will use the following parameters to model Earth</p>
 <li><p>The final temperature difference between the equator and the pole (i.e. just the max - min difference)</p></li>
 <li><p>The ice line: the latitude at which the temperature becomes less than -10.</p></li>
 </ul>
-<p>The diffusion constant <span class="math notranslate nohighlight">\(D\)</span> has been tuned to give a reasonable temperature difference between the poles and the Earth.</p>
+<p>The diffusion constant <span class="math notranslate nohighlight">\(D\)</span> has been tuned to give a reasonable temperature difference between the poles and the equator.</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Answer Here</span>
@@ -1060,7 +1152,7 @@ We will use the following parameters to model Earth</p>
 <ul class="simple">
 <li><p>Bryan Clark (original)</p></li>
 </ul>
-<p>This assignment was partially uses climlab and was partially inspired by <a href="https://brian-rose.github.io/ClimateLaboratoryBook/home.html">Brian Rose’s climate laboratory course</a> and MIT course on <a href="https://computationalthinking.mit.edu/Fall24/">Introduction to Computational Thinking</a>
+<p>This assignment partially uses climlab and was partially inspired by <a href="https://brian-rose.github.io/ClimateLaboratoryBook/home.html">Brian Rose’s climate laboratory course</a> and MIT course on <a href="https://computationalthinking.mit.edu/Fall24/">Introduction to Computational Thinking</a>
 © Copyright 2020</p>
 <p>–</p>
 </section>

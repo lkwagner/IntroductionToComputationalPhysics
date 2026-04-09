@@ -410,21 +410,13 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-04-02 22:34:20--  https://clark.physics.illinois.edu/particle_helper.py
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-04-09 17:58:23--  https://clark.physics.illinois.edu/particle_helper.py
 Resolving clark.physics.illinois.edu (clark.physics.illinois.edu)... 18.220.149.166
-Connecting to clark.physics.illinois.edu (clark.physics.illinois.edu)|18.220.149.166|:443... 
+Connecting to clark.physics.illinois.edu (clark.physics.illinois.edu)|18.220.149.166|:443... connected.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 9503 (9.3K)
-Saving to: ‘particle_helper.py’
-
-
-particle_helper.py    0%[                    ]       0  --.-KB/s               
-particle_helper.py  100%[===================&gt;]   9.28K  --.-KB/s    in 0s      
-
-2026-04-02 22:34:20 (186 MB/s) - ‘particle_helper.py’ saved [9503/9503]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 415 Unsupported Media Type
+2026-04-09 17:58:23 ERROR 415: Unsupported Media Type.
 </pre></div>
 </div>
 </div>
@@ -457,7 +449,18 @@ particle_helper.py  100%[===================&gt;]   9.28K  --.-KB/s    in 0s
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2026, 4, 2, 22, 34, 20, 882616)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">particle_helper</span><span class="w"> </span><span class="kn">import</span> <span class="n">Kdecay</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span><span class="w"> </span><span class="nf">resetMe</span><span class="p">(</span><span class="n">keepList</span><span class="o">=</span><span class="p">[]):</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">ll</span><span class="o">=</span><span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;who_ls&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">keepList</span><span class="o">=</span><span class="n">keepList</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;resetMe&#39;</span><span class="p">,</span><span class="s1">&#39;np&#39;</span><span class="p">,</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span><span class="s1">&#39;Axes3D&#39;</span><span class="p">,</span><span class="s1">&#39;Kdecay&#39;</span><span class="p">]</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;particle_helper&#39;
 </pre></div>
 </div>
 </div>
@@ -587,9 +590,9 @@ Here are a couple of diagrams:</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Now instantiating the kaon decay generator.
-vertex:  [0.         0.         2.52699348]
-pmu_plus:  [ 5.16521818e+01 -2.87958440e-02  9.67142171e-02  5.16518947e+01]
-pmu_minus:  [ 8.3478182   0.02879584 -0.09671422  8.34604134]
+vertex:  [0.         0.         1.97973576] (3,)
+pmu_plus:  [14.83667966 -0.05198353  0.15465141 14.83512602]
+pmu_minus:  [45.16332034  0.05198353 -0.15465141 45.16280998]
 </pre></div>
 </div>
 </div>

@@ -47,8 +47,6 @@ def resetMe(keepList=[]):
         %reset_selective -f {jjjj}
     ll=%who_ls
     return
-tempData=np.loadtxt("temp.data")
-tempData[:,1]=tempData[:,1]+14.2
 import datetime;datetime.datetime.now()
 
 ------------------
