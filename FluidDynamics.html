@@ -418,36 +418,52 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">resetMe</span><span class="p">(</span><span class="n">keepList</span><span class="o">=</span><span class="p">[]):</span>
-    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
-    <span class="n">keepList</span><span class="o">=</span><span class="n">keepList</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;resetMe&#39;</span><span class="p">,</span><span class="s1">&#39;np&#39;</span><span class="p">,</span><span class="s1">&#39;plt&#39;</span><span class="p">,</span><span class="s1">&#39;math&#39;</span><span class="p">,</span><span class="s1">&#39;FuncAnimation&#39;</span><span class="p">,</span>
-                       <span class="s1">&#39;HTML&#39;</span><span class="p">,</span><span class="s1">&#39;itertools&#39;</span><span class="p">,</span><span class="s1">&#39;pickle&#39;</span><span class="p">,</span><span class="s1">&#39;testFunc&#39;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">keepList</span><span class="p">:</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">reset_me</span><span class="p">(</span><span class="n">keep_list</span><span class="o">=</span><span class="p">[]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reset the notebook namespace, preserving selected variables.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        keep_list (list[str]): names of variables to keep in the namespace.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ll</span> <span class="o">=</span> <span class="o">%</span><span class="k">who_ls</span>
+    <span class="n">keep_list</span> <span class="o">=</span> <span class="n">keep_list</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;reset_me&#39;</span><span class="p">,</span> <span class="s1">&#39;np&#39;</span><span class="p">,</span> <span class="s1">&#39;plt&#39;</span><span class="p">,</span> <span class="s1">&#39;math&#39;</span><span class="p">,</span> <span class="s1">&#39;FuncAnimation&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;HTML&#39;</span><span class="p">,</span> <span class="s1">&#39;itertools&#39;</span><span class="p">,</span> <span class="s1">&#39;pickle&#39;</span><span class="p">,</span> <span class="s1">&#39;test_func&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">keep_list</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
             <span class="n">ll</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">iiii</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">iiii</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">:</span>
-        <span class="n">jjjj</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="o">+</span><span class="n">iiii</span><span class="o">+</span><span class="s2">&quot;$&quot;</span>
+        <span class="n">jjjj</span> <span class="o">=</span> <span class="s2">&quot;^&quot;</span> <span class="o">+</span> <span class="n">iiii</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
         <span class="o">%</span><span class="k">reset_selective</span> -f {jjjj}
-    <span class="n">ll</span><span class="o">=%</span><span class="k">who_ls</span>
+    <span class="n">ll</span> <span class="o">=</span> <span class="o">%</span><span class="k">who_ls</span>
     <span class="k">return</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">testFunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">inFiles</span><span class="p">,</span><span class="n">outFiles</span><span class="p">):</span>
-    <span class="n">inputs</span>  <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">inFiles</span><span class="p">]</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">outFiles</span><span class="p">]</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_func</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">in_files</span><span class="p">,</span> <span class="n">out_files</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test ``func`` by loading pickled inputs from &quot;in_files&quot; and comparing to expected outputs.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        func (callable): the function to test.</span>
+<span class="sd">        in_files (list[str]): paths to pickle files holding the inputs to ``func``.</span>
+<span class="sd">        out_files (list[str]): paths to pickle files holding the expected outputs.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inputs</span>  <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">in_files</span><span class="p">]</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">out_files</span><span class="p">]</span>
     <span class="n">result</span>  <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">)</span>
-    <span class="n">allGood</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="p">,)</span>
+    <span class="n">all_good</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="p">,)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">outputs</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="o">&gt;</span> <span class="mf">1e-14</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed test for&quot;</span><span class="p">,</span><span class="n">outFiles</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">i</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">outputs</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
-            <span class="n">allGood</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">if</span> <span class="n">allGood</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Passed!&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>       <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Failed :(&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">outputs</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="o">&gt;</span> <span class="mf">1e-14</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed test for&quot;</span><span class="p">,</span> <span class="n">out_files</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">outputs</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
+            <span class="n">all_good</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">all_good</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Passed!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Failed :(&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Download the test files here, or download from the website and upload &amp; unzip them to wherever this notebook file is</p>
+<p>Download the test files here, or download them from the website and upload &amp; unzip them to wherever this notebook file is.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span>https://courses.physics.illinois.edu/phys246/fa2020/code/TestFiles.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unzip<span class="w"> </span>TestFiles.zip
@@ -460,15 +476,12 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-04-14 15:20:20--  https://courses.physics.illinois.edu/phys246/fa2020/code/TestFiles.zip
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2026-04-14 16:14:48--  https://courses.physics.illinois.edu/phys246/fa2020/code/TestFiles.zip
 Resolving courses.physics.illinois.edu (courses.physics.illinois.edu)... 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>130.126.151.14
-Connecting to courses.physics.illinois.edu (courses.physics.illinois.edu)|130.126.151.14|:443... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
+Connecting to courses.physics.illinois.edu (courses.physics.illinois.edu)|130.126.151.14|:443... connected.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
@@ -482,210 +495,18 @@ Saving to: ‘TestFiles.zip’
 TestFiles.zip         0%[                    ]       0  --.-KB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         0%[                    ]  79.74K   362KB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         1%[                    ] 672.00K  3.21MB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         0%[                    ] 288.00K   655KB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         8%[&gt;                   ]   4.27M  10.4MB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         0%[                    ] 496.00K   752KB/s               
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        51%[=========&gt;          ]  26.05M  42.1MB/s               
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         1%[                    ] 720.00K   818KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         1%[                    ] 944.00K   858KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         2%[                    ]   1.14M   884KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         2%[                    ]   1.38M   914KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         3%[                    ]   1.62M   945KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         3%[                    ]   1.89M   977KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         4%[                    ]   2.17M  1011KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         4%[                    ]   2.47M  1.02MB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         5%[&gt;                   ]   2.77M  1.05MB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         6%[&gt;                   ]   3.08M  1.08MB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         6%[&gt;                   ]   3.39M  1.11MB/s    eta 43s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         7%[&gt;                   ]   3.73M  1.13MB/s    eta 43s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         8%[&gt;                   ]   4.08M  1.21MB/s    eta 43s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         8%[&gt;                   ]   4.42M  1.25MB/s    eta 43s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip         9%[&gt;                   ]   4.80M  1.29MB/s    eta 43s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        10%[=&gt;                  ]   5.17M  1.35MB/s    eta 37s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        10%[=&gt;                  ]   5.56M  1.40MB/s    eta 37s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        11%[=&gt;                  ]   5.95M  1.44MB/s    eta 37s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        12%[=&gt;                  ]   6.38M  1.51MB/s    eta 37s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        13%[=&gt;                  ]   6.78M  1.55MB/s    eta 37s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        14%[=&gt;                  ]   7.22M  1.60MB/s    eta 32s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        15%[==&gt;                 ]   7.66M  1.66MB/s    eta 32s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        16%[==&gt;                 ]   8.11M  1.70MB/s    eta 32s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        16%[==&gt;                 ]   8.58M  1.75MB/s    eta 32s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        17%[==&gt;                 ]   9.05M  1.81MB/s    eta 32s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        18%[==&gt;                 ]   9.53M  1.85MB/s    eta 28s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        19%[==&gt;                 ]  10.03M  1.89MB/s    eta 28s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        20%[===&gt;                ]  10.55M  1.96MB/s    eta 28s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        21%[===&gt;                ]  11.06M  2.00MB/s    eta 28s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        22%[===&gt;                ]  11.59M  2.05MB/s    eta 28s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        24%[===&gt;                ]  12.14M  2.11MB/s    eta 24s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        25%[====&gt;               ]  12.69M  2.15MB/s    eta 24s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        26%[====&gt;               ]  13.25M  2.19MB/s    eta 24s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        27%[====&gt;               ]  13.83M  2.25MB/s    eta 24s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        28%[====&gt;               ]  14.41M  2.30MB/s    eta 24s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        29%[====&gt;               ]  15.00M  2.34MB/s    eta 20s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        30%[=====&gt;              ]  15.61M  2.41MB/s    eta 20s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        32%[=====&gt;              ]  16.22M  2.44MB/s    eta 20s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        33%[=====&gt;              ]  16.84M  2.49MB/s    eta 20s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        34%[=====&gt;              ]  17.48M  2.55MB/s    eta 20s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        35%[======&gt;             ]  18.14M  2.60MB/s    eta 17s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        37%[======&gt;             ]  18.81M  2.64MB/s    eta 17s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        38%[======&gt;             ]  19.52M  2.71MB/s    eta 17s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        40%[=======&gt;            ]  20.27M  2.78MB/s    eta 17s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        41%[=======&gt;            ]  21.06M  2.85MB/s    eta 17s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        43%[=======&gt;            ]  21.91M  2.95MB/s    eta 14s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        45%[========&gt;           ]  22.80M  3.05MB/s    eta 14s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        46%[========&gt;           ]  23.77M  3.16MB/s    eta 14s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        49%[========&gt;           ]  24.80M  3.32MB/s    eta 14s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        51%[=========&gt;          ]  25.91M  3.47MB/s    eta 14s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        53%[=========&gt;          ]  27.08M  3.63MB/s    eta 10s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        56%[==========&gt;         ]  28.33M  3.85MB/s    eta 10s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        58%[==========&gt;         ]  29.69M  4.06MB/s    eta 10s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        61%[===========&gt;        ]  31.09M  4.27MB/s    eta 10s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        64%[===========&gt;        ]  32.61M  4.58MB/s    eta 10s    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        67%[============&gt;       ]  34.20M  4.84MB/s    eta 6s     
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        70%[=============&gt;      ]  35.91M  5.11MB/s    eta 6s     
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        74%[=============&gt;      ]  37.72M  5.51MB/s    eta 6s     
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        78%[==============&gt;     ]  39.66M  5.83MB/s    eta 6s     
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        82%[===============&gt;    ]  41.77M  6.19MB/s    eta 6s     
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        86%[================&gt;   ]  43.97M  6.68MB/s    eta 2s     
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        91%[=================&gt;  ]  46.27M  7.05MB/s    eta 2s     
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        96%[==================&gt; ]  48.64M  7.43MB/s    eta 2s     
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip        99%[==================&gt; ]  50.16M  7.68MB/s    eta 2s     
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip       100%[===================&gt;]  50.58M  7.68MB/s    in 15s     
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestFiles.zip       100%[===================&gt;]  50.58M  72.1MB/s    in 0.7s    
 
-2026-04-14 15:20:35 (3.42 MB/s) - ‘TestFiles.zip’ saved [53041362/53041362]
+2026-04-14 16:14:49 (72.1 MB/s) - ‘TestFiles.zip’ saved [53041362/53041362]
 
 Archive:  TestFiles.zip
   inflating: Microscopic_after_move.dat  
@@ -695,10 +516,10 @@ Archive:  TestFiles.zip
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: rho_after_Micro2Macro.dat  
-  inflating: Microscopic_after_bounce.dat  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: Microscopic2.dat        
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: Microscopic_after_bounce.dat  
+  inflating: Microscopic2.dat        
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: Microscopic_after_moveDensity.dat  
@@ -708,13 +529,12 @@ Archive:  TestFiles.zip
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: u_after_Micro2Macro.dat  
-  inflating: Microscopic_after_collision.dat  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: Microscopic_after_collision.dat  
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  inflating: Microscopic_after_equilibrium.dat  
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -724,18 +544,18 @@ Archive:  TestFiles.zip
 <h2>Python Warmup<a class="headerlink" href="#python-warmup" title="Link to this heading">#</a></h2>
 <section id="useful-functions">
 <h3>Useful functions:<a class="headerlink" href="#useful-functions" title="Link to this heading">#</a></h3>
-<p>Before we begin, we want to highlight some functions that you may find useful in this assignment. The last one we’ll explore in more depth as well.</p>
+<p>Before we begin, we want to highlight some functions that you may find useful in this assignment. We’ll explore the last one in more depth as well.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">np.zeros([dimensions])</span></code> - create an array filled with all zeros.
-*Ex: <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">np.zeros([9,10,10])</span></code> creates a (9,10,10) array of all zeros</p></li>
+*Ex: <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">np.zeros([9,10,10])</span></code> creates a (9,10,10) array of all zeros.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">np.ones([dimensions])</span></code> - same thing as <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> but with all ones.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.empty([dimensoons])</span></code> - same thing as <code class="docutils literal notranslate"><span class="pre">np,zeros</span></code> but fills array with garbage. Very fast compared to the above.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.empty([dimensions])</span></code> - same thing as <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> but fills array with garbage. Very fast compared to the above.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">np.roll(x,shift,axis)</span></code> - shift array <code class="docutils literal notranslate"><span class="pre">x</span></code> by <code class="docutils literal notranslate"><span class="pre">shift</span></code> along <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p></li>
 </ul>
 </section>
 <section id="warmup-using-np-roll">
 <h3>Warmup - using <code class="docutils literal notranslate"><span class="pre">np.roll</span></code><a class="headerlink" href="#warmup-using-np-roll" title="Link to this heading">#</a></h3>
-<p>Something we’ll see later in this assignment is the need to shift elements right,left,up,down, and diagonally. Let’s make a little test problem to illustrate how this works.</p>
+<p>Something we’ll see later in this assignment is the need to shift elements right, left, up, down, and diagonally. Let’s make a little test problem to illustrate how this works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run me!</span>
@@ -752,7 +572,7 @@ Archive:  TestFiles.zip
 </div>
 </div>
 </div>
-<p>Now we’ll want to shift every element in <code class="docutils literal notranslate"><span class="pre">x</span></code> to the right, where we wrap everything around the edge. Rather than figuring this out with a for loop, we’ll employ <code class="docutils literal notranslate"><span class="pre">np.roll</span></code> to do it fast!</p>
+<p>Now we’ll want to shift every element in <code class="docutils literal notranslate"><span class="pre">x</span></code> to the right, wrapping everything around the edge. Rather than figuring this out with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, we’ll employ <code class="docutils literal notranslate"><span class="pre">np.roll</span></code> to do it quickly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -772,7 +592,7 @@ Archive:  TestFiles.zip
 </div>
 </div>
 </div>
-<p>Now let’s disect that command. The first <code class="docutils literal notranslate"><span class="pre">(0,1)</span></code> means don’t shift the “y” direction, and to shift the “x” direction by +1. The next command, which should always be <code class="docutils literal notranslate"><span class="pre">(0,1)</span></code> means to apply the shift as a row, column matrix.
+<p>Now let’s dissect that command. The first <code class="docutils literal notranslate"><span class="pre">(0,1)</span></code> means don’t shift the “y” direction, and shift the “x” direction by +1. The next argument, which should always be <code class="docutils literal notranslate"><span class="pre">(0,1)</span></code>, means to apply the shift as a (row, column) matrix.
 Now let’s go left:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -870,7 +690,7 @@ Take it back now y&#39;all♪
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<p>In this assignment you will produce a fluid dynamics simulations.  Our simulation is based on the lattice Boltzmann method. We will describe the microscopic behavior of the fluid using a 9-component model on a grid, which will be called <code class="docutils literal notranslate"><span class="pre">n</span></code>.
+<p>In this assignment you will produce a fluid dynamics simulation.  Our simulation is based on the lattice Boltzmann method. We will describe the microscopic behavior of the fluid using a 9-component model on a grid, which will be called <code class="docutils literal notranslate"><span class="pre">n</span></code>.
 Each of the 9 components represents a density of fluid moving in a different direction: stationary, up, down, left, right, and each of the diagonal directions. Propagation forward in time consists of three main steps:</p>
 <ol class="arabic simple">
 <li><p>Boundary conditions – In our case, we will assume periodic boundary conditions in the y direction (imagine a fluid in a torus), constant flow on the left, and smooth flow on the right.</p></li>
@@ -893,7 +713,7 @@ Note that the only global variables you should ever use are constants, which in 
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><div class="alert alert-danger" style="color:black">
 <p>If you have a function that takes in an array <code>n</code>, always make a new variable to return. This will allow you to compose functions, so that you can call <code class="docutils literal notranslate"><span class="pre">f(g(n))</span></code> which will apply <code class="docutils literal notranslate"><span class="pre">g</span></code> to <code class="docutils literal notranslate"><span class="pre">n</span></code> and then <code class="docutils literal notranslate"><span class="pre">f</span></code> to the output of <code class="docutils literal notranslate"><span class="pre">g</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">doMath</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">do_math</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># this modifies n in place so the argument will also change. You don&#39;t want that. </span>
     <span class="c1"># instead, do </span>
     <span class="n">nout</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -904,23 +724,34 @@ Note that the only global variables you should ever use are constants, which in 
 </div>
 </div><section id="a-making-some-obstacles">
 <h3>a.  Making some obstacles<a class="headerlink" href="#a-making-some-obstacles" title="Link to this heading">#</a></h3>
-<p>To simulate the real world on the computer, we’ll break the tunnel into <span class="math notranslate nohighlight">\(n_x\times n_y\)</span> squares which we’ll call <em>voxels</em>.</p>
-<p>Your simulation will be doing fluid dynamics in a <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> “tunnel” which has some objects within it.  These objects will be represented by a boolean <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> size array <code class="docutils literal notranslate"><span class="pre">obstacle=np.empty((nx,ny),dtype='bool')</span></code> which should be <code class="docutils literal notranslate"><span class="pre">True</span></code> where the obstacle is and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. For example,</p>
+<p>To simulate the real world on the computer, we’ll break the tunnel into <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> squares which we’ll call <em>voxels</em>.</p>
+<p>Your simulation will be doing fluid dynamics in an <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> “tunnel” which has some objects within it. These objects will be represented by a boolean <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> size array <code class="docutils literal notranslate"><span class="pre">obstacle=np.empty((nx,ny),dtype='bool')</span></code> which should be <code class="docutils literal notranslate"><span class="pre">True</span></code> where the obstacle is and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise. For example,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">obstacle</span><span class="p">[:,:]</span><span class="o">=</span><span class="kc">False</span>
 <span class="n">obstacle</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">70</span><span class="p">,</span><span class="mi">50</span><span class="p">:</span><span class="mi">70</span><span class="p">]</span><span class="o">=</span><span class="kc">True</span>
 </pre></div>
 </div>
-<p>would set up a square <span class="math notranslate nohighlight">\(20 \times 20\)</span> object inside our tunnel.</p>
-<p>🦉Add a <code class="docutils literal notranslate"><span class="pre">GenerateCylinderObstacle()</span></code>  function to the “function-cell” above which generates a object which is a cylinder located at <span class="math notranslate nohighlight">\((n_x/4,n_y/2)\)</span> with a radius of <span class="math notranslate nohighlight">\(n_y/9\)</span></p>
+<p>This would set up a square <span class="math notranslate nohighlight">\(20 \times 20\)</span> object inside our tunnel.</p>
+<p>🦉Add a <code class="docutils literal notranslate"><span class="pre">generate_cylinder_obstacle()</span></code>  function to the “function-cell” above which generates an object which is a cylinder located at <span class="math notranslate nohighlight">\((n_x/4,n_y/2)\)</span> with a radius of <span class="math notranslate nohighlight">\(n_y/9\)</span></p>
 <p>You can test it by calling</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">GenerateCylinderObstacle</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">generate_cylinder_obstacle</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;put title here&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>It should look like this</p>
-<div><img src="https://clark.physics.illinois.edu/246img/FDObstacle.png" width=600 alt="Answer (start)"></img><br></div><div class="alert alert-warning" style="color:black">
+<div><img src="https://clark.physics.illinois.edu/246img/FDObstacle.png" width=600 alt="Answer (start)"></img><br></div>
+<p><strong>Docstring specification:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_cylinder_obstacle</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build a boolean obstacle mask containing a single cylinder.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        obstacle (np.ndarray[bool], shape (nx, ny)): ``True`` inside a disk of</span>
+<span class="sd">        radius ``ny/9`` centered at ``(nx/4, ny/2)``; ``False`` elsewhere.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="alert alert-warning" style="color:black">
 <b>Do not use the word <code>object</code> as a variable!</b> <br />Notice how <code>object</code> is green in a cell - this means it is a special keyword.<br /> 
 </div><div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
@@ -934,7 +765,7 @@ Note that the only global variables you should ever use are constants, which in 
 </section>
 <section id="b-microscopic-velocities-v-i">
 <h2>b.  Microscopic velocities <span class="math notranslate nohighlight">\(v_i\)</span><a class="headerlink" href="#b-microscopic-velocities-v-i" title="Link to this heading">#</a></h2>
-<p>To simulate the real world on the computer, we’ll break the tunnel into <span class="math notranslate nohighlight">\(n_x\times n_y\)</span> squares which we’ll call <em>voxels</em>.</p>
+<p>To simulate the real world on the computer, we’ll break the tunnel into <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> squares which we’ll call <em>voxels</em>.</p>
 <p>The key quantity in your simulation is  nine microscopic degrees of freedom</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(n_k(i,j)\)</span> where <span class="math notranslate nohighlight">\(0\leq k \leq 8\)</span> and <span class="math notranslate nohighlight">\((i,j)\)</span> are over the <span class="math notranslate nohighlight">\(n_x \times n_y\)</span> voxels of your simulation</p></li>
@@ -988,7 +819,7 @@ Note that the only global variables you should ever use are constants, which in 
 </ul>
 <section id="c-computing-macroscopic-quantities-from-the-microscopic-density">
 <h3>c. Computing macroscopic quantities from the microscopic density<a class="headerlink" href="#c-computing-macroscopic-quantities-from-the-microscopic-density" title="Link to this heading">#</a></h3>
-<p>Given the microscopic densities, there are two macroscopic quanties:</p>
+<p>Given the microscopic densities, there are two macroscopic quantities:</p>
 <ul class="simple">
 <li><p>the macroscopic density <span class="math notranslate nohighlight">\(\rho(i,j)=\sum_k n_k\)</span> (<em>size: <span class="math notranslate nohighlight">\(n_x \times n_y\)</span></em>)</p></li>
 <li><p>the macroscopic velocity <span class="math notranslate nohighlight">\(\vec{u}(i,j) \equiv (u_x(i,j),u_y(i,j))\)</span> (<em>size: <span class="math notranslate nohighlight">\(2 \times n_x \times n_y\)</span></em>) where</p>
@@ -998,13 +829,34 @@ Note that the only global variables you should ever use are constants, which in 
 </ul>
 </li>
 </ul>
-<p>which you will compute using the function (you will write) <code class="docutils literal notranslate"><span class="pre">(rho,u)</span> <span class="pre">=</span> <span class="pre">Micro2Macro(n)</span></code></p>
+<p>which you will compute using the function (you will write) <code class="docutils literal notranslate"><span class="pre">(rho,u)</span> <span class="pre">=</span> <span class="pre">micro_to_macro(n)</span></code></p>
 <p>🦉Go ahead and write this function and add it to your ‘function-cell’</p>
 <p>You can test it using these lines of code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="n">Micro2Macro</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;rho_after_Micro2Macro.dat&quot;</span><span class="p">,</span><span class="s2">&quot;u_after_Micro2Macro.dat&quot;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test_func</span><span class="p">(</span><span class="n">micro_to_macro</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;rho_after_Micro2Macro.dat&quot;</span><span class="p">,</span><span class="s2">&quot;u_after_Micro2Macro.dat&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>and see if it print two zeros (which is a success!)</p>
+<p>and see if it prints two zeros (which is a success!).</p>
+<p>If you have trouble, you can get the expected output by calling for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">in_array</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span>
+<span class="n">ref_rho</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;rho_after_Micro2Macro.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span>
+<span class="n">calc_rho</span><span class="p">,</span> <span class="n">calc_u</span> <span class="o">=</span> <span class="n">micro_to_micro</span><span class="p">(</span><span class="n">in_array</span><span class="p">)</span>
+<span class="c1"># plot calc_rho and calc_u</span>
+</pre></div>
+</div>
+<p><strong>Docstring specification:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">micro_to_macro</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute macroscopic density and velocity from microscopic densities.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        n (np.ndarray, shape (9, nx, ny)): microscopic densities for the nine</span>
+<span class="sd">            lattice directions.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        rho (np.ndarray, shape (nx, ny)): macroscopic density.</span>
+<span class="sd">        u   (np.ndarray, shape (2, nx, ny)): macroscopic velocity (ux, uy).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
 <p><strong>Tip:</strong> Because <code class="docutils literal notranslate"><span class="pre">u</span></code> is <span class="math notranslate nohighlight">\((2,n_x,n_y)\)</span>, we can get <code class="docutils literal notranslate"><span class="pre">ux</span></code> by doing <code class="docutils literal notranslate"><span class="pre">u[0]</span></code> (which is then a <span class="math notranslate nohighlight">\((n_x,n_y)\)</span> array) and <code class="docutils literal notranslate"><span class="pre">uy</span></code> by doing <code class="docutils literal notranslate"><span class="pre">u[1]</span></code>.</p>
 <section id="optional-np-einsum">
 <h4>optional - <code class="docutils literal notranslate"><span class="pre">np.einsum</span></code><a class="headerlink" href="#optional-np-einsum" title="Link to this heading">#</a></h4>
@@ -1012,7 +864,7 @@ Note that the only global variables you should ever use are constants, which in 
 $<span class="math notranslate nohighlight">\(
 A_{ijk}\cdot B_{dk} = C_{ijd},
 \)</span>$
-we’d use then call:</p>
+we’d then call:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;ijk,dk-&gt;ijd&quot;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1028,7 +880,7 @@ we’d use then call:</p>
 </section>
 <section id="d-getting-the-equilibrium-microscopic-densities">
 <h3>d. Getting the equilibrium microscopic densities.<a class="headerlink" href="#d-getting-the-equilibrium-microscopic-densities" title="Link to this heading">#</a></h3>
-<p>Given the macroscopic densities <span class="math notranslate nohighlight">\(\rho\)</span> and <span class="math notranslate nohighlight">\(\vec{u}\)</span>, there is a <em>equilibrium</em> microscopic densities <span class="math notranslate nohighlight">\(n_{eq}\)</span> (<em>size: <span class="math notranslate nohighlight">\(9 \times n_x \times n_y\)</span></em>) which you will compute using <code class="docutils literal notranslate"><span class="pre">n_eq=Macro2Equilibrium(rho,u)</span></code></p>
+<p>Given the macroscopic densities <span class="math notranslate nohighlight">\(\rho\)</span> and <span class="math notranslate nohighlight">\(\vec{u}\)</span>, there are <em>equilibrium</em> microscopic densities <span class="math notranslate nohighlight">\(n_{eq}\)</span> (<em>size: <span class="math notranslate nohighlight">\(9 \times n_x \times n_y\)</span></em>) which you will compute using <code class="docutils literal notranslate"><span class="pre">n_eq=macro_to_equilibrium(rho,u)</span></code></p>
 <p>The relevant formula for this is</p>
 <div class="math notranslate nohighlight">
 \[ n^{eq}(v_k) \equiv n_k^{eq} =  \omega_k \rho \left(1 + 3 \vec{v_k} \cdot \vec{u} + \frac{9}{2}(\vec{v_k} \cdot \vec{u})^2- \frac{3}{2}(\vec{u}\cdot \vec{u}) \right)  \tag{A} \]</div>
@@ -1039,12 +891,25 @@ we’d use then call:</p>
 <li><p><span class="math notranslate nohighlight">\(\omega_{5-8}=1/36\)</span></p></li>
 </ul>
 <p>Given some microscopic densities <span class="math notranslate nohighlight">\(n\)</span> you should be able then to figure out the equilibrium microscopic densities <span class="math notranslate nohighlight">\(n_{eq}\)</span>.</p>
-<p>🦉Write the functions <code class="docutils literal notranslate"><span class="pre">Macro2Equilibrium</span></code> adding them to your “function-cell”</p>
+<p>🦉Write the function <code class="docutils literal notranslate"><span class="pre">macro_to_equilibrium</span></code>, adding it to your “function-cell”.</p>
 <p>You can test it by checking if</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="n">Macro2Equilibrium</span><span class="p">,[</span><span class="s2">&quot;rho_after_Micro2Macro.dat&quot;</span><span class="p">,</span><span class="s2">&quot;u_after_Micro2Macro.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_equilibrium.dat&quot;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test_func</span><span class="p">(</span><span class="n">macro_to_equilibrium</span><span class="p">,[</span><span class="s2">&quot;rho_after_Micro2Macro.dat&quot;</span><span class="p">,</span><span class="s2">&quot;u_after_Micro2Macro.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_equilibrium.dat&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>is equal to zero.</p>
+<p><strong>Docstring specification:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">macro_to_equilibrium</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the equilibrium microscopic densities from macroscopic fields.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        rho (np.ndarray, shape (nx, ny)): macroscopic density.</span>
+<span class="sd">        u   (np.ndarray, shape (2, nx, ny)): macroscopic velocity field.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        n_eq (np.ndarray, shape (9, nx, ny)): equilibrium microscopic densities.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -1057,7 +922,7 @@ we’d use then call:</p>
 <section id="d-implementing-collision">
 <h3>d. Implementing collision<a class="headerlink" href="#d-implementing-collision" title="Link to this heading">#</a></h3>
 <p>Once you can compute these quantities, the next step is to implement the collision step.</p>
-<p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">Collision(n,obstacle)</span></code> which returns the density <code class="docutils literal notranslate"><span class="pre">n</span></code> after collision.  Put it in your function-cell above.</p>
+<p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">collision(n,obstacle)</span></code> which returns the density <code class="docutils literal notranslate"><span class="pre">n</span></code> after collision.  Put it in your function-cell above.</p>
 <p>When we collide the microscopic densities, we get new microscopic densities given as</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nout</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">(1-omega)</span> <span class="pre">+</span> <span class="pre">omega</span> <span class="pre">*</span> <span class="pre">neq</span></code></p></li>
@@ -1065,14 +930,28 @@ we’d use then call:</p>
 <p>Here are the steps for the function: <span class="math notranslate nohighlight">\(\phantom{}\)</span></p>
 <ol class="arabic simple">
 <li><p>Calculate <code class="docutils literal notranslate"><span class="pre">neq</span></code><br />
-a. take the microscopic densities <span class="math notranslate nohighlight">\(\rightarrow\)</span> compute the macroscopic density and velocity <code class="docutils literal notranslate"><span class="pre">(rho,u)</span> <span class="pre">=</span> <span class="pre">Micro2Macro(n)</span></code><br />
-b. take the macroscopic density and velocity <span class="math notranslate nohighlight">\(\rightarrow\)</span> compute the equilibrium microscopic densities <code class="docutils literal notranslate"><span class="pre">neq=Macro2Equilibrium(rho,u)</span></code></p></li>
+a. take the microscopic densities <span class="math notranslate nohighlight">\(\rightarrow\)</span> compute the macroscopic density and velocity <code class="docutils literal notranslate"><span class="pre">(rho,u)</span> <span class="pre">=</span> <span class="pre">micro_to_macro(n)</span></code><br />
+b. take the macroscopic density and velocity <span class="math notranslate nohighlight">\(\rightarrow\)</span> compute the equilibrium microscopic densities <code class="docutils literal notranslate"><span class="pre">neq=macro_to_equilibrium(rho,u)</span></code></p></li>
 <li><p>Calculate <code class="docutils literal notranslate"><span class="pre">nout</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">(1-omega)</span> <span class="pre">+</span> <span class="pre">omega</span> <span class="pre">*</span> <span class="pre">neq</span></code><br />
 a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity parameter.  We will use <span class="math notranslate nohighlight">\(\omega =1.9572953736654806\)</span></p></li>
 <li><p>We moved fluid where the obstacle is, so we need to undo this. Reset all <code class="docutils literal notranslate"><span class="pre">nout</span></code> where the obstacle is to be the same as <code class="docutils literal notranslate"><span class="pre">n</span></code></p></li>
 </ol>
 <p>Test with</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Collision</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_collision.dat&quot;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test_func</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">collision</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">generate_cylinder_obstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_collision.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Docstring specification:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">collision</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">obstacle</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply one collision/relaxation step to the microscopic densities.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        n (np.ndarray, shape (9, nx, ny)): microscopic densities.</span>
+<span class="sd">        obstacle (np.ndarray[bool], shape (nx, ny)): obstacle mask.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        n_out (np.ndarray, shape (9, nx, ny)): densities after collision,</span>
+<span class="sd">        with obstacle voxels left unchanged.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-output docutils container">
@@ -1086,25 +965,40 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </section>
 <section id="e-moving">
 <h3>e. Moving<a class="headerlink" href="#e-moving" title="Link to this heading">#</a></h3>
-<p>We’ll now move on to getting the fluid to move. This will be a function called, surprise, <code class="docutils literal notranslate"><span class="pre">Move(n,obstacle)</span></code>. But first we need to helper functions:</p>
+<p>We’ll now move on to getting the fluid to move. This will be a function called, surprise, <code class="docutils literal notranslate"><span class="pre">move(n,obstacle)</span></code>. But first we need two helper functions:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Bounce(n,obstacle)</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">bounce(n,obstacle)</span></code></p>
 <ul>
-<li><p>bounce the velocities - that is every velocity where the obstacle is gets reversed</p></li>
+<li><p>bounce the velocities – that is, every velocity where the obstacle is gets reversed</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MoveDensity(n)</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">move_density(n)</span></code></p>
 <ul>
 <li><p>Move all your densities in the direction of the velocity (<em>hint</em> the velocity tells you where to move it)</p></li>
 <li><p>Assume periodic boundary conditions here</p></li>
 </ul>
 </li>
 </ul>
-<p>🦉 Implement <code class="docutils literal notranslate"><span class="pre">Bounce(n,obstacle)</span> <span class="pre">-&gt;</span> <span class="pre">nout</span></code></p>
+<p>🦉 Implement <code class="docutils literal notranslate"><span class="pre">bounce(n,obstacle)</span> <span class="pre">-&gt;</span> <span class="pre">nout</span></code></p>
 <ul class="simple">
-<li><p>bounce the velocities off the – every velocity where the obstacle is gets reversed</p></li>
+<li><p>bounce the velocities off the obstacle – every velocity where the obstacle is gets reversed</p></li>
 </ul>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-output docutils container">
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
+<p><strong>Docstring specification:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bounce</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">obstacle</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reverse velocities at every voxel occupied by the obstacle.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        n (np.ndarray, shape (9, nx, ny)): microscopic densities.</span>
+<span class="sd">        obstacle (np.ndarray[bool], shape (nx, ny)): obstacle mask.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        n_out (np.ndarray, shape (9, nx, ny)): densities with directions</span>
+<span class="sd">        flipped inside the obstacle.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## ANSWER HERE</span>
 </pre></div>
@@ -1112,16 +1006,30 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div>
-<p>🦉 Implement <code class="docutils literal notranslate"><span class="pre">MoveDensity(n)</span> <span class="pre">-&gt;</span> <span class="pre">n</span></code></p>
+<p>🦉 Implement <code class="docutils literal notranslate"><span class="pre">move_density(n)</span> <span class="pre">-&gt;</span> <span class="pre">n</span></code></p>
 <ul class="simple">
 <li><p>Move all your densities in the direction of the velocity (<em>hint</em> the velocity tells you where to move it)</p></li>
 <li><p>Assume periodic boundary conditions here</p></li>
 </ul>
 <p>🦉 Test using</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="n">MoveDensity</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_moveDensity.dat&quot;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_func</span><span class="p">(</span><span class="n">move_density</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_moveDensity.dat&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-output docutils container">
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
+<p><strong>Docstring specification:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">move_density</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Propagate each density component in its own velocity direction.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        n (np.ndarray, shape (9, nx, ny)): microscopic densities.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        n_out (np.ndarray, shape (9, nx, ny)): densities after propagation</span>
+<span class="sd">        with periodic boundary conditions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## ANSWER HERE</span>
 </pre></div>
@@ -1129,13 +1037,28 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div>
-<p><code class="docutils literal notranslate"><span class="pre">Move(n,obstacle)</span></code> call is just a <code class="docutils literal notranslate"><span class="pre">Bounce</span></code> then <code class="docutils literal notranslate"><span class="pre">MoveDensity</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">move(n,obstacle)</span></code> call is just a <code class="docutils literal notranslate"><span class="pre">bounce</span></code> then <code class="docutils literal notranslate"><span class="pre">move_density</span></code>.</p>
 <p>🦉Write this function and test!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="n">testFunc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">GenerateCylinderObstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_move.dat&quot;</span><span class="p">])</span>
+<span class="n">test_func</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">generate_cylinder_obstacle</span><span class="p">()),[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">],[</span><span class="s2">&quot;Microscopic_after_move.dat&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-output docutils container">
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
+<p><strong>Docstring specification:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">obstacle</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Combine :func:`bounce` and :func:`move_density` into a single move step.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        n (np.ndarray, shape (9, nx, ny)): microscopic densities.</span>
+<span class="sd">        obstacle (np.ndarray[bool], shape (nx, ny)): obstacle mask.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        n_out (np.ndarray, shape (9, nx, ny)): densities after bouncing</span>
+<span class="sd">        off the obstacle and propagating.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
 </pre></div>
@@ -1146,10 +1069,10 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </section>
 <section id="f-boundary-conditions">
 <h3>f.  Boundary conditions<a class="headerlink" href="#f-boundary-conditions" title="Link to this heading">#</a></h3>
-<p>In the y-direction, we are just going to assume that the boundary conditions are periodic. For the x-direction, we are going to assign certain boundary conditions on the left and right.</p>
-<p>Let’s call this function <code class="docutils literal notranslate"><span class="pre">FixBoundary(n,n_init)</span></code> which applies these boundary conditions and returns the new density <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
-<p><strong>Left:</strong> we are going to assume that there is a flow - this means that the microscopic densities are the same at each step.  Therefore, what we should do is simply replace the current densities on the left-most row with the initial microscopic densities (<code class="docutils literal notranslate"><span class="pre">n_init</span></code>).</p>
-<p><strong>Right:</strong> we are going to assume that the gradient is zero - i.e. the important physics has dissapeared by this point.  To do this, we will set</p>
+<p>In the y-direction, we’ll assume periodic boundary conditions. For the x-direction, we’ll assign specific boundary conditions on the left and right.</p>
+<p>Let’s call this function <code class="docutils literal notranslate"><span class="pre">fix_boundary(n,n_init)</span></code> which applies these boundary conditions and returns the new density <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p><strong>Left:</strong> we assume there is a constant inflow – the microscopic densities are the same at each step. Therefore, we simply replace the current densities on the left-most row with the initial microscopic densities (<code class="docutils literal notranslate"><span class="pre">n_init</span></code>).</p>
+<p><strong>Right:</strong> we assume the gradient is zero – i.e., the important physics has disappeared by this point. To do this, we set</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop over all microscopic velocities vL that are going left </span>
    <span class="n">nout</span><span class="p">[</span><span class="n">vL</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">nout</span><span class="p">[</span><span class="n">vL</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,:]</span> 
 </pre></div>
@@ -1157,7 +1080,22 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <p><em>Hint:</em> there are 3 <code class="docutils literal notranslate"><span class="pre">vL</span></code>s.</p>
 <p>🦉Put all of this together and run the next test!</p>
 <p>Testing:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">testFunc</span><span class="p">(</span><span class="n">FixBoundary</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">,</span><span class="s2">&quot;Microscopic2.dat&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Microscopic_after_boundary.dat&quot;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test_func</span><span class="p">(</span><span class="n">fix_boundary</span><span class="p">,[</span><span class="s2">&quot;Microscopic.dat&quot;</span><span class="p">,</span><span class="s2">&quot;Microscopic2.dat&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Microscopic_after_boundary.dat&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Docstring specification:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fix_boundary</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n_init</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply left-inflow and right-zero-gradient boundary conditions.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        n (np.ndarray, shape (9, nx, ny)): current microscopic densities.</span>
+<span class="sd">        n_init (np.ndarray, shape (9, nx, ny)): initial microscopic densities</span>
+<span class="sd">            that set the left boundary inflow.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        n_out (np.ndarray, shape (9, nx, ny)): densities after applying</span>
+<span class="sd">        the x-boundary conditions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-output docutils container">
@@ -1171,7 +1109,7 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </section>
 <section id="g-setting-up-the-initial-conditions">
 <h3>g. Setting up the initial conditions<a class="headerlink" href="#g-setting-up-the-initial-conditions" title="Link to this heading">#</a></h3>
-<p>We need to generate an initial conditions. The way that we are going to do that is</p>
+<p>We need to generate initial conditions. The way that we are going to do that is</p>
 <ul class="simple">
 <li><p>pick some macroscopic density <span class="math notranslate nohighlight">\(\rho\)</span> of size <span class="math notranslate nohighlight">\((n_x,n_y)\)</span> (uniformly equal to 1.0) and a</p></li>
 <li><p>macroscopic velocity <span class="math notranslate nohighlight">\(\vec{u}(i,j)\)</span> (sizes <span class="math notranslate nohighlight">\((2,n_x,n_y)\)</span>)</p>
@@ -1183,11 +1121,23 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <li><p>compute the equilibrium density <span class="math notranslate nohighlight">\(n_{eq}\)</span> associated with the initial density and velocities.<br />
 <strong>Use (and return) this as the initial conditions</strong></p></li>
 </ul>
-<p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">Setup()</span></code> which returns the initial microscopic densities.  Remember to save this as you will need it to apply your boundary conditions.</p>
-<p>I get the following when I visualize it as <code class="docutils literal notranslate"><span class="pre">plt.matshow(Setup()[3].transpose())</span></code></p>
+<p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">setup()</span></code> which returns the initial microscopic densities.  Remember to save this as you will need it to apply your boundary conditions.</p>
+<p>I get the following when I visualize it as <code class="docutils literal notranslate"><span class="pre">plt.matshow(setup()[3].transpose())</span></code></p>
 <div><img src="https://clark.physics.illinois.edu/246img/FD_initialCondition.png" width=800  alt="Answer (start)"></img><br></div>
 <p>A quick test here is just to check that the following:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All good?&quot;</span><span class="p">,(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.443377991</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)</span> <span class="ow">and</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.0245774711</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All good?&quot;</span><span class="p">,(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.443377991</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)</span> <span class="ow">and</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">setup</span><span class="p">())</span><span class="o">-</span><span class="mf">0.0245774711</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p><strong>Docstring specification:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create the initial microscopic densities for the simulation.</span>
+
+<span class="sd">    Uses rho = 1.0 and a small sinusoidal perturbation to the x-velocity,</span>
+<span class="sd">    then returns the equilibrium densities for those macroscopic fields.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        n (np.ndarray, shape (9, nx, ny)): initial microscopic densities.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-output docutils container">
@@ -1201,7 +1151,7 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </section>
 <section id="h-putting-it-all-together">
 <h3>h. Putting it all together<a class="headerlink" href="#h-putting-it-all-together" title="Link to this heading">#</a></h3>
-<p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">Run(steps,record,n,n_init,obstacle)</span></code> (up in your function-cell) which takes</p>
+<p>🦉Write a function <code class="docutils literal notranslate"><span class="pre">run(steps,record,n,n_init,obstacle)</span></code> (up in your function-cell) which takes</p>
 <ul class="simple">
 <li><p>the number of steps <code class="docutils literal notranslate"><span class="pre">steps</span></code> you want to run</p></li>
 <li><p>how often you want to <code class="docutils literal notranslate"><span class="pre">record</span></code> the velocity and density</p></li>
@@ -1211,9 +1161,9 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </ul>
 <p>Each step consists of:</p>
 <ol class="arabic simple">
-<li><p>Adjust boundary conditions <code class="docutils literal notranslate"><span class="pre">FixBoundary</span></code></p></li>
-<li><p>Collide the microscopic densities  <code class="docutils literal notranslate"><span class="pre">Collision</span></code></p></li>
-<li><p>Move the microscopic densities  <code class="docutils literal notranslate"><span class="pre">Move</span></code></p></li>
+<li><p>Adjust boundary conditions <code class="docutils literal notranslate"><span class="pre">fix_boundary</span></code></p></li>
+<li><p>Collide the microscopic densities  <code class="docutils literal notranslate"><span class="pre">collision</span></code></p></li>
+<li><p>Move the microscopic densities  <code class="docutils literal notranslate"><span class="pre">move</span></code></p></li>
 </ol>
 <p>It should return</p>
 <ul class="simple">
@@ -1222,16 +1172,35 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <li><p>the last microscopic density <code class="docutils literal notranslate"><span class="pre">n</span></code> (this should be a single array of size <span class="math notranslate nohighlight">\(9\times n_x \times n_y\)</span>)</p></li>
 </ul>
 <p>It should run like the following</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_in</span><span class="o">=</span><span class="n">Setup</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_in</span><span class="o">=</span><span class="n">setup</span><span class="p">()</span>
 <span class="n">n_init</span><span class="o">=</span><span class="n">fin</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">obstacle</span><span class="o">=</span><span class="n">GenerateCylinderObstacle</span><span class="p">()</span>
-<span class="n">rhos</span><span class="p">,</span> <span class="n">us</span><span class="p">,</span> <span class="n">n_final</span> <span class="o">=</span> <span class="n">Run</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_in</span><span class="p">,</span> <span class="n">n_init</span><span class="p">,</span> <span class="n">obstacle</span><span class="p">)</span>
+<span class="n">obstacle</span><span class="o">=</span><span class="n">generate_cylinder_obstacle</span><span class="p">()</span>
+<span class="n">rhos</span><span class="p">,</span> <span class="n">us</span><span class="p">,</span> <span class="n">n_final</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">record</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_in</span><span class="p">,</span> <span class="n">n_init</span><span class="p">,</span> <span class="n">obstacle</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">us</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="o">...</span>
 </pre></div>
 </div>
 <p>🦉Run for 2001 steps recording every 100 steps. Then plot the final 5 <code class="docutils literal notranslate"><span class="pre">us</span></code>.</p>
+<p><strong>Docstring specification:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="n">record</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n_init</span><span class="p">,</span> <span class="n">obstacle</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evolve the lattice-Boltzmann simulation for a given number of steps.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        steps (int): number of time steps to run.</span>
+<span class="sd">        record (int): record the macroscopic fields every ``record`` steps.</span>
+<span class="sd">        n (np.ndarray, shape (9, nx, ny)): starting microscopic densities.</span>
+<span class="sd">        n_init (np.ndarray, shape (9, nx, ny)): initial densities used for</span>
+<span class="sd">            the left boundary inflow.</span>
+<span class="sd">        obstacle (np.ndarray[bool], shape (nx, ny)): obstacle mask.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        rhos (list[np.ndarray]): recorded macroscopic densities.</span>
+<span class="sd">        us   (list[np.ndarray]): recorded speed fields ``sqrt(u . u)``.</span>
+<span class="sd">        n    (np.ndarray, shape (9, nx, ny)): final microscopic densities.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -1247,7 +1216,7 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fins</span><span class="o">=</span><span class="n">rhos</span><span class="o">=</span><span class="n">us</span><span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">21</span>
 <span class="n">fins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">n_in</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
-    <span class="o">%</span><span class="n">time</span> <span class="p">(</span><span class="n">rhos</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">us</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">fins</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">=</span><span class="n">Run</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="n">fins</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">n_init</span><span class="p">,</span><span class="n">obstacle</span><span class="p">)</span>
+    <span class="o">%</span><span class="n">time</span> <span class="p">(</span><span class="n">rhos</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">us</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">fins</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">=</span><span class="n">run</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="n">fins</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">n_init</span><span class="p">,</span><span class="n">obstacle</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>which will generate our data.</p>
@@ -1258,17 +1227,17 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>🦉Now write a function <code class="docutils literal notranslate"><span class="pre">AnimateMe(us_flat,vMax)</span></code> which is going to take a list of velocities <code class="docutils literal notranslate"><span class="pre">us_flat</span></code> (and maximum for the <code class="docutils literal notranslate"><span class="pre">vMax</span></code>) and going to return an animation which is going to be then produced by calling</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>🦉Now write a function <code class="docutils literal notranslate"><span class="pre">animate_me(us_flat,v_max)</span></code> which is going to take a list of velocities <code class="docutils literal notranslate"><span class="pre">us_flat</span></code> (and maximum for the <code class="docutils literal notranslate"><span class="pre">v_max</span></code>) and going to return an animation which is going to be then produced by calling</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">us_flat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">us</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
-<span class="n">anim</span> <span class="o">=</span> <span class="n">AnimateMe</span><span class="p">(</span><span class="n">us</span><span class="p">,</span><span class="n">vMax</span><span class="p">)</span>
+<span class="n">anim</span> <span class="o">=</span> <span class="n">animate_me</span><span class="p">(</span><span class="n">us</span><span class="p">,</span><span class="n">v_max</span><span class="p">)</span>
 <span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>The first line converts the list of lists into a single iterable.</p>
 <p>This function will look like:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">AnimateMe</span><span class="p">(</span><span class="n">us_flat</span><span class="p">,</span><span class="n">vMax</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">animate_me</span><span class="p">(</span><span class="n">us_flat</span><span class="p">,</span><span class="n">v_max</span><span class="p">):</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-    <span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">us_flat</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Reds</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">vMax</span><span class="p">)</span>
+    <span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">us_flat</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Reds</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="n">v_max</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
          <span class="n">cax</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">us_flat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
@@ -1277,7 +1246,22 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
     <span class="k">return</span> <span class="n">anim</span>
 </pre></div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell tag_hide-output docutils container">
+<div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
+<p><strong>Docstring specification:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">animate_me</span><span class="p">(</span><span class="n">us_flat</span><span class="p">,</span> <span class="n">v_max</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build a matplotlib animation of a sequence of speed fields.</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">        us_flat (list[np.ndarray]): flattened list of 2-D speed fields, one</span>
+<span class="sd">            per frame.</span>
+<span class="sd">        v_max (float): maximum value for the color scale.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        anim (matplotlib.animation.FuncAnimation): the animation object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
 </pre></div>
@@ -1287,7 +1271,7 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
 <section id="j-speed-test-5-points-extra-credit">
 <h3>j. Speed Test ( 5 points extra credit)<a class="headerlink" href="#j-speed-test-5-points-extra-credit" title="Link to this heading">#</a></h3>
-<p>Our code for for <code class="docutils literal notranslate"><span class="pre">%time</span> <span class="pre">Run(2000,3000,Setup(),Setup(),GenerateCylinderObstacle())</span></code> takes between 45 and 60 seconds. We’ll give 5 points if you can make your code faster than 40 seconds runtime (on the server). Warning: we aren’t sure this is possible!</p>
+<p>Our code for <code class="docutils literal notranslate"><span class="pre">%time</span> <span class="pre">run(2000,3000,setup(),setup(),generate_cylinder_obstacle())</span></code> takes between 45 and 60 seconds. We’ll give 5 points if you can make your code faster than 40 seconds of runtime (on the server). Warning: we aren’t sure this is possible!</p>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1305,7 +1289,7 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<p>In this exercise we are going to use all the same code but generate a different object.  Here generate an object which consists of two walls:</p>
+<p>In this exercise we are going to use all the same code but generate a different object.  Here, generate an object which consists of two walls:</p>
 <ul class="simple">
 <li><p>one spans <span class="math notranslate nohighlight">\(50 \leq x \leq 60\)</span> and <span class="math notranslate nohighlight">\(n_y/4 \leq y \leq 3n_y/4\)</span></p></li>
 <li><p>the other spans <span class="math notranslate nohighlight">\(200 \leq x \leq 210\)</span> and <span class="math notranslate nohighlight">\(n_y/4 \leq y \leq 3n_y/4\)</span></p></li>
@@ -1334,10 +1318,10 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <li><p><strong>List of collaborators:</strong></p></li>
 <li><p><strong>References you used in developing your code:</strong></p></li>
 </ul>
-<p>🦉Come up with something new and cool to do with this animation code.  Maybe try out some other interesting obstacles are add some friction to the walls or such.</p>
+<p>🦉Come up with something new and cool to do with this animation code.  Maybe try out some other interesting obstacles or add some friction to the walls.</p>
 <section id="answer">
 <h3>Answer:<a class="headerlink" href="#answer" title="Link to this heading">#</a></h3>
-<p><strong>Acknowledgement:</strong> This assignment originally inspired from code from flowkit.com</p>
+<p><strong>Acknowledgement:</strong> This assignment was originally inspired by code from flowkit.com.</p>
 <ul class="simple">
 <li><p>Bryan Clark (original)</p></li>
 </ul>
@@ -1348,33 +1332,33 @@ a. <span class="math notranslate nohighlight">\(\omega\)</span> is the viscosity
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can safely ignore these lines; they are just to generate the test files.</span>
 <span class="c1">#import pickle</span>
 <span class="c1">#np.random.seed(30)</span>
-<span class="c1">#microscopicDensity=np.random.random((9,nx,ny))</span>
-<span class="c1">#pickle.dump( microscopicDensity, open( &quot;Microscopic.dat&quot;, &quot;wb&quot; ) )</span>
-<span class="c1">#(rho,u)=Micro2Macro(microscopicDensity)</span>
+<span class="c1">#microscopic_density=np.random.random((9,nx,ny))</span>
+<span class="c1">#pickle.dump( microscopic_density, open( &quot;Microscopic.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">#(rho,u)=micro_to_macro(microscopic_density)</span>
 <span class="c1">#pickle.dump( rho, open( &quot;rho_after_Micro2Macro.dat&quot;, &quot;wb&quot; ) )</span>
 <span class="c1">#pickle.dump( u, open( &quot;u_after_Micro2Macro.dat&quot;, &quot;wb&quot; ) )</span>
 
-<span class="c1">#pickle.dump( microscopicDensity, open( &quot;Microscopic_after_equilibrium.dat&quot;, &quot;wb&quot; ) ) #!#</span>
+<span class="c1">#pickle.dump( microscopic_density, open( &quot;Microscopic_after_equilibrium.dat&quot;, &quot;wb&quot; ) ) #!#</span>
 
 
-<span class="c1">#pickle.dump( Collision(microscopicDensity,GenerateCylinderObstacle()), open( &quot;Microscopic_after_collision.dat&quot;, &quot;wb&quot; ) ) #!#</span>
+<span class="c1">#pickle.dump( collision(microscopic_density,generate_cylinder_obstacle()), open( &quot;Microscopic_after_collision.dat&quot;, &quot;wb&quot; ) ) #!#</span>
 
 
 <span class="c1">#!Start</span>
-<span class="c1">#pickle.dump( MoveDensity(microscopicDensity), open( &quot;Microscopic_after_moveDensity.dat&quot;, &quot;wb&quot; ) )</span>
-<span class="c1">##pickle.dump( MoveDensity(microscopicDensity,GenerateCylinderObstacle()), open( &quot;Microscopic_after_collision.dat&quot;, &quot;wb&quot; ) )</span>
-<span class="c1">##print(np.max(np.abs(Collision(microscopicDensity,GenerateCylinderObstacle())-pickle.load( open( &quot;Microscopic_after_collision.dat&quot;, &quot;rb&quot; ) ))))</span>
-<span class="c1">#microscopicDensity=pickle.load( open( &quot;Microscopic.dat&quot;, &quot;rb&quot; ) )</span>
-<span class="c1">#pickle.dump( Bounce(microscopicDensity,GenerateCylinderObstacle()), open( &quot;Microscopic_after_bounce.dat&quot;, &quot;wb&quot; ))</span>
-<span class="c1">#microscopicDensity=pickle.load( open( &quot;Microscopic.dat&quot;, &quot;rb&quot; ) )</span>
-<span class="c1">#pickle.dump( Move(microscopicDensity,GenerateCylinderObstacle()), open( &quot;Microscopic_after_move.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">#pickle.dump( move_density(microscopic_density), open( &quot;Microscopic_after_moveDensity.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">##pickle.dump( move_density(microscopic_density,generate_cylinder_obstacle()), open( &quot;Microscopic_after_collision.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">##print(np.max(np.abs(collision(microscopic_density,generate_cylinder_obstacle())-pickle.load( open( &quot;Microscopic_after_collision.dat&quot;, &quot;rb&quot; ) ))))</span>
+<span class="c1">#microscopic_density=pickle.load( open( &quot;Microscopic.dat&quot;, &quot;rb&quot; ) )</span>
+<span class="c1">#pickle.dump( bounce(microscopic_density,generate_cylinder_obstacle()), open( &quot;Microscopic_after_bounce.dat&quot;, &quot;wb&quot; ))</span>
+<span class="c1">#microscopic_density=pickle.load( open( &quot;Microscopic.dat&quot;, &quot;rb&quot; ) )</span>
+<span class="c1">#pickle.dump( move(microscopic_density,generate_cylinder_obstacle()), open( &quot;Microscopic_after_move.dat&quot;, &quot;wb&quot; ) )</span>
 <span class="c1">#!Stop</span>
 
 
 <span class="c1">#!Start</span>
 <span class="c1">#microscopicDensity2=np.random.random((9,nx,ny))</span>
 <span class="c1">#pickle.dump(microscopicDensity2,open( &quot;Microscopic2.dat&quot;,&quot;wb&quot;))</span>
-<span class="c1">#pickle.dump( FixBoundary(microscopicDensity,microscopicDensity2), open( &quot;Microscopic_after_boundary.dat&quot;, &quot;wb&quot; ) )</span>
+<span class="c1">#pickle.dump( fix_boundary(microscopic_density,microscopicDensity2), open( &quot;Microscopic_after_boundary.dat&quot;, &quot;wb&quot; ) )</span>
 <span class="c1">#!Stop</span>
 </pre></div>
 </div>
