@@ -361,14 +361,14 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-a-single-qubit-33-points">Exercise 1: A Single Qubit (33 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-a-single-qubit">Exercise 1: A Single Qubit</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-a-one-qubit-state">a. A one qubit state</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-one-qubit-gates">b. One qubit gates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-seeing-the-rotation">c.  Seeing the rotation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-measuring-the-state">d. Measuring the state</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-two-qubits-34-points">Exercise 2: Two qubits (34 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-two-qubits">Exercise 2: Two qubits</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-control-not-gates">a. Control-not gates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-build-an-epr-pair">b.  Build an EPR Pair</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-measuring-epr-pairs">c. Measuring EPR Pairs</a></li>
@@ -377,8 +377,8 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-grover-s-algorithm">Exercise 3:  Grover’s Algorithm</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-control-control-control-z">a. Control-Control-Control Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-all-hadamards">b. All Hadamards</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-flipallbutzero">c. FlipAllButZero</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-invert">d. Invert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-flip-all-but-zero">c. flip_all_but_zero</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-invert">d. invert</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-running-grover-s-algorithm">e. Running Grover’s Algorithm</a></li>
 </ul>
 </li>
@@ -417,32 +417,32 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting qiskit[visualization]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading qiskit-2.3.1-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (12 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading qiskit-2.4.0-cp310-abi3-manylinux_2_28_x86_64.whl.metadata (12 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting rustworkx&gt;=0.15.0 (from qiskit[visualization])
   Downloading rustworkx-0.17.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
-Requirement already satisfied: numpy&lt;3,&gt;=1.21 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit[visualization]) (2.4.4)
+Requirement already satisfied: numpy&lt;3,&gt;=1.21 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (2.4.4)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scipy&gt;=1.5 (from qiskit[visualization])
-  Downloading scipy-1.17.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting dill&gt;=0.3 (from qiskit[visualization])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading scipy-1.17.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting dill&gt;=0.3 (from qiskit[visualization])
   Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting stevedore&gt;=3.0.0 (from qiskit[visualization])
   Downloading stevedore-5.7.0-py3-none-any.whl.metadata (2.4 kB)
-Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit[visualization]) (4.15.0)
-Requirement already satisfied: matplotlib&gt;=3.3 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit[visualization]) (3.10.8)
+Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (4.15.0)
+Requirement already satisfied: matplotlib&gt;=3.3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (3.10.8)
 Collecting pydot (from qiskit[visualization])
   Downloading pydot-4.0.1-py3-none-any.whl.metadata (11 kB)
-Requirement already satisfied: Pillow&gt;=4.2.1 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit[visualization]) (12.2.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pylatexenc&gt;=1.4 (from qiskit[visualization])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: Pillow&gt;=4.2.1 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (12.2.0)
+Collecting pylatexenc&gt;=1.4 (from qiskit[visualization])
   Downloading pylatexenc-2.10.tar.gz (162 kB)
 </pre></div>
 </div>
@@ -467,69 +467,66 @@ Requirement already satisfied: Pillow&gt;=4.2.1 in /opt/hostedtoolcache/Python/3
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
 ?25hCollecting seaborn&gt;=0.9.0 (from qiskit[visualization])
   Downloading seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting sympy&gt;=1.3 (from qiskit[visualization])
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting sympy&gt;=1.3 (from qiskit[visualization])
-  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.3.3)
-Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (0.12.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (4.62.1)
-Requirement already satisfied: kiwisolver&gt;=1.3.1 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.5.0)
-Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (26.0)
-Requirement already satisfied: pyparsing&gt;=3 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (3.3.2)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (2.9.0.post0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.17.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.3.3)
+Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (4.62.1)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.5.0)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (26.1)
+Requirement already satisfied: pyparsing&gt;=3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (3.3.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (2.9.0.post0)
+Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.17.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pandas&gt;=1.2 (from seaborn&gt;=0.9.0-&gt;qiskit[visualization])
-  Downloading pandas-3.0.2-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting mpmath&lt;1.4,&gt;=1.1.0 (from sympy&gt;=1.3-&gt;qiskit[visualization])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas-3.0.2-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+Collecting mpmath&lt;1.4,&gt;=1.1.0 (from sympy&gt;=1.3-&gt;qiskit[visualization])
   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading qiskit-2.3.1-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.8 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/8.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading qiskit-2.4.0-cp310-abi3-manylinux_2_28_x86_64.whl (9.3 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/9.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━ <span class=" -Color -Color-Green">8.1/8.8 MB</span> <span class=" -Color -Color-Red">43.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.8/8.8 MB</span> <span class=" -Color -Color-Red">42.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green">6.8/9.3 MB</span> <span class=" -Color -Color-Red">35.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.3/9.3 MB</span> <span class=" -Color -Color-Red">40.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading dill-0.4.1-py3-none-any.whl (120 kB)
+Downloading rustworkx-0.17.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading rustworkx-0.17.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.2/2.2 MB</span> <span class=" -Color -Color-Red">83.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.2/2.2 MB</span> <span class=" -Color -Color-Red">83.9 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading scipy-1.17.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.2 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/35.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">35.1/35.2 MB</span> <span class=" -Color -Color-Red">181.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━ <span class=" -Color -Color-Green">25.4/35.2 MB</span> <span class=" -Color -Color-Red">127.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">35.2/35.2 MB</span> <span class=" -Color -Color-Red">152.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">35.2/35.2 MB</span> <span class=" -Color -Color-Red">114.8 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading seaborn-0.13.2-py3-none-any.whl (294 kB)
 Downloading pandas-3.0.2-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.9 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/10.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.9/10.9 MB</span> <span class=" -Color -Color-Red">230.8 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.9/10.9 MB</span> <span class=" -Color -Color-Red">219.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading stevedore-5.7.0-py3-none-any.whl (54 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/6.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/6.3 MB</span> <span class=" -Color -Color-Red">281.9 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/6.3 MB</span> <span class=" -Color -Color-Red">291.6 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading mpmath-1.3.0-py3-none-any.whl (536 kB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/536.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">536.2/536.2 kB</span> <span class=" -Color -Color-Red">107.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pydot-4.0.1-py3-none-any.whl (37 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">536.2/536.2 kB</span> <span class=" -Color -Color-Red">113.6 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading pydot-4.0.1-py3-none-any.whl (37 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building wheels for collected packages: pylatexenc
@@ -541,7 +538,7 @@ Downloading pandas-3.0.2-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Created wheel for pylatexenc: filename=pylatexenc-2.10-py3-none-any.whl size=136897 sha256=dfdc5b51633dcc62c5acb029be4d5e7431151ba6d72ed8cc26620f0a1a0f1958
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Created wheel for pylatexenc: filename=pylatexenc-2.10-py3-none-any.whl size=136897 sha256=d9153c173d76ab9fb3380a9b51bfb2a27e0620fe94abdb5cf1ee69bedd3e043f
   Stored in directory: /home/runner/.cache/pip/wheels/6e/51/1c/e4691ba960b6fe12c01239f26bc63c58d5c4e754b58ace903d
 Successfully built pylatexenc
 </pre></div>
@@ -688,6 +685,15 @@ Successfully built pylatexenc
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 2/11</span> [sympy]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 2/11</span> [sympy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 2/11</span> [sympy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 3/11</span> [stevedore]
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 4/11</span> [scipy]
 </pre></div>
 </div>
@@ -802,6 +808,15 @@ Successfully built pylatexenc
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green"> 8/11</span> [qiskit]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green"> 8/11</span> [qiskit]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green"> 9/11</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green"> 9/11</span> [pandas]
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green"> 9/11</span> [pandas]
 </pre></div>
 </div>
@@ -907,29 +922,30 @@ Successfully built pylatexenc
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ <span class=" -Color -Color-Green">10/11</span> [seaborn]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11/11</span> [seaborn]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ <span class=" -Color -Color-Green">10/11</span> [seaborn]
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11/11</span> [seaborn]
 ?25h
-Successfully installed dill-0.4.1 mpmath-1.3.0 pandas-3.0.2 pydot-4.0.1 pylatexenc-2.10 qiskit-2.3.1 rustworkx-0.17.1 scipy-1.17.1 seaborn-0.13.2 stevedore-5.7.0 sympy-1.14.0
+Successfully installed dill-0.4.1 mpmath-1.3.0 pandas-3.0.2 pydot-4.0.1 pylatexenc-2.10 qiskit-2.4.0 rustworkx-0.17.1 scipy-1.17.1 seaborn-0.13.2 stevedore-5.7.0 sympy-1.14.0
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting qutip
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading qutip-5.2.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
-Requirement already satisfied: numpy&gt;=1.22 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qutip) (2.4.4)
-Requirement already satisfied: scipy!=1.16.0,!=1.17.0,&gt;=1.9 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qutip) (1.17.1)
-Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qutip) (26.0)
+Requirement already satisfied: numpy&gt;=1.22 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qutip) (2.4.4)
+Requirement already satisfied: scipy!=1.16.0,!=1.17.0,&gt;=1.9 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qutip) (1.17.1)
+Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qutip) (26.1)
 Downloading qutip-5.2.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (32.8 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/32.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.1/32.8 MB</span> <span class=" -Color -Color-Red">45.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.8/32.8 MB</span> <span class=" -Color -Color-Red">37.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━ <span class=" -Color -Color-Green">29.9/32.8 MB</span> <span class=" -Color -Color-Red">79.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ <span class=" -Color -Color-Green">28.3/32.8 MB</span> <span class=" -Color -Color-Red">75.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">32.8/32.8 MB</span> <span class=" -Color -Color-Red">73.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">32.8/32.8 MB</span> <span class=" -Color -Color-Red">73.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -943,33 +959,32 @@ Downloading qutip-5.2.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading qiskit_aer-0.17.2-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.2 kB)
-Requirement already satisfied: qiskit&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit_aer) (2.3.1)
-Requirement already satisfied: numpy&gt;=1.16.3 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit_aer) (2.4.4)
-Requirement already satisfied: scipy&gt;=1.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit_aer) (1.17.1)
-Requirement already satisfied: psutil&gt;=5 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit_aer) (7.2.2)
-Requirement already satisfied: python-dateutil&gt;=2.8.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit_aer) (2.9.0.post0)
-Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from python-dateutil&gt;=2.8.0-&gt;qiskit_aer) (1.17.0)
-Requirement already satisfied: rustworkx&gt;=0.15.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.17.1)
-Requirement already satisfied: dill&gt;=0.3 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.4.1)
-Requirement already satisfied: stevedore&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (5.7.0)
-Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.14.3/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (4.15.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading qiskit_aer-0.17.2-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (14.2 MB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (2.4.0)
+Requirement already satisfied: numpy&gt;=1.16.3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (2.4.4)
+Requirement already satisfied: scipy&gt;=1.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (1.17.1)
+Requirement already satisfied: psutil&gt;=5 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (7.2.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (2.9.0.post0)
+Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from python-dateutil&gt;=2.8.0-&gt;qiskit_aer) (1.17.0)
+Requirement already satisfied: rustworkx&gt;=0.15.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.17.1)
+Requirement already satisfied: dill&gt;=0.3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.4.1)
+Requirement already satisfied: stevedore&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (5.7.0)
+Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (4.15.0)
+Downloading qiskit_aer-0.17.2-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (14.2 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/14.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.1/14.2 MB</span> <span class=" -Color -Color-Red">39.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.7/14.2 MB</span> <span class=" -Color -Color-Red">48.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.2/14.2 MB</span> <span class=" -Color -Color-Red">51.6 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.2/14.2 MB</span> <span class=" -Color -Color-Red">59.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25h
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: qiskit_aer
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed qiskit_aer-0.17.2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+<span class=" -Color -Color-Red">ERROR: Operation cancelled by user</span>
+
 </pre></div>
 </div>
 </div>
@@ -990,23 +1005,26 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Runs a quantum circuit and returns the state vector and measurement results. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Run a quantum circuit and return its final state and measurement counts.</span>
 
-<span class="sd">  Args:</span>
-<span class="sd">    circuit (QuantumCircuit): The quantum circuit to run.</span>
-<span class="sd">    a (list, optional): A list of initial state amplitudes. If provided, the circuit will be initialized with these amplitudes. Otherwise it will start from |0&gt;.</span>
-<span class="sd">  </span>
+<span class="sd">  Inputs:</span>
+<span class="sd">    circuit (QuantumCircuit): the circuit to execute.</span>
+<span class="sd">    a (Statevector, optional): an initial state to prepare before ``circuit``.</span>
+<span class="sd">        If ``None``, the simulation starts from |0...0&gt;.</span>
+
 <span class="sd">  Returns:</span>
-<span class="sd">    tuple: A tuple containing the state vector and measurement results.</span>
+<span class="sd">    statevector (Statevector): the saved statevector immediately before the</span>
+<span class="sd">        measurement step.</span>
+<span class="sd">    counts (dict[str, int]): measurement outcomes from a single shot, keyed</span>
+<span class="sd">        by bitstring.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">numQubits</span><span class="o">=</span><span class="n">circuit</span><span class="o">.</span><span class="n">num_qubits</span>
   <span class="k">if</span> <span class="n">a</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
     <span class="n">numQubits</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">numQubits</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)</span>
     <span class="n">initCircuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)</span>
     <span class="n">initCircuit</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-    <span class="n">circuit</span><span class="o">=</span><span class="n">AddCircuits</span><span class="p">([</span><span class="n">initCircuit</span><span class="p">,</span><span class="n">circuit</span><span class="p">])</span>
+    <span class="n">circuit</span><span class="o">=</span><span class="n">add_circuits</span><span class="p">([</span><span class="n">initCircuit</span><span class="p">,</span><span class="n">circuit</span><span class="p">])</span>
   <span class="n">circuit</span><span class="o">.</span><span class="n">save_statevector</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;myStateVector&#39;</span><span class="p">)</span>
   <span class="n">compiled_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">simulator</span><span class="p">)</span>
   <span class="n">resultA</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">compiled_circuit</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
@@ -1018,19 +1036,27 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
   <span class="k">return</span> <span class="n">resultA</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="s1">&#39;myStateVector&#39;</span><span class="p">],</span><span class="n">resultB</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">MakeState</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Creates a qiskit state vector from a numpy array of amplitudes.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_state</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Build a qiskit ``Statevector`` from a numpy array of amplitudes.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    v (array-like): complex amplitudes of length ``2**N`` for some N.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    statevector (Statevector): the corresponding qiskit state.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">numWires</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">)))))</span>
   <span class="n">qc1</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">numWires</span><span class="p">,</span><span class="n">numWires</span><span class="p">)</span>
   <span class="n">qc1</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-  <span class="n">a</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">qc1</span><span class="p">)</span>
+  <span class="n">a</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">qc1</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">a</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">PrintDirac</span><span class="p">(</span><span class="n">out_state_a</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Prints the state vector in Dirac notation.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">print_dirac</span><span class="p">(</span><span class="n">out_state_a</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Print a state vector in Dirac (ket) notation.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    out_state_a (array-like): complex amplitudes of length ``2**N``.</span>
+<span class="sd">        Components close to zero are omitted from the printout.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">out_state</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">out_state_a</span><span class="p">)</span>
   <span class="n">l</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">out_state</span><span class="p">)</span>
@@ -1040,9 +1066,13 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
       <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out_state</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;|&#39;</span><span class="o">+</span><span class="nb">bin</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="n">num_qubits</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39; + &#39;</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">()</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">PlotBloch</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">bb</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Plots the Bloch sphere representation of a quantum state.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_bloch_vector</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">bb</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Add the Bloch-sphere vector for a single-qubit state to ``bb``.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    v (array-like): length-2 complex amplitudes of a single-qubit state.</span>
+<span class="sd">    bb (qutip.Bloch): Bloch sphere object; the new vector is appended to it</span>
+<span class="sd">        in place.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">vv</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
   <span class="n">a</span><span class="o">=</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1053,17 +1083,21 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
   <span class="n">bb</span><span class="o">.</span><span class="n">add_vectors</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">])</span>
   <span class="k">return</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">PlotState</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">plotAll</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">myTitle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Plots the real and imaginary parts of a quantum state vector.</span>
-<span class="sd">  The x-axis is the index of the state in the list of 2^N, where N is the number of qubits.</span>
-<span class="sd">  The y-axis is the real and imaginary part of the state vector.</span>
-<span class="sd">  Args:</span>
-<span class="sd">    v (list): The quantum state vector to plot.</span>
-<span class="sd">    plotAll (bool): If True, plot all states. If False, plot only the first half.</span>
-<span class="sd">    myTitle (str): The title of the plot.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_state</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">plot_all</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">my_title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Plot the real and imaginary parts of a quantum state vector.</span>
+
+<span class="sd">  The x-axis indexes the ``2**N`` basis states; red sticks show real parts</span>
+<span class="sd">  and blue sticks show imaginary parts. A dashed line marks the average</span>
+<span class="sd">  amplitude, which is useful when visualising Grover-style &quot;inversion about</span>
+<span class="sd">  the mean&quot;.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    v (array-like): the quantum state vector to plot.</span>
+<span class="sd">    plot_all (bool): if ``True`` plot every component; if ``False`` plot only</span>
+<span class="sd">        the first half (useful when the last qubit is an ancilla).</span>
+<span class="sd">    my_title (str): title displayed above the plot.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
-  <span class="k">if</span> <span class="n">plotAll</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">plot_all</span><span class="p">:</span>
     <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
   <span class="k">else</span><span class="p">:</span>
     <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">//</span><span class="mi">2</span>
@@ -1080,33 +1114,39 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
   <span class="n">avg</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">avg</span><span class="p">),</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">myTitle</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">my_title</span><span class="p">)</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">AddCircuits</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Concatenates a list of circuits into a new circuit.</span>
-<span class="sd">  Args:</span>
-<span class="sd">    theCircuits (list): A list of QuantumCircuit objects to concatenate.</span>
-<span class="sd">  Returns: </span>
-<span class="sd">    QuantumCircuit: A new QuantumCircuit object that is the concatenation of the input circuits.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_circuits</span><span class="p">(</span><span class="n">the_circuits</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Concatenate several circuits into a single new circuit.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    the_circuits (list[QuantumCircuit]): circuits to compose, applied in</span>
+<span class="sd">        order. They may have different numbers of qubits; the result has as</span>
+<span class="sd">        many wires as the largest input.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    circuit (QuantumCircuit): the composed circuit.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
-  <span class="n">numQubits</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">num_qubits</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">theCircuits</span><span class="p">])</span>
+  <span class="n">numQubits</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">num_qubits</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">the_circuits</span><span class="p">])</span>
   <span class="n">numQubits</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numQubits</span><span class="p">)</span>
   <span class="n">circuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">numQubits</span><span class="p">,</span><span class="n">numQubits</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">)):</span>
-    <span class="n">circuit</span><span class="o">=</span><span class="n">circuit</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">qubits</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">theCircuits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)))</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">the_circuits</span><span class="p">)):</span>
+    <span class="n">circuit</span><span class="o">=</span><span class="n">circuit</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">the_circuits</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">qubits</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">the_circuits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)))</span>
   <span class="k">return</span> <span class="n">circuit</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">Mark</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Creates a quantum circuit that marks a specific state |r&gt; in the computational basis. (this is for Grover&#39;s algorithm)</span>
-<span class="sd">  Args:</span>
-<span class="sd">    r (int): The index of the state to mark in the computational basis.</span>
-<span class="sd">    N (int): The number of qubits in the circuit.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mark</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Build the Grover oracle that flips the sign of the basis state |r&gt;.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    r (int): index of the basis state to mark.</span>
+<span class="sd">    N (int): total number of qubits in the circuit.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    circuit (QuantumCircuit): the oracle circuit on N qubits.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">circuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
   <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
@@ -1129,13 +1169,15 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
   <span class="n">circuit</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
   <span class="k">return</span> <span class="n">circuit</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">InitializeCircuitRandom</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Creates a quantum circuit that initializes a random state vector of size 2^N.</span>
-<span class="sd">  Args:</span>
-<span class="sd">    N (int): The number of qubits in the circuit.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">initialize_circuit_random</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Build a circuit that prepares a random real state on N qubits.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    N (int): number of qubits.</span>
+
 <span class="sd">  Returns:</span>
-<span class="sd">    QuantumCircuit: A QuantumCircuit object that initializes a random state vector.</span>
+<span class="sd">    circuit (QuantumCircuit): an N-qubit circuit initialised to a random</span>
+<span class="sd">        normalised real-valued state of dimension ``2**N``.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">N</span><span class="p">)</span>
   <span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
@@ -1144,12 +1186,17 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
   <span class="k">return</span> <span class="n">circuit</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">InitializeCircuit</span><span class="p">(</span><span class="n">my_string</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
-<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Creates a quantum circuit that initializes a specific state vector.</span>
-<span class="sd">  Args:</span>
-<span class="sd">    my_string (str): A string of 0s and 1s representing the state vector. That is, all ups would be &#39;00000&#39; and all downs would be &#39;11111&#39;.</span>
-<span class="sd">    N (int): The number of qubits in the circuit.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">initialize_circuit</span><span class="p">(</span><span class="n">my_string</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Build a circuit that prepares a specific computational basis state.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    my_string (str): bitstring of length N. ``&#39;00000&#39;`` is all spin-up,</span>
+<span class="sd">        ``&#39;11111&#39;`` is all spin-down.</span>
+<span class="sd">    N (int): number of qubits.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    circuit (QuantumCircuit): an N-qubit circuit prepared in</span>
+<span class="sd">        ``|my_string&gt;``.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
   <span class="n">circuit</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">my_string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -1160,18 +1207,18 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 </div>
 </div>
 </div>
-<section id="exercise-1-a-single-qubit-33-points">
-<h2>Exercise 1: A Single Qubit (33 points)<a class="headerlink" href="#exercise-1-a-single-qubit-33-points" title="Link to this heading">#</a></h2>
+<section id="exercise-1-a-single-qubit">
+<h2>Exercise 1: A Single Qubit<a class="headerlink" href="#exercise-1-a-single-qubit" title="Link to this heading">#</a></h2>
 <section id="a-a-one-qubit-state">
 <h3>a. A one qubit state<a class="headerlink" href="#a-a-one-qubit-state" title="Link to this heading">#</a></h3>
 <p>A quantum state consists of a certain fraction of <span class="math notranslate nohighlight">\(|0\rangle\)</span> and a certain fraction of <span class="math notranslate nohighlight">\(|1\rangle\)</span> - i.e.  <span class="math notranslate nohighlight">\(\sqrt{0.3} |0\rangle - \sqrt{0.7} |1\rangle\)</span>.</p>
 <p>We can plot this state in a variety of ways.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">state</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.3</span><span class="p">),</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.7</span><span class="p">)])</span>
-<span class="n">state</span><span class="o">=</span><span class="n">MakeState</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
-<span class="n">PrintDirac</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
-<span class="n">PlotState</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="n">state</span><span class="o">=</span><span class="n">make_state</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="n">print_dirac</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+<span class="n">plot_state</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
 <span class="n">b</span><span class="o">=</span><span class="n">qutip</span><span class="o">.</span><span class="n">Bloch</span><span class="p">()</span>
-<span class="n">PlotBloch</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">add_bloch_vector</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 <span class="n">b</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 <span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1205,7 +1252,7 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 <p>To set up your circuit you can do</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1">#Build your circuit here</span>
-<span class="n">state</span><span class="p">,</span><span class="n">measure</span> <span class="o">=</span> <span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span> <span class="c1">#&lt;--- This runs the circuit</span>
+<span class="n">state</span><span class="p">,</span><span class="n">measure</span> <span class="o">=</span> <span class="n">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span> <span class="c1">#&lt;--- This runs the circuit</span>
 <span class="c1"># now you can plot the circuit</span>
 </pre></div>
 </div>
@@ -1217,7 +1264,7 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 </div>
 </div>
 </div>
- <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Now we want to go ahead and use <code class="docutils literal notranslate"><span class="pre">ry</span></code> to go from <span class="math notranslate nohighlight">\(|0\rangle \rightarrow 1/\sqrt{2}|0\rangle + 1/\sqrt{2}|1\rangle\)</span>.  Write such a circuit.  Then check to see what your circuit does to the state <span class="math notranslate nohighlight">\(|1\rangle\)</span> (you can get this using your other circuit from above).</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>Now we want to go ahead and use <code class="docutils literal notranslate"><span class="pre">ry</span></code> to go from <span class="math notranslate nohighlight">\(|0\rangle \rightarrow 1/\sqrt{2}|0\rangle + 1/\sqrt{2}|1\rangle\)</span>.  Write such a circuit.  Then check to see what your circuit does to the state <span class="math notranslate nohighlight">\(|1\rangle\)</span> (you can get this using your other circuit from above).</p>
  <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -1225,7 +1272,7 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 </div>
 </div>
 </div>
- <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>So far we’ve seen we can get half <span class="math notranslate nohighlight">\(|0\rangle\)</span> and half <span class="math notranslate nohighlight">\(|1\rangle\)</span>.  We can also adjust states to get more of <span class="math notranslate nohighlight">\(|1\rangle\)</span> then <span class="math notranslate nohighlight">\(|0\rangle\)</span> (or visa versa).  Generically we can get a state
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>So far we’ve seen we can get half <span class="math notranslate nohighlight">\(|0\rangle\)</span> and half <span class="math notranslate nohighlight">\(|1\rangle\)</span>.  We can also adjust states to get more of <span class="math notranslate nohighlight">\(|1\rangle\)</span> than <span class="math notranslate nohighlight">\(|0\rangle\)</span> (or vice versa).  Generically we can get a state
 <span class="math notranslate nohighlight">\(\cos(\theta) |0\rangle + \sin(\theta) e^{i\phi} |1\rangle\)</span>.</p>
 <p>If we had such a state, after measurement we get “0” with probability <span class="math notranslate nohighlight">\(\cos^2\theta\)</span> and “1” with probability <span class="math notranslate nohighlight">\(\sin^2\theta\)</span>.<br />
 Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\theta =1\)</span> so we either get “0” or “1”.</p>
@@ -1250,14 +1297,14 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
 </section>
 <section id="c-seeing-the-rotation">
 <h3>c.  Seeing the rotation<a class="headerlink" href="#c-seeing-the-rotation" title="Link to this heading">#</a></h3>
-<p>We would like to plot the rotation around the bloch sphere.  We can do this as follows:</p>
+<p>We would like to plot the rotation around the Bloch sphere.  We can do this as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">=</span><span class="n">qutip</span><span class="o">.</span><span class="n">Bloch</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.1</span><span class="p">):</span>
   <span class="n">quantumWires</span><span class="o">=</span><span class="mi">1</span>
   <span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantumWires</span><span class="p">,</span><span class="n">quantumWires</span><span class="p">)</span>
   <span class="c1"># rotate around the x-axis by angle theta</span>
-  <span class="n">vec</span><span class="p">,</span><span class="n">output</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span>
-  <span class="n">PlotBloch</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+  <span class="n">vec</span><span class="p">,</span><span class="n">output</span><span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span>
+  <span class="n">add_bloch_vector</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 <span class="n">b</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 <span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1272,15 +1319,15 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
  <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="d-measuring-the-state">
 <h3>d. Measuring the state<a class="headerlink" href="#d-measuring-the-state" title="Link to this heading">#</a></h3>
-<p>So far we’ve been cheating by looking at the quantum state. In the real world, you can’t do that.  Instead you have to measure at the end of your circuit.  The RunMe circuit returns two parameters.  The second one is measurement outcomes - i.e.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="p">,</span><span class="n">measure</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<p>So far we’ve been cheating by looking at the quantum state. In the real world, you can’t do that.  Instead you have to measure at the end of your circuit.  The run_me circuit returns two parameters.  The second one is measurement outcomes - i.e.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="p">,</span><span class="n">measure</span><span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>can then plot the measurement outcomes by doing</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_histgoram</span><span class="p">(</span><span class="n">measure</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_histogram</span><span class="p">(</span><span class="n">measure</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Go ahead and measure the outcomes of a state rotated around the X axis by <span class="math notranslate nohighlight">\(0.3\pi\)</span>. See that it gives you the expected raction of 0 and 1.  Remember that the probability should be equal to the amplitude squared.</p>
+<p>Go ahead and measure the outcomes of a state rotated around the X axis by <span class="math notranslate nohighlight">\(0.3\pi\)</span>. See that it gives you the expected fraction of 0 and 1.  Remember that the probability should be equal to the amplitude squared.</p>
  <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -1290,8 +1337,8 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
 </div>
  <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 </section>
-<section id="exercise-2-two-qubits-34-points">
-<h2>Exercise 2: Two qubits (34 points)<a class="headerlink" href="#exercise-2-two-qubits-34-points" title="Link to this heading">#</a></h2>
+<section id="exercise-2-two-qubits">
+<h2>Exercise 2: Two qubits<a class="headerlink" href="#exercise-2-two-qubits" title="Link to this heading">#</a></h2>
 <p>In this exercise we will see how to build quantum states of two qubits.</p>
 <section id="a-control-not-gates">
 <h3>a. Control-not gates<a class="headerlink" href="#a-control-not-gates" title="Link to this heading">#</a></h3>
@@ -1312,7 +1359,7 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
 <span class="n">qc</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">quantumWires</span><span class="p">,</span><span class="n">classicalWires</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>to start out a quantum circuit with two wires.  You can’t plot this on the bloch sphere but you can still plot it with <code class="docutils literal notranslate"><span class="pre">PlotState</span></code>.  =</p>
+<p>to start out a quantum circuit with two wires.  You can’t plot this on the Bloch sphere but you can still plot it with <code class="docutils literal notranslate"><span class="pre">plot_state</span></code>.</p>
  <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### ANSWER HERE</span>
@@ -1331,7 +1378,7 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
 </div>
 </div>
 </div>
- <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>There is something very powerful here.  If you get a “0” on the top wire, then you always get a “0” on the bottom wire.  If you get a “1” on the top wire, then you get a “1” on bottom wire.  This is even the case if these wires are taken miles apart before you measure.</p>
+ <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>There is something very powerful here.  If you get a “0” on the top wire, then you always get a “0” on the bottom wire.  If you get a “1” on the top wire, then you get a “1” on the bottom wire.  This is even the case if these wires are taken miles apart before you measure.</p>
 </section>
 </section>
 <section id="exercise-3-grover-s-algorithm">
@@ -1340,12 +1387,12 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
 <p>Grover’s algorithm takes a unitary which marks an element <span class="math notranslate nohighlight">\(i\)</span> and uses that as a subroutine with more circuit elements so that, after measurement, you sample the marked element <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <p>To do this we are going to need to put together a lot of different circuit elements.  Let’s start with the unitary which does the marking which we will give you.  In this case it’s going to mark element 3 by taking it and changing its sign.  Go ahead and run this to see explicitly what it does.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Check Mark</span>
-<span class="n">circuit</span><span class="o">=</span><span class="n">InitializeCircuitRandom</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
-<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="n">myTitle</span><span class="o">=</span><span class="s2">&quot;Initial Random State&quot;</span><span class="p">)</span>
-<span class="n">circuit</span><span class="o">=</span><span class="n">Mark</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
-<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="n">myTitle</span><span class="o">=</span><span class="s2">&quot;Hopefully marked state&quot;</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">=</span><span class="n">initialize_circuit_random</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<span class="n">plot_state</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="n">my_title</span><span class="o">=</span><span class="s2">&quot;Initial Random State&quot;</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">=</span><span class="n">mark</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">plot_state</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="n">my_title</span><span class="o">=</span><span class="s2">&quot;Hopefully marked state&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
  <div><img src="https://clark.physics.illinois.edu/246img/AnsStart.svg" width=200 align=left alt="Answer (start)"></img><br></div><div class="cell docutils container">
@@ -1357,22 +1404,22 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
 </div>
  <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><section id="a-control-control-control-z">
 <h3>a. Control-Control-Control Z<a class="headerlink" href="#a-control-control-control-z" title="Link to this heading">#</a></h3>
-<p>Define a function <code class="docutils literal notranslate"><span class="pre">controlZ(N)</span></code> which generates the control-control-control-control Z on <span class="math notranslate nohighlight">\(n\)</span> qubits.  The first <span class="math notranslate nohighlight">\(n-1\)</span> qubits have to be all 1 for the last Z qubit to happen.</p>
-<p>To do this, implement the following circuit for general values of N. This is an example for <code class="docutils literal notranslate"><span class="pre">controlZ(5)</span></code>.</p>
+<p>Define a function <code class="docutils literal notranslate"><span class="pre">control_z(N)</span></code> which generates the control-control-control-control Z on <span class="math notranslate nohighlight">\(n\)</span> qubits.  The first <span class="math notranslate nohighlight">\(n-1\)</span> qubits have to be all 1 for the last Z qubit to happen.</p>
+<p>To do this, implement the following circuit for general values of N. This is an example for <code class="docutils literal notranslate"><span class="pre">control_z(5)</span></code>.</p>
 <img src="https://clark.physics.illinois.edu/qcPics/controlZ.png" width="300">
 <p>You can get a control-control-control-control-x from qiskit by doing the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">.</span><span class="n">mcx</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;noancilla&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where <span class="math notranslate nohighlight">\(N-1\)</span> is the numer of target wires.</p>
+<p>where <span class="math notranslate nohighlight">\(N-1\)</span> is the number of target wires.</p>
 <p>Test out your circuit by using the following code:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">initCircuit</span><span class="o">=</span><span class="n">InitializeCircuit</span><span class="p">(</span><span class="s1">&#39;11110&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="c1">#initCircuit=InitializeCircuit(&#39;11010&#39;,5)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">initCircuit</span><span class="o">=</span><span class="n">initialize_circuit</span><span class="p">(</span><span class="s1">&#39;11110&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1">#initCircuit=initialize_circuit(&#39;11010&#39;,5)</span>
 <span class="n">initCircuit</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">circuit</span><span class="o">=</span><span class="n">AddCircuits</span><span class="p">([</span><span class="n">initCircuit</span><span class="p">,</span><span class="n">ControlZ</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
+<span class="n">circuit</span><span class="o">=</span><span class="n">add_circuits</span><span class="p">([</span><span class="n">initCircuit</span><span class="p">,</span><span class="n">control_z</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
-<span class="n">PrintDirac</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<span class="n">print_dirac</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You should get something close to</p>
@@ -1393,12 +1440,12 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
  <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="b-all-hadamards">
 <h3>b. All Hadamards<a class="headerlink" href="#b-all-hadamards" title="Link to this heading">#</a></h3>
-<p>Define a function <code class="docutils literal notranslate"><span class="pre">AllHadamard(n)</span></code> which builds <span class="math notranslate nohighlight">\(n\)</span> wires of Hadamards</p>
+<p>Define a function <code class="docutils literal notranslate"><span class="pre">all_hadamard(n)</span></code> which builds <span class="math notranslate nohighlight">\(n\)</span> wires of Hadamards</p>
 <img src="https://clark.physics.illinois.edu/qcPics/allHadamard.png" width="100">
 <p>Check it by the following test:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">=</span><span class="n">AllHadamard</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
-<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">=</span><span class="n">all_hadamard</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<span class="n">plot_state</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>and seeing that it produces a state which is uniform.  This is what we will use for the start of Grover’s algorithm.</p>
@@ -1410,21 +1457,21 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
 </div>
 </div>
  <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
-<section id="c-flipallbutzero">
-<h3>c. FlipAllButZero<a class="headerlink" href="#c-flipallbutzero" title="Link to this heading">#</a></h3>
-<p>Define <code class="docutils literal notranslate"><span class="pre">FlipAllButZero(n)</span></code>. which should flip all but the zero configurations on <span class="math notranslate nohighlight">\(n\)</span> bits.  It will us <span class="math notranslate nohighlight">\(n+1\)</span> wires (you need an ancilla, which is an extra bit that doesn’t get read out later. We will plot our state using <code class="docutils literal notranslate"><span class="pre">PlotState(a,False)</span></code> to ignore this extra bit).  The example below is the output for FlipAllbutZero(4)</p>
+<section id="c-flip-all-but-zero">
+<h3>c. flip_all_but_zero<a class="headerlink" href="#c-flip-all-but-zero" title="Link to this heading">#</a></h3>
+<p>Define <code class="docutils literal notranslate"><span class="pre">flip_all_but_zero(n)</span></code>. which should flip all but the zero configurations on <span class="math notranslate nohighlight">\(n\)</span> bits.  It will use <span class="math notranslate nohighlight">\(n+1\)</span> wires (you need an ancilla, which is an extra bit that doesn’t get read out later. We will plot our state using <code class="docutils literal notranslate"><span class="pre">plot_state(a,False)</span></code> to ignore this extra bit).  The example below is the output for flip_all_but_zero(4)</p>
 <img src="https://clark.physics.illinois.edu/qcPics/allZero.png" width="300">
 <p>You might want to add some circuits together.  To add these circuits you can do</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AddCircuits</span><span class="p">([</span><span class="n">circuit1</span><span class="p">,</span><span class="n">circuit2</span><span class="p">,</span><span class="n">circuit3</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">add_circuits</span><span class="p">([</span><span class="n">circuit1</span><span class="p">,</span><span class="n">circuit2</span><span class="p">,</span><span class="n">circuit3</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>You can test it your result by doing</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">=</span><span class="n">InitializeCircuitRandom</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
-<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="n">myTitle</span><span class="o">=</span><span class="s2">&quot;Initial State&quot;</span><span class="p">)</span>
-<span class="n">circuit</span><span class="o">=</span><span class="n">FlipAllButZero</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
-<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="n">myTitle</span><span class="o">=</span><span class="s2">&quot;Flipped Circuit&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">=</span><span class="n">initialize_circuit_random</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<span class="n">plot_state</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="n">my_title</span><span class="o">=</span><span class="s2">&quot;Initial State&quot;</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">=</span><span class="n">flip_all_but_zero</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">plot_state</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="n">my_title</span><span class="o">=</span><span class="s2">&quot;Flipped Circuit&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You should find that everything but the zero flipped.  It is ok if you are finding the zero flipped and nothing else.  Quantum states aren’t defined up to a global phase and so the flipping of everything is equivalent to doing nothing.</p>
@@ -1437,16 +1484,16 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
 </div>
  <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="d-invert">
-<h3>d. Invert<a class="headerlink" href="#d-invert" title="Link to this heading">#</a></h3>
-<p>Define the <code class="docutils literal notranslate"><span class="pre">Invert(N)</span></code> function.  This will also be on <span class="math notranslate nohighlight">\(N+1\)</span> wires.  Here you need to add together the AllHadamard and FlipAllButZero and AllHadamard again.</p>
+<h3>d. invert<a class="headerlink" href="#d-invert" title="Link to this heading">#</a></h3>
+<p>Define the <code class="docutils literal notranslate"><span class="pre">invert(N)</span></code> function.  This will also be on <span class="math notranslate nohighlight">\(N+1\)</span> wires.  Here you need to add together the all_hadamard and flip_all_but_zero and all_hadamard again.</p>
 <img src="https://clark.physics.illinois.edu/qcPics/invert.png" width="300">
 <p>You can test it in the following way:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">=</span><span class="n">InitializeCircuitRandom</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
-<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">circuit</span><span class="o">=</span><span class="n">Invert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
-<span class="n">PlotState</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">=</span><span class="n">initialize_circuit_random</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">)</span>
+<span class="n">plot_state</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">circuit</span><span class="o">=</span><span class="n">invert</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">plot_state</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This will generate a random state and then invert it around the mean (shown in a blue dotted line).  Your mean before and after should be the same and everything else should flip around that dotted line.  (Also everything totally flipping is still allowed)</p>
@@ -1545,14 +1592,14 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-a-single-qubit-33-points">Exercise 1: A Single Qubit (33 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-a-single-qubit">Exercise 1: A Single Qubit</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-a-one-qubit-state">a. A one qubit state</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-one-qubit-gates">b. One qubit gates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-seeing-the-rotation">c.  Seeing the rotation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-measuring-the-state">d. Measuring the state</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-two-qubits-34-points">Exercise 2: Two qubits (34 points)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-two-qubits">Exercise 2: Two qubits</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-control-not-gates">a. Control-not gates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-build-an-epr-pair">b.  Build an EPR Pair</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-measuring-epr-pairs">c. Measuring EPR Pairs</a></li>
@@ -1561,8 +1608,8 @@ Notice that <span class="math notranslate nohighlight">\(\cos^2\theta + \sin^2\t
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-grover-s-algorithm">Exercise 3:  Grover’s Algorithm</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-control-control-control-z">a. Control-Control-Control Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-all-hadamards">b. All Hadamards</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-flipallbutzero">c. FlipAllButZero</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-invert">d. Invert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-flip-all-but-zero">c. flip_all_but_zero</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-invert">d. invert</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-running-grover-s-algorithm">e. Running Grover’s Algorithm</a></li>
 </ul>
 </li>
