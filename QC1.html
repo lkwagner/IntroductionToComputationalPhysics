@@ -418,31 +418,29 @@
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading qiskit-2.4.0-cp310-abi3-manylinux_2_28_x86_64.whl.metadata (12 kB)
+Collecting rustworkx&gt;=0.15.0 (from qiskit[visualization])
+  Downloading rustworkx-0.17.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting rustworkx&gt;=0.15.0 (from qiskit[visualization])
-  Downloading rustworkx-0.17.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
-Requirement already satisfied: numpy&lt;3,&gt;=1.21 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (2.4.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&lt;3,&gt;=1.21 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (2.4.4)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scipy&gt;=1.5 (from qiskit[visualization])
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading scipy-1.17.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+  Downloading scipy-1.17.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
 Collecting dill&gt;=0.3 (from qiskit[visualization])
-  Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting stevedore&gt;=3.0.0 (from qiskit[visualization])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+Collecting stevedore&gt;=3.0.0 (from qiskit[visualization])
   Downloading stevedore-5.7.0-py3-none-any.whl.metadata (2.4 kB)
 Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (4.15.0)
 Requirement already satisfied: matplotlib&gt;=3.3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (3.10.8)
 Collecting pydot (from qiskit[visualization])
   Downloading pydot-4.0.1-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: Pillow&gt;=4.2.1 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (12.2.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: Pillow&gt;=4.2.1 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (12.2.0)
-Collecting pylatexenc&gt;=1.4 (from qiskit[visualization])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pylatexenc&gt;=1.4 (from qiskit[visualization])
   Downloading pylatexenc-2.10.tar.gz (162 kB)
 </pre></div>
 </div>
@@ -468,10 +466,10 @@ Collecting pylatexenc&gt;=1.4 (from qiskit[visualization])
 ?25hCollecting seaborn&gt;=0.9.0 (from qiskit[visualization])
   Downloading seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
 Collecting sympy&gt;=1.3 (from qiskit[visualization])
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.3.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.3.3)
 Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (0.12.1)
 Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (4.62.1)
 Requirement already satisfied: kiwisolver&gt;=1.3.1 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.5.0)
@@ -482,50 +480,42 @@ Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.14.4
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pandas&gt;=1.2 (from seaborn&gt;=0.9.0-&gt;qiskit[visualization])
+  Downloading pandas-3.0.2-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas-3.0.2-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
-Collecting mpmath&lt;1.4,&gt;=1.1.0 (from sympy&gt;=1.3-&gt;qiskit[visualization])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting mpmath&lt;1.4,&gt;=1.1.0 (from sympy&gt;=1.3-&gt;qiskit[visualization])
   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading qiskit-2.4.0-cp310-abi3-manylinux_2_28_x86_64.whl (9.3 MB)
+Downloading qiskit-2.4.0-cp310-abi3-manylinux_2_28_x86_64.whl (9.3 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/9.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green">6.8/9.3 MB</span> <span class=" -Color -Color-Red">35.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.3/9.3 MB</span> <span class=" -Color -Color-Red">40.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.3/9.3 MB</span> <span class=" -Color -Color-Red">151.2 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading dill-0.4.1-py3-none-any.whl (120 kB)
 Downloading rustworkx-0.17.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/2.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.2/2.2 MB</span> <span class=" -Color -Color-Red">83.9 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.2/2.2 MB</span> <span class=" -Color -Color-Red">103.8 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading scipy-1.17.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.2 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/35.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━ <span class=" -Color -Color-Green">25.4/35.2 MB</span> <span class=" -Color -Color-Red">127.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">35.2/35.2 MB</span> <span class=" -Color -Color-Red">345.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading seaborn-0.13.2-py3-none-any.whl (294 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">35.2/35.2 MB</span> <span class=" -Color -Color-Red">114.8 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25hDownloading seaborn-0.13.2-py3-none-any.whl (294 kB)
-Downloading pandas-3.0.2-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.9 MB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pandas-3.0.2-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.9 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/10.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.9/10.9 MB</span> <span class=" -Color -Color-Red">219.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.9/10.9 MB</span> <span class=" -Color -Color-Red">155.9 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading stevedore-5.7.0-py3-none-any.whl (54 kB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/6.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/6.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/6.3 MB</span> <span class=" -Color -Color-Red">291.6 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.3/6.3 MB</span> <span class=" -Color -Color-Red">331.2 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading mpmath-1.3.0-py3-none-any.whl (536 kB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/536.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">536.2/536.2 kB</span> <span class=" -Color -Color-Red">113.6 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">536.2/536.2 kB</span> <span class=" -Color -Color-Red">99.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25hDownloading pydot-4.0.1-py3-none-any.whl (37 kB)
 </pre></div>
 </div>
@@ -536,9 +526,7 @@ Downloading pandas-3.0.2-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Created wheel for pylatexenc: filename=pylatexenc-2.10-py3-none-any.whl size=136897 sha256=d9153c173d76ab9fb3380a9b51bfb2a27e0620fe94abdb5cf1ee69bedd3e043f
+?25h  Created wheel for pylatexenc: filename=pylatexenc-2.10-py3-none-any.whl size=136897 sha256=2127797e19a89ead1df438076023bb05d3ed30558cb834d248f4987e8eb06445
   Stored in directory: /home/runner/.cache/pip/wheels/6e/51/1c/e4691ba960b6fe12c01239f26bc63c58d5c4e754b58ace903d
 Successfully built pylatexenc
 </pre></div>
@@ -685,15 +673,6 @@ Successfully built pylatexenc
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 2/11</span> [sympy]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 2/11</span> [sympy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 2/11</span> [sympy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 3/11</span> [stevedore]
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green"> 4/11</span> [scipy]
 </pre></div>
 </div>
@@ -806,15 +785,6 @@ Successfully built pylatexenc
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green"> 8/11</span> [qiskit]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green"> 8/11</span> [qiskit]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green"> 9/11</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green"> 9/11</span> [pandas]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green"> 9/11</span> [pandas]
@@ -935,17 +905,19 @@ Successfully installed dill-0.4.1 mpmath-1.3.0 pandas-3.0.2 pydot-4.0.1 pylatexe
 Requirement already satisfied: numpy&gt;=1.22 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qutip) (2.4.4)
 Requirement already satisfied: scipy!=1.16.0,!=1.17.0,&gt;=1.9 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qutip) (1.17.1)
 Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qutip) (26.1)
-Downloading qutip-5.2.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (32.8 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading qutip-5.2.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (32.8 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/32.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.8/32.8 MB</span> <span class=" -Color -Color-Red">37.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.6/32.8 MB</span> <span class=" -Color -Color-Red">73.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ <span class=" -Color -Color-Green">28.3/32.8 MB</span> <span class=" -Color -Color-Red">75.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">26.7/32.8 MB</span> <span class=" -Color -Color-Red">71.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">32.8/32.8 MB</span> <span class=" -Color -Color-Red">73.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">32.8/32.8 MB</span> <span class=" -Color -Color-Red">69.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -959,14 +931,14 @@ Downloading qutip-5.2.3-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading qiskit_aer-0.17.2-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.2 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (2.4.0)
+Requirement already satisfied: qiskit&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (2.4.0)
 Requirement already satisfied: numpy&gt;=1.16.3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (2.4.4)
 Requirement already satisfied: scipy&gt;=1.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (1.17.1)
 Requirement already satisfied: psutil&gt;=5 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (7.2.2)
 Requirement already satisfied: python-dateutil&gt;=2.8.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (2.9.0.post0)
-Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from python-dateutil&gt;=2.8.0-&gt;qiskit_aer) (1.17.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from python-dateutil&gt;=2.8.0-&gt;qiskit_aer) (1.17.0)
 Requirement already satisfied: rustworkx&gt;=0.15.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.17.1)
 Requirement already satisfied: dill&gt;=0.3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.4.1)
 Requirement already satisfied: stevedore&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (5.7.0)
@@ -975,16 +947,14 @@ Downloading qiskit_aer-0.17.2-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/14.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">8.7/14.2 MB</span> <span class=" -Color -Color-Red">48.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.2/14.2 MB</span> <span class=" -Color -Color-Red">59.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.2/14.2 MB</span> <span class=" -Color -Color-Red">128.2 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25h
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-<span class=" -Color -Color-Red">ERROR: Operation cancelled by user</span>
-
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: qiskit_aer
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed qiskit_aer-0.17.2
 </pre></div>
 </div>
 </div>
