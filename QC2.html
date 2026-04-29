@@ -361,11 +361,11 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exericise-0-what-abstract-gate-are-you-trying-to-implement">Exericise 0:  What Abstract Gate are you trying to implement?</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-0-what-abstract-gate-are-you-trying-to-implement">Exercise 0:  What Abstract Gate are you trying to implement?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-abstract-model-of-computation">a. Abstract Model of Computation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-particle-in-a-box">Exercise 1:  Particle in a box</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-time-dependence-of-a-particle-in-a-box">Exercise 1:  Time dependence of a particle in a box</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hamiltonian-for-a-particle-in-a-box">a. Hamiltonian for a Particle in a Box</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-time-evolution">b. Time Evolution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-state-overlaps">c. State overlaps</a></li>
@@ -405,14 +405,14 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit[visualization] in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (2.4.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit[visualization] in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (2.4.1)
 Requirement already satisfied: rustworkx&gt;=0.15.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (0.17.1)
 Requirement already satisfied: numpy&lt;3,&gt;=1.21 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (2.4.4)
 Requirement already satisfied: scipy&gt;=1.5 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (1.17.1)
 Requirement already satisfied: dill&gt;=0.3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (0.4.1)
 Requirement already satisfied: stevedore&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (5.7.0)
 Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (4.15.0)
-Requirement already satisfied: matplotlib&gt;=3.3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (3.10.8)
+Requirement already satisfied: matplotlib&gt;=3.3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (3.10.9)
 Requirement already satisfied: pydot in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (4.0.1)
 Requirement already satisfied: Pillow&gt;=4.2.1 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (12.2.0)
 Requirement already satisfied: pylatexenc&gt;=1.4 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit[visualization]) (2.10)
@@ -422,7 +422,7 @@ Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/hostedtoolcache/Pytho
 Requirement already satisfied: cycler&gt;=0.10 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (0.12.1)
 Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (4.62.1)
 Requirement already satisfied: kiwisolver&gt;=1.3.1 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (1.5.0)
-Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (26.1)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (26.2)
 Requirement already satisfied: pyparsing&gt;=3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (3.3.2)
 Requirement already satisfied: python-dateutil&gt;=2.7 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from matplotlib&gt;=3.3-&gt;qiskit[visualization]) (2.9.0.post0)
 </pre></div>
@@ -432,14 +432,22 @@ Requirement already satisfied: pandas&gt;=1.2 in /opt/hostedtoolcache/Python/3.1
 Requirement already satisfied: mpmath&lt;1.4,&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from sympy&gt;=1.3-&gt;qiskit[visualization]) (1.3.0)
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">26.0.1</span> -&gt; <span class=" -Color -Color-Green">26.1</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qutip in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (5.2.3)
 Requirement already satisfied: numpy&gt;=1.22 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qutip) (2.4.4)
 Requirement already satisfied: scipy!=1.16.0,!=1.17.0,&gt;=1.9 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qutip) (1.17.1)
-Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qutip) (26.1)
+Requirement already satisfied: packaging in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qutip) (26.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">26.0.1</span> -&gt; <span class=" -Color -Color-Green">26.1</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: qiskit_aer in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (0.17.2)
-Requirement already satisfied: qiskit&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (2.4.0)
+Requirement already satisfied: qiskit&gt;=1.1.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (2.4.1)
 Requirement already satisfied: numpy&gt;=1.16.3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (2.4.4)
 Requirement already satisfied: scipy&gt;=1.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (1.17.1)
 Requirement already satisfied: psutil&gt;=5 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit_aer) (7.2.2)
@@ -449,6 +457,10 @@ Requirement already satisfied: rustworkx&gt;=0.15.0 in /opt/hostedtoolcache/Pyth
 Requirement already satisfied: dill&gt;=0.3 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (0.4.1)
 Requirement already satisfied: stevedore&gt;=3.0.0 in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (5.7.0)
 Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/3.14.4/x64/lib/python3.14/site-packages (from qiskit&gt;=1.1.0-&gt;qiskit_aer) (4.15.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">26.0.1</span> -&gt; <span class=" -Color -Color-Green">26.1</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
 </pre></div>
 </div>
 </div>
@@ -485,22 +497,46 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="p">;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">AddCircuits</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">):</span>
-  <span class="n">numQubits</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">num_qubits</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">theCircuits</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_circuits</span><span class="p">(</span><span class="n">the_circuits</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Concatenate several circuits into a single new circuit.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    the_circuits (list[QuantumCircuit]): circuits to compose, applied in</span>
+<span class="sd">        order. They may have different numbers of qubits; the result has as</span>
+<span class="sd">        many wires as the largest input.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    circuit (QuantumCircuit): the composed circuit.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="n">numQubits</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">num_qubits</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">the_circuits</span><span class="p">])</span>
   <span class="n">numQubits</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numQubits</span><span class="p">)</span>
   <span class="n">circuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">numQubits</span><span class="p">,</span><span class="n">numQubits</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">)):</span>
-    <span class="n">circuit</span><span class="o">=</span><span class="n">circuit</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">theCircuits</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">qubits</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">theCircuits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)))</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">the_circuits</span><span class="p">)):</span>
+    <span class="n">circuit</span><span class="o">=</span><span class="n">circuit</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">the_circuits</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">qubits</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">the_circuits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)))</span>
   <span class="k">return</span> <span class="n">circuit</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">RunMe</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_me</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Run a quantum circuit and return its final state and measurement counts.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    circuit (QuantumCircuit): the circuit to execute.</span>
+<span class="sd">    a (Statevector, optional): an initial state to prepare before ``circuit``.</span>
+<span class="sd">        If ``None``, the simulation starts from |0...0&gt;.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    statevector (Statevector): the saved statevector immediately before the</span>
+<span class="sd">        measurement step.</span>
+<span class="sd">    counts (dict[str, int]): measurement outcomes from a single shot, keyed</span>
+<span class="sd">        by bitstring.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
   <span class="n">numQubits</span><span class="o">=</span><span class="n">circuit</span><span class="o">.</span><span class="n">num_qubits</span>
   <span class="k">if</span> <span class="n">a</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
     <span class="n">numQubits</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">numQubits</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)</span>
     <span class="n">initCircuit</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">num_qubits</span><span class="p">)</span>
     <span class="n">initCircuit</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-    <span class="n">circuit</span><span class="o">=</span><span class="n">AddCircuits</span><span class="p">([</span><span class="n">initCircuit</span><span class="p">,</span><span class="n">circuit</span><span class="p">])</span>
+    <span class="n">circuit</span><span class="o">=</span><span class="n">add_circuits</span><span class="p">([</span><span class="n">initCircuit</span><span class="p">,</span><span class="n">circuit</span><span class="p">])</span>
   <span class="n">circuit</span><span class="o">.</span><span class="n">save_statevector</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;myStateVector&#39;</span><span class="p">)</span>
   <span class="n">compiled_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">simulator</span><span class="p">)</span>
   <span class="n">resultA</span> <span class="o">=</span> <span class="n">simulator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">compiled_circuit</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
@@ -512,14 +548,31 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
   <span class="k">return</span> <span class="n">resultA</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="s1">&#39;myStateVector&#39;</span><span class="p">],</span><span class="n">resultB</span><span class="o">.</span><span class="n">data</span><span class="p">()[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">MakeState</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_state</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Build a qiskit ``Statevector`` from a numpy array of amplitudes.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    v (array-like): complex amplitudes of length ``2**N`` for some N.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    statevector (Statevector): the corresponding qiskit state.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
   <span class="n">numWires</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">)))))</span>
   <span class="n">qc1</span><span class="o">=</span><span class="n">QuantumCircuit</span><span class="p">(</span><span class="n">numWires</span><span class="p">,</span><span class="n">numWires</span><span class="p">)</span>
   <span class="n">qc1</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-  <span class="n">a</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">RunMe</span><span class="p">(</span><span class="n">qc1</span><span class="p">)</span>
+  <span class="n">a</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">run_me</span><span class="p">(</span><span class="n">qc1</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">a</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">PlotBloch</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">bb</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_bloch_vector</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">bb</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Add the Bloch-sphere vector for a single-qubit state to ``bb``.</span>
+
+<span class="sd">  Inputs:</span>
+<span class="sd">    v (array-like): length-2 complex amplitudes of a single-qubit state.</span>
+<span class="sd">    bb (qutip.Bloch): Bloch sphere object; the new vector is appended to it</span>
+<span class="sd">        in place.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
   <span class="n">vv</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
   <span class="n">a</span><span class="o">=</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
   <span class="n">b</span><span class="o">=</span><span class="n">vv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -542,11 +595,11 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 <p>Our goal will be to understand how you represent one qubit and apply a gate to it.</p>
 <p>There are various different physical realizations of a qubit.  In this assignment, we will look at an infinite square well (which is easy to understand but not realistic) and quantum electronic circuits, which are currently a leading candidate for actual implementation of quantum computation.</p>
 </section>
-<section id="exericise-0-what-abstract-gate-are-you-trying-to-implement">
-<h2>Exericise 0:  What Abstract Gate are you trying to implement?<a class="headerlink" href="#exericise-0-what-abstract-gate-are-you-trying-to-implement" title="Link to this heading">#</a></h2>
+<section id="exercise-0-what-abstract-gate-are-you-trying-to-implement">
+<h2>Exercise 0:  What Abstract Gate are you trying to implement?<a class="headerlink" href="#exercise-0-what-abstract-gate-are-you-trying-to-implement" title="Link to this heading">#</a></h2>
 <section id="a-abstract-model-of-computation">
 <h3>a. Abstract Model of Computation<a class="headerlink" href="#a-abstract-model-of-computation" title="Link to this heading">#</a></h3>
-<p>Our target here to implement a gate using electronics.  We will eventually try to implement the following gate in a realistic model of a quantum system:</p>
+<p>Our target here is to implement a gate using electronics.  We will eventually try to implement the following gate in a realistic model of a quantum system:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span><span class="o">.</span><span class="n">rx</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">50.</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">circuit</span><span class="o">.</span><span class="n">rz</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">50.</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
@@ -561,11 +614,11 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 </div>
 </div>
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>The state of a single qubit is <span class="math notranslate nohighlight">\(\alpha |0\rangle + \beta |1\rangle\)</span> where <span class="math notranslate nohighlight">\(|\alpha|^2 + |\beta|^2=1\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> are complex numbers.   We might think that we could then represent the qubit by a point <span class="math notranslate nohighlight">\((\alpha, \beta)\)</span> which is on a circle of radius 1.  But <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are complex numbers so it’s not quite that simple - instead you can represent the qubit as a point on a sphere.  This is called the Bloch sphere.  (Technical point: You might think that you need four numbers to represent two complex numbers but it’s actually only three because of the normalization and relative phase).</p>
-<p>At the moment, it’s not important that you know how to perform this mapping but to understand for every qubit there is a point that it appears on the bloch sphere.</p>
+<p>At the moment, it’s not important that you know how to perform this mapping but to understand for every qubit there is a point that it appears on the Bloch sphere.</p>
 <p>Plot the path of this gate (iterated over and over) on the Bloch sphere using something like</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">qutip</span><span class="o">.</span><span class="n">Bloch</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">[::</span><span class="mi">10</span><span class="p">]:</span>
-  <span class="n">PlotBloch</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+  <span class="n">add_bloch_vector</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="n">b</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 <span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -581,8 +634,8 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 <div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 </section>
 <hr class="docutils" />
-<section id="exercise-1-particle-in-a-box">
-<h2>Exercise 1:  Particle in a box<a class="headerlink" href="#exercise-1-particle-in-a-box" title="Link to this heading">#</a></h2>
+<section id="exercise-1-time-dependence-of-a-particle-in-a-box">
+<h2>Exercise 1:  Time dependence of a particle in a box<a class="headerlink" href="#exercise-1-time-dependence-of-a-particle-in-a-box" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>List of collaborators:</p></li>
 <li><p>References you used in developing your code:</p></li>
@@ -590,7 +643,7 @@ Requirement already satisfied: typing-extensions in /opt/hostedtoolcache/Python/
 <p>We will need to begin by learning or recalling some aspects about quantum mechanics. There are three key things that you need to know about quantum mechanics:</p>
 <ul class="simple">
 <li><p>In quantum mechanics, the “rules” of the physical system are represented by a matrix called the Hamiltonian <span class="math notranslate nohighlight">\(H\)</span>  (in many ways,  the classical analogue of the energy) and the state of your system is represented by a vector <span class="math notranslate nohighlight">\(\Psi\)</span>.</p></li>
-<li><p>If your quantum is in state <span class="math notranslate nohighlight">\(\Psi(0)\)</span> at time 0, you can figure out what your Hamiltonian is at time <span class="math notranslate nohighlight">\(t\)</span> by
+<li><p>If your quantum system is in state <span class="math notranslate nohighlight">\(\Psi(0)\)</span> at time 0, you can figure out what your state is at time <span class="math notranslate nohighlight">\(t\)</span> by
 $<span class="math notranslate nohighlight">\(\Psi(t) = \exp[-i t H] \Psi(0).\)</span>$
 In order to do that matrix exponential you can use</p></li>
 </ul>
@@ -647,7 +700,7 @@ H[i,j] = \begin{cases}
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>The eigenvalues for a particle in a box are quantized.  They should be equal to</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>The eigenvalues for a particle in a box are quantized.  They should be equal to</p>
 <div class="math notranslate nohighlight">
 \[E_n = \frac{\pi^2}{L^2}n^2\]</div>
 <p>for <span class="math notranslate nohighlight">\(n=\{1,2,...\}\)</span>.</p>
@@ -659,7 +712,7 @@ H[i,j] = \begin{cases}
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="b-time-evolution">
 <h2>b. Time Evolution<a class="headerlink" href="#b-time-evolution" title="Link to this heading">#</a></h2>
 <p>Our next step will be to implement time evolution.  Let us start by trying to time-evolve <span class="math notranslate nohighlight">\(v_a\)</span> under the Hamiltonian <span class="math notranslate nohighlight">\(H\)</span>.  Recall that eigenstates should be stationary, and so don’t evolve in time except for an overall phase.  Therefore, under time evolution we should find that this state always looks the same.  Let’s check this.</p>
@@ -677,7 +730,7 @@ The absolute value is necessary because under time-evolution the wave function c
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>You should have noticed that our previous time evolution was pretty uninteresting as nothing changed under the time evolution.  Our next step will be to implement time evolution on a more complicated state.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>You should have noticed that our previous time evolution was pretty uninteresting as nothing changed under the time evolution.  Our next step will be to implement time evolution on a more complicated state.</p>
 <p>We will consider two states that are NOT energy eigenstates:</p>
 <div class="math notranslate nohighlight">
 \[v_0=\frac{1}{\sqrt{2}}(v_a+v_b)\]</div>
@@ -700,10 +753,10 @@ Perform time evolution</p>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div></section>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div></section>
 <section id="c-state-overlaps">
 <h2>c. State overlaps<a class="headerlink" href="#c-state-overlaps" title="Link to this heading">#</a></h2>
-<p>We’ve seen that our time evolution slowly moves us from state <span class="math notranslate nohighlight">\(v_0\)</span> to state <span class="math notranslate nohighlight">\(v_1\)</span> over a time over a time of <span class="math notranslate nohighlight">\(T=41\)</span>.   In between, <span class="math notranslate nohighlight">\(T=0\)</span> and <span class="math notranslate nohighlight">\(T=41\)</span>, the state is a little bit of <span class="math notranslate nohighlight">\(v_0\)</span> and a little bit of <span class="math notranslate nohighlight">\(v_1\)</span>.  We would like to quantify this better by computing the overlap with these two states as a function of time.</p>
+<p>We’ve seen that our time evolution slowly moves us from state <span class="math notranslate nohighlight">\(v_0\)</span> to state <span class="math notranslate nohighlight">\(v_1\)</span> over a time of <span class="math notranslate nohighlight">\(T=41\)</span>.   In between, <span class="math notranslate nohighlight">\(T=0\)</span> and <span class="math notranslate nohighlight">\(T=41\)</span>, the state is a little bit of <span class="math notranslate nohighlight">\(v_0\)</span> and a little bit of <span class="math notranslate nohighlight">\(v_1\)</span>.  We would like to quantify this better by computing the overlap with these two states as a function of time.</p>
 <p>We have a state <span class="math notranslate nohighlight">\(v(t)\)</span>.  To compute the overlap with <span class="math notranslate nohighlight">\(v_0\)</span> we can just do
 <code class="docutils literal notranslate"><span class="pre">np.vdot(v</span> <span class="pre">,</span> <span class="pre">v_0)</span></code>.</p>
 <p>This overlap is a complex number.   We can only plot real numbers so if we want to plot it, we need to plot something like</p>
@@ -719,7 +772,7 @@ Perform time evolution</p>
 </div>
 </div>
 </div>
-<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (start)"></img><br></div><p>Now we can get our first inkling of how you might build a qubit and a (always-on and hence not-very-useful) gate.</p>
+<div><img src="https://clark.physics.illinois.edu/246img/AnsEnd.svg" width=200 align=left alt="Answer (end)"></img><br></div><p>Now we can get our first inkling of how you might build a qubit and a (always-on and hence not-very-useful) gate.</p>
 <p>Suppose someone comes to you with a particle in a box. There are many eigenstates for that particle in the box: <span class="math notranslate nohighlight">\(v_0, v_1, v_2, v_3, ...\)</span></p>
 <p>You pick two of those eigenstates (let’s say <span class="math notranslate nohighlight">\(v_0\)</span> and <span class="math notranslate nohighlight">\(v_1\)</span>) and label those states as <span class="math notranslate nohighlight">\(|0\rangle\)</span> and <span class="math notranslate nohighlight">\(|1\rangle\)</span>.</p>
 <p>This particle in a box is now a qubit.  The other eigenstates we ignore and try to make sure that you never accidentally end up in - this would cause an error if so.</p>
@@ -729,15 +782,15 @@ Perform time evolution</p>
 <div class="math notranslate nohighlight">
 \[|1\rangle \rightarrow |0\rangle\]</div>
 <p>Looking at our previous results, we can see that if we just have a particle in a box that it implements a not-gate every <span class="math notranslate nohighlight">\(T=41.0\)</span> seconds.</p>
-<p>In principle this would work as a qbit; however, it is difficult to set up in practice. The closest thing we have to particles in boxes are so-called quantum dots, and it is difficult to prepare a state in superposition like we did above, and even if we did, we could not easily apply the potential energy for well-controlled amounts of time.  We really need a Hamiltonian <span class="math notranslate nohighlight">\(H(\theta)\)</span> where we have some knob <span class="math notranslate nohighlight">\(\theta\)</span> that we can change so we can turn gates on and off.</p>
+<p>In principle this would work as a qubit; however, it is difficult to set up in practice. The closest thing we have to particles in boxes are so-called quantum dots, and it is difficult to prepare a state in superposition like we did above, and even if we did, we could not easily apply the potential energy for well-controlled amounts of time.  We really need a Hamiltonian <span class="math notranslate nohighlight">\(H(\theta)\)</span> where we have some knob <span class="math notranslate nohighlight">\(\theta\)</span> that we can change so we can turn gates on and off.</p>
 <p>In the next exercise, we will see how to go about this.</p>
 </section>
 <section id="exercise-2-fluxonium">
 <h2>Exercise 2: Fluxonium<a class="headerlink" href="#exercise-2-fluxonium" title="Link to this heading">#</a></h2>
-<p>In this exercise, we will work a large system built out of electronic circuits that we can control well. This particular setup is called fluxonium, because it looks a little like an atom that we can control using a magnetic flux.</p>
+<p>In this exercise, we will work with a large system built out of electronic circuits that we can control well. This particular setup is called fluxonium, because it looks a little like an atom that we can control using a magnetic flux.</p>
 <p>Here is the electronic circuit for a fluxonium qubit:</p>
 <div><img src="https://scqubits.readthedocs.io/en/latest/_images/fluxonium.png" width=400 align=left alt="Answer (start)"></img><br></div>
-<p>The fluxoinum qubit consists of three electronic components: a capacitor, an inductor, and a Josephson junction.  You’re probably familiar with capacitors and inductors. You regularly run into them in classical circuits.  A Josephson junction is an electronic component that sandwiches an insulator between two superconducting materials.  Across the Josephson junction there is a change in the phase <span class="math notranslate nohighlight">\(\phi\)</span>, which is our quantum variable. This <span class="math notranslate nohighlight">\(\phi\)</span> roughly corresponds to the current. If you recall from quantum mechanics, the momentum of a particle is related to its phase change across space; the same is true here for current.</p>
+<p>The fluxonium qubit consists of three electronic components: a capacitor, an inductor, and a Josephson junction.  You’re probably familiar with capacitors and inductors. You regularly run into them in classical circuits.  A Josephson junction is an electronic component that sandwiches an insulator between two superconducting materials.  Across the Josephson junction there is a change in the phase <span class="math notranslate nohighlight">\(\phi\)</span>, which is our quantum variable. This <span class="math notranslate nohighlight">\(\phi\)</span> roughly corresponds to the current. If you recall from quantum mechanics, the momentum of a particle is related to its phase change across space; the same is true here for current.</p>
 <p>Typically in a circuit you need to keep track of the voltage and current.  When you have a Josephson junction you need to keep track also of the phase.</p>
 <p>In electronics you might have treated the circuit classically - i.e. <span class="math notranslate nohighlight">\(E=\frac{1}{2}CV^2+ \frac{1}{2}LI^2\)</span>  We are basically doing this in writing out the Hamiltonian, except we will write it in terms of the variable <span class="math notranslate nohighlight">\(\phi\)</span>, the phase difference across the Josephson junction. These circuits are kept extremely cold, on the order of milliKelvin, and are reasonably small that they need a fully quantum description, even though they are made up of many electrons and nuclei.</p>
 </section>
@@ -749,9 +802,9 @@ Perform time evolution</p>
 <p>where <span class="math notranslate nohighlight">\(E_C\)</span> is the charging energy, <span class="math notranslate nohighlight">\(E_J\)</span> the Josephson energy and <span class="math notranslate nohighlight">\(E_L\)</span> the inductive energy.</p>
 <p>In the particle in a box we were working with <span class="math notranslate nohighlight">\(x\)</span>. Here you could just mentally replace  <span class="math notranslate nohighlight">\(\phi\)</span> with <span class="math notranslate nohighlight">\(x\)</span>.  Just like earlier we will let <span class="math notranslate nohighlight">\(-10\leq \phi \leq 10\)</span>.</p>
 <p>Now we can look at this Hamiltonian.  The first term, <span class="math notranslate nohighlight">\(-4E_\text{C}\frac{\partial^2 }{\partial \phi^2}\)</span> you’ve already seen; this is the particle in a box term (notice the extra factor of <span class="math notranslate nohighlight">\(4E_C\)</span>). You already know how to build the matrix for this term.  This term is caused by the capacitor.  Essentially the capacitor would like the wave function (when drawn in the <span class="math notranslate nohighlight">\(\phi\)</span> basis) to be more spread out.</p>
-<p>We will then need to add a matrix for the the inductor term and the Josephson junction term.  Both of these terms will be diagonal matrices.</p>
+<p>We will then need to add a matrix for the inductor term and the Josephson junction term.  Both of these terms will be diagonal matrices.</p>
 <p>The term <span class="math notranslate nohighlight">\(\frac{1}{2}E_L \phi^2\)</span> is the Hamiltonian for the inductor and has the matrix <span class="math notranslate nohighlight">\(H[\phi,\phi] = \frac{1}{2}E_L \phi^2\)</span> (and zero otherwise)</p>
-<p>The term <span class="math notranslate nohighlight">\(E_\text{J}\cos(\phi-\varphi_\text{ext})\)</span> is the Hamiltonian for the inductor and has the matrix  <span class="math notranslate nohighlight">\(H[\phi,\phi] = E_\text{J}\cos(\phi-\varphi_\text{ext})\)</span> (and zero otherwise).</p>
+<p>The term <span class="math notranslate nohighlight">\(E_\text{J}\cos(\phi-\varphi_\text{ext})\)</span> is the Hamiltonian for the Josephson junction and has the matrix  <span class="math notranslate nohighlight">\(H[\phi,\phi] = E_\text{J}\cos(\phi-\varphi_\text{ext})\)</span> (and zero otherwise).</p>
 <p><span class="math notranslate nohighlight">\(\varphi_\text{ext}\)</span> is a number that you (as an experimentalist) get to control as a knob.  It corresponds to the amount of magnetic flux (caused by sticking a magnet in the right place) you drive through the circuit loop. Classically you know that a changing magnetic field can induce a current, similarly here it can affect <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
 <p>By changing the magnetic field we will be able to control the quantum state of the circuit.</p>
 <p>Build this Hamiltonian for <span class="math notranslate nohighlight">\(H\)</span>.  Use the following parameters:</p>
@@ -876,11 +929,11 @@ Compare the action of this operation with the gate you did at the beginning of t
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exericise-0-what-abstract-gate-are-you-trying-to-implement">Exericise 0:  What Abstract Gate are you trying to implement?</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-0-what-abstract-gate-are-you-trying-to-implement">Exercise 0:  What Abstract Gate are you trying to implement?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-abstract-model-of-computation">a. Abstract Model of Computation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-particle-in-a-box">Exercise 1:  Particle in a box</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-time-dependence-of-a-particle-in-a-box">Exercise 1:  Time dependence of a particle in a box</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hamiltonian-for-a-particle-in-a-box">a. Hamiltonian for a Particle in a Box</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-time-evolution">b. Time Evolution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-state-overlaps">c. State overlaps</a></li>
