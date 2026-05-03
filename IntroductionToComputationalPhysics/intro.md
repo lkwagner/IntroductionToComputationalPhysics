@@ -159,6 +159,39 @@ They are not meant to be stress-inducing; they will simply be simple questions t
 #### Final Project (20% of the grade)
 During the final period, you will put together a project that demonstrates something in computational physics.  It can be an extension of some of the work that you did in class or something new.  This project can be done in small groups (2-4 people).  Projects have to be approved by course staff.  For your project you will submit a jupyter notebook (in the spirit of what you've done in class but expository) as well as give a 5 minute presentation during the finals period for the course. 
 
+
+
+This assignment is fairly open-ended, but make sure that it is achievable. 
+A relatively small project that gets completed well is better than an ambitious one that you don't finish. 
+We also know that sometimes you will encounter issues that necessitate a change of plans from your original proposal. 
+That's ok, just make sure your reasoning for changing the plan is (briefly) documented. 
+Some examples that might help you choose your scope (please don't make it too derivative of these; this is a time to show your creativity):
+
+- Re-implement an expensive calculation we did so that it runs on the GPU (JAX can be part of this), and benchmark how much speed increase you get.
+- Do a full simulation of the solar system including all 8 (9??) planets.
+- Look into the SIR model that was used for Covid. Compare to predator-prey.
+- Improve your ML model for galaxy classification to above 80% accuracy. You will need a better neural network for this.
+
+You must submit two files to obtain credit for this assignment. Note also that the final exam is required to get credit in the course.
+
+**ipynb file**: This must be in a similar style as the assignments (except that you both write the exposition and do the calculation); that is, there should be quite a lot of exposition in markdown cells and demonstration in Python cells.
+
+**pdf file**: These are the slides that you will present in the final exam period. These are due at noon before our final exam so that they can be loaded onto the presentation computer. Note that we will be having our final exam in a different room from the normal classroom!
+
+Things I will be looking for:
+1. A quantitative explanation of what a success looks like and showing that you achieved it.
+2. A way of ensuring that the simulation is working properly (in that it is doing mathematically what you say it is)
+3. Clear docstrings for all functions provided or implemented.
+4. A clean file with no unreferenced code and well-labeled variables.
+5. References of where you got any physics equations or data from.
+6. A clear explanation of the physics, goals, and implementation of the work in the Markdown files. This includes what the success means.
+7. Clear figures with labeled axes and legends.
+8. A running notebook; it should run from top to bottom.
+
+None of the text or code you present may be AI-generated; it must be all your own work. You may use AI to help you research, or to suggest implementations/edits, but you may not copy/paste from it.
+
+
+
 #### Extra Credit
 There will be occassional opportunities to get extra credit. These opportunities exist because they are cool and useful for understanding computational physics but too long to fit in the 2 credit hours of the course.
 
